@@ -16,12 +16,13 @@ class CreateWarehouseTable extends Migration
         Schema::create('warehouse', function (Blueprint $table) {
             $table->id('id_warehouse');
             $table->string('name');
-            $table->longText('data');
+            $table->integer('quantity');
             $table->integer('IMEI');
             $table->string('color');
             $table->integer('memory');
             $table->integer('price');
             $table->integer('warranty');
+            $table->tinyInteger('active');
             $table->timestamps();
             $table->SoftDeletes('deleted_at');
         });

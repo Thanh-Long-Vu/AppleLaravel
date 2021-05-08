@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('color');
             $table->integer('price');
             $table->string('memory');
+            $table->integer('IMEI');
             $table->integer('quantity');
             $table->integer('discount')->nullable();
             $table->tinyInteger('is_hot')->default(0);

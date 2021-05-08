@@ -10,91 +10,6 @@
 @endsection
 @section('title', 'Create Warehouse')
 @section('content')
-    <script>
-        function fill_unit_select_box($connect) {
-            $output = '';
-            $query = "SELECT * FROM tbl_unit ORDER BY unit_name ASC";
-            $statement = $connect - > prepare($query);
-            $statement - > execute();
-            $result = $statement - > fetchAll();
-            foreach($result as $row) {
-                $output. = '<option value="'.$row["unit_name"].
-                '">'.$row["unit_name"].
-                '</option>';
-            }
-            return $output;
-        }
-        $(document).ready(function() {
-
-            $(document).on('click', '.add', function() {
-                var html = '';
-                html += '<tr>';
-                html += '<td><input type="text" name="item_name[]" class="form-control item_name" /></td>';
-                html +=
-                    '<td><input type="text" name="item_quantity[]" class="form-control item_quantity" /></td>';
-                html +=
-                    '<td><select name="item_unit[]" class="form-control item_unit"><option value="">Select Unit</option><?php  ?></select></td>';
-                html +=
-                    '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="fe fe-delete"></span></button></td></tr>';
-                $('#item_table').append(html);
-            });
-
-            $(document).on('click', '.remove', function() {
-                $(this).closest('tr').remove();
-            });
-
-            $('#insert_form').on('submit', function(event) {
-                event.preventDefault();
-                var error = '';
-                $('.item_name').each(function() {
-                    var count = 1;
-                    if ($(this).val() == '') {
-                        error += "<p>Enter Item Name at " + count + " Row</p>";
-                        return false;
-                    }
-                    count = count + 1;
-                });
-
-                $('.item_quantity').each(function() {
-                    var count = 1;
-                    if ($(this).val() == '') {
-                        error += "<p>Enter Item Quantity at " + count + " Row</p>";
-                        return false;
-                    }
-                    count = count + 1;
-                });
-
-                $('.item_unit').each(function() {
-                    var count = 1;
-                    if ($(this).val() == '') {
-                        error += "<p>Select Unit at " + count + " Row</p>";
-                        return false;
-                    }
-                    count = count + 1;
-                });
-                var form_data = $(this).serialize();
-                if (error == '') {
-                    $.ajax({
-                        url: "insert.php",
-                        method: "POST",
-                        data: form_data,
-                        success: function(data) {
-                            if (data == 'ok') {
-                                $('#item_table').find("tr:gt(0)").remove();
-                                $('#error').html(
-                                    '<div class="alert alert-success">Item Details Saved</div>'
-                                );
-                            }
-                        }
-                    });
-                } else {
-                    $('#error').html('<div class="alert alert-danger">' + error + '</div>');
-                }
-            });
-
-        });
-
-    </script>
     <main role="main" class="main-content">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -107,16 +22,17 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    <form class="needs-validation" novalidate enctype="multipart/form-data" method="post" action="{{ route('warehouse.postcreate')}}">
+                                        {{csrf_field()}}
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
-                                                <label for="name">Name product</label>
-                                                <input type="text" class="form-control" id="name" value="Iphone X" required>
+                                                <label for="name">Name WareHouse</label>
+                                                <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" required>
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="seri">Number Seri</label>
-                                                <input type="text" class="form-control" id="seri" value="10802506808"
+                                                <input type="text" class="form-control" id="IMEI" name="IMEI" value="{{old('IMEI')}}"
                                                     required>
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
@@ -124,34 +40,46 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="warranty">Warranty</label>
-                                                <input type="text" class="form-control" id="warranty" value="12 Month"
+                                                <input type="text" class="form-control" id="warranty" name="warranty" value="{{old('warranty')}}"
                                                     required>
                                                 {{-- value="Full Box, New Box, Brand New, 99%, < 99% " required> --}}
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="quantity">Quantity</label>
-                                                <input type="text" class="form-control" id="quantity" value="Number PCS"
+                                                <input type="text" class="form-control" id="quantity" name="quantity" value="{{old('quantity')}}"
                                                     required>
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
-                                            <div class="input-group ml-2 col-md-2">
-                                                <div class="input-group-prepend">
-                                                   <label for="price">Price after</label>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="price">Price after</label>
+                                                <input type="text" class="form-control" name = "price" id="price" value="{{old('price')}}" required>
+                                                    <div class="valid-feedback"> Looks good! </div>
                                                 </div>
-                                                <div class="valid-feedback"> Looks good! </div>
+                                            <div class="form-group col-md-3 mb-3">
+                                                <label for="validateCategory">Category</label>
+                                                <select class="custom-select" id="validateCategory" required>
+                                                    <option selected disabled value="">Select Category</option>
+                                                    @if($category)
+                                                        @foreach($category as $categoryitem)
+                                                            <option value="{{$categoryitem->id_category}}" required>{{$categoryitem->name}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                                <div class="invalid-feedback"> Please select a valid Category. </div>
                                             </div>
-                                            <div class="input-group col-md-8">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
-                                                </div>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Amount (to the nearest dollar)" id = "price">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">.VNĐ</span>
-                                                </div>
+                                            <div class="form-group col-md-3 mb-3">
+                                                <label for="validateProductType">Product Types</label>
+                                                <select class="custom-select" id="validateProductType" required>
+                                                    <option disabled selected value required>Select Product Types</option>
+                                                    @if($productType)
+                                                        @foreach($productType as $productTypeitem)
+                                                            <option value="{{$productTypeitem->id_producttype}}" >{{$productTypeitem->name}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -160,50 +88,57 @@
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input" id="Red"
-                                                            name="radio-memory" value="Red" required>
+                                                        name ="color" value="0" required>
                                                         <label class="custom-control-label" for="Red">Red</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Yellow"
-                                                            name="radio-memory" value="Yellow" required>
+                                                        name ="color" value="1" required>
                                                         <label class="custom-control-label" for="Yellow">Yellow</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Violet"
-                                                            name="radio-memory" value="Violet" required>
+                                                        name ="color" value="2" required>
                                                         <label class="custom-control-label" for="Violet">Violet</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Green"
-                                                            name="radio-memory" value="Green" required>
+                                                        name ="color" value="3" required>
                                                         <label class="custom-control-label" for="Green">Green</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Black"
-                                                            name="radio-memory" value="Black" required>
+                                                        name ="color" value="4" required>
                                                         <label class="custom-control-label" for="Black">Black</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="White"
-                                                            name="radio-memory" value="White" required>
+                                                        name ="color" value="5" required>
                                                         <label class="custom-control-label" for="White">White</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Other"
-                                                            name="radio-memory" value="Other" required>
+                                                        name ="color" value="6" required>
                                                         <label class="custom-control-label" for="Other">Other</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="custom-control custom-radio mb-3">
+                                                        <input type="radio" class="custom-control-input" id="Other"
+                                                        name ="color" value="7" required>
+                                                        <label class="custom-control-label" for="Other">Patific</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -214,71 +149,48 @@
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input" id="16GB"
-                                                            name="radio-memory" value="16GB" required>
+                                                        name = "memory" value="0" required>
                                                         <label class="custom-control-label" for="16GB">16GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="32GB"
-                                                            name="radio-memory" value="32GB" required>
+                                                        name = "memory" value="1" required>
                                                         <label class="custom-control-label" for="32GB">32GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="64GB"
-                                                            name="radio-memory" value="64GB" required>
+                                                        name = "memory" value="2" required>
                                                         <label class="custom-control-label" for="64GB">64GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="128GB"
-                                                            name="radio-memory" value="128GB" required>
+                                                        name = "memory" value="3" required>
                                                         <label class="custom-control-label" for="128GB">128GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="256GB"
-                                                            name="radio-memory" value="256GB" required>
+                                                        name = "memory" value="4" required>
                                                         <label class="custom-control-label" for="256GB">256GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="512Gb"
-                                                            name="radio-memory" value="512Gb" required>
+                                                        name = "memory" value="5" required>
                                                         <label class="custom-control-label" for="512Gb">512Gb</label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group mb-3">
-                                            <label for="dataproduct">Data Product</label>
-                                            {{-- <form method="post" id="insert_form">
-                                                <div class="table-repsonsive">
-                                                    <span id="error"></span>
-                                                    <table class="table table-bordered" id="item_table">
-                                                        <tr>
-                                                            <th>Nội dung kỹ thuật</th>
-                                                            <th>Enter Quantity</th>
-                                                            <th>Select Unit</th>
-                                                            <th><button type="button" name="add"
-                                                                    class="btn btn-success btn-sm add"><span
-                                                                        class="fe fe-plus-square"></span></button>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                    <div align="center">
-                                                        <input type="submit" name="submit" class="btn btn-info"
-                                                            value="Insert" />
-                                                    </div>
-                                                </div>
-                                            </form> --}}
-                                        </div>
-                                        <button class="btn btn-primary" type="submit">Update Warehouse</button>
+                                        <input type="submit" class="btn btn-primary" value="Update Warehouse">
                                     </form>
                                 </div> <!-- /.card-body -->
                             </div> <!-- /.card -->

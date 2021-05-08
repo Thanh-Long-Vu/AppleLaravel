@@ -11,42 +11,19 @@ class HomeController extends Controller
     {
         return view('adminPage.pages.home');
     }
-    public function list()
-    {
-        return view('adminPage.pages.warehouse.list');
-    }
-    public function create()
-    {
-        return view('adminPage.pages.warehouse.create');
-    }
-    public function edit()
-    {
-        return view('adminPage.pages.warehouse.edit');
-    }
-    public function listproduct()
-    {
-        return view('adminPage.pages.product.list');
-    }
-    public function createproduct()
-    {
-        return view('adminPage.pages.product.create');
-    }
-    public function editproduct()
-    {
-        return view('adminPage.pages.product.edit');
-    }
-    public function listcategory()
-    {
-        return view('adminPage.pages.category.list');
-    }
-    public function createcategory()
-    {
-        return view('adminPage.pages.category.create');
-    }
-    public function editcategory()
-    {
-        return view('adminPage.pages.category.edit');
-    }
+    // public function list()
+    // {
+    //     return view('adminPage.pages.warehouse.list');
+    // }
+    // public function create()
+    // {
+    //     return view('adminPage.pages.warehouse.create');
+    // }
+    // public function edit()
+    // {
+    //     return view('adminPage.pages.warehouse.edit');
+    // }
+    
     public function listimageproduct()
     {
         return view('adminPage.pages.imageproduct.list');

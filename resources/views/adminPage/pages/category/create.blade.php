@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="admin/css/jquery.timepicker.css">
     <link rel="stylesheet" href="admin/css/quill.snow.css">
 @endsection
-@section('title', 'Edit Category')
+@section('title', 'Add Category')
 @section('content')
     <main role="main" class="main-content">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2 class="page-title">Form Create Category</h2>
+                    <h2 class="page-title">Form Add Category</h2>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card shadow mb-4">
@@ -22,34 +22,35 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    <form class="needs-validation" novalidate action="{{ route('home.postcreatecategory') }}" method="POST" enctype="multipart/form-data">
+                                        {{csrf_field()}}
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name Category</label>
-                                                <input type="text" class="form-control" id="name" value="Iphone " required >
+                                                <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" required >
+                                                <div class="invalid-feedback">Please choose </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="seri">Description</label>
-                                                <input type="text" class="form-control" id="seri" value="description" 
+                                                <label for="description">Description</label>
+                                                <input type="text" class="form-control" id="description" name="description" value="{{old('description')}}" 
                                                     required>
+                                                <div class="invalid-feedback">Please enter a description in the input</div>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label for="customFile">Add Thumbail</label>
-                                                <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
                                                 <label for="customFile">Title</label>
                                                 <div class="custom-file">
-                                                <input type="text" class="form-control" id="quantity" value="" placeholder="%" required>
+                                                <input type="text" class="form-control"  name="title" id="title" value="{{old('title')}}" placeholder="%" required>
                                                 </div>
                                             </div>
+                                            <div class="form-group col-md-6" style="margin-top: 2.5%">
+                                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}" required>
+                                                <div class="invalid-feedback">Please choose image for Category</div>
+                                            </div>
                                         </div> 
-                                        <button class="btn btn-primary " type="submit">Edit Category</button>
+                                        <input type="submit" value="Add Category" class="btn btn-primary ">
                                     </form>
                                 </div> <!-- /.card-body -->
                             </div> <!-- /.card -->

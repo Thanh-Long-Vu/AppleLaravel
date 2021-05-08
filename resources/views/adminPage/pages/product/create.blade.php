@@ -10,91 +10,6 @@
 @endsection
 @section('title', 'Create Product')
 @section('content')
-    <script>
-        function fill_unit_select_box($connect) {
-            $output = '';
-            $query = "SELECT * FROM tbl_unit ORDER BY unit_name ASC";
-            $statement = $connect - > prepare($query);
-            $statement - > execute();
-            $result = $statement - > fetchAll();
-            foreach($result as $row) {
-                $output. = '<option value="'.$row["unit_name"].
-                '">'.$row["unit_name"].
-                '</option>';
-            }
-            return $output;
-        }
-        $(document).ready(function() {
-
-            $(document).on('click', '.add', function() {
-                var html = '';
-                html += '<tr>';
-                html += '<td><input type="text" name="item_name[]" class="form-control item_name" /></td>';
-                html +=
-                    '<td><input type="text" name="item_quantity[]" class="form-control item_quantity" /></td>';
-                html +=
-                    '<td><select name="item_unit[]" class="form-control item_unit"><option value="">Select Unit</option><?php  ?></select></td>';
-                html +=
-                    '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="fe fe-delete"></span></button></td></tr>';
-                $('#item_table').append(html);
-            });
-
-            $(document).on('click', '.remove', function() {
-                $(this).closest('tr').remove();
-            });
-
-            $('#insert_form').on('submit', function(event) {
-                event.preventDefault();
-                var error = '';
-                $('.item_name').each(function() {
-                    var count = 1;
-                    if ($(this).val() == '') {
-                        error += "<p>Enter Item Name at " + count + " Row</p>";
-                        return false;
-                    }
-                    count = count + 1;
-                });
-
-                $('.item_quantity').each(function() {
-                    var count = 1;
-                    if ($(this).val() == '') {
-                        error += "<p>Enter Item Quantity at " + count + " Row</p>";
-                        return false;
-                    }
-                    count = count + 1;
-                });
-
-                $('.item_unit').each(function() {
-                    var count = 1;
-                    if ($(this).val() == '') {
-                        error += "<p>Select Unit at " + count + " Row</p>";
-                        return false;
-                    }
-                    count = count + 1;
-                });
-                var form_data = $(this).serialize();
-                if (error == '') {
-                    $.ajax({
-                        url: "insert.php",
-                        method: "POST",
-                        data: form_data,
-                        success: function(data) {
-                            if (data == 'ok') {
-                                $('#item_table').find("tr:gt(0)").remove();
-                                $('#error').html(
-                                    '<div class="alert alert-success">Item Details Saved</div>'
-                                );
-                            }
-                        }
-                    });
-                } else {
-                    $('#error').html('<div class="alert alert-danger">' + error + '</div>');
-                }
-            });
-
-        });
-
-    </script>
     <main role="main" class="main-content">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -111,12 +26,11 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name product</label>
-                                                <input type="text" class="form-control" id="name" value="Iphone X" required disabled>
+                                                <input type="text" class="form-control" id="name" value="{{$requestdata->name}}" required disabled>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="seri">Number Seri</label>
-                                                <input type="text" class="form-control" id="seri" value="10802506808" disabled
-                                                    required>
+                                                <input type="text" class="form-control" id="IMEI" value="{{}}" disabled required>
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
@@ -279,26 +193,6 @@
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="dataproduct">Data Product</label>
-                                            {{-- <form method="post" id="insert_form">
-                                                <div class="table-repsonsive">
-                                                    <span id="error"></span>
-                                                    <table class="table table-bordered" id="item_table">
-                                                        <tr>
-                                                            <th>Nội dung kỹ thuật</th>
-                                                            <th>Enter Quantity</th>
-                                                            <th>Select Unit</th>
-                                                            <th><button type="button" name="add"
-                                                                    class="btn btn-success btn-sm add"><span
-                                                                        class="fe fe-plus-square"></span></button>
-                                                            </th>
-                                                        </tr>
-                                                    </table>
-                                                    <div align="center">
-                                                        <input type="submit" name="submit" class="btn btn-info"
-                                                            value="Insert" />
-                                                    </div>
-                                                </div>
-                                            </form> --}}
                                         </div>
                                         <button class="btn btn-primary" type="submit">Create Product</button>
                                     </form>

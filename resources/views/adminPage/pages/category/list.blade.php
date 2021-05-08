@@ -2,6 +2,11 @@
 @section('scriptHeader')
 <link rel="stylesheet" href="admin/css/feather.css">
 <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
+<script src="admin/js/jquery-ajax.min.js"></script>
+<link rel="stylesheet" href="admin/css/switchery.min.css">
+<script src="admin/js/switchery.min.js"></script>
+<link rel="stylesheet" href="admin/css/toastr.min.css">
+<script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'List Category')
 @section('content')
@@ -18,7 +23,7 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    <button class="btn btn-primary float-right ml-3" type="button">Create Category</button>
+                                    <a class="btn btn-primary float-right ml-3" href="{{route('home.createcategory')}}">Create Category</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -34,30 +39,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($listcategory as $category)
                                             <tr>
-                                                <td>1</td>
-                                                <td>Avatar</td>
-                                                <td>IPhone</td>
-                                                <td>Mô tả Iphone</td>
-                                                <td>35</td>
-                                                <td>iphone là sản phẩm của apple</td>
+                                                <td>{{$category->id_category}}</td>
+                                                <td><img src="{{asset($category->thumbnail)}}" alt="category" width="50%"></td>
+                                                <td>{{$category->name}}</td>
+                                                <td>{{$category->description}}</td>
+                                                <td>{{$category->total_product}}</td>
+                                                <td>{{$category->title}}</td>
                                                 <td>
-                                                    <div class="custom-control custom-switch">
-                                                      <input type="checkbox" class="custom-control-input" id="c1" checked>
-                                                      <label class="custom-control-label" for="c1"></label>
-                                                    </div>
+                                                    <input type="checkbox" data-id="{{ $category->id_category }}" name="active" class="js-switch" {{ $category->active == 1 ? 'checked' : '' }}>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="text-muted sr-only">Action</span>
-                                                    </button>
+                                                    <button class="btn btn-sm dropdown-toggle more-horizontal"
+                                                            type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <span class="text-muted sr-only">Action</span>
+                                                        </button>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Remove</a>
+                                                        <a class="dropdown-item" href="{{route('home.geteditcategory',['id'=>$category->id_category])}}">Edit</a>
+                                                        <a class="dropdown-item" href="{{route('softDeleteCategory',['id'=>$category->id_category])}}">Remove</a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -135,63 +140,6 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade modal-shortcut modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="defaultModalLabel">Shortcuts</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body px-5">
-                        <div class="row align-items-center">
-                            <div class="col-6 text-center">
-                                <div class="squircle bg-success justify-content-center">
-                                    <i class="fe fe-cpu fe-32 align-self-center text-white"></i>
-                                </div>
-                                <p>Control area</p>
-                            </div>
-                            <div class="col-6 text-center">
-                                <div class="squircle bg-primary justify-content-center">
-                                    <i class="fe fe-activity fe-32 align-self-center text-white"></i>
-                                </div>
-                                <p>Activity</p>
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-6 text-center">
-                                <div class="squircle bg-primary justify-content-center">
-                                    <i class="fe fe-droplet fe-32 align-self-center text-white"></i>
-                                </div>
-                                <p>Droplet</p>
-                            </div>
-                            <div class="col-6 text-center">
-                                <div class="squircle bg-primary justify-content-center">
-                                    <i class="fe fe-upload-cloud fe-32 align-self-center text-white"></i>
-                                </div>
-                                <p>Upload</p>
-                            </div>
-                        </div>
-                        <div class="row align-items-center">
-                            <div class="col-6 text-center">
-                                <div class="squircle bg-primary justify-content-center">
-                                    <i class="fe fe-users fe-32 align-self-center text-white"></i>
-                                </div>
-                                <p>Users</p>
-                            </div>
-                            <div class="col-6 text-center">
-                                <div class="squircle bg-primary justify-content-center">
-                                    <i class="fe fe-settings fe-32 align-self-center text-white"></i>
-                                </div>
-                                <p>Settings</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 @endsection
 @section('script')
@@ -227,5 +175,34 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
 
+    </script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html, {
+                size: 'small'
+            });
+        });
+        $(document).ready(function() {
+            $('.js-switch').change(function() {
+                let active = $(this).prop('checked') === true ? 1 : 0;
+                let CategoryId = $(this).data('id');
+                $.ajax({
+                    type: "get",
+                    dataType: "json",
+                    url: '{{ route('updateStatusCategoy') }}',
+                    data: {
+                        'active': active,
+                        'category_id': CategoryId
+                    },
+                    success: function(data) {         
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                    }
+                });
+            });
+        });
     </script>
 @endsection

@@ -18,7 +18,7 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    <button class="btn btn-primary float-right ml-3" type="button">Create Product</button>
+                                    <a href="{{ route('createProduct') }}"class="btn btn-primary float-right ml-3">Create Product</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -235,5 +235,34 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
 
+    </script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html, {
+                size: 'small'
+            });
+        });
+        $(document).ready(function() {
+            $('.js-switch').change(function() {
+                let active = $(this).prop('checked') === true ? 1 : 0;
+                let producTypeId = $(this).data('id');
+                $.ajax({
+                    type: "get",
+                    dataType: "json",
+                    url: '{{ route('updateStatusProductType') }}',
+                    data: {
+                        'active': active,
+                        'product_type_id': producTypeId
+                    },
+                    success: function(data) {         
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                    }
+                });
+            });
+        });
     </script>
 @endsection
