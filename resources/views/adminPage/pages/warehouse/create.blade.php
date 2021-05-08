@@ -136,9 +136,9 @@
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="Other"
+                                                        <input type="radio" class="custom-control-input" id="Patific"
                                                         name ="color" value="7" required>
-                                                        <label class="custom-control-label" for="Other">Patific</label>
+                                                        <label class="custom-control-label" for="Patific">Patific</label>
                                                     </div>
                                                 </div>
                                             </div>

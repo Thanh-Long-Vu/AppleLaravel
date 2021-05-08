@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
     use HasFactory;
-    protected $table = 'product';
+    use SoftDeletes;
+    protected $table = 'products';
+    protected $primaryKey = 'id_product';
 
     public function imageProduct()
     {
@@ -16,7 +19,7 @@ class Product extends Model
     }
     public function productType()
     {
-        return $this->belongsTo('App\Models\ProductType','id_product_type','product_type_id');
+        return $this->belongsTo('App\Models\ProductType','product_type_id','id_product_type');
     }
     public function orders()
     {
@@ -24,6 +27,6 @@ class Product extends Model
     }
     public function warehouse()
     {
-        return $this->hasOne('App\Models\Warehouse','warehouse_id','id_warehouse');
+        return $this->hasOne('App\Models\Warehouse','id_warehouse','warehouse_id');
     }
 }

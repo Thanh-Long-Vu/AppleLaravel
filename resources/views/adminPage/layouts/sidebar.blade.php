@@ -128,9 +128,14 @@
                                     <span class="ml-3 item-text">List Product</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{route('createProduct')}}" aria-expanded="false" class="nav-link">
                                     <span class="ml-3 item-text">Add Product </span>
+                                </a>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a href="{{route('historyProduct')}}" class="nav-link">
+                                    <span class="ml-3 item-text">History Product</span>
                                 </a>
                             </li>
                         </ul>

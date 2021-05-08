@@ -68,7 +68,6 @@ class ProductTypeController extends Controller
         $result = array_combine($dataNameCondition,$dataValuesCondition);
         $productType->data = $result;
         $productType->save();
-        // dd($productType);
         return redirect()->back()->with(['notify'=>'success','massage'=>'Update Successfully']);
     }
     public function updateStatus(Request $request)
