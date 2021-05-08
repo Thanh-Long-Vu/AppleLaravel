@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
+    //Ware House
     Route::get('/home', [HomeController::class,'index'])->name('home.index');
     Route::get('/warehouse', [wareHouseController::class,'index'])->name('warehouse.index');
     Route::get('/warehouse/create', [wareHouseController::class,'create'])->name('warehouse.create');
@@ -37,14 +38,19 @@ Route::prefix('admin')->group(function () {
     Route::get('/warehouse/delete/{id}', [wareHouseController::class,'delete'])->name('softDeleteWareHouse');
     Route::get('/warehouse/historydelete', [wareHouseController::class,'history'])->name('historyWareHouse');
     Route::get('/warehouse/restorehistorydelete/{id}', [wareHouseController::class,'restore'])->name('restoreWareHouse');
-
+    //Product
     Route::get('/product', [ProductController::class,'index'])->name('product.index');
     Route::get('/product/create', [ProductController::class,'create'])->name('createProduct');
     Route::post('/product/create', [ProductController::class,'store'])->name('storeProduct');
     Route::get('/product/edit/{id}', [ProductController::class,'edit'])->name('editProduct');
     Route::post('/product/edit/{id}', [ProductController::class,'update'])->name('updateProduct');
-    Route::get('/product/status/update', [ProductController::class,'updateStatus'])->name('updatestatus');
-
+    Route::post('/product/edit/{id}', [ProductController::class,'updateWareHouse'])->name('updateWareHouse');
+    Route::get('/product/status/update', [ProductController::class,'updateStatus'])->name('updateStatusProduct');
+    Route::get('/product/delete/{id}', [ProductController::class,'delete'])->name('softDeleteProduct');
+    Route::get('/product/historydelete', [ProductController::class,'history'])->name('historyProduct');
+    Route::get('/product/restorehistory/{id}', [ProductController::class,'restore'])->name('restoreProduct');
+    Route::get('/product/getCategory/{id}',[ProductController::class,'getCategory']);
+    //Product Type
     Route::get('/producttype', [ProductTypeController::class,'index'])->name('producttype.index');
     Route::get('/producttype/create', [ProductTypeController::class,'create'])->name('createProductType');
     Route::post('/producttype/create', [ProductTypeController::class,'store'])->name('storeProductType');
