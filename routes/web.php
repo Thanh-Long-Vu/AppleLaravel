@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\WareHouseController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductTypeController;
+use App\Http\Controllers\admin\imageProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,8 +62,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/producttype/historydelete', [ProductTypeController::class,'history'])->name('historyProductType');
     Route::get('/producttype/restorehistorydelete/{id}', [ProductTypeController::class,'restore'])->name('restoreProductType');
 
-    
-
     Route::get('/category', [CategoryController::class,'index'])->name('home.listcategory');
     Route::get('/category/create', [CategoryController::class,'create'])->name('home.createcategory');
     Route::post('/category/create', [CategoryController::class,'store'])->name('home.postcreatecategory');
@@ -72,6 +71,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/category/delete/{id}', [CategoryController::class,'delete'])->name('softDeleteCategory');
     Route::get('/category/historydelete', [CategoryController::class,'history'])->name('historyCategory');
     Route::get('/category/restorehistorydelete/{id}', [CategoryController::class,'restore'])->name('restoreCategory');
+
+    Route::get('/imageproduct', [imageProductController::class,'index'])->name('listImageProduct');
+    Route::get('/imageroduct/create', [imageProductController::class,'create'])->name('createImageProduct');
+    Route::post('/imageproduct/create', [imageProductController::class,'store'])->name('storeImageProduct');
+    // Route::get('/imageproduct/historydelete', [imageProductController::class,'history'])->name('historyImageProduct');
+    // Route::get('/imageproduct/restorehistory/{id}', [imageProductController::class,'restore'])->name('restoreImageProduct');
 
     Route::get('/imageproduct/list', [HomeController::class,'listimageproduct'])->name('home.listimageproduct');
     Route::get('/imageproduct/upload', [HomeController::class,'uploadimageproduct'])->name('home.uploadimageproduct');

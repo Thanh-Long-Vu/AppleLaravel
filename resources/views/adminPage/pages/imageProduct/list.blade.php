@@ -10,9 +10,6 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <h2 class="mb-2 page-title">Data table Image Product</h2>
-                    {{-- <p class="card-text">DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible
-                        tool, built upon the foundations of progressive enhancement, that adds all of these advanced
-                        features to any HTML table. </p> --}}
                     <div class="row my-4">
                         <!-- Small table -->
                         <div class="col-md-12">
@@ -30,13 +27,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Avatar</td>
-                                                <td>Iphone 12</td>
-                                                <td>
-                                                    <button class="btn mb-2 btn-danger" type="button">Remove</button>                                                </td>
-                                            </tr>
+                                            @foreach ($data as $item)
+                                                <tr>
+                                                    <td>{{$item->id_image_product}}</td>
+                                                    <td>{{$item->img_url}}</td>
+                                                    <td>{{$item->product_id}}</td>
+                                                    <td></td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
