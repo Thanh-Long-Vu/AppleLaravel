@@ -9,9 +9,10 @@ class Transaction extends Model
 {
     use HasFactory;
     protected $table = 'transaction';
+    protected $primaryKey = 'id_transaction';
     public function order()
     {
-        return $this->hasMany('App\Models\Order','id_order','order_id');
+        return $this->hasMany('App\Models\Order','order_id','id_order');
     }
     function user()
     {
