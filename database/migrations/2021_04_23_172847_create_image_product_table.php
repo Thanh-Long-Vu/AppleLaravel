@@ -16,8 +16,8 @@ class CreateImageProductTable extends Migration
         Schema::create('image_product', function (Blueprint $table) {
             $table->id('id_image_product');
             $table->string('img_url');
-            $table->unsignedBigInteger('product_id')->nullable()->index()->default(0);
-            $table->foreign('product_id')->references('id_product')->on('products')->onDelete('cascade');
+            $table->unsignedBigInteger('product_type_id')->nullable()->index()->default(0);
+            $table->foreign('product_type_id')->references('id_product_type')->on('product_types')->onDelete('cascade');
             $table->timestamps();
         });
     }
