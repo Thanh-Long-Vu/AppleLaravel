@@ -14,19 +14,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $fake = Faker::create();
-        foreach (range(1,10) as $datafake)
         DB::table('users')->insert([
-            'name' => $fake->name(3),
-            'email'=> $fake->email,
-            'phone'=> $fake->phoneNumber,
-            'avatar'=> $fake->paragraph(1),
-            'address'=> $fake->address,
-            'role_id'=> $fake->randomDigit,
-            'password'=> $fake->md5,
-            'total_pay'=> $fake->buildingNumber,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
+            ['id_user' => 1,'name' => "Admin", 'email' => 'admin@gmail.com', 'password' => '$2y$10$YIR.NhsNa01IJEnhZn7i6O6BJNLUL61jwqVFq51dJu4aYkLyQSvJW', 'role_id' => 1]
         ]);
     }
 }

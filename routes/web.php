@@ -31,15 +31,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->group(function () {
     //Ware House
     Route::get('/home', [HomeController::class,'index'])->name('home.index');
-    Route::get('/warehouse', [wareHouseController::class,'index'])->name('warehouse.index');
-    Route::get('/warehouse/create', [wareHouseController::class,'create'])->name('warehouse.create');
-    Route::post('/warehouse/store', [wareHouseController::class,'postcreate'])->name('warehouse.postcreate');
-    Route::get('/warehouse/edit/{id}', [wareHouseController::class,'edit'])->name('warehouse.edit');
-    Route::post('/warehouse/edit/{id}', [wareHouseController::class,'update'])->name('warehouse.update');
-    Route::get('/warehouse/status/update', [wareHouseController::class,'updateStatus'])->name('updateStatusWareHouse');
-    Route::get('/warehouse/delete/{id}', [wareHouseController::class,'delete'])->name('softDeleteWareHouse');
-    Route::get('/warehouse/historydelete', [wareHouseController::class,'history'])->name('historyWareHouse');
-    Route::get('/warehouse/restorehistorydelete/{id}', [wareHouseController::class,'restore'])->name('restoreWareHouse');
+    Route::get('/warehouse', [WareHouseController::class,'index'])->name('warehouse.index');
+    Route::get('/warehouse/create', [WareHouseController::class,'create'])->name('warehouse.create');
+    Route::post('/warehouse/store', [WareHouseController::class,'postcreate'])->name('warehouse.postcreate');
+    Route::get('/warehouse/edit/{id}', [WareHouseController::class,'edit'])->name('warehouse.edit');
+    Route::post('/warehouse/edit/{id}', [WareHouseController::class,'update'])->name('warehouse.update');
+    Route::get('/warehouse/status/update', [WareHouseController::class,'updateStatus'])->name('updateStatusWareHouse');
+    Route::get('/warehouse/delete/{id}', [WareHouseController::class,'delete'])->name('softDeleteWareHouse');
+    Route::get('/warehouse/historydelete', [WareHouseController::class,'history'])->name('historyWareHouse');
+    Route::get('/warehouse/restorehistorydelete/{id}', [WareHouseController::class,'restore'])->name('restoreWareHouse');
     //Product
     Route::get('/product', [ProductController::class,'index'])->name('product.index');
     Route::get('/product/create', [ProductController::class,'create'])->name('createProduct');
@@ -91,7 +91,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/user/edit', [HomeController::class,'useredit'])->name('home.user.edit');
     Route::get('/role/list', [HomeController::class,'rolelist'])->name('home.role.list');
     Route::get('/transaction/detail', [HomeController::class,'transactiondetail'])->name('transaction.detail');
-    
+
     Route::get('/transaction/list', [TransactionController::class,'index'])->name('transactionlist');
     Route::get('/transaction/detail{id}', [TransactionController::class,'orderview'])->name('orderlist');
 
