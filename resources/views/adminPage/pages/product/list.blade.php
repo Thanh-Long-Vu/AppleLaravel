@@ -86,7 +86,7 @@
                                                 <td>{{$dataitem->warehouse->warranty}} %</td>
                                                 <td>{{$dataitem->price}}.VNĐ</td>
                                                 <td>
-                                                    <input type="checkbox" data-id="{{ $dataitem->is_hot }}" name="is_hot" class="js-switch" {{ $dataitem->is_hot == 1 ? 'checked' : '' }}>
+                                                    <input type="checkbox" data-id="{{ $dataitem->id_product }}" name="is_hot" class="js-switch" {{ $dataitem->is_hot == 1 ? 'checked' : '' }}>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
@@ -154,14 +154,14 @@
         });
         $(document).ready(function() {
             $('.js-switch').change(function() {
-                let active = $(this).prop('checked') === true ? 1 : 0;
+                let is_hot = $(this).prop('checked') === true ? 1 : 0;
                 let productId = $(this).data('id');
                 $.ajax({
                     type: "get",
                     dataType: "json",
                     url: '{{ route('updateStatusProduct') }}',
                     data: {
-                        'is_hot': active,
+                        'is_hot': is_hot,
                         'product_id': productId
                     },
                     success: function(data) {         
