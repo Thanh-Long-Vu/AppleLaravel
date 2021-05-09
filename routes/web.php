@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductTypeController;
 use App\Http\Controllers\admin\imageProductController;
+use App\Http\Controllers\admin\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,7 +82,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/imageproduct/list', [HomeController::class,'listimageproduct'])->name('home.listimageproduct');
     Route::get('/imageproduct/upload', [HomeController::class,'uploadimageproduct'])->name('home.uploadimageproduct');
     Route::get('/ratings', [HomeController::class,'ratings'])->name('home.rating');
-    Route::get('/transaction/list', [HomeController::class,'transactionlist'])->name('home.transactionlist');
+    // Route::get('/transaction/list', [HomeController::class,'transactionlist'])->name('home.transactionlist');
     Route::get('/transaction/listorder', [HomeController::class,'transactionlistorder'])->name('home.transaction.listorder');
     Route::get('/transaction/detail', [HomeController::class,'transaction.detail'])->name('home.transaction.detail');
     Route::get('/payment/list', [HomeController::class,'paymentlist'])->name('home.payment.list');
@@ -90,5 +91,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/user/edit', [HomeController::class,'useredit'])->name('home.user.edit');
     Route::get('/role/list', [HomeController::class,'rolelist'])->name('home.role.list');
     Route::get('/transaction/detail', [HomeController::class,'transactiondetail'])->name('transaction.detail');
+    
+    Route::get('/transaction/list', [TransactionController::class,'index'])->name('transactionlist');
+    Route::get('/transaction/detail{id}', [TransactionController::class,'orderview'])->name('orderlist');
 
 });

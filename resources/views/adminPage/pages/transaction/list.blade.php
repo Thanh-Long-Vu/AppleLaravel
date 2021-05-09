@@ -33,13 +33,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($data as $item)
                                             <tr>
-                                                <td>1</td>
-                                                <td>LongVT8</td>
-                                                <td>Tôi cần giao tại địa chỉ sau Cổ Nhuế Bắc Từ Liêm Hà Nội</td>
-                                                <td>Nhận hàng tại cửa hàng</td>
-                                                <td>20,000,000 VNĐ</td>
-                                                <td>Thanh toán bằng thẻ</td>
+                                                <td>{{$item->id_transaction}}</td>
+                                                <td>{{$item->user_id}}</td>
+                                                <td>{{$item->note}}</td>
+                                                <td>
+                                                    @if($item->method_receive == 0)
+                                                    Thanh toán tiền mặt
+                                                    @elseif($item->method_receive == 1)
+                                                    Trả thẳng qua thẻ
+                                                    @elseif($item->method_receive == 2)
+                                                    Trả góp qua ngân hàng
+                                                    @endif
+                                                </td>
+                                                <td>{{$item->total_price}}</td>
+                                                <td>{{$item->payment_method->name}}</td>
                                                 <td>
                                                     <div class="custom-control custom-switch">
                                                       <input type="checkbox" class="custom-control-input" id="c1" checked>
@@ -47,9 +56,10 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button class="btn mb-1 btn-info fe fe-eye"></button>
+                                                    <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
