@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductTypeController;
 use App\Http\Controllers\admin\imageProductController;
 use App\Http\Controllers\admin\TransactionController;
+use \App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('userPage.pages.home');
 });
 
 Auth::routes();
