@@ -141,14 +141,6 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Warehouse">
-                    <li class="nav-item">
-                        <a href="#Sales" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                            <i class="fe fe-box fe-16"></i>
-                            <span class="ml-3 item-text">Sales</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <!-- <li class="nav-item w-100">
           <a class="nav-link" href="widgets.html">
@@ -229,8 +221,8 @@
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="Trancastion">
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i></i><span
-                                class="ml-1 item-text">Orders</span></a>
+                        <a class="nav-link pl-3" href="{{route('transactionlist')}}"><i class="fe fe-pie-chart fe-16"></i></i><span
+                                class="ml-1 item-text">List Trancastion</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i><span

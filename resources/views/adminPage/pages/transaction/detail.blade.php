@@ -10,7 +10,7 @@
                 <div class="col-12 col-lg-10 col-xl-8">
                     <div class="row align-items-center mb-4">
                         <div class="col">
-                            <h2 class="h5 page-title"><small class="text-muted text-uppercase">ID Transaction</small><br />#{{$order->transaction_id}}
+                            <h2 class="h5 page-title"><small class="text-muted text-uppercase">ID Transaction</small><br />#{{$transaction->id_transaction}}
                             </h2>
                         </div>
                         <div class="col-auto">
@@ -25,53 +25,54 @@
                                     <img src="admin/assets/images/logo.svg" class="navbar-brand-img brand-sm mx-auto mb-4"
                                         alt="...">
                                     <h2 class="mb-0 text-uppercase">Invoice</h2>
-                                    <p class="text-muted">{{$order->transaction->user->name}} <br /> Address {{$order->transaction->user->address}} </p>
+                                    <p class="text-muted">{{$transaction->user->name}} <br /> Address {{$transaction->user->address}} </p>
                                 </div>
                                 <div class="col-md-7">
                                     <p class="small text-muted text-uppercase mb-2">Invoice from</p>
                                     <p class="mb-4">
-                                        <strong>Name Sell</strong><br /> Asset Management<br /> FPT Shop.<br />
+                                        <strong>Name Sell</strong><br />  FPT Shop<br />
                                     </p>
                                     <p>
                                         <span class="small text-muted text-uppercase">Invoice #</span><br />
-                                        <strong>{{$order->transaction_id}}</strong>
+                                        <strong>{{$transaction->id_transaction}}</strong>
                                     </p>
                                 </div>
                                 <div class="col-md-5">
                                     <p class="small text-muted text-uppercase mb-2">Invoice to</p>
                                     <p class="mb-4">
-                                        <strong>Name Receive</strong><br />{{$order->transaction->user->name}} <br /> Phone {{$order->transaction->user->phone}}<br /> Address {{$order->transaction->user->address}} <br />
+                                        <strong>Name Receive</strong><br />{{$transaction->user->name}} <br /> <strong>Phone</strong>  {{$transaction->user->phone}}<br /> <strong>Address</strong> {{$transaction->user->address}} <br />
                                     </p>
                                     <p>
                                         <small class="small text-muted text-uppercase">Due date</small><br />
-                                        <strong>{{$order->transaction->created_at}}</strong>
+                                        <strong>{{$transaction->created_at}}</strong>
                                     </p>
                                 </div>
                             </div> <!-- /.row -->
                             <table class="table table-borderless table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Order ID</th>
+                                        <th scope="col" class="text-center">Order ID</th>
                                         <th scope="col" class="text-right">Product</th>
                                         <th scope="col" class="text-right">Price VNĐ</th>
                                         <th scope="col" class="text-right">Quantity</th>
-                                        <th scope="col" class="text-right">Sale</th>
+                                        <th scope="col" class="text-right">Discount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">{{$order->id_order}}</th>
-                                        <td class="text-right"> {{$order->product->productType->name}}<br />
-                                            <span class="small text-muted">{{$order->product->productType->description}}</span>
-                                        </td>
-                                        <td class="text-right">{{$order->price}}</td>
-                                        <td class="text-right">{{$order->quantity}}</td>
-                                        <td class="text-right">{{$order->Sale}}</td>
+                                    @foreach ($order as $item)
+                                        <tr>
+                                            <td class="text-center">{{$item->transaction_id}}</td>
+                                            <td class="text-right">{{$item->product->productType->name}}</td>
+                                            <td class="text-right">{{$item->price}}</td>
+                                            <td class="text-right">{{$item->quantity}}</td>
+                                            <td class="text-right">{{$item->sale}} %</td>
+                                        <tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div class="row mt-5">
                                 <div class="col-2 text-center">
-                                    <img src="./assets/images/qrcode.svg" class="navbar-brand-img brand-sm mx-auto my-4"
+                                    <img src="./admin/assets/images/qrcode.svg" class="navbar-brand-img brand-sm mx-auto my-4"
                                         alt="...">
                                 </div>
                                 <div class="col-md-5">
@@ -85,15 +86,15 @@
                                     <div class="text-right mr-2">
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Subtotal : </span>
-                                            <strong>$285.00</strong>
+                                            <strong>{{number_format($totalprice)}}.VNĐ</strong>
                                         </p>
                                         <p class="mb-2 h6">
-                                            <span class="text-muted">VAT (10%) : </span>
-                                            <strong>$28.50</strong>
+                                            <span class="text-muted">Total Sale :</span>
+                                            <strong>{{$sale}}%</strong>
                                         </p>
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Total : </span>
-                                            <span>$313.50</span>
+                                            <span>{{number_format($transaction->total_price)}}.VNĐ</span>
                                         </p>
                                     </div>
                                 </div>

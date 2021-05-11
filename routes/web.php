@@ -95,5 +95,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/transaction/list', [TransactionController::class,'index'])->name('transactionlist');
     Route::get('/transaction/detail{id}', [TransactionController::class,'orderview'])->name('orderlist');
+    Route::get('/transaction/change/status/{id}', [TransactionController::class,'changeStatus'])->name('changeStatusTransaction');
+    Route::get('/transaction/status/update', [TransactionController::class,'updateStatus'])->name('updateStatusTransaction');
+
 
 });

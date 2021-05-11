@@ -2,6 +2,11 @@
 @section('scriptHeader')
 <link rel="stylesheet" href="admin/css/feather.css">
 <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
+<script src="admin/js/jquery-ajax.min.js"></script>
+<link rel="stylesheet" href="admin/css/switchery.min.css">
+<script src="admin/js/switchery.min.js"></script>
+<link rel="stylesheet" href="admin/css/toastr.min.css">
+<script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'List Transaction')
 @section('content')
@@ -29,7 +34,7 @@
                                                 <th>Total Price</th>
                                                 <th>Method Payment</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -50,10 +55,14 @@
                                                 <td>{{$item->total_price}}</td>
                                                 <td>{{$item->payment_method->name}}</td>
                                                 <td>
-                                                    <div class="custom-control custom-switch">
-                                                      <input type="checkbox" class="custom-control-input" id="c1" checked>
-                                                      <label class="custom-control-label" for="c1"></label>
-                                                    </div>
+                                                @if ($item->status == 1 || $item->status == 0)
+                                                    <input type="checkbox" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
+                                                @else
+                                                    <form action="{{route('changeStatusTransaction',[$item->id_transaction])}}" method="get">
+                                                        {{-- <input type="hidden" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" > --}}
+                                                        <input type="submit" class="btn mb-2 btn-outline-warning" value="Ordered">
+                                                    </form>
+                                                @endif
                                                 </td>
                                                 <td>
                                                     <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
@@ -104,5 +113,34 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
 
+    </script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html, {
+                size: 'small'
+            });
+        });
+        $(document).ready(function() {
+            $('.js-switch').change(function() {
+                let status = $(this).prop('checked') === true ? 1 : 0;
+                let id_transaction = $(this).data('id');
+                $.ajax({
+                    type: "get",
+                    dataType: "json",
+                    url: '{{ route('updateStatusTransaction') }}',
+                    data: {
+                        'status': status,
+                        'id_transaction': id_transaction
+                    },
+                    success: function(data) {         
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                    }
+                });
+            });
+        });
     </script>
 @endsection

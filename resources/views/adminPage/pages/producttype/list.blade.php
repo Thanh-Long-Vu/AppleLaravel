@@ -2,7 +2,6 @@
 @section('scriptHeader')
     <link rel="stylesheet" href="admin/css/feather.css">
     <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <script src="admin/js/jquery-ajax.min.js"></script>
     <link rel="stylesheet" href="admin/css/switchery.min.css">
     <script src="admin/js/switchery.min.js"></script>
