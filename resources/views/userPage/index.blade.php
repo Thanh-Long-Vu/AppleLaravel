@@ -4,44 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <base href="{{ asset('/') }}">
+    <base href="{{ asset('/user_page/assets') }}">
 
-    <title>Electro &#8211; Electronics Ecommerce Theme</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="user_page/css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="user_page/css/font-awesome.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="user_page/css/animate.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="user_page/css/font-electro.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="user_page/css/owl-carousel.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="user_page/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="user_page/css/colors/yellow.css" media="all" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic' rel='stylesheet' type='text/css'>
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/font-electro.css">
 
-    <link rel="shortcut icon" href="user_page/images/fav-icon.png">
+    <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="assets/vendor/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+
+    <!-- CSS Electro Template -->
+    <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 
-<body class="page home page-template-default">
-<div id="page" class="hfeed site">
-    @include("userPage.layouts.top-bar")
-    @include("userPage.layouts.header")
-    @include("userPage.layouts.nav")
-
-    @yield('content')
-
+<body>
+    <!-- ========== HEADER ========== -->
+        @include("userPage.layouts.header")
+    <!-- ========== END HEADER ========== -->
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        @yield('content')
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <!-- ========== FOOTER ========== -->
     @include("userPage.layouts.footer")
-</div><!-- #page -->
+    <!-- ========== END FOOTER ========== -->
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    @include('userPage.layouts.aside-left')
+    <!-- ========== END SECONDARY CONTENTS ========== -->
 
-<script type="text/javascript" src="user_page/js/jquery.min.js"></script>
-<script type="text/javascript" src="user_page/js/tether.min.js"></script>
-<script type="text/javascript" src="user_page/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="user_page/js/bootstrap-hover-dropdown.min.js"></script>
-<script type="text/javascript" src="user_page/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="user_page/js/echo.min.js"></script>
-<script type="text/javascript" src="user_page/js/wow.min.js"></script>
-<script type="text/javascript" src="user_page/js/jquery.easing.min.js"></script>
-<script type="text/javascript" src="user_page/js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="user_page/js/electro.js"></script>
+    @include('userPage.layouts.scripts_end')
+
 
 </body>
 </html>

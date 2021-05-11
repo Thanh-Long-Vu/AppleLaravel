@@ -1,41 +1,65 @@
-<a class="skip-link screen-reader-text" href="#site-navigation">Skip to navigation</a>
-<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-
-<div class="top-bar">
+<div class="u-header-topbar py-2 d-none d-xl-block">
     <div class="container">
-        <nav>
-            <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
-                <li class="menu-item animate-dropdown"><a title="Welcome to Worldwide Electronics Store" href="#">Welcome to Worldwide Electronics Store</a></li>
-            </ul>
-        </nav>
-
-        <nav>
-            <ul id="menu-top-bar-right" class="nav nav-inline pull-right animate-dropdown flip">
-                <li class="menu-item animate-dropdown"><a title="Store Locator" href="#"><i class="ec ec-map-pointer"></i>Store Locator</a></li>
-                <li class="menu-item animate-dropdown"><a title="Track Your Order" href="track-your-order.html"><i class="ec ec-transport"></i>Track Your Order</a></li>
-                <li class="menu-item animate-dropdown"><a title="Shop" href="shop.html"><i class="ec ec-shopping-bag"></i>Shop</a></li>
-                <li class="menu-item animate-dropdown"><a title="My Account" href={{route('login')}}><i class="ec ec-user"></i>My Account</a></li>
-            </ul>
-        </nav>
-        @guest
-        @else
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }}
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+        <div class="d-flex align-items-center">
+            <div class="topbar-left">
+                <a href="#" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Welcome to Worldwide Electronics Store</a>
             </div>
-        </li>
-        @endguest
+            <div class="topbar-right ml-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
+                        <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-map-pointer mr-1"></i> Store Locator</a>
+                    </li>
+                    <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
+                        <a href="../shop/track-your-order.html" class="u-header-topbar__nav-link"><i class="ec ec-transport mr-1"></i> Track Your Order</a>
+                    </li>
+                    <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border u-header-topbar__nav-item-no-border u-header-topbar__nav-item-border-single">
+                        <div class="d-flex align-items-center">
+                            <!-- Language -->
+                            <div class="position-relative">
+                                <a id="languageDropdownInvoker" class="dropdown-nav-link dropdown-toggle d-flex align-items-center u-header-topbar__nav-link font-weight-normal" href="javascript:;" role="button"
+                                   aria-controls="languageDropdown"
+                                   aria-haspopup="true"
+                                   aria-expanded="false"
+                                   data-unfold-event="hover"
+                                   data-unfold-target="#languageDropdown"
+                                   data-unfold-type="css-animation"
+                                   data-unfold-duration="300"
+                                   data-unfold-delay="300"
+                                   data-unfold-hide-on-scroll="true"
+                                   data-unfold-animation-in="slideInUp"
+                                   data-unfold-animation-out="fadeOut">
+                                    <span class="d-inline-block d-sm-none">US</span>
+                                    <span class="d-none d-sm-inline-flex align-items-center"><i class="ec ec-dollar mr-1"></i> Dollar (US)</span>
+                                </a>
+
+                                <div id="languageDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="languageDropdownInvoker">
+                                    <a class="dropdown-item active" href="#">English</a>
+                                    <a class="dropdown-item" href="#">Deutsch</a>
+                                    <a class="dropdown-item" href="#">Español‎</a>
+                                </div>
+                            </div>
+                            <!-- End Language -->
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
+                        <!-- Account Sidebar Toggle Button -->
+                        <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
+                           aria-controls="sidebarContent"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           data-unfold-event="click"
+                           data-unfold-hide-on-scroll="false"
+                           data-unfold-target="#sidebarContent"
+                           data-unfold-type="css-animation"
+                           data-unfold-animation-in="fadeInRight"
+                           data-unfold-animation-out="fadeOutRight"
+                           data-unfold-duration="500">
+                            <i class="ec ec-user mr-1"></i> Register <span class="text-gray-50">or</span> Sign in
+                        </a>
+                        <!-- End Account Sidebar Toggle Button -->
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-</div><!-- /.top-bar -->
+</div>
