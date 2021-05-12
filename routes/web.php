@@ -28,6 +28,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/producttype', [App\Http\Controllers\HomeController::class, 'productype'])->name('productype');
+Route::get('/product', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
+Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
+Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
+Route::get('/track-your-order', [App\Http\Controllers\HomeController::class, 'track_your_order'])->name('track_your_order');
+Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound'])->name('NotFound');
+Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
+Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
+Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
 
 Route::prefix('admin')->group(function () {
     //Ware House

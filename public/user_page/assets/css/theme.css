@@ -33506,14 +33506,14 @@ blockquote:not(.blockquote) p {
   .u-header__navbar--wide.navbar-expand-md .u-header__navbar-nav .u-header__nav-link {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    padding-right: 1.1rem;
-    padding-left: 1.1rem;
+    padding-right: 4.1rem;
+    padding-left: 4.1rem;
   }
   .u-header__navbar--wide.navbar-expand-md .u-header__navbar-nav .u-header__nav-link-toggle::after {
     font-size: 90%;
   }
   .u-header__navbar--wide.navbar-expand-md .u-header__navbar-nav .nav-item + .nav-item .u-header__nav-link {
-    border-left: 1px solid #e5c100;
+    /* border-left: 1px solid #e5c100; */
   }
   .u-header__navbar--wide.navbar-expand-md .u-header__navbar-nav .hs-mega-menu-opened .u-header__nav-link,
   .u-header__navbar--wide.navbar-expand-md .u-header__navbar-nav .hs-sub-menu-opened .u-header__nav-link {

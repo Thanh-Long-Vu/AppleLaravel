@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <base href="{{ asset('/user_page/assets') }}">
+    <title>@yield('title')</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../favicon.png">
@@ -15,14 +16,9 @@
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="assets/vendor/font-awesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/font-electro.css">
-
     <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
     <link rel="stylesheet" href="assets/vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="assets/vendor/fancybox/jquery.fancybox.css">
-    <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-
+    @yield('script_header')
     <!-- CSS Electro Template -->
     <link rel="stylesheet" href="assets/css/theme.css">
 </head>
@@ -43,8 +39,9 @@
     @include('userPage.layouts.aside-left')
     <!-- ========== END SECONDARY CONTENTS ========== -->
 
-    @include('userPage.layouts.scripts_end')
+    {{-- @include('userPage.layouts.scripts_end') --}}
 
 
+    @yield('script_footer')
 </body>
 </html>
