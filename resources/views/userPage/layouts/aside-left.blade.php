@@ -23,9 +23,9 @@
                 <!-- Content -->
                 <div class="js-scrollbar u-sidebar__body">
                     <div class="u-sidebar__content u-header-sidebar__content">
-                        <!-- Login -->
                         <form class="js-validate">
                             @csrf
+                            <!-- Login -->
                             <div id="login" data-target-group="idForm">
                                 <!-- Title -->
                                 <header class="text-center mb-5">
@@ -112,8 +112,7 @@
                                 </div>
                                 <!-- End Login Buttons -->
                             </div>
-                        </form>
-                        <!--End login-->
+                            <!--End login-->
 
                             <!-- Signup -->
                             <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
@@ -127,6 +126,25 @@
                                 <!-- Form Group -->
                                 <div class="form-group">
                                     <div class="js-form-message js-focus-state">
+                                        <label class="sr-only" for="signupUsername">Username</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="signupUsernameLabel">
+                                                    <span class="fas fa-user"></span>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" name="username" id="signupUsername" placeholder="Username" aria-label="Username" aria-describedby="signupUsernameLabel" required
+                                                   data-msg="Please enter a valid username address."
+                                                   data-error-class="u-has-error"
+                                                   data-success-class="u-has-success">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state" id="emailSignUp">
                                         <label class="sr-only" for="signupEmail">Email</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
@@ -136,9 +154,11 @@
                                             </div>
                                             <input type="email" class="form-control" name="email" id="signupEmail" placeholder="Email" aria-label="Email" aria-describedby="signupEmailLabel" required
                                                    data-msg="Please enter a valid email address."
+                                                   data-msg-res="The email has already been taken."
                                                    data-error-class="u-has-error"
                                                    data-success-class="u-has-success">
                                         </div>
+                                        <div id="resSignupEmail-error" class="invalid-feedback" style="display: none"></div>
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -182,7 +202,7 @@
                                 <!-- End Input -->
 
                                 <div class="mb-2">
-                                    <button type="submit" class="btn btn-block btn-sm btn-primary transition-3d-hover">Get Started</button>
+                                    <button type="submit" id="submitSignUp" class="btn btn-block btn-sm btn-primary transition-3d-hover">Get Started</button>
                                 </div>
 
                                 <div class="text-center mb-4">
@@ -255,6 +275,7 @@
                                 </div>
                             </div>
                             <!-- End Forgot Password -->
+                        </form>
                     </div>
                 </div>
                 <!-- End Content -->

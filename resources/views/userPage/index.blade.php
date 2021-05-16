@@ -61,18 +61,67 @@
                         window.location.href = "{{route('home')}}";
                     }
                 }).error(function (error) {
-                    $('#signIn-error').append(error.responseJSON.message)
+                    $('#signIn-error').html(error.responseJSON.message)
                 });
             }
             $('#submitLogin').click(function (e) {
                 let email = $('#signInEmail').val()
                 let password = $('#signInPassword').val()
-                if(!email && !password) return
-
-                e.preventDefault();
-                // e.stopImmediatePropagation();
-                login(email, password)
+                if(email.length > 0 && password.length > 0) {
+                    e.preventDefault();
+                    login(email, password)
+                }
             })
+
+            function signUp(name, email, password, password_confirmation) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('register') }}",
+                    method: "POST",
+                    data: {
+                        name: name,
+                        email: email,
+                        password: password,
+                        password_confirmation: password_confirmation
+                    }
+                }).done(function() {
+                    window.location.href = "{{route('home')}}";
+                }).error(function (error) {
+                    let response = JSON.parse(error.responseText);
+                    $('#resSignupEmail-error').show().html(response.errors.email[0])
+                    $('#emailSignUp').addClass('u-has-error')
+                });
+            }
+            $('#submitSignUp').click(function (e) {
+                let name = $('#signupUsername').val()
+                let email = $('#signupEmail').val()
+                let password = $('#signupPassword').val()
+                let password_confirmation = $('#signupConfirmPassword').val()
+                if(
+                    email.length > 0
+                    && password.length > 0
+                    && name.length > 0
+                    && password_confirmation.length > 0
+                ) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    signUp(name, email, password, password_confirmation)
+                }
+            })
+            $('#signupEmail').keydown(function () {
+                $('#resSignupEmail-error').hide()
+            })
+            $('#signup').find("input").keydown(function (e) {
+                if (e.which === 13) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    $('#submitSignUp').trigger("click")
+                }
+            });
         })
     </script>
 </body>

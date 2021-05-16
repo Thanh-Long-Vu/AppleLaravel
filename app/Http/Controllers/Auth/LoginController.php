@@ -12,12 +12,12 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    function authenticated(Request $request, $user)
+    protected function authenticated(Request $request, $user)
     {
         if($user) {
             $role = $user->role->name_role;
             $msg = array(
-                'status' => 'success',
+                'status' => true,
                 'text' => 'Login success',
                 'role' => $role
             );
