@@ -52,12 +52,16 @@ class ProductTypeController extends Controller
     public function update(Request $request,$id)
     {
         $productType = ProductType::find($id);
-        if($productType->thumbnail == "" ){
-            $image_avatar = $request->thumbnail;
-            $filename_avatar = $image_avatar->getClientOriginalName();
-            $image_avatar->move(public_path('uploads/admin/category'), $filename_avatar);
-            $link = 'uploads/admin/category'.$filename_avatar;
-            $productType->thumbnail = $link;
+        if($productType->thumbnail != "" && !isset($request->image)){
+            $productType->thumbnail;
+        }else{
+            $image = $request->file('image');
+            $image_size = $image->getSize();
+            $image_ext = $image->getClientOriginalExtension();
+            $new_image_name = "uploads/admin/productype/productype"."thumbnail".rand(1,99999).".".$image_ext;
+            $destination_path = public_path('/uploads/admin/productype/');
+            $image->move($destination_path,$new_image_name);
+            $productType->thumbnail = $new_image_name;
         }
         $productType->name = $request->name;
         $productType->description = $request->description;
