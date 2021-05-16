@@ -91,6 +91,7 @@
                                                         <span class="text-muted sr-only">Action</span>
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="{{route('createProduct',['id'=>$listWareHouse->id_warehouse])}}">Create</a>
                                                         <a class="dropdown-item" href="{{route('warehouse.edit',['id'=>$listWareHouse->id_warehouse])}}">Edit</a>
                                                         <a class="dropdown-item" href=" {{route('softDeleteWareHouse', ['id' => $listWareHouse->id_warehouse])}}">Remove</a>  
                                                     </div>

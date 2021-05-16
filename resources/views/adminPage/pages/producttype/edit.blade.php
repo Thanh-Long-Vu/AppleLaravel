@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="form-group col-md-6 mb-6">
                                                 <label for="custom-select">Category</label>
-                                                <select class="custom-select" id="custom-select" value ="{{$productType->id_category}}" name = "category_id">
+                                                <select class="custom-select" id="custom-select" name = "category_id">
                                                     <option disabled value >Select Category</option>
                                                     @if(isset($category) && $category != '')
                                                         @foreach($category as $categoryitem)

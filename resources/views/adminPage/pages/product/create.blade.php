@@ -22,56 +22,29 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
-                                        <div class="form-row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="name">Name product</label>
-                                                <input type="text" class="form-control" id="name" value="{{$requestdata->name}}" required disabled>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="seri">Number Seri</label>
-                                                <input type="text" class="form-control" id="IMEI" value="{{}}" disabled required>
-                                            </div>
-                                        </div> <!-- /.form-row -->
-                                        <div class="form-row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="warranty">Warranty</label>
-                                                <input type="text" class="form-control" id="warranty" value="12 Month"
-                                                    required disabled>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="quantity">Quantity</label>
-                                                <input type="text" class="form-control" id="quantity" value="Number PCS" disabled
-                                                    required>
-                                            </div>
-                                        </div> <!-- /.form-row -->
+                                    <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+                                        {{csrf_field() }}
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
-                                                <label for="price">Price buy</label>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Amount (to the nearest dollar)" id="price" placeholder=".VNĐ" disabled>
+                                                <label for="price_buy">Price buy</label>
+                                                <input type="text" class="form-control" id="price_buy" value ="{{$wareHouse->price}}"  disabled>
                                             </div>
                                             <div class="col-md-3 mb-3">
-                                                <label for="price">Price sell</label>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Amount (to the nearest dollar)" id="price" placeholder=".VNĐ">
-                                            </div>
-                                            <div class="form-group col-md-3 mb-3">
-                                                <label for="custom-select">Category</label>
-                                                <select class="custom-select" id="custom-select" disabled>
-                                                    <option selected>Select Category</option>
-                                                    <option value="1">Iphone</option>
-                                                    <option value="2">Mac</option>
-                                                    <option value="3">Ipad</option>
-                                                </select>
+                                                <label for="price_sell">Price sell</label>
+                                                <div class="custom-File">
+                                                    <input type="text" class="form-control" id="price_sell" name="price_sell" value="{{old('price_sell')}}" placeholder=".VNĐ" required>
+                                                    <div class="invalid-feedback">Please enter Price sell</div>
+                                                </div>
                                             </div>
                                             <div class="form-group col-md-3 mb-3">
                                                 <label for="custom-select">Product Types</label>
-                                                <select class="custom-select" id="custom-select" disabled>
-                                                    <option selected>Select Product Types</option>
-                                                    <option value="1">Iphone 8</option>
-                                                    <option value="2">Iphone X</option>
-                                                    <option value="3">Iphone 12</option>
+                                                <select class="custom-select" id="custom-select" name = "id_product_type" required value="{{old('id_product_type')}}">
+                                                    <option disabled selected value >Select Product Type</option>
+                                                    @if($ProductType)
+                                                        @foreach($ProductType as $ProductTypeitem)
+                                                            <option value="{{$ProductTypeitem->id_product_type}}" >{{$ProductTypeitem->name}}</option>
+                                                        @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
@@ -79,120 +52,18 @@
                                             <div class="form-group col-md-6">
                                                 <label for="customFile">Add Thumbail</label>
                                                 <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}" required>
+                                                <div class="invalid-feedback">Please choose image for Product</div>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="customFile">Discount</label>
+                                                <label for="discount">Discount</label>
                                                 <div class="custom-file">
-                                                <input type="text" class="form-control" id="quantity" value="" placeholder="%" required>
+                                                    <input type="text" class="form-control" id="discount" name="discount" placeholder="%" value="{{old('discount')}}" required>
+                                                    <div class="invalid-feedback">Please enter discount</div>
                                                 </div>
                                             </div>
-                                        </div> 
-                                        <div class="form-group">
-                                            <p class="mb-2">Color</p>
-                                            <div class="form-row">
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="Red"
-                                                            name="radio-memory" value="Red" required disabled>
-                                                        <label class="custom-control-label" for="Red">Red</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="Yellow"
-                                                            name="radio-memory" value="Yellow" required>
-                                                        <label class="custom-control-label" for="Yellow">Yellow</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="Violet"
-                                                            name="radio-memory" value="Violet" required>
-                                                        <label class="custom-control-label" for="Violet">Violet</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="Green"
-                                                            name="radio-memory" value="Green" required>
-                                                        <label class="custom-control-label" for="Green">Green</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="Black"
-                                                            name="radio-memory" value="Black" required>
-                                                        <label class="custom-control-label" for="Black">Black</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="White"
-                                                            name="radio-memory" value="White" required>
-                                                        <label class="custom-control-label" for="White">White</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="Other"
-                                                            name="radio-memory" value="Other" required>
-                                                        <label class="custom-control-label" for="Other">Other</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <p class="mb-2">Memory</p>
-                                            <div class="form-row">
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="16GB"
-                                                            name="radio-memory" value="16GB" required disabled>
-                                                        <label class="custom-control-label" for="16GB">16GB</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="32GB"
-                                                            name="radio-memory" value="32GB" required>
-                                                        <label class="custom-control-label" for="32GB">32GB</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="64GB"
-                                                            name="radio-memory" value="64GB" required>
-                                                        <label class="custom-control-label" for="64GB">64GB</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="128GB"
-                                                            name="radio-memory" value="128GB" required>
-                                                        <label class="custom-control-label" for="128GB">128GB</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="256GB"
-                                                            name="radio-memory" value="256GB" required>
-                                                        <label class="custom-control-label" for="256GB">256GB</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="custom-control custom-radio mb-3">
-                                                        <input type="radio" class="custom-control-input" id="512Gb"
-                                                            name="radio-memory" value="512Gb" required>
-                                                        <label class="custom-control-label" for="512Gb">512Gb</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3">
-                                            <label for="dataproduct">Data Product</label>
                                         </div>
                                         <button class="btn btn-primary" type="submit">Create Product</button>
                                     </form>

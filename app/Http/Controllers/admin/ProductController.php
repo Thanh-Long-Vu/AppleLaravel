@@ -17,58 +17,63 @@ class ProductController extends Controller
         $data = Product::orderBy('id_product','DESC')->get();
         return view('adminPage.pages.product.list',compact('data'));
     }
-    // public function create()
-    // {
-    //     return view('adminPage.pages.product.create');
-    // }
-    // public function store()
-    // {
-    //     return view('adminPage.pages.product.create');
-    // }
+    public function create($id)
+    {
+        $wareHouse = WareHouse::find($id);
+        $ProductType = ProductType::get();
+        return view('adminPage.pages.product.create',compact('wareHouse','ProductType'));
+    }
+    public function store(Request $request,$id)
+    {
+        $image = $request->file('image');
+        $image_size = $image->getSize();
+        $image_ext = $image->getClientOriginalExtension();
+        $new_image_name = "uploads/admin/product/product"."thumbnail".rand(1,99999).".".$image_ext;
+        $destination_path = public_path('/uploads/admin/product');
+        $image->move($destination_path,$new_image_name);
+
+        $product = new Product();
+        $product->warehouse_id = $id;
+        $product->thumbnail = $new_image_name;
+        $product->price = $request->price_sell;
+        $product->discount = $request->discount;
+        $product->is_hot = 0;
+        $product->product_type_id = $request->id_product_type;
+        $product->save();
+        return redirect()->back();
+    }
     public function edit($id)
     {
-        $category = Category::all();
         $productType = ProductType::all();
         $product = Product::find($id); 
         $idWareHouse = $product->warehouse_id;
         $warehouse = Warehouse::find($idWareHouse);
-        return view('adminPage.pages.product.edit',compact('product','warehouse','category','productType'));
+        return view('adminPage.pages.product.edit',compact('product','warehouse','productType'));
     }
     public function update(Request $request, $id)
     {
         //Update Table Product
         $product = Product::find($id);
-        if($product->thumbnail == "" ){
+        if($product->thumbnail != "" && !isset($request->thumbnail)){
             $image_avatar = $request->image;
             $filename_avatar = $image_avatar->getClientOriginalName();
             $image_avatar->move(public_path('uploads/admin/product/'), $filename_avatar);
             $link = 'uploads/admin/product/'.$filename_avatar;
             $product->thumbnail = $link;
+        }elseif($product->thumbnail == "" && isset($request->thumbnail)){
+            $image = $request->file('image');
+            $image_size = $image->getSize();
+            $image_ext = $image->getClientOriginalExtension();
+            $new_image_name = "uploads/admin/product/product"."thumbnail".rand(1,99999).".".$image_ext;
+            $destination_path = public_path('/uploads/admin/product');
+            $image->move($destination_path,$new_image_name);
+            $product->thumbnail = $new_image_name;
         }
-        $product->product_type_id = $request->producttype;
-        $product->color = $request->color;
+        $product->product_type_id = $request->product_type_id;
         $product->price = $request->price;
-        $product->memory = $request->memory;
         $product->discount = $request->discount;
-        $product->quantity  = $request->quantity ;
-        $product->IMEI = $request->IMEI;
         $product->save();
-        return redirect()->back();
-    }
-    public function updateWareHouse(Request $request, $id)
-    {
-        //Update Table wareHouse
-        $product = Product::find($id);
-        $wareHouseId = $product->warehouse_id;
-        $wareHouse = Warehouse::find($wareHouseId);
-        $wareHouse->name = $request->name;
-        $wareHouse->IMEI = $request->IMEI_warehouse;
-        $wareHouse->warranty = $request->warranty_warehouse;
-        $wareHouse->color = $request->color_warehouse;
-        $wareHouse->memory = $request->memory_warehouse;
-        $wareHouse->price = $request->price_warehouse;
-        $wareHouse->quantity = $request->quantity_warehouse;
-        $wareHouse->save();
+        // dd($product);
         return redirect()->back();
     }
     
