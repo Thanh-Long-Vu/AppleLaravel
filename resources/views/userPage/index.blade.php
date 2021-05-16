@@ -40,11 +40,6 @@
     <!-- ========== END SECONDARY CONTENTS ========== -->
 
     {{-- @include('userPage.layouts.scripts_end') --}}
-
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-    <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
     @yield('script_footer')
     <script>
         $(document).on('ready', function (){
