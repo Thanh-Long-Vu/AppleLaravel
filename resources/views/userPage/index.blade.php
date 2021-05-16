@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <base href="{{ asset('/public/user_page/assets') }}">
+    <base href="{{ asset('/user_page/assets') }}">
     <title>@yield('title')</title>
 
     <!-- Favicon -->
@@ -41,7 +41,44 @@
 
     {{-- @include('userPage.layouts.scripts_end') --}}
 
-
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
     @yield('script_footer')
+    <script>
+        $(document).on('ready', function (){
+            function login(email, password) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('login') }}",
+                    method: "POST",
+                    data: {email: email, password: password}
+                }).done(function(data) {
+                    let role = data.role
+                    if (role === "Admin") {
+                        window.location.href = "{{route('home.index')}}";
+                    } else if(role === "User") {
+                        window.location.href = "{{route('home')}}";
+                    }
+                }).error(function (error) {
+                    $('#signIn-error').append(error.responseJSON.message)
+                });
+            }
+            $('#submitLogin').click(function (e) {
+                let email = $('#signInEmail').val()
+                let password = $('#signInPassword').val()
+                if(!email && !password) return
+
+                e.preventDefault();
+                // e.stopImmediatePropagation();
+                login(email, password)
+            })
+        })
+    </script>
 </body>
 </html>

@@ -7,7 +7,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductTypeController;
 use App\Http\Controllers\admin\imageProductController;
 use App\Http\Controllers\admin\TransactionController;
-use \App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +26,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+//Authentication
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/producttype', [App\Http\Controllers\HomeController::class, 'productype'])->name('productype');

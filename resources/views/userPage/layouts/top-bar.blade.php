@@ -43,6 +43,21 @@
                     </li>
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                         <!-- Account Sidebar Toggle Button -->
+                        @if(Auth::check())
+                            <a href="javascript:" role="button" class="u-header-topbar__nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ec ec-user mr-1"></i> My account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();"
+                                >{{ __('Logout') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        @else
                         <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
                            aria-controls="sidebarContent"
                            aria-haspopup="true"
@@ -56,6 +71,7 @@
                            data-unfold-duration="500">
                             <i class="ec ec-user mr-1"></i> Register <span class="text-gray-50">or</span> Sign in
                         </a>
+                        @endif
                         <!-- End Account Sidebar Toggle Button -->
                     </li>
                 </ul>

@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            ['id_user' => 1,'name' => "Admin", 'email' => 'admin@gmail.com', 'password' => '$2y$10$YIR.NhsNa01IJEnhZn7i6O6BJNLUL61jwqVFq51dJu4aYkLyQSvJW', 'role_id' => 1]
+            ['id_user' => 1,'name' => "Admin", 'email' => 'admin@gmail.com', 'password' => '$2y$10$1eqX3J1AkfkPNB.V4PDDEOPnPdsqzZ1m3ltqsBxEGEO0n/RE6XTdm', 'role_id' => 1, 'created_at' => '2021-05-16 03:58:17', 'updated_at' => '2021-05-16 03:58:17']
         ]);
     }
 }
