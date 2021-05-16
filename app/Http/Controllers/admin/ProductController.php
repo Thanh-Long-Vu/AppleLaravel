@@ -54,13 +54,9 @@ class ProductController extends Controller
     {
         //Update Table Product
         $product = Product::find($id);
-        if($product->thumbnail != "" && !isset($request->thumbnail)){
-            $image_avatar = $request->image;
-            $filename_avatar = $image_avatar->getClientOriginalName();
-            $image_avatar->move(public_path('uploads/admin/product/'), $filename_avatar);
-            $link = 'uploads/admin/product/'.$filename_avatar;
-            $product->thumbnail = $link;
-        }elseif($product->thumbnail == "" && isset($request->thumbnail)){
+        if($product->thumbnail != "" && !isset($request->image)){
+            $product->thumbnail;
+        }else{
             $image = $request->file('image');
             $image_size = $image->getSize();
             $image_ext = $image->getClientOriginalExtension();

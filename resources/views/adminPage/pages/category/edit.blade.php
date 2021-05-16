@@ -39,7 +39,7 @@
                                             <div class="form-group col-md-6">
                                                 <label for="customFile">Add Thumbail</label>
                                                 <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile" name="thumbnail" value="{{$category->thumbail}}">
+                                                <input type="file" class="custom-file-input" id="customFile" name="image" value="{{$category->thumbail}}">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                                 </div>
                                             </div>

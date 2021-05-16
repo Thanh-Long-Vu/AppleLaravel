@@ -37,6 +37,7 @@ class CategoryController extends Controller
     }
     public function edit($id){
         $category = Category::find($id); 
+        // dd($category->thumbnail);
         return view('adminPage.pages.category.edit',compact('category'));
     }
     public function update(Request $request,$id){
@@ -44,13 +45,16 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->description = $request->description;
         $category->title = $request->title;
-        if($category->thumbnail == "" ){
-            $image_avatar = $request->thumbnail;
-            dd($image_avatar);
-            $filename_avatar = $image_avatar->getClientOriginalName();
-            $image_avatar->move(public_path('uploads/admin/category'), $filename_avatar);
-            $link = 'uploads/admin/category'.$filename_avatar;
-            $category->thumbnail = $link;
+        if($category->thumbnail != "" && !isset($request->image)){
+            $category->thumbnail;
+        }else{
+            $image = $request->file('image');
+            $image_size = $image->getSize();
+            $image_ext = $image->getClientOriginalExtension();
+            $new_image_name = "uploads/admin/category/category"."thumbnail".rand(1,99999).".".$image_ext;
+            $destination_path = public_path('/uploads/admin/category');
+            $image->move($destination_path,$new_image_name);
+            $category->thumbnail = $new_image_name;
         }
         $category->save();
         return redirect()->back();
