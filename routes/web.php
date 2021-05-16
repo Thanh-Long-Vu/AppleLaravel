@@ -21,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('userPage.pages.home');
-});
 
 Auth::routes();
 //Authentication
@@ -31,7 +28,7 @@ Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/producttype', [App\Http\Controllers\HomeController::class, 'productype'])->name('productype');
 Route::get('/product', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
@@ -41,6 +38,7 @@ Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound']
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
 Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
+Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 
 Route::prefix('admin')->group(function () {
     //Ware House

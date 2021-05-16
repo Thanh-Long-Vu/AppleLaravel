@@ -20,6 +20,7 @@ class CreateCategoryTable extends Migration
             $table->string('description');
             $table->tinyInteger('active')->default(0);
             $table->integer('total_product')->nullable();
+            $table->integer('parent_id')->nullable();
             $table->string('title');
             $table->timestamps();
             $table->softDeletes('deleted_at');
