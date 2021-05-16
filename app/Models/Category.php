@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
@@ -18,8 +19,14 @@ class Category extends Model
         'thumbnail',
         'title',
     ];
+
     public function productype()
     {
         return $this->hasMany('App\Models\ProductType','category_id','id_category');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class,'category_id');
     }
 }

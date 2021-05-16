@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('userPage/layouts/menu', function ($view) {
+            $categories = Category::limit(5)->get();
+            $view->with(['categories' => $categories]);
+        });
     }
 }
