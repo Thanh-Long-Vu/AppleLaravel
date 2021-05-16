@@ -18,20 +18,23 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card shadow mb-4">
-                                {{-- <div class="card-header">
-                                    <strong class="card-title">Advanced Validation</strong>
-                                </div> --}}
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    @if(Session::get('notify') == 'success')
+                                    <div class="alert alert-success" role="alert">
+                                        <span class="fe fe-help-circle fe-16 mr-2"></span> {{Session::get('massage')}} 
+                                    </div>
+                                    @endif
+                                    <form class="needs-validation" novalidate enctype="multipart/form-data" method="post" action="{{ route('warehouse.update',['id'=>$wareHouse->id_warehouse])}}">
+                                        {{ csrf_field() }}
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name product</label>
-                                                <input type="text" class="form-control" id="name" value="Iphone X" required>
+                                                <input type="text" class="form-control" id="name" name="name" value="{{$wareHouse->name}}" required>
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <label for="seri">Number Seri</label>
-                                                <input type="text" class="form-control" id="seri" value="10802506808"
+                                                <label for="IMEI">Number Seri</label>
+                                                <input type="text" class="form-control" id="IMEI" name="IMEI" value="{{$wareHouse->IMEI}}"
                                                     required>
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
@@ -39,14 +42,14 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="warranty">Warranty</label>
-                                                <input type="text" class="form-control" id="warranty" value="12 Month"
+                                                <input type="text" class="form-control" id="warranty" name="warranty" value="{{$wareHouse->warranty}}"
                                                     required>
                                                 {{-- value="Full Box, New Box, Brand New, 99%, < 99% " required> --}}
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="quantity">Quantity</label>
-                                                <input type="text" class="form-control" id="quantity" value="Number PCS"
+                                                <input type="text" class="form-control" id="quantity" name = "quantity" value="{{$wareHouse->quantity}}"
                                                     required>
                                                 <div class="valid-feedback"> Looks good! </div>
                                             </div>
@@ -54,26 +57,7 @@
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="price">Price after</label>
-                                                <input type="text" class="form-control"
-                                                    aria-label="Amount (to the nearest dollar)" id="price" placeholder=".VNĐ">
-                                            </div>
-                                            <div class="form-group col-md-3 mb-3">
-                                                <label for="custom-select">Category</label>
-                                                <select class="custom-select" id="custom-select">
-                                                    <option selected>Select Category</option>
-                                                    <option value="1">Iphone</option>
-                                                    <option value="2">Mac</option>
-                                                    <option value="3">Ipad</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-3 mb-3">
-                                                <label for="custom-select">Product Types</label>
-                                                <select class="custom-select" id="custom-select">
-                                                    <option selected>Select Product Types</option>
-                                                    <option value="1">Iphone</option>
-                                                    <option value="2">Iphone X</option>
-                                                    <option value="3">Iphone 12</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="price" id="price" value="{{$wareHouse->price}}">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -82,50 +66,57 @@
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input" id="Red"
-                                                            name="radio-memory" value="Red" required>
+                                                        name ="color" value="0" @if($wareHouse->color == 0) checked @endif  required>
                                                         <label class="custom-control-label" for="Red">Red</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Yellow"
-                                                            name="radio-memory" value="Yellow" required>
+                                                        name ="color" value="1" @if($wareHouse->color == 1) checked @endif  required>
                                                         <label class="custom-control-label" for="Yellow">Yellow</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Violet"
-                                                            name="radio-memory" value="Violet" required>
+                                                        name ="color" value="2" @if($wareHouse->color == 2) checked @endif  required>
                                                         <label class="custom-control-label" for="Violet">Violet</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Green"
-                                                            name="radio-memory" value="Green" required>
+                                                        name ="color" value="3" @if($wareHouse->color == 3) checked @endif  required>
                                                         <label class="custom-control-label" for="Green">Green</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Black"
-                                                            name="radio-memory" value="Black" required>
+                                                        name ="color" value="4" @if($wareHouse->color == 4) checked @endif  required>
                                                         <label class="custom-control-label" for="Black">Black</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="White"
-                                                            name="radio-memory" value="White" required>
+                                                        name ="color" value="5" @if($wareHouse->color == 5) checked @endif  required>
                                                         <label class="custom-control-label" for="White">White</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="Other"
-                                                            name="radio-memory" value="Other" required>
+                                                        name ="color" value="6" @if($wareHouse->color == 6) checked @endif  required>
                                                         <label class="custom-control-label" for="Other">Other</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="custom-control custom-radio mb-3">
+                                                        <input type="radio" class="custom-control-input" id="Patific"
+                                                        name ="color" value="7" @if($wareHouse->color == 7) checked @endif  required>
+                                                        <label class="custom-control-label" for="Patific">Patific</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,42 +127,42 @@
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input" id="16GB"
-                                                            name="radio-memory" value="16GB" required>
+                                                        name = "memory" value="0" required @if($wareHouse->memory == 0) checked @endif>
                                                         <label class="custom-control-label" for="16GB">16GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="32GB"
-                                                            name="radio-memory" value="32GB" required>
+                                                        name = "memory" value="1" required @if($wareHouse->memory == 1) checked @endif>
                                                         <label class="custom-control-label" for="32GB">32GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="64GB"
-                                                            name="radio-memory" value="64GB" required>
+                                                        name = "memory" value="2" required @if($wareHouse->memory == 2) checked @endif>
                                                         <label class="custom-control-label" for="64GB">64GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="128GB"
-                                                            name="radio-memory" value="128GB" required>
+                                                        name = "memory" value="3" required @if($wareHouse->memory == 3) checked @endif>
                                                         <label class="custom-control-label" for="128GB">128GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="256GB"
-                                                            name="radio-memory" value="256GB" required>
+                                                        name = "memory" value="4" required @if($wareHouse->memory == 4) checked @endif>
                                                         <label class="custom-control-label" for="256GB">256GB</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="custom-control custom-radio mb-3">
                                                         <input type="radio" class="custom-control-input" id="512Gb"
-                                                            name="radio-memory" value="512Gb" required>
+                                                        name = "memory" value="5" required @if($wareHouse->memory == 5) checked @endif>
                                                         <label class="custom-control-label" for="512Gb">512Gb</label>
                                                     </div>
                                                 </div>

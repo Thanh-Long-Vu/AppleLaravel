@@ -31,7 +31,6 @@
                                                 <th>Product Types</th>
                                                 <th>Warranty</th>
                                                 <th>Price</th>
-                                                <th>is_Hot</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -79,12 +78,6 @@
                                                 <td>{{$dataitem->producttype->name}}</td>
                                                 <td>{{$dataitem->warehouse->warranty}} %</td>
                                                 <td>{{$dataitem->price}}.VNĐ</td>
-                                                <td>
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" name="active" class="custom-control-input" {{ $dataitem->is_hot == 1 ? 'checked' : '' }}>
-                                                        <label class="custom-control-label" for="customCheck1"></label>
-                                                    </div>  
-                                                </td>
                                                 <td>
                                                     <a href="{{route('restoreProduct',['id' => $dataitem->id_product])}}" class="btn mb-2 btn-outline-warning">Restore</a>
                                                 </td>

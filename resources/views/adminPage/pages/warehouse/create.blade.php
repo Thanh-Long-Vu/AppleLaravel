@@ -58,29 +58,6 @@
                                                 <input type="text" class="form-control" name = "price" id="price" value="{{old('price')}}" required>
                                                     <div class="valid-feedback"> Looks good! </div>
                                                 </div>
-                                            <div class="form-group col-md-3 mb-3">
-                                                <label for="validateCategory">Category</label>
-                                                <select class="custom-select" id="validateCategory" required>
-                                                    <option selected disabled value="">Select Category</option>
-                                                    @if($category)
-                                                        @foreach($category as $categoryitem)
-                                                            <option value="{{$categoryitem->id_category}}" required>{{$categoryitem->name}}</option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                                <div class="invalid-feedback"> Please select a valid Category. </div>
-                                            </div>
-                                            <div class="form-group col-md-3 mb-3">
-                                                <label for="validateProductType">Product Types</label>
-                                                <select class="custom-select" id="validateProductType" required>
-                                                    <option disabled selected value required>Select Product Types</option>
-                                                    @if($productType)
-                                                        @foreach($productType as $productTypeitem)
-                                                            <option value="{{$productTypeitem->id_producttype}}" >{{$productTypeitem->name}}</option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <p class="mb-2">Color</p>

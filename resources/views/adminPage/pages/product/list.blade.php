@@ -23,7 +23,6 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    <a href="{{ route('createProduct') }}"class="btn btn-primary float-right ml-3">Create Product</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -44,51 +43,51 @@
                                         <tbody>
                                             @foreach ($data as $dataitem)
                                             <tr>
-                                                <td>{{$dataitem->id_product}}</td>
-                                                <td><img src="{{asset($dataitem->thumbnail)}}" width="50%" alt=""></td>
-                                                <td>
-                                                    @if($dataitem->color == 0)
+                                                <td class = "text-center">{{$dataitem->id_product}}</td>
+                                                <td class = "text-center"><img src="{{asset($dataitem->thumbnail)}}" width="50%" alt=""></td>
+                                                <td class = "text-center">
+                                                    @if($dataitem->warehouse->color == 0)
                                                     Red
-                                                    @elseif($dataitem->color == 1)
+                                                    @elseif($dataitem->warehouse->color == 1)
                                                     Yellow
-                                                    @elseif($dataitem->color == 2)
+                                                    @elseif($dataitem->warehouse->color == 2)
                                                     Violet
-                                                    @elseif($dataitem->color == 3)
+                                                    @elseif($dataitem->warehouse->color == 3)
                                                     Violet
-                                                    @elseif($dataitem->color == 4)
+                                                    @elseif($dataitem->warehouse->color == 4)
                                                     Black
-                                                    @elseif($dataitem->color == 5)
+                                                    @elseif($dataitem->warehouse->color == 5)
                                                     White
-                                                    @elseif($dataitem->color == 6)
+                                                    @elseif($dataitem->warehouse->color == 6)
                                                     Other
-                                                    @elseif($dataitem->color == 7)
+                                                    @elseif($dataitem->warehouse->color == 7)
                                                     Patific
                                                     @endif
                                                 </td>
-                                                <td>
-                                                    @if($dataitem->memory == 0)
+                                                <td class = "text-center">
+                                                    @if($dataitem->warehouse->memory == 0)
                                                     16GB
-                                                    @elseif($dataitem->memory == 1)
+                                                    @elseif($dataitem->warehouse->memory == 1)
                                                     32GB
-                                                    @elseif($dataitem->memory == 2)
+                                                    @elseif($dataitem->warehouse->memory == 2)
                                                     64GB
-                                                    @elseif($dataitem->memory == 3)
+                                                    @elseif($dataitem->warehouse->memory == 3)
                                                     128GB
-                                                    @elseif($dataitem->memory == 4)
+                                                    @elseif($dataitem->warehouse->memory == 4)
                                                     256GB
-                                                    @elseif($dataitem->memory == 5)
+                                                    @elseif($dataitem->warehouse->memory == 5)
                                                     512Gb
                                                     @endif
                                                 </td>
-                                                <td>{{$dataitem->quantity}} Month</td>
-                                                <td>{{$dataitem->discount}} . %</td>
-                                                <td>{{$dataitem->producttype->name}}</td>
-                                                <td>{{$dataitem->warehouse->warranty}} %</td>
-                                                <td>{{$dataitem->price}}.VNĐ</td>
-                                                <td>
+                                                <td class = "text-center">{{$dataitem->warehouse->quantity}}</td>
+                                                <td class = "text-center">{{$dataitem->discount}}  %</td>
+                                                <td class = "text-center">{{$dataitem->producttype->name}}</td>
+                                                <td class = "text-center">{{$dataitem->warehouse->warranty}}.Month</td>
+                                                <td class = "text-center">{{$dataitem->price}}.VNĐ</td>
+                                                <td class = "text-center">
                                                     <input type="checkbox" data-id="{{ $dataitem->id_product }}" name="is_hot" class="js-switch" {{ $dataitem->is_hot == 1 ? 'checked' : '' }}>
                                                 </td>
-                                                <td>
+                                                <td class = "text-center">
                                                     <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <span class="text-muted sr-only">Action</span>

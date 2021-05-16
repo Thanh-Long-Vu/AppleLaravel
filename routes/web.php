@@ -56,11 +56,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/warehouse/restorehistorydelete/{id}', [WareHouseController::class,'restore'])->name('restoreWareHouse');
     //Product
     Route::get('/product', [ProductController::class,'index'])->name('product.index');
-    Route::get('/product/create', [ProductController::class,'create'])->name('createProduct');
-    Route::post('/product/create', [ProductController::class,'store'])->name('storeProduct');
+    Route::get('/product/create/{id}', [ProductController::class,'create'])->name('createProduct');
+    Route::post('/product/create/{id}', [ProductController::class,'store'])->name('storeProduct');
     Route::get('/product/edit/{id}', [ProductController::class,'edit'])->name('editProduct');
     Route::post('/product/edit/{id}', [ProductController::class,'update'])->name('updateProduct');
-    Route::post('/product/edit/{id}', [ProductController::class,'updateWareHouse'])->name('updateWareHouse');
     Route::get('/product/status/update', [ProductController::class,'updateStatus'])->name('updateStatusProduct');
     Route::get('/product/delete/{id}', [ProductController::class,'delete'])->name('softDeleteProduct');
     Route::get('/product/historydelete', [ProductController::class,'history'])->name('historyProduct');
