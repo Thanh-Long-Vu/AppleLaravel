@@ -23,30 +23,32 @@
                 <!-- Content -->
                 <div class="js-scrollbar u-sidebar__body">
                     <div class="u-sidebar__content u-header-sidebar__content">
-                        <form class="js-validate" action="{{ route('login') }}">
-                            <!-- Login -->
+                        <!-- Login -->
+                        <form class="js-validate">
+                            @csrf
                             <div id="login" data-target-group="idForm">
                                 <!-- Title -->
-                                <header class="text-center mb-7">
+                                <header class="text-center mb-5">
                                     <h2 class="h4 mb-0">Welcome Back!</h2>
-                                    <p>Login to manage your account.</p>
+                                    <p class="mb-2">Login to manage your account.</p>
+                                    <div id="signIn-error" class="invalid-feedback d-inline-block"></div>
                                 </header>
                                 <!-- End Title -->
 
                                 <!-- Form Group -->
                                 <div class="form-group">
                                     <div class="js-form-message js-focus-state">
-                                        <label class="sr-only" for="signinEmail">Email</label>
+                                        <label class="sr-only" for="signInEmail">Email</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="signinEmailLabel">
-                                                    <span class="fas fa-user"></span>
-                                                </span>
+                                            <span class="input-group-text" id="signInEmailLabel">
+                                                <span class="fas fa-user"></span>
+                                            </span>
                                             </div>
-                                            <input type="email" class="form-control" name="email" id="signinEmail" placeholder="Email" aria-label="Email" aria-describedby="signinEmailLabel" required
-                                               data-msg="Please enter a valid email address."
-                                               data-error-class="u-has-error"
-                                               data-success-class="u-has-success"
+                                            <input type="email" class="form-control" name="email" id="signInEmail" placeholder="Email" aria-label="Email" aria-describedby="signInEmailLabel" required
+                                                   data-msg="Please enter a valid email address."
+                                                   data-error-class="u-has-error"
+                                                   data-success-class="u-has-success"
                                             >
                                         </div>
                                     </div>
@@ -56,17 +58,17 @@
                                 <!-- Form Group -->
                                 <div class="form-group">
                                     <div class="js-form-message js-focus-state">
-                                        <label class="sr-only" for="signinPassword">Password</label>
+                                        <label class="sr-only" for="signInPassword">Password</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text" id="signinPasswordLabel">
-                                                    <span class="fas fa-lock"></span>
-                                                </span>
+                                            <span class="input-group-text" id="signInPasswordLabel">
+                                                <span class="fas fa-lock"></span>
+                                            </span>
                                             </div>
-                                            <input type="password" class="form-control" name="password" id="signinPassword" placeholder="Password" aria-label="Password" aria-describedby="signinPasswordLabel" required
-                                               data-msg="Your password is invalid. Please try again."
-                                               data-error-class="u-has-error"
-                                               data-success-class="u-has-success"
+                                            <input type="password" class="form-control" name="password" id="signInPassword" placeholder="Password" aria-label="Password" aria-describedby="signinPasswordLabel" required
+                                                   data-msg="Your password is invalid. Please try again."
+                                                   data-error-class="u-has-error"
+                                                   data-success-class="u-has-success"
                                             >
                                         </div>
                                     </div>
@@ -81,7 +83,7 @@
                                 </div>
 
                                 <div class="mb-2">
-                                    <button type="submit" class="btn btn-block btn-sm btn-primary transition-3d-hover">Login</button>
+                                    <button type="submit" id="submitLogin" class="btn btn-block btn-sm btn-primary transition-3d-hover">Login</button>
                                 </div>
 
                                 <div class="text-center mb-4">
@@ -110,6 +112,8 @@
                                 </div>
                                 <!-- End Login Buttons -->
                             </div>
+                        </form>
+                        <!--End login-->
 
                             <!-- Signup -->
                             <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
@@ -251,7 +255,6 @@
                                 </div>
                             </div>
                             <!-- End Forgot Password -->
-                        </form>
                     </div>
                 </div>
                 <!-- End Content -->

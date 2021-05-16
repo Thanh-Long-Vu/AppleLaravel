@@ -13,7 +13,7 @@ class UpdateTableOrder extends Migration
      */
     public function up()
     {
-        Schema::table('Order', function (Blueprint $table) {
+        Schema::table('order', function (Blueprint $table) {
             $table->dropColumn('address');
         });
     }
@@ -25,7 +25,7 @@ class UpdateTableOrder extends Migration
      */
     public function down()
     {
-        Schema::table('Order', function (Blueprint $table) {
+        Schema::table('order', function (Blueprint $table) {
             $table->string('address')->nullable();
         });
     }
