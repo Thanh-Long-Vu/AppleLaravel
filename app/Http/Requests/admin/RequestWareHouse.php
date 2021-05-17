@@ -24,13 +24,22 @@ class RequestWareHouse extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'data' => 'required',
+            'name' => ['required', 'string','10'],
             'imei' => 'required',
             'color' => 'required',
             'memory' => 'required',
             'price' => 'required',
             'quantity' => 'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required'=>'Trường name là bắt buộc',
+            'imei.required'=>'Trường name là bắt buộc',
+            'color.required'=>'Trường name là bắt buộc',
+            'memory.required'=>'Trường name là bắt buộc',
+            'name.required'=>'Trường name là bắt buộc',
         ];
     }
 }

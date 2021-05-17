@@ -2,13 +2,13 @@
 
 @section('title', 'Home')
     @yield('scriptHeader')
-    <link rel="stylesheet" href="admin/css/feather.css">
-    <link rel="stylesheet" href="admin/css/select2.css">
-    <link rel="stylesheet" href="admin/css/dropzone.css">
-    <link rel="stylesheet" href="admin/css/uppy.min.css">
-    <link rel="stylesheet" href="admin/css/jquery.steps.css">
-    <link rel="stylesheet" href="admin/css/jquery.timepicker.css">
-    <link rel="stylesheet" href="admin/css/quill.snow.css">
+    <link rel="stylesheet" href="css/feather.css">
+    <link rel="stylesheet" href="css/select2.css">
+    <link rel="stylesheet" href="css/dropzone.css">
+    <link rel="stylesheet" href="css/uppy.min.css">
+    <link rel="stylesheet" href="css/jquery.steps.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/quill.snow.css">
 @section('content')
     <main role="main" class="main-content">
         <div class="container-fluid">
