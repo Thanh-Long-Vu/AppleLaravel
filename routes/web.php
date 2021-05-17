@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+//Auth::routes();
 //Authentication
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
@@ -40,7 +40,7 @@ Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name(
 Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
     Route::get('/home', [HomeController::class,'index'])->name('home.index');
     Route::get('/warehouse', [WareHouseController::class,'index'])->name('warehouse.index');
