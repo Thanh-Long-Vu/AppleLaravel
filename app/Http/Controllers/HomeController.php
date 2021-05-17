@@ -37,6 +37,6 @@ class HomeController extends Controller
         return view('userPage.pages.blog');
     }
     public function Blogdetail(){
-        return view('userPage.pages.blog');
+        return view('userPage.pages.blog-detail');
     }
 }
