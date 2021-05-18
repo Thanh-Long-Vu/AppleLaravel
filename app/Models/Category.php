@@ -20,13 +20,8 @@ class Category extends Model
         'title',
     ];
 
-    public function productype()
+    public function productTypes()
     {
         return $this->hasMany('App\Models\ProductType','category_id','id_category');
-    }
-
-    public function products()
-    {
-        return $this->hasMany(Product::class,'category_id');
     }
 }

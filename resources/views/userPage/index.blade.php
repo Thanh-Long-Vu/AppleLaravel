@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <base href="{{ asset('/user_page/assets') }}">
+    <base href="{{ asset('public/user_page/assets') }}">
     <title>@yield('title')</title>
 
     <!-- Favicon -->

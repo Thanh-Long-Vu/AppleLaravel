@@ -23,7 +23,6 @@ class CreateProductsTable extends Migration
             $table->integer('IMEI');
             $table->tinyInteger('active')->default(0);
             $table->integer('quantity');
-            $table->integer('category_id');
             $table->integer('discount')->nullable();
             $table->tinyInteger('is_hot')->default(0);
             $table->tinyInteger('active_quantity');

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,7 @@ class ProductTypeTableSeeder extends Seeder
                     'data' => $faker->text,
                     'active' => rand(0,1),
                     'thumbnail' => "assets/img/246X176/img2.jpg",
+                    'category_id' => Category::all()->random(1)->first()->id_category,
                 ]
             ]);
         }

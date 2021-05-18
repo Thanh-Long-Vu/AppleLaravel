@@ -25,7 +25,7 @@ class ProductType extends Model
         'data' => 'array'
     ];
 
-    function product()
+    function products()
     {
         return $this->hasMany('App\Models\Product','product_type_id','id_product_type');
     }
