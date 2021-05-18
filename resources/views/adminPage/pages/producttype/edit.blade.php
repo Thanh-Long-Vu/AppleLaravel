@@ -34,10 +34,20 @@
                                                 <label for="name">Name product type</label>
                                                 <input type="text" class="form-control" id="name" name="name" value="{{$productType->name}}" required >
                                             </div>
+                                            @if ($errors->has('name'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
+                                                    </div>
+                                            @endif
                                             <div class="col-md-6 mb-3">
                                                 <label for="Description">Description</label>
                                                 <input type="text" class="form-control" id="Description" name ="description" value="{{$productType->description}}" 
                                                     required>
+                                                    @if ($errors->has('description'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('description') }} 
+                                                    </div>
+                                                    @endif
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
@@ -45,6 +55,11 @@
                                                 <label for="warranty">Warranty</label>
                                                 <input type="text" class="form-control" id="warranty" name="warranty" value="{{$productType->warranty}}"
                                                     required >
+                                                    @if ($errors->has('warranty'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('warranty') }} 
+                                                    </div>
+                                                    @endif
                                             </div>
                                             <div class="form-group col-md-6 mb-6">
                                                 <label for="custom-select">Category</label>
@@ -62,6 +77,11 @@
                                             <div class="form-group col-md-6 mb-3">
                                                 <label for="example-fileinput">Add Thumbnail ProductType</label>
                                                 <input type="file" id="example-fileinput" name="image" class="form-control-file">
+                                                @if ($errors->has('image'))
+                                                <div class="alert alert-danger">
+                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 
+                                                </div>
+                                                @endif
                                             </div>
                                             <div class="form-group col-md-6 mb-3">
                                                 @if(isset($productType->thumbnail) && $productType->thumbnail != '')

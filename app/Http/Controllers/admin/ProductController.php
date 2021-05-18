@@ -9,6 +9,7 @@ use App\Models\ProductType;
 use App\Models\Warehouse;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -25,6 +26,19 @@ class ProductController extends Controller
     }
     public function store(Request $request,$id)
     {
+        $validatedData = Validator::make($request->all(),[
+            'price_sell' => 'required|integer|min:89000',
+            'discount' => 'required|integer|min:0',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ], [
+            'price_sell.required' => 'Price Sell is required',
+            'discount.required' => 'Description is required',
+            'image.required' => 'Image is required',
+            'image.image' => 'Type file not true'
+        ]);
+        if($validatedData->fails()){
+            return back()->withErrors($validatedData);
+        }
         $image = $request->file('image');
         $image_size = $image->getSize();
         $image_ext = $image->getClientOriginalExtension();
@@ -40,7 +54,7 @@ class ProductController extends Controller
         $product->is_hot = 0;
         $product->product_type_id = $request->id_product_type;
         $product->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Product update successfully.');
     }
     public function edit($id)
     {
@@ -52,6 +66,18 @@ class ProductController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $validatedData = Validator::make($request->all(),[
+            'price' => 'required|integer|min:89000',
+            'discount' => 'required|integer|min:0',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg'
+        ], [
+            'price.required' => 'Price is required',
+            'discount.required' => 'Description is required',
+            'image.image' => 'Type file not true'
+        ]);
+        if($validatedData->fails()){
+            return back()->withErrors($validatedData);
+        }
         //Update Table Product
         $product = Product::find($id);
         if($product->thumbnail != "" && !isset($request->image)){
@@ -69,8 +95,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->discount = $request->discount;
         $product->save();
-        // dd($product);
-        return redirect()->back();
+        return redirect('admin/product')->with('success', 'Product update successfully.');
     }
     
     public function updateStatus(Request $request)

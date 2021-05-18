@@ -23,6 +23,14 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -44,7 +52,7 @@
                                             @foreach ($data as $dataitem)
                                             <tr>
                                                 <td class = "text-center">{{$dataitem->id_product}}</td>
-                                                <td class = "text-center"><img src="{{asset($dataitem->thumbnail)}}" width="50%" alt=""></td>
+                                                <td class = "text-center"><img src="{{asset($dataitem->thumbnail)}}" class="w-25 h-auto" alt=""></td>
                                                 <td class = "text-center">
                                                     @if($dataitem->warehouse->color == 0)
                                                     Red

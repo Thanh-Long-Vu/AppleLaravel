@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -19,6 +20,22 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
+        $validatedData = Validator::make($request->all(),[
+            'name' => 'required',
+            'description' => 'required|string',
+            'title' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ], [
+            'name.required' => 'Name Category is required',
+            'description.required' => 'Description is required',
+            'title.required' => 'Title is required',
+            'price.required' => 'Price is required',
+            'image.required' => 'Image is required',
+            'image.image' => 'Type file not true'
+        ]);
+        if($validatedData->fails()){
+            return redirect()->back()->withErrors($validatedData);
+        }
         $image = $request->file('image');
         $image_size = $image->getSize();
         $image_ext = $image->getClientOriginalExtension();
@@ -33,14 +50,28 @@ class CategoryController extends Controller
         $category->title = $request->title;
         $category->active = 1;
         $category->save();
-        return redirect()->back();
+        return back()->with('success', 'Category Update successfully.');
     }
     public function edit($id){
         $category = Category::find($id); 
-        // dd($category->thumbnail);
         return view('adminPage.pages.category.edit',compact('category'));
     }
     public function update(Request $request,$id){
+        $validatedData = Validator::make($request->all(),[
+            'name' => 'required',
+            'description' => 'required|string',
+            'title' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg'
+        ], [
+            'name.required' => 'Name Category is required',
+            'description.required' => 'Description is required',
+            'title.required' => 'Title is required',
+            'price.required' => 'Price is required',
+            'image.image' => 'Type file not true'
+        ]);
+        if($validatedData->fails()){
+            return redirect()->back()->withErrors($validatedData);
+        }
         $category = Category::find($id);
         $category->name = $request->name;
         $category->description = $request->description;
@@ -57,7 +88,7 @@ class CategoryController extends Controller
             $category->thumbnail = $new_image_name;
         }
         $category->save();
-        return redirect()->back();
+        return redirect('admin/category')->with('success', 'Category Update successfully.');
     }
     public function updateStatus(Request $request)
     {
