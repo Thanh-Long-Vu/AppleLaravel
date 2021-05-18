@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\ProductType;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -26,9 +27,8 @@ class ProductTableSeeder extends Seeder
                     'is_hot' => rand(0,1),
                     'active' => rand(0,1),
                     'active_quantity' => rand(0,1),
-                    'category_id' => Category::all()->random(1)->first()->id_category,
+                    'product_type_id' => ProductType::all()->random(1)->first()->id_product_type ,
                     'thumbnail' => "assets/img/246X176/img2.jpg",
-                    'product_type_id' => rand(0,1),
                     'warehouse_id' => rand(1,50),
                 ]
             ]);

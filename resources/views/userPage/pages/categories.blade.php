@@ -64,189 +64,39 @@
                                     &quot;slidesToShow&quot;: 2
                                   }
                                 }]">
-                        <div class="js-prev d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-left u-slick__arrow-inner--left left-n16 slick-arrow slick-disabled"
-                            aria-disabled="true" style=""></div>
-                        <div class="slick-list draggable">
-                            <div class="slick-track"
-                                style="opacity: 1; width: 1680px; transform: translate3d(0px, 0px, 0px);">
-                                <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
-                                    aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
-                                    id="slick-slide10" aria-describedby="slick-slide-control10">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-laptop font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Accessories</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="1" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide11"
-                                    aria-describedby="slick-slide-control11">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-smartwatch font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Smart Watch</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="2" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide12"
-                                    aria-describedby="slick-slide-control12">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-gamepad font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Game Joy stick</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="3" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide13"
-                                    aria-describedby="slick-slide-control13">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-headphones font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Headphones</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="4" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide14"
-                                    aria-describedby="slick-slide-control14">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-tvs font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                LED TV</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="5" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide15"
-                                    aria-describedby="slick-slide-control15">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-drone font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Drone</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="6" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide16"
-                                    aria-describedby="slick-slide-control16">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-cameras font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                DSLR Camera</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="7" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide17"
-                                    aria-describedby="slick-slide-control17">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-speaker font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Audio Speakers</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="8" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide18"
-                                    aria-describedby="slick-slide-control18">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-smartphones font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Smartphones</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide slick-active" data-slick-index="9" aria-hidden="false"
-                                    style="width: 140px; height: auto;" tabindex="0" role="tabpanel" id="slick-slide19"
-                                    aria-describedby="slick-slide-control19">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-laptop font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Accessories</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide" data-slick-index="10" aria-hidden="true"
-                                    style="width: 140px; height: auto;" tabindex="-1" role="tabpanel" id="slick-slide110"
-                                    aria-describedby="slick-slide-control110">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="-1">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-cameras font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                DSLR Camera</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="js-slide slick-slide" data-slick-index="11" aria-hidden="true"
-                                    style="width: 140px; height: auto;" tabindex="-1" role="tabpanel" id="slick-slide111"
-                                    aria-describedby="slick-slide-control111">
-                                    <a href="../shop/product-categories-7-column-full-width.html"
-                                        class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="-1">
-                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <i class="ec ec-gamepad font-size-40"></i>
-                                        </div>
-                                        <div class="bg-white px-2 pt-2 width-122">
-                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                Game Joy stick</h6>
-                                        </div>
-                                    </a>
+                                @if(!is_null($productTypes))
+                            <div class="js-prev d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-left u-slick__arrow-inner--left left-n16 slick-arrow slick-disabled"
+                                aria-disabled="true" style=""></div>
+                            <div class="slick-list draggable">
+                                <div class="slick-track"
+                                    style="opacity: 1; width: 1680px; transform: translate3d(0px, 0px, 0px);">
+                                    @foreach ($productTypes as $productType)
+                                    <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
+                                        aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
+                                        id="slick-slide10" aria-describedby="slick-slide-control10">
+                                        <a href="../shop/product-categories-7-column-full-width.html"
+                                            class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
+                                            <div class="bg pt-4 rounded-circle-top width-122 height-75">
+                                                <i class="ec ec-laptop font-size-40"></i>
+                                            </div>
+                                            <div class="bg-white px-2 pt-2 width-122">
+                                                <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
+                                                    Accessories</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                        </div>
-                        <div class="js-next d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-right u-slick__arrow-inner--right right-n20 slick-arrow"
-                            style="" aria-disabled="false"></div>
-                        <ul class="js-pagination d-xl-none text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
-                            style="display: block;" role="tablist">
-                            <li class="slick-active slick-current" role="presentation"><span></span></li>
-                            <li role="presentation"><span></span></li>
-                            <li role="presentation"><span></span></li>
-                        </ul>
+                            <div class="js-next d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-right u-slick__arrow-inner--right right-n20 slick-arrow"
+                                style="" aria-disabled="false"></div>
+                            <ul class="js-pagination d-xl-none text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
+                                style="display: block;" role="tablist">
+                                <li class="slick-active slick-current" role="presentation"><span></span></li>
+                                <li role="presentation"><span></span></li>
+                                <li role="presentation"><span></span></li>
+                            </ul>
+                         @endif
                     </div>
                 </div>
             </div>
@@ -644,20 +494,20 @@
                         <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel"
                             aria-labelledby="pills-one-example1-tab" data-target-group="groups">
                             <ul class="row list-unstyled products-group no-gutters">
-                                @if(!empty($products))
-                                @foreach ( $products as $product)
+                                @if(!empty($productTypes->first()->products))
+                                @foreach ( $productTypes->first()->products as $product)
                                     <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner px-xl-4 p-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a
-                                                            href="../shop/product-categories-7-column-full-width.html"
+                                                            href="{{ route('products.show', ['product' => $product->id_product ]) }}"
                                                             class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title"><a
-                                                            href="../shop/single-product-fullwidth.html"
+                                                            href="{{ route('products.show', ['product' => $product->id_product ]) }}"
                                                             class="text-blue font-weight-bold">{{  $product->name }}</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html"
+                                                        <a href="{{ route('products.show', ['product' => $product->id_product ]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
                                                                 src="{{ $product->thumbnail }}" alt="Image Description"></a>
                                                     </div>
@@ -666,7 +516,7 @@
                                                             <div class="text-gray-100">$ {{  $product->price }}</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route('products.show', ['product' => $product->id_product ]) }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
