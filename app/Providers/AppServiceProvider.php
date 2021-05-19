@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('userPage/layouts/menu', function ($view) {
-            $categories = Category::limit(5)->get();
+            $categories = Category::limit(6)->get();
             $view->with(['categories' => $categories]);
         });
     }
