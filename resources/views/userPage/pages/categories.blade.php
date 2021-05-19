@@ -64,30 +64,31 @@
                                     &quot;slidesToShow&quot;: 2
                                   }
                                 }]">
-                                @if(!is_null($productTypes))
+                            @if(!$productTypes->isEmpty())
+                            
                             <div class="js-prev d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-left u-slick__arrow-inner--left left-n16 slick-arrow slick-disabled"
                                 aria-disabled="true" style=""></div>
-                            <div class="slick-list draggable">
-                                <div class="slick-track"
-                                    style="opacity: 1; width: 1680px; transform: translate3d(0px, 0px, 0px);">
-                                    @foreach ($productTypes as $productType)
-                                    <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
-                                        aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
-                                        id="slick-slide10" aria-describedby="slick-slide-control10">
-                                        <a href="../shop/product-categories-7-column-full-width.html"
-                                            class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                            <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                                <i class="ec ec-laptop font-size-40"></i>
-                                            </div>
-                                            <div class="bg-white px-2 pt-2 width-122">
-                                                <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                    Accessories</h6>
-                                            </div>
-                                        </a>
+                                <div class="slick-list draggable">
+                                    <div class="slick-track"
+                                        style="opacity: 1; width: 1680px; transform: translate3d(0px, 0px, 0px);">
+                                        @foreach ($productTypes as $productType)
+                                        <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
+                                            aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
+                                            id="slick-slide10" aria-describedby="slick-slide-control10">
+                                            <a href="../shop/product-categories-7-column-full-width.html"
+                                                class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
+                                                <div class="bg pt-4 rounded-circle-top width-122 height-75">
+                                                    <i class="ec ec-laptop font-size-40"></i>
+                                                </div>
+                                                <div class="bg-white px-2 pt-2 width-122">
+                                                    <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
+                                                        {{ $productType->name }}</h6>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
                                 </div>
-                            </div>
                             <div class="js-next d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-right u-slick__arrow-inner--right right-n20 slick-arrow"
                                 style="" aria-disabled="false"></div>
                             <ul class="js-pagination d-xl-none text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"

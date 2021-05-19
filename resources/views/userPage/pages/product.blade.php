@@ -947,6 +947,7 @@
 
     <!-- JS Plugins Init. -->
     <script>
+
         $(window).on('load', function () {
             // initialization of HSMegaMenu component
             $('.js-mega-menu').HSMegaMenu({
@@ -1051,5 +1052,9 @@
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
+
+        // add to cart
+
+        
     </script>
 @endsection
