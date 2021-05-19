@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class wareHouseController extends Controller
 {
@@ -29,6 +30,25 @@ class wareHouseController extends Controller
         return view('adminPage.pages.warehouse.edit',compact('wareHouse'));
     }
     public function update(Request $request, $id){
+        $validatedData = Validator::make($request->all(),[
+            'name' => 'required',
+            'quantity' => 'required|integer|min:1',
+            'IMEI' => 'required|string',
+            'price' => 'required|integer|min:59000',
+            'warranty' => 'required|integer|min:1'
+        ], [
+            'name.required' => 'Name is required',
+            'quantity.required' => 'Quantity is required',
+            'IMEI.required' => 'IMEI is required',
+            'price.required' => 'Price is required',
+            'warranty.required' => 'warranty is required',
+            'quantity.min' => 'Min is 1',
+            'price.min' => 'Min is 59000',
+            'warranty.min' => 'Min is 1'
+        ]);
+        if($validatedData->fails()){
+            return redirect()->back()->withErrors($validatedData);
+        }
         $wareHouse = Warehouse::find($id);
         $wareHouse->name = $request->name;
         $wareHouse->warranty = $request->warranty;
@@ -38,10 +58,29 @@ class wareHouseController extends Controller
         $wareHouse->memory = $request->memory;
         $wareHouse->quantity = $request->quantity;
         $wareHouse->save();
-        // dd($wareHouse);
-        return redirect()->back()->with(['notify'=>'success','massage'=>'Update Successfully']);
+        return redirect('admin/warehouse')->with('success', 'WareHouse Update successfully.');
     }
     public function postcreate(Request $request){
+        
+        $validatedData = Validator::make($request->all(),[
+            'name' => 'required',
+            'quantity' => 'required|integer|min:1',
+            'IMEI' => 'required|string',
+            'price' => 'required|integer|min:59000',
+            'warranty' => 'required|integer|min:1'
+        ], [
+            'name.required' => 'Name is required',
+            'quantity.required' => 'Quantity is required',
+            'IMEI.required' => 'IMEI is required',
+            'price.required' => 'Price is required',
+            'warranty.required' => 'warranty is required',
+            'quantity.min' => 'Min is 1',
+            'price.min' => 'Min is 59000',
+            'warranty.min' => 'Min is 1'
+        ]);
+        if($validatedData->fails()){
+            return redirect()->back()->withErrors($validatedData);
+        }
         $wareHouse = new Warehouse();
         $wareHouse->name = $request->name;
         $wareHouse->warranty = $request->warranty;
@@ -53,7 +92,7 @@ class wareHouseController extends Controller
         $wareHouse->active = 0;
         $wareHouse->save();
 
-        return redirect()->back();
+        return back()->with('success', 'WareHouse Create successfully.');
     }
     public function updateStatus(Request $request)
     {

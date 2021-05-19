@@ -22,6 +22,14 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <form class="needs-validation" novalidate action="{{ route('home.postcreatecategory') }}" method="POST" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="form-row">
@@ -29,12 +37,22 @@
                                                 <label for="name">Name Category</label>
                                                 <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" required >
                                                 <div class="invalid-feedback">Please choose </div>
+                                                @if ($errors->has('name'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="description">Description</label>
                                                 <input type="text" class="form-control" id="description" name="description" value="{{old('description')}}" 
                                                     required>
                                                 <div class="invalid-feedback">Please enter a description in the input</div>
+                                                @if ($errors->has('description'))
+                                                <div class="alert alert-danger">
+                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('description') }} 
+                                                </div>
+                                            @endif
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -42,12 +60,22 @@
                                                 <label for="customFile">Title</label>
                                                 <div class="custom-file">
                                                 <input type="text" class="form-control"  name="title" id="title" value="{{old('title')}}" placeholder="%" required>
-                                                </div>
+                                                @if ($errors->has('title'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('title') }} 
+                                                    </div>
+                                                @endif
+                                            </div>
                                             </div>
                                             <div class="form-group col-md-6" style="margin-top: 2.5%">
                                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                                 <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}" required>
                                                 <div class="invalid-feedback">Please choose image for Category</div>
+                                                @if ($errors->has('image'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div> 
                                         <input type="submit" value="Add Category" class="btn btn-primary ">

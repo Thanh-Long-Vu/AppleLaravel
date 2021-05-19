@@ -20,6 +20,14 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <a href="{{route('warehouse.create')}}" class="btn btn-primary float-right ml-3" type="button">Create Warehouse</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">

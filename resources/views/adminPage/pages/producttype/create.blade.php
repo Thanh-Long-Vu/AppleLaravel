@@ -22,6 +22,14 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <form class="needs-validation" novalidate action="{{ route('storeProductType') }}" method="POST" enctype="multipart/form-data">
                                         {{csrf_field() }}
                                         <div class="form-row">
@@ -29,12 +37,22 @@
                                                 <label for="name">Name product type</label>
                                                 <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}" required >
                                                 <div class="invalid-feedback">Please enter a name in the Name product type. </div>
+                                            @if ($errors->has('name'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
+                                                    </div>
+                                            @endif
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="Description">Description</label>
                                                 <input type="text" class="form-control" id="Description" name ="description" value="{{old('description')}}" 
                                                     required>
                                             <div class="invalid-feedback">Please enter a description </div>
+                                            @if ($errors->has('description'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('description') }} 
+                                                    </div>
+                                                    @endif
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
@@ -42,11 +60,21 @@
                                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                                 <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}" required>
                                                 <div class="invalid-feedback">Please choose image for Product Type</div>
+                                                @if ($errors->has('image'))
+                                                <div class="alert alert-danger">
+                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 
+                                                </div>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="warranty">Warranty</label>
                                                 <input type="text" class="form-control" id="warranty" name="warranty"
                                                     required >
+                                                    @if ($errors->has('warranty'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('warranty') }} 
+                                                    </div>
+                                                    @endif
                                                     <div class="invalid-feedback">Please enter a warranty for Product Type </div>
                                             </div>
                                         </div> <!-- /.form-row -->

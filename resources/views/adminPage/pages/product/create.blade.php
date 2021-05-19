@@ -22,6 +22,14 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
                                         {{csrf_field() }}
                                         <div class="form-row">
@@ -34,6 +42,11 @@
                                                 <div class="custom-File">
                                                     <input type="text" class="form-control" id="price_sell" name="price_sell" value="{{old('price_sell')}}" placeholder=".VNĐ" required>
                                                     <div class="invalid-feedback">Please enter Price sell</div>
+                                                    @if ($errors->has('price_sell'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('price_sell') }} 
+                                                    </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-3 mb-3">
@@ -55,6 +68,11 @@
                                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                                 <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}" required>
                                                 <div class="invalid-feedback">Please choose image for Product</div>
+                                                @if ($errors->has('image'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 
+                                                    </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
@@ -63,6 +81,11 @@
                                                     <input type="text" class="form-control" id="discount" name="discount" placeholder="%" value="{{old('discount')}}" required>
                                                     <div class="invalid-feedback">Please enter discount</div>
                                                 </div>
+                                                @if ($errors->has('discount'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('discount') }} 
+                                                    </div>
+                                                    @endif
                                             </div>
                                         </div>
                                         <button class="btn btn-primary" type="submit">Create Product</button>

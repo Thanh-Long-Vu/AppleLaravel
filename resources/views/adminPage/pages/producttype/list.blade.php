@@ -23,6 +23,14 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <a href="{{ route('createProductType') }}"class="btn btn-primary float-right ml-3">Create Product Type</a>
                                     <a href="{{ route('createImageProduct') }}"class="btn btn-primary float-right ml-3">Add Image</a>
                                     <!-- table -->
@@ -48,7 +56,7 @@
                                                     <td>{{ $itemproductType->id_product_type }}</td>
                                                     <td>{{ $itemproductType->name }}</td>
                                                     <td><img src="{{ asset($itemproductType->thumbnail) }}"
-                                                            alt="productType" width="50%"></td>
+                                                            alt="productType" class="w-25 h-auto"></td>
                                                     <td>{{ $itemproductType->description }}</td>
                                                     {{-- <td>{{$itemproductType->data}}</td> --}}
                                                     <td>{{ $itemproductType->total_number }}NbComment</td>

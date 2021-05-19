@@ -28,11 +28,21 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name Category</label>
                                                 <input type="text" class="form-control" id="name" name="name" value="{{$category->name}} " required >
+                                                @if ($errors->has('name'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="seri">Description</label>
                                                 <input type="text" class="form-control" id="description"  name="description" value="{{$category->description}}"
                                                     required>
+                                                    @if ($errors->has('description'))
+                                                        <div class="alert alert-danger">
+                                                            <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('description') }} 
+                                                        </div>
+                                                    @endif
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -41,13 +51,23 @@
                                                 <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="customFile" name="image" value="{{$category->thumbail}}">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
+                                                @if ($errors->has('image'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 
+                                                    </div>
+                                                @endif
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="customFile">Title</label>
                                                 <div class="custom-file">
                                                 <input type="text" class="form-control" id="title" name="title" value="{{$category->title}}" placeholder="%" required>
-                                                </div>
+                                                @if ($errors->has('title'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('title') }} 
+                                                    </div>
+                                                @endif
+                                            </div>
                                             </div>
                                         </div> 
                                         <button class="btn btn-primary " type="submit">Update Category</button>

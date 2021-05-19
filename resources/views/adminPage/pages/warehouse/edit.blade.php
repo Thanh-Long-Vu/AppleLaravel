@@ -31,12 +31,22 @@
                                                 <label for="name">Name product</label>
                                                 <input type="text" class="form-control" id="name" name="name" value="{{$wareHouse->name}}" required>
                                                 <div class="valid-feedback"> Looks good! </div>
+                                                @if ($errors->has('name'))
+                                                    <div class="alert alert-danger"></div>
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="IMEI">Number Seri</label>
                                                 <input type="text" class="form-control" id="IMEI" name="IMEI" value="{{$wareHouse->IMEI}}"
                                                     required>
                                                 <div class="valid-feedback"> Looks good! </div>
+                                                @if ($errors->has('IMEI'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('IMEI') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
@@ -44,20 +54,35 @@
                                                 <label for="warranty">Warranty</label>
                                                 <input type="text" class="form-control" id="warranty" name="warranty" value="{{$wareHouse->warranty}}"
                                                     required>
-                                                {{-- value="Full Box, New Box, Brand New, 99%, < 99% " required> --}}
                                                 <div class="valid-feedback"> Looks good! </div>
+                                                @if ($errors->has('warranty'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('warranty') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="quantity">Quantity</label>
                                                 <input type="text" class="form-control" id="quantity" name = "quantity" value="{{$wareHouse->quantity}}"
                                                     required>
                                                 <div class="valid-feedback"> Looks good! </div>
+                                                @if ($errors->has('quantity'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('quantity') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="price">Price after</label>
                                                 <input type="text" class="form-control" name="price" id="price" value="{{$wareHouse->price}}">
+                                                <div class="valid-feedback"> Looks good! </div>
+                                                @if ($errors->has('price'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('price') }} 
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="form-group">

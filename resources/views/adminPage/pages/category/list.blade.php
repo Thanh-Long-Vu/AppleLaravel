@@ -1,12 +1,12 @@
 @extends('adminPage.index')
 @section('scriptHeader')
-<link rel="stylesheet" href="admin/css/feather.css">
-<link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
-<script src="admin/js/jquery-ajax.min.js"></script>
-<link rel="stylesheet" href="admin/css/switchery.min.css">
-<script src="admin/js/switchery.min.js"></script>
-<link rel="stylesheet" href="admin/css/toastr.min.css">
-<script src="admin/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="admin/css/feather.css">
+    <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
+    <script src="admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="admin/css/switchery.min.css">
+    <script src="admin/js/switchery.min.js"></script>
+    <link rel="stylesheet" href="admin/css/toastr.min.css">
+    <script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'List Category')
 @section('content')
@@ -23,6 +23,14 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
+                                    @if(Session::has('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                        @php
+                                            Session::forget('success');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <a class="btn btn-primary float-right ml-3" href="{{route('home.createcategory')}}">Create Category</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
@@ -42,7 +50,7 @@
                                             @foreach ($listcategory as $category)
                                             <tr>
                                                 <td>{{$category->id_category}}</td>
-                                                <td><img src="{{asset($category->thumbnail)}}" alt="category" width="50%"></td>
+                                                <td><img src="{{asset($category->thumbnail)}}" alt="category" class="w-25"></td>
                                                 <td>{{$category->name}}</td>
                                                 <td>{{$category->description}}</td>
                                                 <td>{{$category->total_product}}</td>
