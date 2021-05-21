@@ -44,7 +44,7 @@ Route::get('/products/{product}', [App\Http\Controllers\ProductController::class
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
-    Route::get('/home', [HomeController::class,'index'])->name('homeadmin');
+    Route::get('/home', [HomeController::class,'index'])->name('home.index');
     Route::get('/warehouse', [WareHouseController::class,'index'])->name('warehouse.index');
     Route::get('/warehouse/create', [WareHouseController::class,'create'])->name('warehouse.create');
     Route::post('/warehouse/store', [WareHouseController::class,'postcreate'])->name('warehouse.postcreate');
