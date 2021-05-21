@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProductTypeController;
 use App\Http\Controllers\admin\imageProductController;
+use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +44,7 @@ Route::get('/products/{product}', [App\Http\Controllers\ProductController::class
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
-    Route::get('/home', [HomeController::class,'index'])->name('home.index');
+    Route::get('/home', [HomeController::class,'index'])->name('homeadmin');
     Route::get('/warehouse', [WareHouseController::class,'index'])->name('warehouse.index');
     Route::get('/warehouse/create', [WareHouseController::class,'create'])->name('warehouse.create');
     Route::post('/warehouse/store', [WareHouseController::class,'postcreate'])->name('warehouse.postcreate');
@@ -85,16 +86,16 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/category/historydelete', [CategoryController::class,'history'])->name('historyCategory');
     Route::get('/category/restorehistorydelete/{id}', [CategoryController::class,'restore'])->name('restoreCategory');
 
-    Route::get('/imageproduct', [imageProductController::class,'index'])->name('listImageProduct');
+    Route::get('/imageproduct/{id}', [imageProductController::class,'index'])->name('viewImageProduct');
     Route::get('/imageroduct/create', [imageProductController::class,'create'])->name('createImageProduct');
     Route::post('/imageproduct/create', [imageProductController::class,'store'])->name('storeImageProduct');
-    // Route::get('/imageproduct/historydelete', [imageProductController::class,'history'])->name('historyImageProduct');
-    // Route::get('/imageproduct/restorehistory/{id}', [imageProductController::class,'restore'])->name('restoreImageProduct');
+    Route::get('/imageproduct/delete/{id}', [imageProductController::class,'delete'])->name('deleteImageProduct');
+    Route::get('/imageproduct/offStatus/{id}', [imageProductController::class,'offStatus'])->name('offStatus');
+    Route::get('/imageproduct/OnlStatus/{id}', [imageProductController::class,'OnlStatus'])->name('OnlStatus');
 
-    Route::get('/imageproduct/list', [HomeController::class,'listimageproduct'])->name('home.listimageproduct');
     Route::get('/imageproduct/upload', [HomeController::class,'uploadimageproduct'])->name('home.uploadimageproduct');
     Route::get('/ratings', [HomeController::class,'ratings'])->name('home.rating');
-    // Route::get('/transaction/list', [HomeController::class,'transactionlist'])->name('home.transactionlist');
+
     Route::get('/transaction/listorder', [HomeController::class,'transactionlistorder'])->name('home.transaction.listorder');
     Route::get('/transaction/detail', [HomeController::class,'transaction.detail'])->name('home.transaction.detail');
     Route::get('/payment/list', [HomeController::class,'paymentlist'])->name('home.payment.list');
@@ -102,12 +103,19 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/user/create', [HomeController::class,'usercreate'])->name('home.user.create');
     Route::get('/user/edit', [HomeController::class,'useredit'])->name('home.user.edit');
     Route::get('/role/list', [HomeController::class,'rolelist'])->name('home.role.list');
-    Route::get('/transaction/detail', [HomeController::class,'transactiondetail'])->name('transaction.detail');
 
     Route::get('/transaction/list', [TransactionController::class,'index'])->name('transactionlist');
     Route::get('/transaction/detail{id}', [TransactionController::class,'orderview'])->name('orderlist');
     Route::get('/transaction/change/status/{id}', [TransactionController::class,'changeStatus'])->name('changeStatusTransaction');
     Route::get('/transaction/status/update', [TransactionController::class,'updateStatus'])->name('updateStatusTransaction');
+
+    Route::get('/slider', [SliderController::class,'index'])->name('sliderlist');
+    Route::get('/slider/create', [SliderController::class,'create'])->name('sliderCreate');
+    Route::post('/slider/create', [SliderController::class,'store'])->name('sliderStore');
+    Route::get('/slider/edit/{id}', [SliderController::class,'edit'])->name('editSlider');
+    Route::post('/slider/edit/{id}', [SliderController::class,'update'])->name('updateSilder');
+    Route::get('/slider/delete/{id}', [SliderController::class,'delete'])->name('deleteSlider');
+    Route::get('/slider/status/update', [SliderController::class,'updateStatus'])->name('updateStatusSlider');
 
 
 });

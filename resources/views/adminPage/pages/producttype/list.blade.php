@@ -41,7 +41,6 @@
                                                 <th>Name</th>
                                                 <th>Thumbnail</th>
                                                 <th>Description</th>
-                                                {{-- <th>Data</th> --}}
                                                 <th>Total Number</th>
                                                 <th>Total Rating</th>
                                                 <th>Warranty</th>
@@ -58,7 +57,6 @@
                                                     <td><img src="{{ asset($itemproductType->thumbnail) }}"
                                                             alt="productType" class="w-25 h-auto"></td>
                                                     <td>{{ $itemproductType->description }}</td>
-                                                    {{-- <td>{{$itemproductType->data}}</td> --}}
                                                     <td>{{ $itemproductType->total_number }}NbComment</td>
                                                     <td>{{ $itemproductType->total_rating }}Rating</td>
                                                     <td>{{ $itemproductType->warranty }}.Tháng</td>
@@ -73,8 +71,9 @@
                                                             <span class="text-muted sr-only">Action</span>
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="{{route('editProductType',['id'=>$itemproductType->id_product_type])}}">Edit</a>
-                                                            <a class="dropdown-item" href="{{route('softDeleteProductType',['id'=>$itemproductType->id_product_type])}}">Delete</a>
+                                                            <a class="dropdown-item" href="{{route('viewImageProduct',['id'=>$itemproductType->id_product_type])}}"><i class="fe fe-eye"></i> View</a>
+                                                            <a class="dropdown-item" href="{{route('editProductType',['id'=>$itemproductType->id_product_type])}}"><i class="fe fe-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="{{route('softDeleteProductType',['id'=>$itemproductType->id_product_type])}}"><i class="fe fe-delete"></i> Delete</a>
                                                         </div>
                                                     </td>
                                                 </tr>

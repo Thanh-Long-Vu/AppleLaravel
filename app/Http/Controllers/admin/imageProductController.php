@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class imageProductController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $data = ImagesProduct::all();
-        return view('adminPage.pages.imageProduct.list',compact('data'));
+        $data = ImagesProduct::where('product_type_id',$id)->get();
+        return view('adminPage.pages.imageProduct.view',compact('data'));
     }
     public function create()
     {
@@ -37,21 +37,32 @@ class imageProductController extends Controller
                 $image_array[$i]->move($destination_path,$new_image_name);
                 $table = new ImagesProduct;
                 $table->img_url= $new_image_name;
+                $table->active = 1;
                 $table->product_type_id = $request->id_product_type;
                 $table->save();
-                // dd($table->image);
-
             }                       
             return redirect()->back()->with(['thongbao'=>'success','massage'=>'Thêm ảnh thành công']);
         }
         return redirect()->back();
     }
-    public function edit()
-    {
-        return view('adminPage.pages.imageProduct.edit');
+    public function delete($id){
+        $delete = ImagesProduct::find($id);
+        $delete->delete();
+
+        return redirect()->back()->with('success', 'Delete sucessfully');
     }
-    public function update()
+    public function offStatus($id)
     {
-        return view('adminPage.pages.imageProduct.edit');
+        $product = ImagesProduct::find($id);
+        $product->active = 0;
+        $product->save();
+        return back()->with('success', 'Image is not working');
+    }
+    public function OnlStatus($id)
+    {
+        $product = ImagesProduct::find($id);
+        $product->active = 1;
+        $product->save();
+        return back()->with('success', 'Image is working');
     }
 }
