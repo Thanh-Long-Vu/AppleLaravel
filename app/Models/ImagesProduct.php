@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ImagesProduct extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     protected $table = 'image_product';
     protected $primaryKey = 'id_image_product';
     public function producttype()

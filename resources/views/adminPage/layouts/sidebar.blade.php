@@ -6,7 +6,7 @@
     <nav class="vertnav navbar navbar-light">
         <!-- nav bar -->
         <div class="w-100 mb-4 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{route('home.index')}}">
                 <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120"
                     xml:space="preserve">
@@ -21,7 +21,7 @@
         <!-- Start================ Dashboard ===================== -->
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item ">
-                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="nav-link">
+                <a href="{{route('home.index')}}" data-toggle="collapse" aria-expanded="false" class="nav-link">
                     <i class="fe fe-home fe-16"></i>
                     <span class="ml-3 item-text">Dashboard</span>
                 </a>
@@ -239,25 +239,18 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a href="#Statistic" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                <a href="#Slider" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-pie-chart fe-16"></i>
-                    <span class="ml-3 item-text">Statistic</span>
+                    <span class="ml-3 item-text">Slider</span>
                 </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Statistic">
+                <ul class="collapse list-unstyled pl-4 w-100" id="Slider">
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="./chart-inline.html"><span class="ml-1 item-text">Inline
-                                Chart</span></a>
+                        <a class="nav-link pl-3" href="{{route('sliderlist')}}"><span class="ml-1 item-text">
+                        List Slider</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="./chart-chartjs.html"><span
-                                class="ml-1 item-text">Chartjs</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="./chart-apexcharts.html"><span
-                                class="ml-1 item-text">ApexCharts</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="./datamaps.html"><span class="ml-1 item-text">Datamaps</span></a>
+                        <a class="nav-link pl-3" href="{{route('sliderCreate')}}"><span
+                        class="ml-1 item-text">Add Slider</span></a>
                     </li>
                 </ul>
             </li>

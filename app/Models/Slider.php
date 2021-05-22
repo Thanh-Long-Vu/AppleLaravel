@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Slider extends Model
 {
     use HasFactory;
-    protected $table = 'silder';
+    protected $table = 'sliders';
+    protected $primaryKey = 'id_slider';
 }
