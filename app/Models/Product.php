@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Modules\Config\Traits\Scopes\Filterable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory,
+    Filterable,
+    SoftDeletes;
+
     protected $table = 'products';
     protected $primaryKey = 'id_product';
 
