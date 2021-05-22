@@ -6,7 +6,7 @@
     <nav class="vertnav navbar navbar-light">
         <!-- nav bar -->
         <div class="w-100 mb-4 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{route('homeadmin')}}">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{route('home.index')}}">
                 <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120"
                     xml:space="preserve">
@@ -21,7 +21,7 @@
         <!-- Start================ Dashboard ===================== -->
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item ">
-                <a href="{{route('homeadmin')}}" data-toggle="collapse" aria-expanded="false" class="nav-link">
+                <a href="{{route('home.index')}}" data-toggle="collapse" aria-expanded="false" class="nav-link">
                     <i class="fe fe-home fe-16"></i>
                     <span class="ml-3 item-text">Dashboard</span>
                 </a>
