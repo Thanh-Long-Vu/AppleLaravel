@@ -509,7 +509,7 @@
                                                     <div class="mb-2">
                                                         <a href="{{ route('products.show', ['product' => $product->id_product ]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
-                                                                src="../../{{ $product->thumbnail }}" alt="Image Description"></a>
+                                                                src="../{{ $product->thumbnail }}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
