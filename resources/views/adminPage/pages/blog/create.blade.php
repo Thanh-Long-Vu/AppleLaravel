@@ -21,14 +21,6 @@
                         <div class="col-md-12">
                             <div class="card shadow mb-4">
                                 <div class="card-body">
-                                    @if(Session::has('success'))
-                                        <div class="alert alert-success">
-                                            {{ Session::get('success') }}
-                                            @php
-                                                Session::forget('success');
-                                            @endphp
-                                        </div>
-                                    @endif
                                     <form class="needs-validation" id="blog" novalidate action="{{ route('admin.blog.create.post') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-row">
@@ -256,21 +248,6 @@
             var quill = new Quill(editor, {
                 modules: {
                     toolbar: toolbarOptions,
-                    history: {
-                        delay: 1000,
-                        maxStack: 50,
-                        userOnly: false
-                    },
-                    imageDrop: true,
-                    imageResize: {
-                        displaySize: true,
-                        displayStyles: {
-                            backgroundColor: 'black',
-                            border: 'none',
-                            color: 'white'
-                        },
-                        modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
-                    }
                 },
                 theme: 'snow'
             });

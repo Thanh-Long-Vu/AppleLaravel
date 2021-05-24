@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2 class="mb-2 page-title">Data table Category</h2>
+                    <h2 class="mb-2 page-title">Data table Blog</h2>
                     {{-- <p class="card-text">DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible
                         tool, built upon the foundations of progressive enhancement, that adds all of these advanced
                         features to any HTML table. </p> --}}
@@ -24,7 +24,24 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    <a class="btn btn-primary float-right ml-3" href="{{route('home.createcategory')}}">Create Category</a>
+                                    @if(Session::has('edit_success'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('edit_success') }}
+                                            @php
+                                                Session::forget('edit_success');
+                                            @endphp
+                                        </div>
+                                    @endif
+                                    @if(Session::has('create_success'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('create_success') }}
+                                            @php
+                                                Session::forget('create_success');
+                                            @endphp
+                                        </div>
+                                    @endif
+
+                                    <a class="btn btn-primary float-right ml-3" href="{{route('admin.blog.create.get')}}">Create Blog</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -46,7 +63,17 @@
                                                     <td>{{$blog->title ?? ""}}</td>
                                                     <td>{{$blog->description ?? ""}}</td>
                                                     <td>{{$blog->active && $blog->active == 1 ? "True" : "False" }}</td>
-                                                    <td></td>
+                                                    <td>
+                                                        <button class="btn btn-sm dropdown-toggle more-horizontal"
+                                                                type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false">
+                                                            <span class="text-muted sr-only">Action</span>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="{{route('admin.blog.edit.get',['id'=>$blog->id_blog])}}">Edit</a>
+                                                            <a class="dropdown-item" href="{{route('admin.blog.delete',['id'=>$blog->id_blog])}}">Remove</a>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
