@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Modules\Config\Traits\Scopes\Filterable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Transaction extends Model
 {
-    use HasFactory;
+    use HasFactory,
+    Filterable,
+    SoftDeletes;
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
     public function order()
