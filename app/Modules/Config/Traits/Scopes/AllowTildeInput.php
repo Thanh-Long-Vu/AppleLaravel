@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Config\Traits\Scopes\Traits;
+namespace App\Modules\Config\Traits\Scopes;
 
 trait AllowTildeInput
 {
