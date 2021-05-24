@@ -117,10 +117,13 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('/slider/edit/{id}', [SliderController::class,'update'])->name('updateSilder');
     Route::get('/slider/delete/{id}', [SliderController::class,'delete'])->name('deleteSlider');
     Route::get('/slider/status/update', [SliderController::class,'updateStatus'])->name('updateStatusSlider');
+
     Route::get('/blogs/list', [BlogController::class,'index'])->name('admin.blog.list.get');
     Route::get('/blogs/create', [BlogController::class,'create'])->name('admin.blog.create.get');
     Route::post('/blogs/create', [BlogController::class,'store'])->name('admin.blog.create.post');
-    Route::get('/blogs/edit', [BlogController::class,'getEditBlog'])->name('admin.blog.edit');
+    Route::get('/blogs/edit/{id}', [BlogController::class,'edit'])->name('admin.blog.edit.get');
+    Route::post('/blogs/edit/{id}', [BlogController::class,'update'])->name('admin.blog.edit.post');
+    Route::get('/blogs/delete/{id}', [BlogController::class,'delete'])->name('admin.blog.delete');
 
 
 });

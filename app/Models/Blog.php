@@ -10,4 +10,5 @@ class Blog extends Model
 {
     use HasFactory, Filterable;
     protected $table = 'blogs';
+    protected $primaryKey = 'id_blog';
 }
