@@ -5,7 +5,7 @@ namespace App\Modules\Config\Traits\Scopes;
 use DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use App\Modules\Config\Traits\Scopes\Traits\AllowTildeInput;
+use App\Modules\Config\Traits\Scopes\AllowTildeInput;
 
 trait Filterable
 {

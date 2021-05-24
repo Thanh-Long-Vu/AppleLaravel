@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Product;
+use App\Modules\Config\Traits\Scopes\Filterable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Modules\Config\Traits\Scopes\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
