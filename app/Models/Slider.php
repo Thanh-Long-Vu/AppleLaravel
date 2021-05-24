@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Slider extends Model
 {
     use HasFactory,
-    Filterable,
-    SoftDeletes;
+    Filterable;
     protected $table = 'sliders';
     protected $primaryKey = 'id_slider';
 }
