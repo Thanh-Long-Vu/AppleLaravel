@@ -150,66 +150,19 @@
           </a>
         </li> -->
             <li class="nav-item dropdown">
-                <a href="#Blog" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-grid fe-16"></i>
-                    <span class="ml-3 item-text">Blog</span>
+                <a href="#System" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                    <i class="fe fe-pie-chart fe-16"></i>
+                    <span class="ml-3 item-text">Blogs</span>
                 </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Blog">
-                    <li class="nav-item dropdown">
-                        <a href="#Blogs" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                            <i class="fe fe-box fe-16"></i>
-                            <span class="ml-3 item-text">Blogs</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="Blogs">
-                            <li class="nav-item">
-                                <a href="" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                                    <span class="ml-3 item-text">List Blogs</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                                    <span class="ml-3 item-text">Add Blogs</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                                    <span class="ml-3 item-text">Edit Blogs</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Blog">
-                    <li class="nav-item dropdown">
-                        <a href="#Blogs_detail" data-toggle="collapse" aria-expanded="false"
-                            class="dropdown-toggle nav-link">
-                            <i class="fe fe-box fe-16"></i>
-                            <span class="ml-3 item-text">Blogs Detail</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="Blogs_detail">
-                            <li class="nav-item">
-                                <a href="" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                                    <span class="ml-3 item-text">List Blogs Detail</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                                    <span class="ml-3 item-text">Add Blogs Detail</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                                    <span class="ml-3 item-text">Edit Blogs Detail</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Blog">
+                <ul class="collapse list-unstyled pl-4 w-100" id="System">
                     <li class="nav-item">
-                        <a href="#Comments" data-toggle="collapse" aria-expanded="false" class="nav-link">
-                            <i class="fe fe-box fe-16"></i>
-                            <span class="ml-3 item-text">Comments</span>
+                        <a class="nav-link pl-3" href="{{route('admin.blog.list.get')}}">
+                            <span class="ml-1 item-text">List blog</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href="{{route('admin.blog.create.get')}}">
+                            <span class="ml-1 item-text">Create blog</span>
                         </a>
                     </li>
                 </ul>
