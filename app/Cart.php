@@ -13,15 +13,15 @@ class Cart
         $this->cart = Session::get('cart', []);
     }
 
-    public function addProduct($product, $color, $size)
+    public function addProduct($product, $color, $product_type)
     {
 
-        $key = implode('-', [$product->id, $size, $color]);
+        $key = implode('-', [$product->id, $product_type, $color]);
         $item_new_price = $product->price  * (1 - $product->discount/100);
         $item_new = [
             'product' => $product,
             'quantity' => 1,
-            'size' => $size,
+            'product_type' => $product_type,
             'color' => $color,
             'product_price' => $item_new_price,
             'product_discount' => $product->discount,

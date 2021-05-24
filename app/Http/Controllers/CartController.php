@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Models\Product;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -22,17 +24,16 @@ class CartController extends Controller
         return response()->json($data);
     }
 
-    public function add(Request $request)
+    public function add(Request $request, Product $product)
     {
-        $product = Product::findOrFail($request->product);
-        $size = $request->size ? $request->size : '';
-        $color = $request->color ? $request->color : '';
+        $product_type = $product->productType->name ?? '';
 
-        $image_main = Image::where('product_id', $request->product)
-            ->orderBy('id', 'desc')->first();
-        $product->image = $image_main->name;
+        $color = $product->warehouse->color ?? '';
+
         $cart = new Cart();
-        $cart->addProduct($product, $color, $size);
+        $cart->addProduct($product, $color, $product_type);
+
+        return Redirect::back()->with('message','Operation Successful !');
     }
 
     public function increase_quantity(Request $request)

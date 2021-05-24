@@ -31,7 +31,7 @@ Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logou
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/producttype', [App\Http\Controllers\HomeController::class, 'productype'])->name('productype');
+Route::get('/product-type/{productType}', [App\Http\Controllers\ProductTypeController::class, 'show'])->name('productype.show');
 Route::get('/product', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
@@ -42,9 +42,13 @@ Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name(
 Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+<<<<<<< HEAD
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
 Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'index'])->name('resultSearch');
 Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'getOption'])->name('getOption');
+=======
+Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+>>>>>>> 9f4054c... add to cart
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House

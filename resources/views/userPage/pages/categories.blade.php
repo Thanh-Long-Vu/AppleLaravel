@@ -75,10 +75,11 @@
                                         <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
                                             aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
                                             id="slick-slide10" aria-describedby="slick-slide-control10">
-                                            <a href="../shop/product-categories-7-column-full-width.html"
+                                            <a href="{{ route('productype.show', ['productType' => $productType->id_product_type ]) }}"
                                                 class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
                                                 <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                                    <i class="ec ec-laptop font-size-40"></i>
+                                                    <img class="img-fluid"
+                                                                src="../{{$productType->thumbnail}}" alt="Image Description">
                                                 </div>
                                                 <div class="bg-white px-2 pt-2 width-122">
                                                     <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
@@ -495,8 +496,9 @@
                         <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel"
                             aria-labelledby="pills-one-example1-tab" data-target-group="groups">
                             <ul class="row list-unstyled products-group no-gutters">
-                                @if(!empty($productTypes->first()->products))
-                                @foreach ( $productTypes->first()->products as $product)
+                                <?php $products = $products ??  $productTypes->first()->products ?? []; ?>
+                                @if(!empty($products))
+                                @foreach ( $products as $product)
                                     <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner px-xl-4 p-3">
