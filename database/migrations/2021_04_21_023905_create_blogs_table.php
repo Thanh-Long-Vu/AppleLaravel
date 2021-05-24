@@ -18,10 +18,9 @@ class CreateBlogsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->tinyInteger('active')->default(0);
-            $table->string('content');
+            $table->longText('content');
             $table->string('avatar');
             $table->unsignedBigInteger('product_type_id')->nullable()->index()->default(0);
-            $table->foreign('product_type_id')->references('id_product_type')->on('product_types');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });
