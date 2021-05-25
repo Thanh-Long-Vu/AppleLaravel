@@ -44,6 +44,7 @@ Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::c
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
 Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'index'])->name('resultSearch');
+Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'getOption'])->name('getOption');
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
