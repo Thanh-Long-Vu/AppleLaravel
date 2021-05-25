@@ -2,11 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\ProductType;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('userPage.pages.home');
+        $category = Category::all();
+        return view('userPage.pages.home',compact('category'));
+    }
+    public function autoComplete(Request $request){
+        $filterAble = $request->only('name~','category_id');
+        $productType = ProductType::orderby('name','asc')->filterAble($filterAble)->get();
+        $response = array();
+        foreach($productType as $productTypeVal){
+            $response[] = array("value"=>$productTypeVal->id_product_type,"label"=>$productTypeVal->name);
+        }
+        return response()->json($response);
     }
     public function productype()
     {

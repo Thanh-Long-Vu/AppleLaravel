@@ -42,6 +42,8 @@ Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name(
 Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
+Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'index'])->name('resultSearch');
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House

@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Modules\Config\Traits\Scopes\Filterable;
 
 class ProductType extends Model
 {
     use HasFactory;
+    use Filterable;
     use SoftDeletes;
     protected $table = 'product_types';
     protected $primaryKey = 'id_product_type';
