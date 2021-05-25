@@ -28,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
             $categories = Category::limit(5)->get();
             $view->with(['categories' => $categories]);
         });
+        view()->composer('userPage/layouts/search', function ($view) {
+            $categories = Category::all();
+            $view->with(['categories' => $categories]);
+        });
     }
 }

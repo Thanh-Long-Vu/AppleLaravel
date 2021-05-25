@@ -21,6 +21,7 @@
     @yield('script_header')
     <!-- CSS Electro Template -->
     <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
 </head>
 
 <body>
@@ -122,7 +123,52 @@
                     $('#submitSignUp').trigger("click")
                 }
             });
-        })
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#productType").autocomplete({
+                source: function(request, response){
+                    $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    }
+                });
+                $.ajax({
+                    url:"{{route('autoComplete')}}",
+                    type: 'post',
+                    dataType:"json",
+                    data:{
+                        'category_id': $('#category_id').val(),
+                        'name~' :request.term
+                    },
+                    success: function(data) {
+                        response (data);
+                    }
+                });
+                },
+                select: function (event, ui) {
+                    $('#productType').val(ui.item.label);
+                    $('#employeeid').val(ui.item.value);
+                    return false;
+                }
+            });
+        });
+        function fetch_select(val, request, response){
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    }
+        });
+            $.ajax({
+                type:'post',
+                url: '{{route('autoComplete')}}',
+                dataType : 'json',
+                data:{
+                    option:val
+                }
+            });
+        };
     </script>
 </body>
 </html>
