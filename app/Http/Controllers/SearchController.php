@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
 
@@ -15,4 +16,19 @@ class SearchController extends Controller
             return view('userPage.pages.resultSearch',compact('productType'));
         }
     }
+    public function getOption(Request $request){
+        $optionFilter = $request->filter;
+        $searchProductType = $request->productType_id;
+        if ($optionFilter == 0 ) {
+            $product = Product::where('product_type_id',$searchProductType)->get();
+        }elseif($optionFilter == 1 ) {
+            $product = Product::where('product_type_id',$searchProductType)->orderby('updated_at','desc')->get();
+        } elseif($optionFilter == 2) {
+            $product = Product::where('product_type_id',$searchProductType)->orderby('price','desc')->get();
+        } elseif($optionFilter == 3 ) {
+            $product = Product::where('product_type_id',$searchProductType)->orderby('price','asc')->get();
+        }
+        return view('userPage.ajax.resultSearchAjax',compact('product'));
+    }
+    
 }
