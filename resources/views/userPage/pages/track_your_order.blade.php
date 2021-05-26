@@ -39,16 +39,19 @@
                         should have received.</p>
                 </div>
                 <div class="my-4 my-xl-8">
-                    <form class="js-validate" novalidate="novalidate">
+                    <form class="js-validate" novalidate="novalidate" method="GET">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <!-- Form Group -->
                                 <div class="js-form-message form-group">
-                                    <label class="form-label" for="orderid">Order ID
+                                    <label class="form-label" for="Transactionid">Transaction ID
                                     </label>
-                                    <input type="text" class="form-control" name="text" id="orderid"
-                                        placeholder="Found in your order confirmation email."
-                                        aria-label="Found in your order confirmation email.">
+                                    <input type="text" class="form-control" name="Transactionid" id="Transactionid"
+                                        placeholder="Found in your Transaction ." aria-label="Found in your Transaction "
+                                        data-msg="Please enter a valid id transaction" data-error-class="u-has-error"
+                                        data-success-class="u-has-success" required="">
+
+                                    <div id="message_error" style="color: red"></div>
                                 </div>
                                 <!-- End Form Group -->
                             </div>
@@ -67,12 +70,20 @@
                             </div>
                             <!-- Button -->
                             <div class="col mb-1">
-                                <button type="button"
-                                    class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Track</button>
+                                <input type="button"
+                                    class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto"
+                                    value="Track" id="Track">
                             </div>
                             <!-- End Button -->
                         </div>
                     </form>
+                </div>
+                <div>
+                </div>
+                <div id="transctionAjax">
+                    @if (isset($dataTransaction))
+                        @include('userPage/ajax/trackOrderAjax');
+                    @endif
                 </div>
             </div>
         </div>
@@ -81,6 +92,7 @@
 @section('script_footer')
     <!-- JS Global Compulsory -->
     <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
     <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
@@ -227,6 +239,47 @@
 
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
+        });
+
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#Track').click(function() {
+                var Transactionid = $('#Transactionid').val();
+                var email = $('#billingemail').val();
+                $.ajax({
+                    type: "get",
+                    url: '{{ route('track_order') }}',
+                    data: {
+                        Transactionid: Transactionid,
+                        email: email
+                    },
+                    success: function(res) {
+                        if (res.length !== 0 && $("#message_error").remove()) {
+                            $("#transctionAjax").empty();
+                            $("#transctionAjax").html(res);
+                        }
+                        // if(res.status == 'error'){
+                        //     $('#Transactionid').html(res.message);
+                        // }
+                    },
+                    error: function(data) {
+                        // Something went wrong
+                        // HERE you can handle asynchronously the response 
+
+                        // Log in the console
+                        var errors = data.responseJSON;
+                        errorsHtml = '<div class="alert alert-danger"><ul>';
+                        errorsHtml += '<li>' + errors.value + '</li>'; //showing only the first error.
+                        errorsHtml += '</ul></div>';
+                        if($("#message_error").empty()){
+                            $('#message_error').append(errors.errors); //appending to a <div id="form-errors"></div> inside form  
+                        }
+                    }
+
+                })
+
+            });
         });
 
     </script>
