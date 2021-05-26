@@ -45,6 +45,7 @@ Route::get('/products/{product}', [App\Http\Controllers\ProductController::class
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
 Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'index'])->name('resultSearch');
 Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'getOption'])->name('getOption');
+Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House

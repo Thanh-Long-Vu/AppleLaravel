@@ -3,15 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Modules\Config\Traits\Scopes\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Orders extends Model
 {
     use HasFactory,
-    Filterable,
-    SoftDeletes;
+    Filterable;
 
     protected $table = 'order';
     protected $primaryKey = 'id_order';
