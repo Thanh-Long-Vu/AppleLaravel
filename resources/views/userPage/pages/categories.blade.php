@@ -64,30 +64,32 @@
                                     &quot;slidesToShow&quot;: 2
                                   }
                                 }]">
-                                @if(!is_null($productTypes))
+                            @if(!$productTypes->isEmpty())
+                            
                             <div class="js-prev d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-left u-slick__arrow-inner--left left-n16 slick-arrow slick-disabled"
                                 aria-disabled="true" style=""></div>
-                            <div class="slick-list draggable">
-                                <div class="slick-track"
-                                    style="opacity: 1; width: 1680px; transform: translate3d(0px, 0px, 0px);">
-                                    @foreach ($productTypes as $productType)
-                                    <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
-                                        aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
-                                        id="slick-slide10" aria-describedby="slick-slide-control10">
-                                        <a href="../shop/product-categories-7-column-full-width.html"
-                                            class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
-                                            <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                                <i class="ec ec-laptop font-size-40"></i>
-                                            </div>
-                                            <div class="bg-white px-2 pt-2 width-122">
-                                                <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                                    Accessories</h6>
-                                            </div>
-                                        </a>
+                                <div class="slick-list draggable">
+                                    <div class="slick-track"
+                                        style="opacity: 1; width: 1680px; transform: translate3d(0px, 0px, 0px);">
+                                        @foreach ($productTypes as $productType)
+                                        <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0"
+                                            aria-hidden="false" style="width: 140px; height: auto;" tabindex="0" role="tabpanel"
+                                            id="slick-slide10" aria-describedby="slick-slide-control10">
+                                            <a href="{{ route('productype.show', ['productType' => $productType->id_product_type ]) }}"
+                                                class="d-block text-center bg-on-hover width-122 mx-auto" tabindex="0">
+                                                <div class="bg pt-4 rounded-circle-top width-122 height-75">
+                                                    <img class="img-fluid"
+                                                                src="../{{$productType->thumbnail}}" alt="Image Description">
+                                                </div>
+                                                <div class="bg-white px-2 pt-2 width-122">
+                                                    <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
+                                                        {{ $productType->name }}</h6>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
                                 </div>
-                            </div>
                             <div class="js-next d-none d-xl-block u-slick__arrow-normal u-slick__arrow-centered--y rounded-circle text-black font-size-30 z-index-2 fa fa-angle-right u-slick__arrow-inner--right right-n20 slick-arrow"
                                 style="" aria-disabled="false"></div>
                             <ul class="js-pagination d-xl-none text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 pt-1"
@@ -494,8 +496,9 @@
                         <div class="tab-pane fade pt-2 show active" id="pills-one-example1" role="tabpanel"
                             aria-labelledby="pills-one-example1-tab" data-target-group="groups">
                             <ul class="row list-unstyled products-group no-gutters">
-                                @if(!empty($productTypes->first()->products))
-                                @foreach ( $productTypes->first()->products as $product)
+                                <?php $products = $products ??  $productTypes->first()->products ?? []; ?>
+                                @if(!empty($products))
+                                @foreach ( $products as $product)
                                     <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner px-xl-4 p-3">

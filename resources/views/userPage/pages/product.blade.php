@@ -113,7 +113,7 @@
                         <div class="card p-5 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">Availability: <span class="text-green font-weight-bold">26 in stock</span></div>
                             <div class="mb-3">
-                                <div class="font-size-36">$685.00</div>
+                                <div class="font-size-36">{{ number_format($product->price, 0, '', '.') }} đ</div>
                             </div>
                             <div class="mb-3">
                                 <h6 class="font-size-14">Quantity</h6>
@@ -121,7 +121,7 @@
                                 <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
                                     <div class="js-quantity row align-items-center">
                                         <div class="col">
-                                            <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
+                                            <input disabled class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
                                         </div>
                                         <div class="col-auto pr-1">
                                             <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
@@ -147,12 +147,12 @@
                                 </select>
                                 <!-- End Select -->
                             </div>
+                            <form action="{{ route('cart.add', ['product' => $product->id_product]) }}" method="POST">
+                                {{csrf_field() }}
                             <div class="mb-2 pb-0dot5">
-                                <a href="#" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</a>
+                                <button type="submit" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</button>
                             </div>
-                            <div class="mb-3">
-                                <a href="#" class="btn btn-block btn-dark">Buy Now</a>
-                            </div>
+                        </form>
                             <div class="flex-content-center flex-wrap">
                                 <a href="#" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
                                 <a href="#" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
@@ -947,6 +947,7 @@
 
     <!-- JS Plugins Init. -->
     <script>
+
         $(window).on('load', function () {
             // initialization of HSMegaMenu component
             $('.js-mega-menu').HSMegaMenu({
@@ -1051,5 +1052,9 @@
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
+
+        // add to cart
+
+        
     </script>
 @endsection
