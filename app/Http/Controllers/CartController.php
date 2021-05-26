@@ -16,24 +16,18 @@ class CartController extends Controller
 
     public function cart()
     {
-        $data = [];
-        if (Session::has('cart')) {
-            $data = Session('cart');
-        }
-
-        return response()->json($data);
+        return view('userPage.pages.cart');
     }
 
     public function add(Request $request, Product $product)
     {
         $product_type = $product->productType->name ?? '';
 
-        $color = $product->warehouse->color ?? '';
-
+        $color = $request->color ?? '';
         $cart = new Cart();
         $cart->addProduct($product, $color, $product_type);
 
-        return Redirect::back()->with('message','Operation Successful !');
+        return Redirect::route('cart')->with('message','Add to cart Successful !');
     }
 
     public function increase_quantity(Request $request)
@@ -42,12 +36,21 @@ class CartController extends Controller
         if ($request->quantity <= 0) {
            $request->quantity = 1;
         }
-        if ($request->quantity > 10) {
-           $request->quantity = 10;
-        }
-        $cart->update_cart($request->key, $request->quantity);
 
-        return redirect()->route('client.showCart');
+        $cartItem = $cart->update_cart($request->key, $request->quantity);
+        $total_cart = 0;
+        $sessionCart = Session::get('cart');
+
+        foreach($sessionCart as $cart){
+            $total_cart+= ((int) $cart['item']['quantity']* (int)$cart['item']['product_price']);
+        }
+
+        $data = [
+            'total_cart' => number_format($total_cart, 0),
+            'cart_item' => number_format((int)$cartItem['item']['quantity']* (int)$cartItem['item']['product_price'], 0),
+        ];
+
+        return response()->json(['message' => 'Update cart Successful!.', 'data'=> $data]); 
     }
 
     public function delete(Request $request)
@@ -56,7 +59,7 @@ class CartController extends Controller
 
         $cart->removeItem($request->key);
 
-        return redirect()->route('client.showCart');
+        return response()->json(['message' => 'Deleted item in cart successful!.']); 
     }
 
     public function removeAll()

@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Transaction extends Model
 {
     use HasFactory,
-    Filterable,
-    SoftDeletes;
+    Filterable;
+    // SoftDeletes;
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
     public function order()
