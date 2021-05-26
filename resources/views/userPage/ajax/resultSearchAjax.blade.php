@@ -20,7 +20,7 @@
                                 @elseif($item->warehouse->color == 4)
                                     <b style="color : Black"><i>Black</i></b> 
                                 @elseif($item->warehouse->color == 5)
-                                    <b style="color : White"><i>White</i></b> 
+                                    <b style="color : Gray"><i>White</i></b> 
                                 @elseif($item->warehouse->color == 6)
                                     <b style="color : Other"><i>Other</i></b>   
                                 @elseif($item->warehouse->color == 7)
@@ -37,7 +37,7 @@
                                 @elseif($item->warehouse->memory== 4)
                                     <b style="color : Black"><i>256GB</i></b> 
                                 @elseif($item->warehouse->memory== 5)
-                                    <b style="color : White"><i>512GB</i></b>                                                                 
+                                    <b style="color : Gray"><i>512GB</i></b>                                                                 
                                 @endif </a></h5>
                             <div class="mb-2">
                                 <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
@@ -45,8 +45,8 @@
                             <div class="flex-center-between mb-1">
                                 @if ($item->discount > 0)
                                 <div class="prodcut-price d-flex align-items-center position-relative">
-                                    <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price)}}.VNĐ</b></ins>
-                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</del>
+                                    <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
+                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price)}}.VNĐ</del>
                                 </div>
                                 @else
                                 <div class="prodcut-price">
@@ -87,7 +87,7 @@
                                 @elseif($item->warehouse->color == 4)
                                     <b style="color : Black"><i>Black</i></b> 
                                 @elseif($item->warehouse->color == 5)
-                                    <b style="color : White"><i>White</i></b> 
+                                    <b style="color : Gray"><i>White</i></b> 
                                 @elseif($item->warehouse->color == 6)
                                     <b style="color : Other"><i>Other</i></b>   
                                 @elseif($item->warehouse->color == 7)
@@ -104,7 +104,7 @@
                                 @elseif($item->warehouse->memory== 4)
                                     <b style="color : Black"><i>256GB</i></b> 
                                 @elseif($item->warehouse->memory== 5)
-                                    <b style="color : White"><i>512GB</i></b>                                                                 
+                                    <b style="color : Gray"><i>512GB</i></b>                                                                 
                                 @endif </a></h5>
                             <div class="mb-2">
                                 <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
@@ -130,8 +130,8 @@
                             <div class="flex-center-between mb-1">
                                 @if ($item->discount > 0)
                                 <div class="prodcut-price d-flex align-items-center position-relative">
-                                    <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price)}}.VNĐ</b></ins>
-                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</del>
+                                    <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
+                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price)}}.VNĐ</del>
                                 </div>
                                 @else
                                 <div class="prodcut-price">
@@ -179,7 +179,7 @@
                                         @elseif($item->warehouse->color == 4)
                                             <b style="color : Black"><i>Black</i></b> 
                                         @elseif($item->warehouse->color == 5)
-                                            <b style="color : White"><i>White</i></b> 
+                                            <b style="color : Gray"><i>White</i></b> 
                                         @elseif($item->warehouse->color == 6)
                                             <b style="color : Other"><i>Other</i></b>   
                                         @elseif($item->warehouse->color == 7)
@@ -196,7 +196,7 @@
                                         @elseif($item->warehouse->memory== 4)
                                             <b style="color : Black"><i>256GB</i></b> 
                                         @elseif($item->warehouse->memory== 5)
-                                            <b style="color : White"><i>512GB</i></b>                                                                 
+                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
                                         @endif 
                                     </h3>
                                     @if ($item->discount > 0)
@@ -286,7 +286,7 @@
                                     @elseif($item->warehouse->color == 4)
                                         <b style="color : Black"><i>Black</i></b> 
                                     @elseif($item->warehouse->color == 5)
-                                        <b style="color : White"><i>White</i></b> 
+                                        <b style="color : Gray"><i>White</i></b> 
                                     @elseif($item->warehouse->color == 6)
                                         <b style="color : Other"><i>Other</i></b>   
                                     @elseif($item->warehouse->color == 7)
@@ -303,7 +303,7 @@
                                     @elseif($item->warehouse->memory== 4)
                                         <b style="color : Black"><i>256GB</i></b> 
                                     @elseif($item->warehouse->memory== 5)
-                                        <b style="color : White"><i>512GB</i></b>                                                                 
+                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
                                     @endif </a></h5>
                                 <div class="prodcut-price d-md-none">
                                     @if ($item->discount > 0)
