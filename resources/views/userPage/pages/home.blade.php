@@ -373,1203 +373,6 @@
         </div>
         <!-- End Tab Prodcut Section -->
     </div>
-    <div class="container">
-        <!-- Laptops & Computers -->
-        <div class="mb-6 position-relative">
-            <dv
-                class="d-flex justify-content-between border-bottom border-color-1 flex-md-nowrap flex-wrap border-sm-bottom-0">
-                <h3 class="section-title section-title__full mb-0 pb-2 font-size-22">Laptops & Computers</h3>
-            </dv>
-            <div class="js-slick-carousel position-static u-slick u-slick--gutters-1 overflow-hidden u-slick-overflow-visble pt-3 pb-3"
-                data-arrows-classes="position-absolute top-0 font-size-17 u-slick__arrow-normal top-10"
-                data-arrow-left-classes="fa fa-angle-left right-1" data-arrow-right-classes="fa fa-angle-right right-0"
-                data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-4">
-                <div class="js-slide">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Tablets</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB Gold</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$629,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810
-                                                    G2</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$1 299,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Accesories</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Pendrive USB 3.0 Flash 64 GB</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img4.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Smartwatches</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">Smartwatch 2.0 LTE
-                                                    Wifi</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img5.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Smartwatches</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">Gear Virtual Reality</a>
-                                            </h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$799,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Headphones</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">White Solo 2
-                                                    Wireless</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="js-slide">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img4.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Smartwatches</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">Smartwatch 2.0 LTE
-                                                    Wifi</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img5.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Smartwatches</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">Gear Virtual Reality</a>
-                                            </h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$799,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Headphones</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">White Solo 2
-                                                    Wireless</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Tablets</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB Gold</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$629,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810
-                                                    G2</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$1 299,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Accesories</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Pendrive USB 3.0 Flash 64 GB</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="js-slide">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Tablets</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB Gold</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$629,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810
-                                                    G2</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$1 299,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto col-xl-5 col-wd-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div
-                                        class="col col-xl-7 col-wd product-item__body pl-2 pl-lg-3 pl-xl-0 pl-wd-3 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Accesories</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Pendrive USB 3.0 Flash 64 GB</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img4.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Smartwatches</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">Smartwatch 2.0 LTE
-                                                    Wifi</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img5.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Smartwatches</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">Gear Virtual Reality</a>
-                                            </h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$799,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"
-                                            tabindex="0"><img class="img-fluid" src="assets/img/150X140/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4 mb-xl-2 mb-wd-6">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5" tabindex="0">Headphones</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold" tabindex="0">White Solo 2
-                                                    Wireless</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="#" class="btn-add-cart btn-primary transition-3d-hover"
-                                                    tabindex="0"><i class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="#" class="text-gray-6 font-size-13" tabindex="0"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- End Laptops & Computers -->
-        <!-- Trending Products -->
-        <div class="mb-8 position-relative">
-            <dv
-                class="d-flex justify-content-between border-bottom border-color-1 flex-md-nowrap flex-wrap border-sm-bottom-0">
-                <h3 class="section-title section-title__full mb-0 pb-2 font-size-22">Trending Products</h3>
-            </dv>
-            <div class="js-slick-carousel position-static u-slick u-slick--gutters-1 overflow-hidden u-slick-overflow-visble pt-3 pb-3"
-                data-arrows-classes="position-absolute top-0 font-size-17 u-slick__arrow-normal top-10"
-                data-arrow-left-classes="fa fa-angle-left right-1" data-arrow-right-classes="fa fa-angle-right right-0"
-                data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-4">
-                <div class="js-slide">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Tablets</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB Gold</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$629,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810
-                                                    G2</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$1 299,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card d-none d-md-block pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Headphones</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">White Solo 2 Wireless</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Accesories</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Pendrive USB 3.0 Flash 64 GB</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="js-slide">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Tablets</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB Gold</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$629,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810
-                                                    G2</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$1 299,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card d-none d-md-block pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Headphones</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">White Solo 2 Wireless</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Accesories</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Pendrive USB 3.0 Flash 64 GB</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="js-slide">
-                    <ul class="row list-unstyled products-group no-gutters mb-0 overflow-visible">
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Tablets</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB Gold</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$629,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Laptops & Computers</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810
-                                                    G2</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$1 299,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card d-none d-md-block pb-2 mb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Headphones</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">White Solo 2 Wireless</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li
-                            class="col-wd-3 col-md-4 product-item product-item__card pb-2 mb-2 pb-md-0 mb-md-0 remove-divider">
-                            <div class="product-item__outer h-100 w-100">
-                                <div class="product-item__inner p-md-3 row no-gutters">
-                                    <div class="col col-lg-auto product-media-left">
-                                        <a href="../shop/single-product-fullwidth.html" class="max-width-150 d-block"><img
-                                                class="img-fluid" src="assets/img/150X140/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="col product-item__body pl-2 pl-lg-3 mr-xl-2 mr-wd-1">
-                                        <div class="mb-4">
-                                            <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                                    class="font-size-12 text-gray-5">Accesories</a></div>
-                                            <h5 class="product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                                    class="text-blue font-weight-bold">Pendrive USB 3.0 Flash 64 GB</a></h5>
-                                        </div>
-                                        <div class="flex-center-between mb-3">
-                                            <div class="prodcut-price">
-                                                <div class="text-gray-100">$110,00</div>
-                                            </div>
-                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                <a href="../shop/single-product-fullwidth.html"
-                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                        class="ec ec-add-to-cart"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-item__footer">
-                                            <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                        class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- End Trending Products -->
-    </div>
     <!-- Products-8-1 -->
     <div class="products-group-8-1 space-1 bg-gray-7 mb-6">
         <h2 class="sr-only">Products Grid</h2>
@@ -1614,7 +417,75 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
-                                
+                                @foreach ($productTypeMac as $item)
+                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
+                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
+                                        <div class="product-item__inner bg-white p-3">
+                                            <div class="product-item__body pb-xl-2">
+                                                <div class="mb-2"><a
+                                                        href="../shop/product-categories-7-column-full-width.html"
+                                                        class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
+                                                <h5 class="mb-1 product-item__title"><a
+                                                        href="../shop/single-product-fullwidth.html"
+                                                        class="text-blue font-weight-bold">
+                                                        {{$item->name}}- 
+                                                        @if ($item->products->first()->warehouse->color == 0)
+                                                            <b style="color : red"><i>Red</i></b> memory
+                                                        @elseif($item->products->first()->warehouse->color == 1)
+                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 2)
+                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 3)
+                                                            <b style="color : Green"><i>Green</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 4)
+                                                            <b style="color : Black"><i>Black</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 5)
+                                                            <b style="color : Gray"><i>White</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 6)
+                                                            <b style="color : Other"><i>Other</i></b>   
+                                                        @elseif($item->products->first()->warehouse->color == 7)
+                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                        @endif -
+                                                        @if ($item->products->first()->warehouse->memory== 0)
+                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 1)
+                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 2)
+                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 3)
+                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 4)
+                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 5)
+                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                        @endif </a></h5>
+                                                <div class="mb-2">
+                                                    <a href="../shop/single-product-fullwidth.html"
+                                                        class="d-block text-center"><img class="img-fluid"
+                                                            src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
+                                                </div>
+                                                <div class="flex-center-between mb-1">
+                                                    @if ($item->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
+                                                    </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
+                                                    <div class="d-none d-xl-block prodcut-add-cart">
+                                                        <a href="../shop/single-product-fullwidth.html"
+                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                class="ec ec-add-to-cart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
@@ -1626,30 +497,61 @@
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
                                                             href="../shop/product-categories-7-column-full-width.html"
-                                                            class="font-size-12 text-gray-5">Game Consoles</a></div>
+                                                            class="font-size-12 text-gray-5">Category : {{$productTypeMacTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
                                                             href="../shop/single-product-fullwidth.html"
-                                                            class="text-blue font-weight-bold">Game Console Controller + USB
-                                                            3.0 Cable</a></h5>
+                                                            class="text-blue font-weight-bold">
+                                                            {{$productTypeMacTotalRating->name}} -
+                                                            @if ($productTypeMacTotalRating->products->first()->warehouse->color == 0)
+                                                                <b style="color : red"><i>Red</i></b> memory
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 1)
+                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 2)
+                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 3)
+                                                                <b style="color : Green"><i>Green</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 4)
+                                                                <b style="color : Black"><i>Black</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 5)
+                                                                <b style="color : Gray"><i>White</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 6)
+                                                                <b style="color : Other"><i>Other</i></b>   
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 7)
+                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            @endif -
+                                                            @if ($productTypeMacTotalRating->products->first()->warehouse->memory== 0)
+                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 1)
+                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 2)
+                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 3)
+                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 4)
+                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                            @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 5)
+                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
                                                     <a href="#"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="assets/img/564X520/img2.jpg"
+                                                            class="img-fluid" src="../{{$productTypeMacTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
                                                     <!-- Gallery -->
                                                     <div class="row mx-gutters-2 mb-3">
+                                                        @if (!empty($productTypeMacTotalRating))
+                                                        @foreach ($productTypeMacTotalRating->imageProductType->limit(3) as $item)
                                                         <div class="col-auto">
                                                             <!-- Gallery -->
                                                             <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img1.jpg"
+                                                                href="javascript:;" data-src="../{{$item->img_url}}"
                                                                 data-fancybox="fancyboxGallery6"
                                                                 data-caption="Electro in frames - image #01"
                                                                 data-speed="700" data-is-infinite="true">
                                                                 <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img1.jpg"
+                                                                    src="../{{$item->img_url}}"
                                                                     alt="Image Description">
-
                                                                 <span class="u-media-viewer__container">
                                                                     <span class="u-media-viewer__icon">
                                                                         <span
@@ -1659,70 +561,28 @@
                                                             </a>
                                                             <!-- End Gallery -->
                                                         </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img2.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #02"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img2.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img3.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #03"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img3.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
+                                                        @endforeach
+                                                        @endif
                                                         <div class="col"></div>
                                                     </div>
                                                     <!-- End Gallery -->
                                                 </div>
                                                 <div class="flex-center-between">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
+                                                    @if ($productTypeMacTotalRating->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($productTypeMacTotalRating->products->first()->price - ($productTypeMacTotalRating->products->first()->price*($productTypeMacTotalRating->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</del>
                                                     </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
                                                     <div class="d-none d-xl-block prodcut-add-cart">
                                                         <a href="../shop/single-product-fullwidth.html"
                                                             class="btn-add-cart btn-add-cart__wide btn-primary transition-3d-hover"><i
                                                                 class="ec ec-add-to-cart mr-2"></i> Add to Cart</a>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1737,26 +597,64 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @foreach ($productTypeIphone as $item)
                                 <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
                                                         href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
+                                                        class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
                                                         href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
+                                                        class="text-blue font-weight-bold">
+                                                        {{$item->name}}- 
+                                                        @if ($item->products->first()->warehouse->color == 0)
+                                                            <b style="color : red"><i>Red</i></b> memory
+                                                        @elseif($item->products->first()->warehouse->color == 1)
+                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 2)
+                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 3)
+                                                            <b style="color : Green"><i>Green</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 4)
+                                                            <b style="color : Black"><i>Black</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 5)
+                                                            <b style="color : Gray"><i>White</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 6)
+                                                            <b style="color : Other"><i>Other</i></b>   
+                                                        @elseif($item->products->first()->warehouse->color == 7)
+                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                        @endif -
+                                                        @if ($item->products->first()->warehouse->memory== 0)
+                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 1)
+                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 2)
+                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 3)
+                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 4)
+                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 5)
+                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                        @endif </a></h5>
                                                 <div class="mb-2">
                                                     <a href="../shop/single-product-fullwidth.html"
                                                         class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                                            src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
                                                 <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
+                                                    @if ($item->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
                                                     </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
                                                     <div class="d-none d-xl-block prodcut-add-cart">
                                                         <a href="../shop/single-product-fullwidth.html"
                                                             class="btn-add-cart btn-primary transition-3d-hover"><i
@@ -1764,404 +662,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Tablet White EliteBook Revolve
-                                                        810 G2</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">GameConsole Destiny Special
-                                                        Edition</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img7.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-lg-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-lg-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Tablet White EliteBook Revolve
-                                                        810 G2</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-wd-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-wd-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">GameConsole Destiny Special
-                                                        Edition</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img7.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
                             <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
-                                <li class="col product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body d-flex flex-column">
-                                                <div class="mb-1">
-                                                    <div class="mb-2"><a
-                                                            href="../shop/product-categories-7-column-full-width.html"
-                                                            class="font-size-12 text-gray-5">Game Consoles</a></div>
-                                                    <h5 class="mb-0 product-item__title"><a
-                                                            href="../shop/single-product-fullwidth.html"
-                                                            class="text-blue font-weight-bold">Game Console Controller + USB
-                                                            3.0 Cable</a></h5>
-                                                </div>
-                                                <div class="mb-1 min-height-8-1">
-                                                    <a href="#"
-                                                        class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="assets/img/564X520/img2.jpg"
-                                                            alt="Image Description"></a>
-                                                    <!-- Gallery -->
-                                                    <div class="row mx-gutters-2 mb-3">
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img1.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #01"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img1.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img2.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #02"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img2.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img3.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #03"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img3.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
-                                                        <div class="col"></div>
-                                                    </div>
-                                                    <!-- End Gallery -->
-                                                </div>
-                                                <div class="flex-center-between">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-add-cart__wide btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart mr-2"></i> Add to Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -2171,26 +680,64 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @foreach ($productTypeIpad as $item)
                                 <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
                                                         href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
+                                                        class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
                                                         href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
+                                                        class="text-blue font-weight-bold">
+                                                        {{$item->name}}- 
+                                                        @if ($item->products->first()->warehouse->color == 0)
+                                                            <b style="color : red"><i>Red</i></b> memory
+                                                        @elseif($item->products->first()->warehouse->color == 1)
+                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 2)
+                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 3)
+                                                            <b style="color : Green"><i>Green</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 4)
+                                                            <b style="color : Black"><i>Black</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 5)
+                                                            <b style="color : Gray"><i>White</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 6)
+                                                            <b style="color : Other"><i>Other</i></b>   
+                                                        @elseif($item->products->first()->warehouse->color == 7)
+                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                        @endif -
+                                                        @if ($item->products->first()->warehouse->memory== 0)
+                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 1)
+                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 2)
+                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 3)
+                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 4)
+                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 5)
+                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                        @endif </a></h5>
                                                 <div class="mb-2">
                                                     <a href="../shop/single-product-fullwidth.html"
                                                         class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                                            src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
                                                 <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
+                                                    @if ($item->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
                                                     </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
                                                     <div class="d-none d-xl-block prodcut-add-cart">
                                                         <a href="../shop/single-product-fullwidth.html"
                                                             class="btn-add-cart btn-primary transition-3d-hover"><i
@@ -2198,291 +745,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Tablet White EliteBook Revolve
-                                                        810 G2</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">GameConsole Destiny Special
-                                                        Edition</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img7.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-lg-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-lg-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Tablet White EliteBook Revolve
-                                                        810 G2</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-wd-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-wd-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">GameConsole Destiny Special
-                                                        Edition</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img7.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
@@ -2605,26 +871,64 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @foreach ($productTypeWatch as $item)
                                 <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
                                                         href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
+                                                        class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
                                                         href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
+                                                        class="text-blue font-weight-bold">
+                                                        {{$item->name}}- 
+                                                        @if ($item->products->first()->warehouse->color == 0)
+                                                            <b style="color : red"><i>Red</i></b> memory
+                                                        @elseif($item->products->first()->warehouse->color == 1)
+                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 2)
+                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 3)
+                                                            <b style="color : Green"><i>Green</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 4)
+                                                            <b style="color : Black"><i>Black</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 5)
+                                                            <b style="color : Gray"><i>White</i></b> 
+                                                        @elseif($item->products->first()->warehouse->color == 6)
+                                                            <b style="color : Other"><i>Other</i></b>   
+                                                        @elseif($item->products->first()->warehouse->color == 7)
+                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                        @endif -
+                                                        @if ($item->products->first()->warehouse->memory== 0)
+                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 1)
+                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 2)
+                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 3)
+                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 4)
+                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                        @elseif($item->products->first()->warehouse->memory== 5)
+                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                        @endif </a></h5>
                                                 <div class="mb-2">
                                                     <a href="../shop/single-product-fullwidth.html"
                                                         class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                                            src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
                                                 <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
+                                                    @if ($item->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
                                                     </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
                                                     <div class="d-none d-xl-block prodcut-add-cart">
                                                         <a href="../shop/single-product-fullwidth.html"
                                                             class="btn-add-cart btn-primary transition-3d-hover"><i
@@ -2632,291 +936,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Tablet White EliteBook Revolve
-                                                        810 G2</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">GameConsole Destiny Special
-                                                        Edition</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img7.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-lg-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-lg-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Tablet White EliteBook Revolve
-                                                        810 G2</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-wd-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">Wireless Audio System Multiroom
-                                                        360 degree Full base audio</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item d-md-none d-wd-block remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Speakers</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">GameConsole Destiny Special
-                                                        Edition</a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="assets/img/212X200/img7.jpg" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
-                                                    </div>
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
@@ -4008,736 +2031,6 @@
         </div>
         <!-- End Content Placeholder -->
     </div>
-    <!-- End Products-8-1 -->
-    <div class="container">
-        <!-- Top Categories this Month -->
-        <div class="mb-2">
-            <div class="border-bottom border-color-1 mb-5">
-                <h3 class="section-title section-title__full d-inline-block mb-0 pb-2 font-size-22">Top Categories this
-                    Month</h3>
-            </div>
-            <div class="row align-items-start">
-                <div class="col-4 col-wd-3 border-right border-lg-down-0 mb-8">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img1.jpg" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Mobile Devices</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Accessories</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Chargers</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Powerbanks</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Smartphones</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Smartwatch</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Tablets</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-right border-lg-down-0 mb-8">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img2.png" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Games & Consoles</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Accessories</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Action Games</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Game Consoles</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Racing Games</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Station Consoles</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Video Games & Consoles</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-right remove-bd-xl-only border-lg-down-0 mb-8">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img3.jpg" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Gadgets</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Gadgets & Accesories</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Smartwatches</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Wearables</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">3D Printing</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Alexa Gadgets</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Wireless VR Headset</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-right remove-bd-wd border-lg-down-0 mb-8">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img4.jpg" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Home Entertainment</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Blue-ray Players</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">DVD Players</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Home & Audio Entertainment</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Home Theater Systems</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Soundbar Speakers</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Projectors</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-right border-lg-down-0 mb-8">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img5.jpg" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Laptops & Computers</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Accessories</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">All in One</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Computer Accessories</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Computer Monitors</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Laptop Skins</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Desktop Computers</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-right remove-bd-xl-only border-lg-down-0 mb-8">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img6.jpg" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Accessories</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Cases</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Headphone Accessories</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Headphone Cases</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Headphones</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Pendrives</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Chargers</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-right border-lg-down-0 mb-8 d-xl-none d-wd-block">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img7.png" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Cameras & Photography</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Cameras</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Photo Cameras</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Video Cameras</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">GoPro Cameras</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Drone Camera</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">360 camera</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col-wd-3 border-lg-down-0 mb-8 d-xl-none d-wd-block">
-                    <div class="row align-items-center align-items-xl-start">
-                        <div class="col-md-5 mb-3 mb-md-0">
-                            <a href="../shop/product-categories-7-column-full-width.html" class="d-block">
-                                <img class="img-fluid" src="assets/img/300X300/img8.jpg" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="col-md-7 pl-lg-0">
-                            <h4 class="font-size-18 mb-0 mb-xl-2 font-size-14-down-lg text-center text-md-left">
-                                <a href="../shop/product-categories-7-column-full-width.html"
-                                    class="underline-on-hover">Computer Components</a>
-                            </h4>
-                            <ul class="mb-1 font-size-13 list-unstyled text-lh-21 d-none d-xl-block">
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Computer Cases</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Desktops</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Monitors</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Software</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">USB Hubs</a></li>
-                                <li><a href="../shop/product-categories-7-column-full-width.html"
-                                        class="text-gray-15 underline-on-hover">Hard Disk Bags</a></li>
-                            </ul>
-                            <a href="../shop/product-categories-7-column-full-width.html"
-                                class="d-none d-xl-block text-right font-weight-bold text-gray-15 underline-on-hover">See
-                                all</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Top Categories this Month -->
-
-        <!-- Recommendation for you -->
-        <div class="position-relative">
-            <div class="border-bottom border-color-1 mb-2">
-                <h3 class="section-title section-title__full d-inline-block mb-0 pb-2 font-size-22">Recommendation for you
-                </h3>
-            </div>
-            <div class="js-slick-carousel u-slick position-static overflow-hidden u-slick-overflow-visble pb-7 pt-2 px-1"
-                data-pagi-classes="text-center right-0 bottom-1 left-0 u-slick__pagination u-slick__pagination--long mb-0 z-index-n1 mt-3 mt-md-0"
-                data-slides-show="7" data-slides-scroll="1"
-                data-arrows-classes="position-absolute top-0 font-size-17 u-slick__arrow-normal top-10"
-                data-arrow-left-classes="fa fa-angle-left right-1" data-arrow-right-classes="fa fa-angle-right right-0"
-                data-responsive='[{
-                          "breakpoint": 1400,
-                          "settings": {
-                            "slidesToShow": 6
-                          }
-                        }, {
-                            "breakpoint": 1200,
-                            "settings": {
-                              "slidesToShow": 3
-                            }
-                        }, {
-                          "breakpoint": 992,
-                          "settings": {
-                            "slidesToShow": 3
-                          }
-                        }, {
-                          "breakpoint": 768,
-                          "settings": {
-                            "slidesToShow": 2
-                          }
-                        }, {
-                          "breakpoint": 554,
-                          "settings": {
-                            "slidesToShow": 2
-                          }
-                        }]'>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img2.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img3.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img4.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img5.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img6.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img7.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="js-slide products-group">
-                    <div class="product-item">
-                        <div class="product-item__outer h-100 w-100">
-                            <div class="product-item__inner px-wd-4 p-2 p-md-3">
-                                <div class="product-item__body pb-xl-2">
-                                    <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
-                                            class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
-                                            class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
-                                            Full base audio</a></h5>
-                                    <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
-                                                class="img-fluid" src="assets/img/212X200/img1.jpg"
-                                                alt="Image Description"></a>
-                                    </div>
-                                    <div class="flex-center-between mb-1">
-                                        <div class="prodcut-price">
-                                            <div class="text-gray-100">$685,00</div>
-                                        </div>
-                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
-                                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                    class="ec ec-add-to-cart"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item__footer">
-                                    <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                        <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Recommendation for you -->
-        <!-- Banner 2 columns -->
-        <div class="mb-8">
-            <div class="row">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <a href="../shop/shop.html">
-                        <img class="img-fluid" src="assets/img/690X150/img1.jpg" alt="Image Description">
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <a href="../shop/shop.html">
-                        <img class="img-fluid" src="assets/img/690X150/img2.jpg" alt="Image Description">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- End Banner 2 columns -->
-    </div>
-    <!-- Brand Carousel -->
-    <div class="container mb-8">
-        <div class="py-2 border-top border-bottom">
-            <div class="js-slick-carousel u-slick my-1" data-slides-show="5" data-slides-scroll="1"
-                data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y"
-                data-arrow-left-classes="fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9"
-                data-arrow-right-classes="fa fa-angle-right u-slick__arrow-classic-inner--right" data-responsive='[{
-                            "breakpoint": 992,
-                            "settings": {
-                                "slidesToShow": 2
-                            }
-                        }, {
-                            "breakpoint": 768,
-                            "settings": {
-                                "slidesToShow": 1
-                            }
-                        }, {
-                            "breakpoint": 554,
-                            "settings": {
-                                "slidesToShow": 1
-                            }
-                        }]'>
-                <div class="js-slide">
-                    <a href="#" class="link-hover__brand">
-                        <img class="img-fluid m-auto max-height-50" src="assets/img/200X60/img1.png"
-                            alt="Image Description">
-                    </a>
-                </div>
-                <div class="js-slide">
-                    <a href="#" class="link-hover__brand">
-                        <img class="img-fluid m-auto max-height-50" src="assets/img/200X60/img2.png"
-                            alt="Image Description">
-                    </a>
-                </div>
-                <div class="js-slide">
-                    <a href="#" class="link-hover__brand">
-                        <img class="img-fluid m-auto max-height-50" src="assets/img/200X60/img3.png"
-                            alt="Image Description">
-                    </a>
-                </div>
-                <div class="js-slide">
-                    <a href="#" class="link-hover__brand">
-                        <img class="img-fluid m-auto max-height-50" src="assets/img/200X60/img4.png"
-                            alt="Image Description">
-                    </a>
-                </div>
-                <div class="js-slide">
-                    <a href="#" class="link-hover__brand">
-                        <img class="img-fluid m-auto max-height-50" src="assets/img/200X60/img5.png"
-                            alt="Image Description">
-                    </a>
-                </div>
-                <div class="js-slide">
-                    <a href="#" class="link-hover__brand">
-                        <img class="img-fluid m-auto max-height-50" src="assets/img/200X60/img6.png"
-                            alt="Image Description">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Brand Carousel -->
 @endsection
 @section('script_footer')
     <!-- JS Global Compulsory -->

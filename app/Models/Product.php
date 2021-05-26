@@ -29,10 +29,6 @@ class Product extends Model
         return $query->$scope('active', 1);
     }
 
-    public function imageProduct()
-    {
-        return $this->hasMany('App\Models\ImagesProduct','product_id','id_product');
-    }
     public function productType()
     {
         return $this->belongsTo('App\Models\ProductType','product_type_id','id_product_type');
