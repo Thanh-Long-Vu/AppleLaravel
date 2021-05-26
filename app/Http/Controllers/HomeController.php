@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\ProductType;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
@@ -13,7 +15,31 @@ class HomeController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('userPage.pages.home',compact('category'));
+        $slider = Slider::where('active','=',1)->orderby('updated_at','desc')->limit(5)->get();
+        $productSale = Product::where([['discount','>=',70],['is_hot','=',0]])->orderby('discount','desc')->limit(5)->get();
+        $productHot = Product::where([['discount','>=',50],['is_hot','=',1]])->orderby('discount','desc')->limit(5)->get();
+        $productRate = ProductType::where('total_rating','>=','4,5')->limit(5)->get();
+
+        $productTypeMac = ProductType::where('total_rating','>=','4,5')->limit(8)->get();
+        // $productMac = $productTypeMac->first()->products->first()->thumbnail;
+        // dd($productMac);
+        $productIpad = Product::orderby('updated_at','desc')->limit(8)->get();
+        $productIphone = Product::orderby('updated_at','desc')->limit(8)->get();
+        // dd($productMac->first()->products->warehouse);  
+        // $product = Product::where([
+        //     ['product_type_id',1],
+        //     ['product_type_id',2],
+        //     ['product_type_id',3],
+        //     ['product_type_id',4],
+        //     ['product_type_id',5],
+        //     ['product_type_id',6],
+        //     ['product_type_id',7],
+        //     ['product_type_id',8]
+        //     ])
+        //     ->orderby('price','desc')
+        //     ->limit(8)->get();
+            // dd($product);
+        return view('userPage.pages.home',compact('category','slider','productSale','productHot','productRate','productTypeMac','productIpad'));
     }
     public function autoComplete(Request $request){
         $filterAble = $request->only('name~','category_id');
