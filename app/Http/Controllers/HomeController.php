@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\ImagesProduct;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\Slider;
@@ -20,26 +21,18 @@ class HomeController extends Controller
         $productHot = Product::where([['discount','>=',50],['is_hot','=',1]])->orderby('discount','desc')->limit(5)->get();
         $productRate = ProductType::where('total_rating','>=','4,5')->limit(5)->get();
 
-        $productTypeMac = ProductType::where('total_rating','>=','4,5')->limit(8)->get();
-        // $productMac = $productTypeMac->first()->products->first()->thumbnail;
-        // dd($productMac);
-        $productIpad = Product::orderby('updated_at','desc')->limit(8)->get();
-        $productIphone = Product::orderby('updated_at','desc')->limit(8)->get();
-        // dd($productMac->first()->products->warehouse);  
-        // $product = Product::where([
-        //     ['product_type_id',1],
-        //     ['product_type_id',2],
-        //     ['product_type_id',3],
-        //     ['product_type_id',4],
-        //     ['product_type_id',5],
-        //     ['product_type_id',6],
-        //     ['product_type_id',7],
-        //     ['product_type_id',8]
-        //     ])
-        //     ->orderby('price','desc')
-        //     ->limit(8)->get();
-            // dd($product);
-        return view('userPage.pages.home',compact('category','slider','productSale','productHot','productRate','productTypeMac','productIpad'));
+        $productTypeMac = ProductType::where('category_id','=',1)->limit(4)->orderby('updated_at','asc')->get();
+        $productTypeIpad = ProductType::where('category_id','=',2)->limit(1)->orderby('updated_at','asc')->get();
+        $productTypeIphone = ProductType::where('category_id','=',3)->limit(1)->orderby('updated_at','asc')->get();
+        $productTypeWatch = ProductType::where('category_id','=',4)->limit(1)->orderby('updated_at','asc')->get();
+
+        $productTypeMacTotalRating = ProductType::orderBy('total_rating','desc')->first();
+        // $image = ImagesProduct::where('product_type_id',$productTypeMacTotalRating->id_product_type)->get();
+        // dd($image);
+        $productTypeIpadTotalRating = ProductType::orderBy('total_rating','desc')->first();
+        $productTypeIphoneTotalRating = ProductType::orderBy('total_rating','desc')->first();
+        $productTypeWatchTotalRating = ProductType::orderBy('total_rating','desc')->first();
+        return view('userPage.pages.home',compact('category','slider','productSale','productHot','productRate','productTypeMac','productTypeIpad','productTypeIphone','productTypeWatch','productTypeMacTotalRating','productTypeIpadTotalRating','productTypeIphoneTotalRating','productTypeWatchTotalRating'));
     }
     public function autoComplete(Request $request){
         $filterAble = $request->only('name~','category_id');
