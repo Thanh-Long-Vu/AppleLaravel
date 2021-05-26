@@ -47,6 +47,7 @@ Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'get
 Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
+Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
