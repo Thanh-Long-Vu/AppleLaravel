@@ -16,12 +16,7 @@ class CartController extends Controller
 
     public function cart()
     {
-        $data = [];
-        if (Session::has('cart')) {
-            $data = Session('cart');
-        }
-
-        return response()->json($data);
+        return view('userPage.pages.cart');
     }
 
     public function add(Request $request, Product $product)
@@ -33,7 +28,7 @@ class CartController extends Controller
         $cart = new Cart();
         $cart->addProduct($product, $color, $product_type);
 
-        return Redirect::back()->with('message','Operation Successful !');
+        return Redirect::route('cart')->with('message','Add to cart Successful !');
     }
 
     public function increase_quantity(Request $request)
@@ -56,7 +51,7 @@ class CartController extends Controller
 
         $cart->removeItem($request->key);
 
-        return redirect()->route('client.showCart');
+        return response()->json(['message' => 'Deleted item in cart successful!.']); 
     }
 
     public function removeAll()

@@ -152,9 +152,6 @@
                             <div class="mb-2 pb-0dot5">
                                 <button type="submit" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</button>
                             </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-block btn-dark">Buy Now</button>
-                            </div>
                         </form>
                             <div class="flex-content-center flex-wrap">
                                 <a href="#" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>

@@ -34,7 +34,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/product-type/{productType}', [App\Http\Controllers\ProductTypeController::class, 'show'])->name('productype.show');
 Route::get('/product', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
-Route::get('/cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
 Route::get('/track-your-order', [App\Http\Controllers\HomeController::class, 'track_your_order'])->name('track_your_order');
 Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound'])->name('NotFound');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
@@ -42,13 +41,12 @@ Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name(
 Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
-<<<<<<< HEAD
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
 Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'index'])->name('resultSearch');
 Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'getOption'])->name('getOption');
-=======
 Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
->>>>>>> 9f4054c... add to cart
+Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House

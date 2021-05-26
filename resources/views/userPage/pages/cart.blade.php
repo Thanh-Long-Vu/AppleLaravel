@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="assets/vendor/fancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
+    <script src="../admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="../admin/css/toastr.min.css">
+    <script src="../admin/js/toastr.min.js"></script>
     <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
 @endsection
 @section('content')
@@ -31,8 +34,18 @@
 
         <div class="container">
             <div class="mb-4">
+            @if(session('message'))
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>{{session('message')}}
+                    </strong>
+                  </div>
+            @endif
+            </div>
+            <div class="mb-4">
                 <h1 class="text-center">Cart</h1>
             </div>
+            @if (Session::get('cart'))
             <div class="mb-10 cart-table">
                 <form class="mb-4" action="#" method="post">
                     <table class="table" cellspacing="0">
@@ -47,55 +60,57 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if(Session::has('cart'))
-                            @foreach (Session::get('cart') as $cart)
-                                
-                            <tr class="">
-                                <td class="text-center">
-                                    <a href="#" class="text-gray-32 font-size-26">×</a>
-                                </td>
-                                <td class="d-none d-md-table-cell">
-                                    <a href="#"><img class="img-fluid max-width-100 p-1 border border-color-1"
-                                            src="assets/img/300X300/img6.jpg" alt="Image Description"></a>
-                                </td>
+                                @foreach (Session::get('cart') as $cart)
+                                    <tr class="cart-item" id="item-{{ $cart['item']['product']->id_product }}">
+                                        <td class="text-center">
+                                            <a href="javascript:void(0)" id="delete_cart" data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}"
+                                                class="text-gray-32 font-size-26">×</a>
+                                        </td>
+                                        <td class="d-none d-md-table-cell">
+                                            <a href="#"><img class="img-fluid max-width-100 p-1 border border-color-1"
+                                                    src="assets/img/300X300/img6.jpg" alt="Image Description"></a>
+                                        </td>
 
-                                <td data-title="Product">
-                                    <a href="#" class="text-gray-90">{{ $cart['item']['product_type'] }}</a>
-                                </td>
+                                        <td data-title="Product">
+                                            <a href="#" class="text-gray-90">{{ $cart['item']['product_type'] }}</a>
+                                        </td>
 
-                                <td data-title="Price">
-                                    <span class="">{{ number_format($cart['item']['product_price']) . ' ₫' }}</span>
-                                </td>
+                                        <td data-title="Price">
+                                            <span
+                                                class="">{{ number_format($cart['item']['product_price']) . ' ₫' }}</span>
+                                        </td>
 
-                                <td data-title="Quantity">
-                                    <span class="sr-only">Quantity</span>
-                                    <!-- Quantity -->
-                                    <div class="border rounded-pill py-1 width-122 w-xl-80 px-3 border-color-1">
-                                        <div class="js-quantity row align-items-center">
-                                            <div class="col">
-                                                <input data-id="{{ $cart['key'] }}" class="js-result form-control h-auto border-0 rounded p-0 shadow-non" min="1" max="99" type="text" value="{{ $cart['item']['quantity'] }}">
+                                        <td data-title="Quantity">
+                                            <span class="sr-only">Quantity</span>
+                                            <!-- Quantity -->
+                                            <div class="border rounded-pill py-1 width-122 w-xl-80 px-3 border-color-1">
+                                                <div class="js-quantity row align-items-center">
+                                                    <div class="col">
+                                                        <input data-id="{{ $cart['key'] }}"
+                                                            class="js-result form-control h-auto border-0 rounded p-0 shadow-non"
+                                                            min="1" max="99" type="text"
+                                                            value="{{ $cart['item']['quantity'] }}">
+                                                    </div>
+                                                    <div class="col-auto pr-1">
+                                                        <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
+                                                            href="javascript:;">
+                                                            <small class="fas fa-minus btn-icon__inner"></small>
+                                                        </a>
+                                                        <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
+                                                            href="javascript:;">
+                                                            <small class="fas fa-plus btn-icon__inner"></small>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-auto pr-1">
-                                                <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
-                                                    href="javascript:;">
-                                                    <small class="fas fa-minus btn-icon__inner"></small>
-                                                </a>
-                                                <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
-                                                    href="javascript:;">
-                                                    <small class="fas fa-plus btn-icon__inner"></small>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Quantity -->
-                                </td>
+                                            <!-- End Quantity -->
+                                        </td>
 
-                                <td data-title="Total">
-                                    <span class="">$1,100.00</span>
-                                </td>
-                            </tr>
-                            @endforeach
-@endif
+                                        <td data-title="Total">
+                                            <span class="">$1,100.00</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
                         </tbody>
                     </table>
 
@@ -476,6 +491,13 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="mb-12 cart-table">
+                <div class="alert alert-primary" role="alert">
+                    <p style="margin: 0; color:#333e48; font-weight: bold">Cart is empty !!!</p>
+                  </div>
+            </div>
+            @endif
         </div>
     </main>
 @endsection
@@ -534,6 +556,27 @@
         });
 
         $(document).on('ready', function() {
+            $("#delete_cart").click(function() {
+                var key = $(this).attr('data-key');
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: '{{ route('cart.delete') }}',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'key': key,
+                    },
+                    success: function(data) {
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        $("#item-"+ id).fadeOut();
+   
+                        toastr.success(data.message);
+                    }
+                });
+            });
             // initialization of header
             $.HSCore.components.HSHeader.init($('#header'));
 
