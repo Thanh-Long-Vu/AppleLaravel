@@ -193,7 +193,7 @@
                                                         <b style="color : Gray"><i>512GB</i></b>                                                                 
                                                     @endif </a></h5>
                                             <div class="mb-2">
-                                                <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img
+                                                <a href="{{ route('products.show', ['product'=> $item->id_product]) }}" class="d-block text-center"><img
                                                         class="img-fluid" src="../{{$item->thumbnail}}"
                                                         alt="Image Description"></a>
                                             </div>
@@ -266,7 +266,7 @@
                                                         <b style="color : Gray"><i>512GB</i></b>                                                                 
                                                     @endif </a></h5>
                                             <div class="mb-2">
-                                                <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img
+                                                <a href="{{ route('products.show', ['product'=> $item->id_product]) }}" class="d-block text-center"><img
                                                         class="img-fluid" src="../{{$item->thumbnail}}"
                                                         alt="Image Description"></a>
                                             </div>
@@ -298,14 +298,13 @@
                 <div class="tab-pane fade pt-2" id="pills-three-example1" role="tabpanel"
                     aria-labelledby="pills-three-example1-tab" data-target-group="groups">
                     <ul class="row list-unstyled products-group no-gutters">
-                        @if (!empty($productRate))
-                            @foreach ($productRate as $item) 
+                        @if (!empty($productTypeRate))
+                            @foreach ($productTypeRate as $item) 
                                 <li class="col-6 col-md-4 col-xl product-item">
                                     <div class="product-item__outer h-100 w-100">
                                         <div class="product-item__inner px-xl-4 p-3">
                                             <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a href=""
-                                                        class="font-size-12 text-gray-5">Category : {{ $item->category->name }}</a></div>
+                                                <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->category->name }}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
                                                         class="text-blue font-weight-bold">{{ $item->name }}</b> - 
                                                         @if ($item->products->first()->warehouse->color == 0)
@@ -339,7 +338,7 @@
                                                             <b style="color : Gray"><i>512GB</i></b>                                                                 
                                                         @endif </a></h5>
                                                 <div class="mb-2">
-                                                    <a href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}" class="d-block text-center"><img
+                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}" class="d-block text-center"><img
                                                             class="img-fluid" src="../{{$item->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
                                                 </div>
@@ -417,75 +416,79 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @if (!empty($productTypeMac) && (count($productTypeMac) == 8) )
                                 @foreach ($productTypeMac as $item)
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">
-                                                        {{$item->name}}- 
-                                                        @if ($item->products->first()->warehouse->color == 0)
-                                                            <b style="color : red"><i>Red</i></b> memory
-                                                        @elseif($item->products->first()->warehouse->color == 1)
-                                                            <b style="color : gold"><i>Yellow</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 2)
-                                                            <b style="color : Violet"><i>Violet</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 3)
-                                                            <b style="color : Green"><i>Green</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 4)
-                                                            <b style="color : Black"><i>Black</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 5)
-                                                            <b style="color : Gray"><i>White</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 6)
-                                                            <b style="color : Other"><i>Other</i></b>   
-                                                        @elseif($item->products->first()->warehouse->color == 7)
-                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                        @endif -
-                                                        @if ($item->products->first()->warehouse->memory== 0)
-                                                            <b style="color : #336699"><i>16GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 1)
-                                                            <b style="color : gold"><i>32GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 2)
-                                                            <b style="color : Violet"><i>64GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 3)
-                                                            <b style="color : Green"><i>128GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 4)
-                                                            <b style="color : Black"><i>256GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 5)
-                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                        @endif </a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    @if ($item->products->first()->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
+                                @if(!empty($item->products->first()->warehouse))
+                                    <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
+                                        <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
+                                            <div class="product-item__inner bg-white p-3">
+                                                <div class="product-item__body pb-xl-2">
+                                                    <div class="mb-2"><a
+                                                            href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
+                                                            class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
+                                                    <h5 class="mb-1 product-item__title"><a
+                                                            href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
+                                                            class="text-blue font-weight-bold">
+                                                            {{$item->name}}- 
+                                                            @if ($item->products->first()->warehouse->color == 0)
+                                                                <b style="color : red"><i>Red</i></b> memory
+                                                            @elseif($item->products->first()->warehouse->color == 1)
+                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 2)
+                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 3)
+                                                                <b style="color : Green"><i>Green</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 4)
+                                                                <b style="color : Black"><i>Black</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 5)
+                                                                <b style="color : Gray"><i>White</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 6)
+                                                                <b style="color : Other"><i>Other</i></b>   
+                                                            @elseif($item->products->first()->warehouse->color == 7)
+                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            @endif -
+                                                            @if ($item->products->first()->warehouse->memory== 0)
+                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 1)
+                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 2)
+                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 3)
+                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 4)
+                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 5)
+                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            @endif </a></h5>
+                                                    <div class="mb-2">
+                                                        <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                            class="d-block text-center"><img class="img-fluid"
+                                                                src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                     </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
-                                                    </div>
-                                                    @endif
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
+                                                    <div class="flex-center-between mb-1">
+                                                        @if ($item->products->first()->discount > 0)
+                                                        <div class="prodcut-price d-flex align-items-center position-relative">
+                                                            <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                            <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
+                                                        </div>
+                                                        @else
+                                                        <div class="prodcut-price">
+                                                            <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
+                                                        </div>
+                                                        @endif
+                                                        <div class="d-none d-xl-block prodcut-add-cart">
+                                                            <a href="../shop/single-product-fullwidth.html"
+                                                                class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                    class="ec ec-add-to-cart"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endif
                                 @endforeach
+                                @endif
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
@@ -496,10 +499,10 @@
                                             <div class="product-item__body d-flex flex-column">
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
-                                                            href="../shop/product-categories-7-column-full-width.html"
+                                                            href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
                                                             class="font-size-12 text-gray-5">Category : {{$productTypeMacTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
-                                                            href="../shop/single-product-fullwidth.html"
+                                                            href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
                                                             class="text-blue font-weight-bold">
                                                             {{$productTypeMacTotalRating->name}} -
                                                             @if ($productTypeMacTotalRating->products->first()->warehouse->color == 0)
@@ -534,14 +537,14 @@
                                                             @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="#"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeMacTotalRating->products->first()->id_product]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
                                                             class="img-fluid" src="../{{$productTypeMacTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
                                                     <!-- Gallery -->
                                                     <div class="row mx-gutters-2 mb-3">
                                                         @if (!empty($productTypeMacTotalRating))
-                                                        @foreach ($productTypeMacTotalRating->imageProductType->limit(3) as $item)
+                                                        @foreach ($productTypeMacTotalRating->imageProductType()->limit(4)->get() as $item)
                                                         <div class="col-auto">
                                                             <!-- Gallery -->
                                                             <a class="js-fancybox max-width-60 u-media-viewer"
@@ -597,16 +600,18 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @if(!empty($productTypeIphone) && (count($productTypeIphone) == 8))
                                 @foreach ($productTypeIphone as $item)
+                                @if(!empty($item->products->first()->warehouse))
                                 <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
                                                         class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
                                                         class="text-blue font-weight-bold">
                                                         {{$item->name}}- 
                                                         @if ($item->products->first()->warehouse->color == 0)
@@ -640,7 +645,7 @@
                                                             <b style="color : Gray"><i>512GB</i></b>                                                                 
                                                         @endif </a></h5>
                                                 <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
                                                         class="d-block text-center"><img class="img-fluid"
                                                             src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
@@ -665,90 +670,9 @@
                                         </div>
                                     </div>
                                 </li>
+                                @endif
                                 @endforeach
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
-                            <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade pt-2" id="Tpills-three-example1" role="tabpanel"
-                    aria-labelledby="Tpills-three-example1-tab">
-                    <div class="row no-gutters">
-                        <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
-                            <ul class="row list-unstyled products-group no-gutters mb-0">
-                                @foreach ($productTypeIpad as $item)
-                                <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
-                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-                                        <div class="product-item__inner bg-white p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
-                                                        class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
-                                                <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
-                                                        class="text-blue font-weight-bold">
-                                                        {{$item->name}}- 
-                                                        @if ($item->products->first()->warehouse->color == 0)
-                                                            <b style="color : red"><i>Red</i></b> memory
-                                                        @elseif($item->products->first()->warehouse->color == 1)
-                                                            <b style="color : gold"><i>Yellow</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 2)
-                                                            <b style="color : Violet"><i>Violet</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 3)
-                                                            <b style="color : Green"><i>Green</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 4)
-                                                            <b style="color : Black"><i>Black</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 5)
-                                                            <b style="color : Gray"><i>White</i></b> 
-                                                        @elseif($item->products->first()->warehouse->color == 6)
-                                                            <b style="color : Other"><i>Other</i></b>   
-                                                        @elseif($item->products->first()->warehouse->color == 7)
-                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                        @endif -
-                                                        @if ($item->products->first()->warehouse->memory== 0)
-                                                            <b style="color : #336699"><i>16GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 1)
-                                                            <b style="color : gold"><i>32GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 2)
-                                                            <b style="color : Violet"><i>64GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 3)
-                                                            <b style="color : Green"><i>128GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 4)
-                                                            <b style="color : Black"><i>256GB</i></b> 
-                                                        @elseif($item->products->first()->warehouse->memory== 5)
-                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                        @endif </a></h5>
-                                                <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
-                                                        class="d-block text-center"><img class="img-fluid"
-                                                            src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    @if ($item->products->first()->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
-                                                    </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
-                                                    </div>
-                                                    @endif
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
+                                @endif
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
@@ -759,31 +683,62 @@
                                             <div class="product-item__body d-flex flex-column">
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
-                                                            href="../shop/product-categories-7-column-full-width.html"
-                                                            class="font-size-12 text-gray-5">Game Consoles</a></div>
+                                                            href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product]) }}"
+                                                            class="font-size-12 text-gray-5">Category : {{$productTypeIphoneTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
-                                                            href="../shop/single-product-fullwidth.html"
-                                                            class="text-blue font-weight-bold">Game Console Controller + USB
-                                                            3.0 Cable</a></h5>
+                                                            href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product]) }}"
+                                                            class="text-blue font-weight-bold">
+                                                            {{$productTypeIphoneTotalRating->name}} -
+                                                            @if ($productTypeIphoneTotalRating->products->first()->warehouse->color == 0)
+                                                                <b style="color : red"><i>Red</i></b> memory
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 1)
+                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 2)
+                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 3)
+                                                                <b style="color : Green"><i>Green</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 4)
+                                                                <b style="color : Black"><i>Black</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 5)
+                                                                <b style="color : Gray"><i>White</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 6)
+                                                                <b style="color : Other"><i>Other</i></b>   
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 7)
+                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            @endif -
+                                                            @if ($productTypeIphoneTotalRating->products->first()->warehouse->memory== 0)
+                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 1)
+                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 2)
+                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 3)
+                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 4)
+                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                            @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 5)
+                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="#"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="assets/img/564X520/img2.jpg"
+                                                            class="img-fluid" src="../{{$productTypeIphoneTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
                                                     <!-- Gallery -->
                                                     <div class="row mx-gutters-2 mb-3">
+                                                        @if (!empty($productTypeIphoneTotalRating))
+                                                        @foreach ($productTypeIphoneTotalRating->imageProductType()->limit(4)->get() as $item)
                                                         <div class="col-auto">
                                                             <!-- Gallery -->
                                                             <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img1.jpg"
+                                                                href="javascript:;" data-src="../{{$item->img_url}}"
                                                                 data-fancybox="fancyboxGallery6"
                                                                 data-caption="Electro in frames - image #01"
                                                                 data-speed="700" data-is-infinite="true">
                                                                 <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img1.jpg"
+                                                                    src="../{{$item->img_url}}"
                                                                     alt="Image Description">
-
                                                                 <span class="u-media-viewer__container">
                                                                     <span class="u-media-viewer__icon">
                                                                         <span
@@ -793,56 +748,23 @@
                                                             </a>
                                                             <!-- End Gallery -->
                                                         </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img2.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #02"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img2.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img3.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #03"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img3.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
+                                                        @endforeach
+                                                        @endif
                                                         <div class="col"></div>
                                                     </div>
                                                     <!-- End Gallery -->
                                                 </div>
                                                 <div class="flex-center-between">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
+                                                    @if ($productTypeMacTotalRating->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($productTypeMacTotalRating->products->first()->price - ($productTypeMacTotalRating->products->first()->price*($productTypeMacTotalRating->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</del>
                                                     </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
                                                     <div class="d-none d-xl-block prodcut-add-cart">
                                                         <a href="../shop/single-product-fullwidth.html"
                                                             class="btn-add-cart btn-add-cart__wide btn-primary transition-3d-hover"><i
@@ -850,13 +772,188 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade pt-2" id="Tpills-three-example1" role="tabpanel"
+                    aria-labelledby="Tpills-three-example1-tab">
+                    <div class="row no-gutters">
+                        <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
+                            <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @if(!empty($productTypeIpad) &&( count($productTypeIpad) == 8))
+                                @foreach ($productTypeIpad as $item)
+                                @if(!empty($item->products->first()->warehouse))
+                                    <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
+                                        <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
+                                            <div class="product-item__inner bg-white p-3">
+                                                <div class="product-item__body pb-xl-2">
+                                                    <div class="mb-2"><a
+                                                            href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                            class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
+                                                    <h5 class="mb-1 product-item__title"><a
+                                                            href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                            class="text-blue font-weight-bold">
+                                                            {{$item->name}}- 
+                                                            @if ($item->products->first()->warehouse->color == 0)
+                                                                <b style="color : red"><i>Red</i></b> memory
+                                                            @elseif($item->products->first()->warehouse->color == 1)
+                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 2)
+                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 3)
+                                                                <b style="color : Green"><i>Green</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 4)
+                                                                <b style="color : Black"><i>Black</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 5)
+                                                                <b style="color : Gray"><i>White</i></b> 
+                                                            @elseif($item->products->first()->warehouse->color == 6)
+                                                                <b style="color : Other"><i>Other</i></b>   
+                                                            @elseif($item->products->first()->warehouse->color == 7)
+                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            @endif -
+                                                            @if ($item->products->first()->warehouse->memory== 0)
+                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 1)
+                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 2)
+                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 3)
+                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 4)
+                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                            @elseif($item->products->first()->warehouse->memory== 5)
+                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            @endif </a></h5>
+                                                    <div class="mb-2">
+                                                        <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                            class="d-block text-center"><img class="img-fluid"
+                                                                src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
+                                                    </div>
+                                                    <div class="flex-center-between mb-1">
+                                                        @if ($item->products->first()->discount > 0)
+                                                        <div class="prodcut-price d-flex align-items-center position-relative">
+                                                            <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                            <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->products->first()->price)}}.VNĐ</del>
+                                                        </div>
+                                                        @else
+                                                        <div class="prodcut-price">
+                                                            <div class="text-gray-100"><b>{{number_format($item->products->first()->price)}}.VNĐ</b></div>
+                                                        </div>
+                                                        @endif
+                                                        <div class="d-none d-xl-block prodcut-add-cart">
+                                                            <a href="../shop/single-product-fullwidth.html"
+                                                                class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                    class="ec ec-add-to-cart"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endif
+                                @endforeach
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
+                            <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
+                                <li class="col product-item remove-divider">
+                                    <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
+                                        <div class="product-item__inner bg-white p-3">
+                                            <div class="product-item__body d-flex flex-column">
+                                                <div class="mb-1">
+                                                    <div class="mb-2"><a
+                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product]) }}"
+                                                            class="font-size-12 text-gray-5">Category : {{$productTypeIpadTotalRating->category->name}}</a></div>
+                                                    <h5 class="mb-0 product-item__title"><a
+                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product]) }}"
+                                                            class="text-blue font-weight-bold">
+                                                            {{$productTypeIpadTotalRating->name}} -
+                                                            @if ($productTypeIpadTotalRating->products->first()->warehouse->color == 0)
+                                                                <b style="color : red"><i>Red</i></b> memory
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 1)
+                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 2)
+                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 3)
+                                                                <b style="color : Green"><i>Green</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 4)
+                                                                <b style="color : Black"><i>Black</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 5)
+                                                                <b style="color : Gray"><i>White</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 6)
+                                                                <b style="color : Other"><i>Other</i></b>   
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 7)
+                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            @endif -
+                                                            @if ($productTypeIpadTotalRating->products->first()->warehouse->memory== 0)
+                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 1)
+                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 2)
+                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 3)
+                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 4)
+                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                            @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 5)
+                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            @endif</a></h5>
+                                                </div>
+                                                <div class="mb-1 min-height-8-1">
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product]) }}"
+                                                        class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
+                                                            class="img-fluid" src="../{{$productTypeIpadTotalRating->products->first()->thumbnail}}"
+                                                            alt="Image Description"></a>
+                                                    <!-- Gallery -->
+                                                    <div class="row mx-gutters-2 mb-3">
+                                                        @if (!empty($productTypeIpadTotalRating))
+                                                        @foreach ($productTypeIpadTotalRating->imageProductType()->limit(4)->get() as $item)
+                                                        <div class="col-auto">
+                                                            <!-- Gallery -->
+                                                            <a class="js-fancybox max-width-60 u-media-viewer"
+                                                                href="javascript:;" data-src="../{{$item->img_url}}"
+                                                                data-fancybox="fancyboxGallery6"
+                                                                data-caption="Electro in frames - image #01"
+                                                                data-speed="700" data-is-infinite="true">
+                                                                <img class="img-fluid border"
+                                                                    src="../{{$item->img_url}}"
+                                                                    alt="Image Description">
+                                                                <span class="u-media-viewer__container">
+                                                                    <span class="u-media-viewer__icon">
+                                                                        <span
+                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
+                                                                    </span>
+                                                                </span>
+                                                            </a>
+                                                            <!-- End Gallery -->
+                                                        </div>
+                                                        @endforeach
+                                                        @endif
+                                                        <div class="col"></div>
+                                                    </div>
+                                                    <!-- End Gallery -->
+                                                </div>
+                                                <div class="flex-center-between">
+                                                    @if ($productTypeMacTotalRating->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($productTypeMacTotalRating->products->first()->price - ($productTypeMacTotalRating->products->first()->price*($productTypeMacTotalRating->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</del>
+                                                    </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
+                                                    <div class="d-none d-xl-block prodcut-add-cart">
+                                                        <a href="../shop/single-product-fullwidth.html"
+                                                            class="btn-add-cart btn-add-cart__wide btn-primary transition-3d-hover"><i
+                                                                class="ec ec-add-to-cart mr-2"></i> Add to Cart</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -871,16 +968,18 @@
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
                             <ul class="row list-unstyled products-group no-gutters mb-0">
+                                @if(!empty($productTypeWatch) &&( count($productTypeWatch) == 8))
                                 @foreach ($productTypeWatch as $item)
+                                @if(!empty($item->products->first()->warehouse))
                                 <li class="col-md-6 col-lg-4 col-wd-3 product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
-                                                        href="../shop/product-categories-7-column-full-width.html"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
                                                         class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
-                                                        href="../shop/single-product-fullwidth.html"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
                                                         class="text-blue font-weight-bold">
                                                         {{$item->name}}- 
                                                         @if ($item->products->first()->warehouse->color == 0)
@@ -914,7 +1013,7 @@
                                                             <b style="color : Gray"><i>512GB</i></b>                                                                 
                                                         @endif </a></h5>
                                                 <div class="mb-2">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
                                                         class="d-block text-center"><img class="img-fluid"
                                                             src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
@@ -939,7 +1038,9 @@
                                         </div>
                                     </div>
                                 </li>
+                                @endif
                                 @endforeach
+                                @endif
                             </ul>
                         </div>
                         <div class="col-md-6 col-lg-5 col-wd-4 products-group-1">
@@ -950,31 +1051,62 @@
                                             <div class="product-item__body d-flex flex-column">
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
-                                                            href="../shop/product-categories-7-column-full-width.html"
-                                                            class="font-size-12 text-gray-5">Game Consoles</a></div>
+                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product]) }}"
+                                                            class="font-size-12 text-gray-5">Category : {{$productTypeWatchTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
-                                                            href="../shop/single-product-fullwidth.html"
-                                                            class="text-blue font-weight-bold">Game Console Controller + USB
-                                                            3.0 Cable</a></h5>
+                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product]) }}"
+                                                            class="text-blue font-weight-bold">
+                                                            {{$productTypeWatchTotalRating->name}} -
+                                                            @if ($productTypeWatchTotalRating->products->first()->warehouse->color == 0)
+                                                                <b style="color : red"><i>Red</i></b> memory
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 1)
+                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 2)
+                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 3)
+                                                                <b style="color : Green"><i>Green</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 4)
+                                                                <b style="color : Black"><i>Black</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 5)
+                                                                <b style="color : Gray"><i>White</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 6)
+                                                                <b style="color : Other"><i>Other</i></b>   
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 7)
+                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            @endif -
+                                                            @if ($productTypeWatchTotalRating->products->first()->warehouse->memory== 0)
+                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 1)
+                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 2)
+                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 3)
+                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 4)
+                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                            @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 5)
+                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="#"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="assets/img/564X520/img2.jpg"
+                                                            class="img-fluid" src="../{{$productTypeWatchTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
                                                     <!-- Gallery -->
                                                     <div class="row mx-gutters-2 mb-3">
+                                                        @if (!empty($productTypeWatchTotalRating))
+                                                        @foreach ($productTypeWatchTotalRating->imageProductType()->limit(4)->get() as $item)
                                                         <div class="col-auto">
                                                             <!-- Gallery -->
                                                             <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img1.jpg"
+                                                                href="javascript:;" data-src="../{{$item->img_url}}"
                                                                 data-fancybox="fancyboxGallery6"
                                                                 data-caption="Electro in frames - image #01"
                                                                 data-speed="700" data-is-infinite="true">
                                                                 <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img1.jpg"
+                                                                    src="../{{$item->img_url}}"
                                                                     alt="Image Description">
-
                                                                 <span class="u-media-viewer__container">
                                                                     <span class="u-media-viewer__icon">
                                                                         <span
@@ -984,70 +1116,28 @@
                                                             </a>
                                                             <!-- End Gallery -->
                                                         </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img2.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #02"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img2.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="assets/img/1920X1080/img3.jpg"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #03"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="assets/img/100X100/img3.jpg"
-                                                                    alt="Image Description">
-
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
-                                                        </div>
+                                                        @endforeach
+                                                        @endif
                                                         <div class="col"></div>
                                                     </div>
                                                     <!-- End Gallery -->
                                                 </div>
                                                 <div class="flex-center-between">
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100">$685,00</div>
+                                                    @if ($productTypeMacTotalRating->products->first()->discount > 0)
+                                                    <div class="prodcut-price d-flex align-items-center position-relative">
+                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($productTypeMacTotalRating->products->first()->price - ($productTypeMacTotalRating->products->first()->price*($productTypeMacTotalRating->products->first()->discount/100)))}}.VNĐ</b></ins>
+                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</del>
                                                     </div>
+                                                    @else
+                                                    <div class="prodcut-price">
+                                                        <div class="text-gray-100"><b>{{number_format($productTypeMacTotalRating->products->first()->price)}}.VNĐ</b></div>
+                                                    </div>
+                                                    @endif
                                                     <div class="d-none d-xl-block prodcut-add-cart">
                                                         <a href="../shop/single-product-fullwidth.html"
                                                             class="btn-add-cart btn-add-cart__wide btn-primary transition-3d-hover"><i
                                                                 class="ec ec-add-to-cart mr-2"></i> Add to Cart</a>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer">
-                                                <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                    <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                    <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                            class="ec ec-favorites mr-1 font-size-15"></i> Add to
-                                                        Wishlist</a>
                                                 </div>
                                             </div>
                                         </div>
