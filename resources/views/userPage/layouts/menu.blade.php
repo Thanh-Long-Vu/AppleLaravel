@@ -1,5 +1,7 @@
 <div class="d-none d-xl-block bg-primary">
-    <div class="container">
+    <div class="container" style="display: flex;
+    justify-content: center;
+    align-items: center;">
         <div class="min-height-45">
             <!-- Nav -->
             <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--wide u-header__navbar--no-space">
