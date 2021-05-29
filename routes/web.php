@@ -57,6 +57,7 @@ Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'increa
 Route::get('/track-your-order', [App\Http\Controllers\TransactionController::class, 'index'])->name('track_your_order');
 Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
 Route::get('/errorNotFound', [App\Http\Controllers\HomeController::class, 'errorPage'])->name('userError');
+Route::get('/filter/product', [App\Http\Controllers\ProductTypeController::class, 'filterProduct'])->name('filterProduct');
 
 Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
