@@ -22,8 +22,7 @@ class User extends Authenticatable
        'password',
        'role_id',
        'avatar',
-       'role_id',
-       'role_id',
+       'total_pay',
    ];
 //
 //    /**

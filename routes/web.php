@@ -48,6 +48,14 @@ Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
 Route::get('/track-your-order', [App\Http\Controllers\TransactionController::class, 'index'])->name('track_your_order');
 Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
+Route::get('/errorNotFound', [App\Http\Controllers\HomeController::class, 'errorPage'])->name('userError');
+
+Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
+    Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
+    Route::post('/updateAccount/{id}', [App\Http\Controllers\AccountController::class, 'update'])->name('updateMyAccount');
+    Route::post('/updatePassword/{id}', [App\Http\Controllers\AccountController::class, 'updatePassword'])->name('updatePassword');
+});
+
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House

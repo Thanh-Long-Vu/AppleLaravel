@@ -41,9 +41,9 @@ class HomeController extends Controller
         }
         return response()->json($response);
     }
-    public function productype()
+    public function errorPage()
     {
-        return view('userPage.pages.producttype');
+        return view('userPage.pages.page404');
     }
     public function product()
     {
