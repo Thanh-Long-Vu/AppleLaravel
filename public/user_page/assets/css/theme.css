@@ -37439,3 +37439,36 @@ blockquote:not(.blockquote) p {
 /*------------------------------------
   File for your custom SCSS style
 ------------------------------------*/
+.dot-lg {
+  width: 10px;
+  height: 10px;
+}
+.dot {
+  content: "";
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red {
+  background-color: #ff4d4d ;
+}
+.dot-yellow {
+  background-color: #ffe680 ;
+}
+.dot-violet {
+  background-color: #bf80ff ;
+}
+.dot-green {
+  background-color: #339966 ;
+}
+.dot-black {
+  background-color: #000000 ;
+}
+.dot-white {
+  background-color: #f2f2f2 ;
+}
+.dot-other {
+  background-color: #003366 ;
+}
+.dot-patific {
+  background-color: #336699 ;
+}

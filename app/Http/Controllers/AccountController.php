@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orders;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -12,7 +14,8 @@ class AccountController extends Controller
     public function index(Request $request){
         $id = $request->id;
         $user = User::find($id);
-        return view('userPage.pages.my-account',compact('user','id'));
+        $transaction = Transaction::where('user_id',$id)->orderBy('updated_at','desc')->get();
+        return view('userPage.pages.my-account',compact('user','id','transaction'));
     }
     public function update(Request $request,$id)
     {
@@ -72,5 +75,26 @@ class AccountController extends Controller
         $user->password = Hash::make($request->pass_new);
         $user->save();
         return back()->with('success', 'Password update successfully.');
+    }
+    public function orderview($id, $transaction_id){
+        $transaction = Transaction::find($transaction_id);
+        $order = Orders::where('transaction_id','=',$transaction_id)->get();
+        $totalprice = 0 ;
+        foreach ($order as $products) {
+            $totalprice += $products->price * $products->quantity;
+        }
+        $sale = (1- ($transaction->total_price / $totalprice)) *100;
+        return view('userPage.pages.detailOrder',compact('order','transaction','totalprice','sale'));
+    }
+    public function cancelOrder($id, $id_transaction)
+    {
+        $transaction = Transaction::find($id_transaction);
+        if($transaction->status == 0){
+            $transaction->status = 4;
+            $transaction->save();
+        }else {
+            return back()->with('failed','You are not cancel order.');
+        }
+        return back()->with('success', 'Cancel order successfully.');
     }
 }
