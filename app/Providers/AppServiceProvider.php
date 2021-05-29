@@ -6,6 +6,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,6 +42,9 @@ class AppServiceProvider extends ServiceProvider
             $productHots = Product::where([['discount','>=',50],['is_hot','=',1]])->orderby('discount','desc')->limit(3)->get();
             $productTypeRates = ProductType::where('total_rating','>=','4,5')->limit(3)->get();
             $view->with(['productSales' => $productSales,'productHots' => $productHots,'productTypeRates'=> $productTypeRates]);
+        });
+        Validator::extend('currentPassword', function ($attribute, $value, $parameters, $validator) {
+            return Hash::check($value, Auth::user()->password);
         });
     }
 }
