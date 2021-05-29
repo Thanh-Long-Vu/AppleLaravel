@@ -54,8 +54,9 @@ Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
     Route::post('/updateAccount/{id}', [App\Http\Controllers\AccountController::class, 'update'])->name('updateMyAccount');
     Route::post('/updatePassword/{id}', [App\Http\Controllers\AccountController::class, 'updatePassword'])->name('updatePassword');
+    Route::get('{id}/detailOrder/{transaction_id}', [App\Http\Controllers\AccountController::class,'orderview'])->name('orderDetail');
+    Route::get('{id}/cancel/transaction/{id_transaction}', [App\Http\Controllers\AccountController::class,'cancelOrder'])->name('cancelOrder');
 });
-
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
