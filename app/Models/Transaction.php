@@ -14,7 +14,7 @@ class Transaction extends Model
     protected $primaryKey = 'id_transaction';
     public function order()
     {
-        return $this->hasMany('App\Models\Order','order_id','id_order');
+        return $this->hasMany('App\Models\Orders','order_id','id_order');
     }
     function user()
     {
