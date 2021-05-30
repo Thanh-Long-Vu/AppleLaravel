@@ -15,25 +15,28 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <h2 class="page-title">Form Create Payment</h2>
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                        @php
+                            Session::forget('success');
+                        @endphp
+                    </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card shadow mb-4">
-                                {{-- <div class="card-header">
-                                    <strong class="card-title">Advanced Validation</strong>
-                                </div> --}}
-                                <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                <div class="card-body"> 
+                                    <form class="needs-validation" novalidate method="post" action="{{route('StorePayment')}}">
+                                        @csrf
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name Payment</label>
-                                                <input type="text" class="form-control" id="name" value="Iphone " required >
+                                                <input type="text" class="form-control" id="name" name="name" value="{{old('name')}} " >
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="customFile">Logo</label>
-                                                <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
-                                                </div>
+                                                <label for="logo">Logo</label>
+                                                <input type="text" class="form-control" id="logo" name="logo" value="{{old('logo')}} " >
                                             </div>
                                         </div>
                                         <button class="btn btn-primary " type="submit">Add Payment</button>

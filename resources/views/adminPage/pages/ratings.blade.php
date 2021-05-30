@@ -2,6 +2,11 @@
 @section('scriptHeader')
     <link rel="stylesheet" href="admin/css/feather.css">
     <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
+    <script src="admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="admin/css/switchery.min.css">
+    <script src="admin/js/switchery.min.js"></script>
+    <link rel="stylesheet" href="admin/css/toastr.min.css">
+    <script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'Ratings')
 @section('content')
@@ -28,30 +33,45 @@
                                                 <th>UserName</th>
                                                 <th>Product</th>
                                                 <th>Active</th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>
-                                                    <span class="fe fe-star"></span>
-                                                    <span class="fe fe-star"></span>
-                                                    <span class="fe fe-star"></span>
-                                                    <span class="fe fe-star"></span>
-                                                    <span class="fe fe-star"></span>
-                                                </td>
-                                                <td>Sản phẩm rất tốt</td>
-                                                <td>LongVT8</td>
-                                                <td>Iphone 12</td>
-                                                <td>
-                                                    <div class="custom-control custom-switch">
-                                                        <input type="checkbox" class="custom-control-input" id="c1" checked>
-                                                        <label class="custom-control-label" for="c1"></label>
-                                                    </div>
-                                                </td>
-                                                <td><button class="btn mb-2 btn-danger" type="button">Remove</button> </td>
-                                            </tr>
+                                            @if (!empty($listRating))
+                                                @foreach ($listRating as $item)
+                                                <tr>
+                                                    <td>{{$item->id_rating}}</td>
+                                                    <td>
+                                                        @if ($item->number == 1)
+                                                            <span class="fe fe-star"></span>
+                                                        @elseif($item->number == 2)
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                        @elseif($item->number == 3)
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                        @elseif($item->number == 4)
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                        @elseif($item->number == 5)
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                            <span class="fe fe-star"></span>
+                                                        @endif
+                                                    </td>
+                                                    <td>{{$item->content}}</td>
+                                                    <td>{{$item->user->name}}</td>
+                                                    <td>{{$item->product_type->name}}</td>
+                                                    <td>
+                                                        <input type="checkbox" data-id="{{ $item->id_rating }}" name="active" class="js-switch" {{ $item->active == 1 ? 'checked' : '' }}>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -96,5 +116,34 @@
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
 
+    </script>
+    <script>
+        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function(html) {
+            let switchery = new Switchery(html, {
+                size: 'small'
+            });
+        });
+        $(document).ready(function() {
+            $('.js-switch').change(function() {
+                let active = $(this).prop('checked') === true ? 1 : 0;
+                let id_rating = $(this).data('id');
+                $.ajax({
+                    type: "get",
+                    dataType: "json",
+                    url: '{{ route('ratingUpdateStatus') }}',
+                    data: {
+                        'active': active,
+                        'id_rating': id_rating
+                    },
+                    success: function(data) {         
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                    }
+                });
+            });
+        });
     </script>
 @endsection

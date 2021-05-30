@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Rating extends Model
 {
     use HasFactory,
-    Filterable,
-    SoftDeletes;
-    protected $table = 'rating';
+    Filterable;
+    protected $table = 'ratings';
+    protected $primaryKey = 'id_rating';
     function user()
     {
         return $this->belongsTo('App\Models\User','user_id','id_user');
