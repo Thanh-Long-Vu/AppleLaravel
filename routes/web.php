@@ -9,6 +9,8 @@ use App\Http\Controllers\admin\imageProductController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\RatingController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -140,5 +142,13 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('/blogs/edit/{id}', [BlogController::class,'update'])->name('admin.blog.edit.post');
     Route::get('/blogs/delete/{id}', [BlogController::class,'delete'])->name('admin.blog.delete');
 
+    Route::get('/ratings', [RatingController::class,'index'])->name('ratings');
+    Route::get('/rating/update-status', [RatingController::class,'updateStatus'])->name('ratingUpdateStatus');
 
+    
+    Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');
+    Route::get('/payment/create', [PaymentController::class,'create'])->name('paymentCreate');
+    Route::post('/payment/store', [PaymentController::class,'store'])->name('StorePayment');
+    Route::get('/payment/edit/{id}', [PaymentController::class,'edit'])->name('EditPayment');
+    Route::post('/payment/edit/{id}', [PaymentController::class,'update'])->name('UpdatePayment');
 });

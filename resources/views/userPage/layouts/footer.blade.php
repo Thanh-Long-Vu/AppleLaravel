@@ -276,19 +276,19 @@
                 <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">Electro</a> - All rights Reserved</div>
                 <div class="text-md-right">
                             <span class="d-inline-block bg-white border rounded p-1">
-                                <img class="max-width-5" src="assets/img/100X60/img1.jpg" alt="Image Description">
+                                <img class="max-width-5" src="assets/img/logo-payment/img1.jpg" alt="Image Description">
                             </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                                <img class="max-width-5" src="assets/img/100X60/img2.jpg" alt="Image Description">
+                                <img class="max-width-5" src="assets/img/logo-payment/img2.jpg" alt="Image Description">
                             </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                                <img class="max-width-5" src="assets/img/100X60/img3.jpg" alt="Image Description">
+                                <img class="max-width-5" src="assets/img/logo-payment/img3.jpg" alt="Image Description">
                             </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                                <img class="max-width-5" src="assets/img/100X60/img4.jpg" alt="Image Description">
+                                <img class="max-width-5" src="assets/img/logo-payment/img4.jpg" alt="Image Description">
                             </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                                <img class="max-width-5" src="assets/img/100X60/img5.jpg" alt="Image Description">
+                                <img class="max-width-5" src="assets/img/logo-payment/img5.jpg" alt="Image Description">
                             </span>
                 </div>
             </div>

@@ -9,6 +9,7 @@ class PaymentMethod extends Model
 {
     use HasFactory;
     protected $table = 'payment_method';
+    protected $primaryKey = 'id_payment_method';
     public function transaction()
     {
         return $this->hasMany('App\Models\Transaction','id_payment_method','pay_id');
