@@ -8,6 +8,51 @@
     <link rel="stylesheet" href="assets/vendor/fancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <script src="../admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="../admin/css/toastr.min.css">
+    <script src="../admin/js/toastr.min.js"></script>
+    <style>
+        .list_start i:hover {
+            cursor: pointer;
+        }
+
+        .list_text {
+            display: inline-block;
+            margin-left: 10px;
+            position: relative;
+            background-color: #52b858;
+            color: #fff;
+            padding: 2px 8px;
+            box-sizing: border-box;
+            font-size: 12px;
+            border: 2px;
+            display: none;
+        }
+
+        .list_text::after {
+            right: 100%;
+            top: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: rgb(82, 184, 88, 0);
+            border-right-color: #52b858;
+            border-width: 6px;
+            margin-top: -6px;
+        }
+
+        .list_start .fas .rating_active {
+            color: #fed700;
+        }
+
+        #loading_icon {
+            visibility: hidden;
+        }
+
+    </style>
 @endsection
 @section('content')
     <main id="content" role="main" class="checkout-page">
@@ -32,6 +77,13 @@
         <div class="container-fluid mb-10">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
+                    @if(session('message'))
+                        <div class="alert alert-success alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>{{session('message')}}
+                            </strong>
+                        </div>
+                    @endif
                     @if (Session::has('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
@@ -60,11 +112,19 @@
                                 <a class="nav-link" id="transaction-tab" data-toggle="tab" href="#transaction" role="tab"
                                     aria-controls="transaction" aria-selected="false">Transaction</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="rated-tab" data-toggle="tab" href="#rated" role="tab"
+                                    aria-controls="rated" aria-selected="false">History reviewed</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="rating-tab" data-toggle="tab" href="#rating" role="tab"
+                                    aria-controls="rating" aria-selected="false">Review Transaction</a>
+                            </li>
                         </ul>
                     </div> <!-- /.card-body -->
                     <div class="my-4 tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade pt-2 show active" id="myAccount" role="tabpanel"
-                            aria-labelledby="myAccount-tab" data-target-group="groups">
+                        <div class="tab-pane fade pt-2 show active" id="myAccount" role="tabpanel" aria-labelledby="myAccount-tab"
+                            data-target-group="groups">
                             @if (!empty($user))
                                 <form method="POST" enctype="multipart/form-data"
                                     action="{{ route('updateMyAccount', ['id' => $user->id_user]) }}">
@@ -73,7 +133,8 @@
                                         <div class="col-md-3 text-center mb-5">
                                             <div class="avatar avatar-xl">
                                                 <img src="../{{ $user->avatar }}" class="w-60" style="border-radius: 50%;
-                                            border: 1px solid #fed700;" alt="..." class="avatar-img rounded-circle">
+                                                                                            border: 1px solid #fed700;"
+                                                    alt="..." class="avatar-img rounded-circle">
                                             </div>
                                         </div>
                                         <div class="col">
@@ -143,8 +204,9 @@
                                     @endif
                                     <div class="form-group">
                                         <label for="inputAddress5">Address</label>
-                                        <input type="text" name="address" value="{{ $user->address }}" class="form-control"
-                                            id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue">
+                                        <input type="text" name="address" value="{{ $user->address }}"
+                                            class="form-control" id="inputAddress5"
+                                            placeholder="P.O. Box 464, 5975 Eget Avenue">
                                     </div>
                                     @if ($errors->has('address'))
                                         <div class="alert alert-danger">
@@ -155,8 +217,8 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="phone">Phone</label>
-                                            <input type="tel" name="phone" value="{{ $user->phone }}" class="form-control"
-                                                id="phone">
+                                            <input type="tel" name="phone" value="{{ $user->phone }}"
+                                                class="form-control" id="phone">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="avatar">Choose Avatar to change</label>
@@ -187,9 +249,9 @@
                                     <div class="row mb-4">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="inputPassword4">Old Password</label>
+                                                <label for="inputPasswordOld">Old Password</label>
                                                 <input type="password" name="pass_old" class="form-control"
-                                                    id="inputPassword5">
+                                                    id="inputPasswordOld">
                                             </div>
                                             @if ($errors->has('pass_old'))
                                                 <div class="alert alert-danger">
@@ -198,9 +260,9 @@
                                                 </div>
                                             @endif
                                             <div class="form-group">
-                                                <label for="inputPassword5">New Password</label>
+                                                <label for="inputPasswordNew">New Password</label>
                                                 <input type="password" name="pass_new" class="form-control"
-                                                    id="inputPassword5">
+                                                    id="inputPasswordNew">
                                             </div>
                                             @if ($errors->has('pass_new'))
                                                 <div class="alert alert-danger">
@@ -239,59 +301,441 @@
                         </div>
                         <div class="tab-pane fade pt-2 " id="transaction" role="tabpanel" aria-labelledby="transaction-tab"
                             data-target-group="groups">
-                            @if(!empty($transaction))
-                            <h6 class="mb-3 text-center">Last payment</h6>
-                            <table class="table table-borderless table-striped">
-                                <thead class="thead-dark">
-                                    <tr role="row">
-                                        <th>ID</th>
-                                        <th>Note</th>
-                                        <th>Total Price</th>
-                                        <th>Method Receive</th>
-                                        <th>Payment</th>
-                                        <th>Phone</th>
-                                        <th>Status</th>
-                                        <th>View</th>
-                                        <th>Cancel</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($transaction as $item)
-                                    <tr>
-                                        <th scope="col">{{$item->id_transaction}}</th>
-                                        <td>{{$item->note}}</td>
-                                        <td>{{number_format($item->total_price)}}.VND</td>
-                                        <td>
-                                            @if ($item->method_receive == 0)
-                                                Giao hàng tại nhà
-                                            @elseif($item->method_receive == 1)
-                                                Nhận hàng tại cửa hàng
-                                            @endif
-                                        </td>
-                                        <td>{{$item->payment_method->name}}</td>
-                                        <td>{{$item->phone}}</td>
-                                        <td>
-                                            @if ($item->status == 3)
-                                                <span class="dot dot-lg dot-yellow  mr-2"></span>Ordered</td>
-                                            @elseif($item->status == 0)
-                                            <span class="dot dot-lg dot-other mr-2"></span>In-Processing</td>
-                                            @elseif($item->status == 1)
-                                            <span class="dot dot-lg dot-patific mr-2"></span>Successful delivery</td>
-                                            @elseif($item->status == 2)
-                                            <span class="dot dot-lg dot-red mr-2"></span>Delivery failed</td>
-                                            @endif
-                                        <td><a href="{{route('orderDetail',['id'=>$id, 'transaction_id'=>$item])}}" class="btn mb-1 fas fa-eye"></a></td>
-                                        <td><a href="{{route('cancelOrder',['id'=>$id, 'id_transaction'=>$item])}}" class="btn mb-1 fas fa-window-close"></a></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            @if (!empty($transaction))
+                                <h6 class="mb-3 text-center">Last payment</h6>
+                                <table class="table table-borderless table-striped">
+                                    <thead class="thead-dark">
+                                        <tr role="row">
+                                            <th>ID</th>
+                                            <th>Note</th>
+                                            <th>Total Price</th>
+                                            <th>Method Receive</th>
+                                            <th>Payment</th>
+                                            <th>Phone</th>
+                                            <th>Status</th>
+                                            <th>View</th>
+                                            <th>Cancel</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($transaction as $item)
+                                            <tr>
+                                                <th scope="col">{{ $item->id_transaction }}</th>
+                                                <td>{{ $item->note }}</td>
+                                                <td>{{ number_format($item->total_price) }}.VND</td>
+                                                <td>
+                                                    @if ($item->method_receive == 0)
+                                                        Giao hàng tại nhà
+                                                    @elseif($item->method_receive == 1)
+                                                        Nhận hàng tại cửa hàng
+                                                    @endif
+                                                </td>
+                                                <td>{{ $item->payment_method->name }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td>
+                                                    @if ($item->status == 3)
+                                                        <span class="dot dot-lg dot-yellow  mr-2"></span>Ordered
+                                                    @elseif($item->status == 0)
+                                                        <span class="dot dot-lg dot-other mr-2"></span>In-Processing
+                                                    @elseif($item->status == 1)
+                                                        <span class="dot dot-lg dot-patific mr-2"></span>Successful delivery
+                                                    @elseif($item->status == 2)
+                                                        <span class="dot dot-lg dot-red mr-2"></span>Delivery failed
+                                                    @elseif($item->status == 4)
+                                                        <span class="dot dot-lg dot-green mr-2"></span>Reviewed product
+                                                    @endif
+                                                </td>
+                                                <td><a href="{{ route('orderDetail', ['id' => $id, 'transaction_id' => $item]) }}"
+                                                        class="btn mb-1 fas fa-eye"></a></td>
+                                                <td><a href="{{ route('cancelOrder', ['id' => $id, 'id_transaction' => $item]) }}"
+                                                        class="btn mb-1 fas fa-window-close"></a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             @else
                                 No found data......
                             @endif
                         </div>
+                        <div class="tab-pane fade pt-2 " id="rated" role="tabpanel" aria-labelledby="rated-tab"
+                            data-target-group="groups">
+                            @if (!empty($transactionHistory))
+                                @foreach ($transactionHistory as $item)
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 col-lg-10 col-xl-8">
+                                            <div class="card shadow">
+                                                <div class="card-body p-5">
+                                                    <div class="row mb-5">
+                                                        <div class="col-12 text-center mb-4">
+                                                            <h2 class="mb-0 text-uppercase">Invoice
+                                                                #{{ $item->id_transaction }}</h2>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <p class="small text-uppercase mb-2">Invoice from</p>
+                                                            <p class="mb-4">
+                                                                FPT Shop<br />
+                                                            </p>
+                                                            <p>
+                                                                <span class="small text-uppercase">Invoice #</span><br />
+                                                                <strong>{{ $item->id_transaction }}</strong>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <p class="small text-uppercase mb-2">Invoice to</p>
+                                                            <p class="mb-4">
+                                                                {{ $item->user->name }} <br /> <strong>Phone</strong>
+                                                                {{ $item->user->phone }}<br /> <strong>Address</strong>
+                                                                {{ $item->user->address }} <br />
+                                                            </p>
+                                                            <p>
+                                                                <small class="small text-uppercase">Due date</small><br />
+                                                                <strong>{{ $item->created_at }}</strong>
+                                                            </p>
+                                                        </div>
+                                                    </div> <!-- /.row -->
+                                                    <table class="table table-borderless table-striped">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col" class="text-center">Image</th>
+                                                                <th scope="col" class="text-center">Color / Memory</th>
+                                                                <th scope="col" class="text-center">Product</th>
+                                                                <th scope="col" class="text-center">Price</th>
+                                                                <th scope="col" class="text-center">Quantity</th>
+                                                                <th scope="col" class="text-center">Discount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($item->order as $order)
+                                                                <tr>
+                                                                    <td class="text-center w-40"><img class="w-25"
+                                                                            src="../{{ $order->first()->product->thumbnail }}"
+                                                                            alt=""></td>
+                                                                    <td class="text-right"> <b>
+                                                                            @if ($order->first()->product->warehouse->color == 0)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-red mr-2"></span>Red
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 1)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-yellow mr-2"></span>Yellow
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 2)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-violet mr-2"></span>Violet
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 3)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-green mr-2"></span>Green
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 4)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-black mr-2"></span>Black
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 5)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-white mr-2"></span>White
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 6)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-other mr-2"></span>Other
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 7)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-patific mr-2"></span>Patific
+                                                                            @endif
+                                                                        </b> - <b>
+                                                                            @if ($order->first()->product->warehouse->memory == 0)
+                                                                                16GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 1)
+                                                                                32GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 2)
+                                                                                64GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 3)
+                                                                                128GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 4)
+                                                                                256GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 5)
+                                                                                512Gb
+                                                                            @endif
+                                                                        </b>
+                                                                    </td>
+                                                                    <td class="text-center"><a
+                                                                            href="{{ route('products.show', ['product' => $order->product->id_product]) }}}}">{{ $order->product->productType->name }}</a>
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        {{ number_format($order->price) }}.VND</td>
+                                                                    <td class="text-right">{{ $order->quantity }}</td>
+                                                                    <td class="text-right">{{ $order->sale }} %</td>
+                                                                <tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="row mt-5">
+                                                        <div class="col-md-6">
+                                                            <p class="small">
+                                                                <strong>Note :</strong>{{ $order->transaction->note }}
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="text-right mr-2">
+                                                                <p class="mb-2 h6">
+                                                                    <span class="text-muted">Total : </span>
+                                                                    <span>{{ number_format($order->transaction->total_price) }}.VNĐ</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div> <!-- /.row -->
+                                                </div> <!-- /.card-body -->
+                                                <hr>
+                                                <div>
+                                                    <h6 class="text-uppercase mb-2 text-center">Rating Transaction <b
+                                                            style="red">ID#{{ $item->id_transaction }}</b></h6>
+                                                    @if ($item->rating != null)
+                                                        @foreach ($item->rating as $rating)
+                                                            <div class="row mb-5">
+                                                                <div class="ml-5 col-md-6">
+                                                                    <p class="small text-uppercase mb-2"><b>Content review
+                                                                            of you <i
+                                                                                class="text-warning">{{ $rating->product->productType->name }}</i></b>
+                                                                    </p>
+                                                                    <p><textarea class="form-control p-5" rows="4"
+                                                                            name="content"
+                                                                            disabled>{{ $rating->content }}</textarea>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-md-5 text-warning">
+                                                                    <p class="small text-uppercase mb-2"><b
+                                                                            class="text-warning">You have rated the product
+                                                                            {{ $rating->number }} <small
+                                                                                class="fas fa-star"></small></b></p>
+                                                                    @for ($i = $rating->number; $i--; $i >= 0)
+                                                                        <small class="fas fa-star"></small>
+                                                                    @endfor
+                                                                    @for ($i = 5 - $rating->number; $i--; $i >= 0)
+                                                                        <small class="far fa-star text-muted"></small>
+                                                                    @endfor
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        t điên với m lắm r
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                        <div class="tab-pane fade pt-2 " id="rating" role="tabpanel" aria-labelledby="rating-tab"
+                            data-target-group="groups">
+                            @if (!empty($transactionReview))
+                                @foreach ($transactionReview as $item)
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 col-lg-10 col-xl-8">
+                                            <div class="card shadow">
+                                                <div class="card-body p-5">
+                                                    <div class="row mb-5">
+                                                        <div class="col-12 text-center mb-4">
+                                                            <h2 class="mb-0 text-uppercase">Invoice
+                                                                #{{ $item->id_transaction }}</h2>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <p class="small text-uppercase mb-2">Invoice from</p>
+                                                            <p class="mb-4">
+                                                                FPT Shop<br />
+                                                            </p>
+                                                            <p>
+                                                                <span class="small text-uppercase">Invoice #</span><br />
+                                                                <strong>{{ $item->id_transaction }}</strong>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <p class="small text-uppercase mb-2">Invoice to</p>
+                                                            <p class="mb-4">
+                                                                {{ $item->user->name }} <br /> <strong>Phone</strong>
+                                                                {{ $item->user->phone }}<br /> <strong>Address</strong>
+                                                                {{ $item->user->address }} <br />
+                                                            </p>
+                                                            <p>
+                                                                <small class="small text-uppercase">Due date</small><br />
+                                                                <strong>{{ $item->created_at }}</strong>
+                                                            </p>
+                                                        </div>
+                                                    </div> <!-- /.row -->
+                                                    <table class="table table-borderless table-striped">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col" class="text-center">Image</th>
+                                                                <th scope="col" class="text-center">Color / Memory</th>
+                                                                <th scope="col" class="text-center">Product</th>
+                                                                <th scope="col" class="text-center">Price</th>
+                                                                <th scope="col" class="text-center">Quantity</th>
+                                                                <th scope="col" class="text-center">Discount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($item->order as $order)
+                                                                <tr>
+                                                                    <td class="text-center w-40"><img class="w-25"
+                                                                            src="../{{ $order->first()->product->thumbnail }}"
+                                                                            alt=""></td>
+                                                                    <td class="text-right"> <b>
+                                                                            @if ($order->first()->product->warehouse->color == 0)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-red mr-2"></span>Red
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 1)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-yellow mr-2"></span>Yellow
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 2)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-violet mr-2"></span>Violet
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 3)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-green mr-2"></span>Green
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 4)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-black mr-2"></span>Black
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 5)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-white mr-2"></span>White
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 6)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-other mr-2"></span>Other
+                                                                            @elseif($order->first()->product->warehouse->color
+                                                                                == 7)
+                                                                                <span
+                                                                                    class="dot dot-lg dot-patific mr-2"></span>Patific
+                                                                            @endif
+                                                                        </b> - <b>
+                                                                            @if ($order->first()->product->warehouse->memory == 0)
+                                                                                16GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 1)
+                                                                                32GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 2)
+                                                                                64GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 3)
+                                                                                128GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 4)
+                                                                                256GB
+                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                                == 5)
+                                                                                512Gb
+                                                                            @endif
+                                                                        </b>
+                                                                    </td>
+                                                                    <td class="text-center"><a
+                                                                            href="{{ route('products.show', ['product' => $order->product->id_product]) }}}}">{{ $order->product->productType->name }}</a>
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        {{ number_format($order->price) }}.VND</td>
+                                                                    <td class="text-right">{{ $order->quantity }}</td>
+                                                                    <td class="text-right">{{ $order->sale }} %</td>
+                                                                <tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="row mt-5">
+                                                        <div class="col-md-6">
+                                                            <p class="small">
+                                                                <strong>Note :</strong>{{ $order->transaction->note }}
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="text-right mr-2">
+                                                                <p class="mb-2 h6">
+                                                                    <span class="text-muted">Total : </span>
+                                                                    <span>{{ number_format($order->transaction->total_price) }}.VNĐ</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div> <!-- /.row -->
+                                                </div> <!-- /.card-body -->
+                                                <hr>
+                                                <div>
+                                                    <h6 class="text-uppercase mb-2 text-center">Rating Transaction <b
+                                                            style="red">ID#{{ $item->id_transaction }}</b></h6>
+                                                    <div class="row mb-5">
+                                                        <div class="ml-5 col-md-6">
+                                                            <p class="small text-uppercase mb-2"><b>Enter content review
+                                                                    product of you
+                                                                    <i class="text-warning"></i></b>
+                                                            </p>
+                                                            <div>
+                                                                <select id="id_product" class="js-select selectpicker dropdown-select btn-block col-12 px-0"
+                                                                    data-style="btn-sm bg-white font-weight-normal py-2 border">
+                                                                    @foreach ($item->order as $productVal)
+                                                                        <option
+                                                                            value="{{ $productVal->product->id_product }}"
+                                                                            selected>
+                                                                            {{ $productVal->product->productType->name }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            <p><textarea class="form-control p-5" rows="4" id="content"></textarea>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-5 text-warning">
+                                                            <p class="small text-uppercase mb-2"><b class="text-warning">Add
+                                                                    rated the product</b></p>
+                                                            <div class="number_rating"
+                                                                style="display :flex;font-size: 15px;margin-top :15px;">
+                                                                <span class="list_start " style="margin : 0 15px">
+                                                                    @for ($i = 1; $i <= 5; $i++)
+                                                                        <i class="fas fa-star text-muted "
+                                                                            data-key="{{ $i }}"
+                                                                            onclick="submitStar({{ $i }})"></i>
+                                                                    @endfor
+                                                                </span>
+                                                                <span class="list_text"></span>
+                                                            </div>
+                                                            {{-- <div class="mt-5">
+                                                                <input type="radio" name="status" id="status" value="false" class="mr-1">Continue
+                                                                <input type="radio" name="status" id="status" value="true" class="mr-1">Done
+                                                            </div> --}}
+                                                            <div class="form-check mt-5">
+                                                                <input class="form-check-input" type="checkbox" value="" id="status1" name="status1">
+                                                                <label class="form-check-label" for="defaultCheck1"> Continue/Done </label>
+                                                            </div>
+                                                            <input type="hidden" name="id_transaction" id="id_transaction" value="{{$item->id_transaction}}">
+                                                        </div>
+                                                        <div
+                                                            class="offset-md-4 offset-lg-3 col-auto text-center margin-center">
+                                                            <input type="submit"
+                                                                class="btn btn-primary-dark btn-wide transition-3d-hover"
+                                                                value="Add Review" id="add_review" onclick="submitReview()">
+                                                            <div class="spinner-border" role="status" id="loading_icon">
+                                                                <span class="sr-only">Loading...</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                @else
+                                Not found data ...
+                                @endif
+                        </div>
                     </div>
-                </div> <!-- /.col-12 -->
+                </div>
             </div> <!-- .row -->
         </div> <!-- .container-fluid -->
     </main>
@@ -299,6 +743,7 @@
 @section('script_footer')
     <!-- JS Global Compulsory -->
     <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
     <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
@@ -446,5 +891,96 @@
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
+
+    </script>
+    <script>
+        let star = 0;
+        const submitStar = (numberRequest) => {
+            console.log(numberRequest);
+            // $("#loading_icon").css("visibility", "visible");
+            $.ajax({
+                url: "{{ route('getStar', ['id' => $id]) }}",
+                type: 'get',
+                data: {
+                    number: numberRequest
+                }
+            }).done(function(result) {
+                star = numberRequest;
+                // $("#loading_icon").css("visibility", "hidden");
+                // console.log(result);
+            });
+        }
+        const submitReview = () =>{
+            star;
+            var content = $('textarea#content').val();
+            let id_product = $('#id_product').val();
+            let id_transaction = $('#id_transaction').val();
+            if ($('#status1').is(":checked"))
+            {
+                status1 = 4;
+            }else {
+                status1 = 0;
+            }
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                }
+            });
+            $("#loading_icon").css("visibility", "visible");
+            $.ajax({
+                url: "{{ route('ratingTransaction', ['id' => $id]) }}",
+                type: 'post',
+                data: {
+                    star: star,content:content,id_product:id_product,status1:status1,id_transaction:id_transaction
+                }
+            }).done(function(result) {
+                $("#loading_icon").css("visibility", "hidden");
+                toastr.options.closeButton = 1;
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 100;
+                toastr.success(result.message);
+            });
+        }
+        $(function() {
+            let list_start = $(".list_start .fas");
+            listRating = {
+                '1': "Dislike",
+                '2': "Okey",
+                '3': "Normal",
+                '4': "Good",
+                '5': "Very Good",
+            }
+            list_start.mouseover(function() {
+                let $this = $(this);
+                let number = $this.attr('data-key');
+                list_start.addClass('text-muted');
+                $.each(list_start, function(key, value) {
+                    if (key + 1 <= number) {
+                        $(this).removeClass('text-muted')
+                    }
+                });
+                $(".list_text").text('').text(listRating[number]).show();
+            });
+        });
+        // $(document).ready(function() {
+        //     $("#add_review").click(function(e){
+        //         event.preventDefault();
+        //             $.ajaxSetup({
+        //                 headers: {
+        //                     'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        //                 }
+        //              });
+        //             let number = $("fas").val();
+        //             $.ajax({
+        //                 url : "{{ route('ratingTransaction', ['id' => $id]) }}",
+        //                 type : 'post',
+        //                 data : {
+        //                     number :number
+        //                 }
+        //             }).done(function(result){
+        //                 console.log(result);
+        //             });
+        // });
+
     </script>
 @endsection

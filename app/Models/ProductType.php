@@ -31,10 +31,10 @@ class ProductType extends Model
     {
         return $this->hasMany('App\Models\Product','product_type_id','id_product_type');
     }
-    function rating()
-    {
-        return $this->hasMany('App\Models\Rating','id_product_type','product_type_id');
-    }
+    // function rating()
+    // {
+    //     return $this->hasMany('App\Models\Rating','id_product_type','product_type_id');
+    // }
     function blog()
     {
         return $this->hasMany('App\Model\Blog','id_product_type','product_type_id');

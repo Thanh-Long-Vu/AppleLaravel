@@ -13,6 +13,6 @@ class ImagesProduct extends Model
     protected $primaryKey = 'id_image_product';
     public function producttype()
     {
-        return $this->belongsTo('App\Models\Product','id_product_type','product_type_id');
+        return $this->belongsTo('App\Models\ProductType','id_product_type','product_type_id');
     }
 }

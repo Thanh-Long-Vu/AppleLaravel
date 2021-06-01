@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Orders;
+use App\Models\Rating;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class AccountController extends Controller
         $id = $request->id;
         $user = User::find($id);
         $transaction = Transaction::where('user_id',$id)->orderBy('updated_at','desc')->get();
-        return view('userPage.pages.my-account',compact('user','id','transaction'));
+        $transactionHistory = Transaction::where([['user_id',$id],['status','=','4']])->orderBy('updated_at','desc')->get();
+        $transactionReview = Transaction::where([['user_id',$id],['status','=','0']])->orWhere('status','=','1')->orWhere('status','=','3')->orderBy('updated_at','desc')->get();
+        return view('userPage.pages.my-account',compact('user','id','transaction','transactionHistory','transactionReview'));
     }
     public function update(Request $request,$id)
     {
@@ -90,11 +93,34 @@ class AccountController extends Controller
     {
         $transaction = Transaction::find($id_transaction);
         if($transaction->status == 0){
-            $transaction->status = 4;
+            $transaction->status = 2;
             $transaction->save();
         }else {
             return back()->with('failed','You are not cancel order.');
         }
         return back()->with('success', 'Cancel order successfully.');
+    }
+    public function getStar( Request $request ,$id ){
+        // dd($request->all());
+    }
+    public function ratingTransaction(Request $request ,$id){
+        $rating = new Rating();
+        $rating->number = $request->star; 
+        $rating->content = $request->content; 
+        $rating->user_id = $id; 
+        $rating->product_id = $request->id_product; 
+        $rating->transaction_id = $request->id_transaction; 
+        $rating->active = 1; 
+        $status = $request->status1;
+        $transaction = Transaction::find($request->id_transaction);
+        if($status == 4){
+            $transaction->status = 4;
+            $transaction->save(); 
+            $rating->save();
+            return back()->with('success', 'Rating successfully.');
+        }elseif($status == 0) {
+            $rating->save();  
+            return response()->json(['message' => 'Add review successful!.']);         
+        }
     }
 }

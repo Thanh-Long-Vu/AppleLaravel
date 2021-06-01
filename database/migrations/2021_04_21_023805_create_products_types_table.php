@@ -24,6 +24,7 @@ class CreateProductsTypesTable extends Migration
             $table->double('total_rating')->nullable();
             $table->integer('warranty')->nullable();
             $table->unsignedBigInteger('category_id')->nullable()->index()->default(0);
+            $table->foreign('category_id')->references('id_category')->on('category')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });
