@@ -58,6 +58,8 @@ Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::post('/updatePassword/{id}', [App\Http\Controllers\AccountController::class, 'updatePassword'])->name('updatePassword');
     Route::get('{id}/detailOrder/{transaction_id}', [App\Http\Controllers\AccountController::class,'orderview'])->name('orderDetail');
     Route::get('{id}/cancel/transaction/{id_transaction}', [App\Http\Controllers\AccountController::class,'cancelOrder'])->name('cancelOrder');
+    Route::get('{id}/getStar', [App\Http\Controllers\AccountController::class,'getStar'])->name('getStar');
+    Route::post('{id}/rating/transaction', [App\Http\Controllers\AccountController::class,'ratingTransaction'])->name('ratingTransaction');
 });
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {

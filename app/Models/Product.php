@@ -42,4 +42,8 @@ class Product extends Model
     {
         return $this->hasOne('App\Models\Warehouse','id_warehouse','warehouse_id');
     }
+    function rating()
+    {
+        return $this->hasMany('App\Models\Rating','product_id','id_product');
+    }
 }

@@ -27,7 +27,9 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('is_hot')->default(0);
             $table->tinyInteger('active_quantity');
             $table->unsignedBigInteger('product_type_id')->nullable()->index()->default(0);
+            $table->foreign('product_type_id')->references('id_product_type')->on('product_types')->onDelete('cascade');
             $table->unsignedBigInteger('warehouse_id')->nullable()->index()->default(0);
+            $table->foreign('warehouse_id')->references('id_warehouse')->on('warehouse')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });
