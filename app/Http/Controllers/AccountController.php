@@ -15,9 +15,9 @@ class AccountController extends Controller
     public function index(Request $request){
         $id = $request->id;
         $user = User::find($id);
-        $transaction = Transaction::where('user_id',$id)->orderBy('updated_at','desc')->get();
-        $transactionHistory = Transaction::where([['user_id',$id],['status','=','4']])->orderBy('updated_at','desc')->get();
-        $transactionReview = Transaction::where([['user_id',$id],['status','=','0']])->orWhere('status','=','1')->orWhere('status','=','3')->orderBy('updated_at','desc')->get();
+        $transaction = Transaction::where('user_id',$id)->orderBy('updated_at','desc')->paginate(5);
+        $transactionHistory = Transaction::where([['user_id',$id],['status','=','4']])->orderBy('updated_at','desc')->paginate(5);
+        $transactionReview = Transaction::where([['user_id',$id],['status','=','0']])->orWhere('status','=','1')->orWhere('status','=','3')->orderBy('updated_at','desc')->paginate(5);
         return view('userPage.pages.my-account',compact('user','id','transaction','transactionHistory','transactionReview'));
     }
     public function update(Request $request,$id)
