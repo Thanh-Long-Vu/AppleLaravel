@@ -356,6 +356,10 @@
                             @else
                                 No found data......
                             @endif
+                            <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
+                            aria-label="Page navigation example">
+                                    {{ $transaction->withQueryString()->links('vendor.pagination.custom') }}
+                            </nav>   
                         </div>
                         <div class="tab-pane fade pt-2 " id="rated" role="tabpanel" aria-labelledby="rated-tab"
                             data-target-group="groups">
@@ -531,6 +535,10 @@
                                     </div>
                                 @endforeach
                             @endif
+                            <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
+                            aria-label="Page navigation example">
+                                    {{ $transactionHistory->withQueryString()->links('vendor.pagination.custom') }}
+                            </nav>  
                         </div>
                         <div class="tab-pane fade pt-2 " id="rating" role="tabpanel" aria-labelledby="rating-tab"
                             data-target-group="groups">
@@ -730,9 +738,13 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                @else
-                                Not found data ...
-                                @endif
+                            @else
+                            Not found data ...
+                            @endif
+                            <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
+                            aria-label="Page navigation example">
+                                    {{ $transactionReview->withQueryString()->links('vendor.pagination.custom') }}
+                            </nav>
                         </div>
                     </div>
                 </div>
