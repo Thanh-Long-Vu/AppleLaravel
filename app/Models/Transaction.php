@@ -10,6 +10,7 @@ class Transaction extends Model
 {
     use HasFactory,
     Filterable;
+    // SoftDeletes;
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
     public function product(){

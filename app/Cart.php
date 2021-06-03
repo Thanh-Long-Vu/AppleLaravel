@@ -26,7 +26,7 @@ class Cart
             'product_price' => $item_new_price,
             'product_discount' => $product->discount,
         ];
-            if (empty($this->cart)) {
+        if (empty($this->cart)) {
             $this->cart[] = [
                 'key' => $key,
                 'item' => $item_new,
@@ -54,14 +54,18 @@ class Cart
     }
 
     public function update_cart($keyCart, $quantity) {
+        $cartItem = [];
         for ($i = 0; $i < count($this->cart); $i++) {
             if ($this->cart[$i]['key'] == $keyCart) {
                 $this->cart[$i]['item']['quantity'] = $quantity;
+                $cartItem = array_merge($cartItem, $this->cart[$i]);
             }
         }
-        Session::put('cart', $this->cart);
-    }
 
+        Session::put('cart', $this->cart);
+
+        return $cartItem;
+    }
 
     public function removeItem($keyCart)
     {

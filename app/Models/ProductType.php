@@ -9,6 +9,15 @@ use App\Modules\Config\Traits\Scopes\Filterable;
 
 class ProductType extends Model
 {
+    const LIST_COLOR = [
+        'yellow' => 'Yellow',
+        'red' => 'Red',
+        'violet' => 'Violet',
+        'green' => 'Green',
+        'black' => 'Black',
+        'other' => 'Other',
+        'patific' => 'Patific',
+    ];
     use HasFactory;
     use Filterable;
     use SoftDeletes;

@@ -113,7 +113,7 @@
                         <div class="card p-5 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">Availability: <span class="text-green font-weight-bold">26 in stock</span></div>
                             <div class="mb-3">
-                                <div class="font-size-36">{{ number_format($product->price, 0, '', '.') }} đ</div>
+                                <div class="font-size-36">${{ number_format($product->price, 2) }}</div>
                             </div>
                             <div class="mb-3">
                                 <h6 class="font-size-14">Quantity</h6>
@@ -135,28 +135,23 @@
                                 </div>
                                 <!-- End Quantity -->
                             </div>
-                            <div class="mb-3">
-                                <h6 class="font-size-14">Color</h6>
-                                <!-- Select -->
-                                <select class="js-select selectpicker dropdown-select btn-block col-12 px-0"
-                                    data-style="btn-sm bg-white font-weight-normal py-2 border">
-                                    <option value="one" selected>White with Gold</option>
-                                    <option value="two">Red</option>
-                                    <option value="three">Green</option>
-                                    <option value="four">Blue</option>
-                                </select>
-                                <!-- End Select -->
-                            </div>
                             <form action="{{ route('cart.add', ['product' => $product->id_product]) }}" method="POST">
+                                <div class="mb-3">
+                                    <h6 class="font-size-14">Color</h6>
+                                    <!-- Select -->
+                                    <select class="js-select selectpicker dropdown-select btn-block col-12 px-0"
+                                        data-style="btn-sm bg-white font-weight-normal py-2 border" name="color">
+                                        @foreach ($colors as $key => $color)
+                                            <option value="{{ $key }}" selected>{{ $color }}</option>
+                                        @endforeach
+                                    </select>
+                                    <!-- End Select -->
+                                </div>
                                 {{csrf_field() }}
-                            <div class="mb-2 pb-0dot5">
-                                <button type="submit" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</button>
-                            </div>
+                                <div class="mb-2 pb-0dot5">
+                                    <button type="submit" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</button>
+                                </div>
                         </form>
-                            <div class="flex-content-center flex-wrap">
-                                <a href="#" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                <a href="#" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                            </div>
                         </div>
                     </div>
                 </div>
