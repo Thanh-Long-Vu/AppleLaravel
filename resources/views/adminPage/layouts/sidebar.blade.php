@@ -178,8 +178,8 @@
                                 class="ml-1 item-text">List Trancastion</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i><span
-                                class="ml-1 item-text">Goods Issue</span></a>
+                        <a class="nav-link pl-3" href="{{route('statistics')}}"><i class="fe fe-pie-chart fe-16"></i><span
+                                class="ml-1 item-text">Invoice statistics</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i><span
@@ -240,6 +240,12 @@
                 <a class="nav-link" href="calendar.html">
                     <i class="fe fe-calendar fe-16"></i>
                     <span class="ml-3 item-text">Calendar</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{route('listUser')}}" class="nav-link">
+                    <i class="fe fe-star fe-16"></i>
+                    <span class="ml-3 item-text">System User List</span>
                 </a>
             </li>
             <li class="nav-item dropdown">

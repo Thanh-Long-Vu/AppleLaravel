@@ -11,7 +11,7 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $data = Transaction::orderBy('created_at','DESC')->get();
+        $data = Transaction::where('status','!=','4')->orderBy('created_at','DESC')->get();
         return view('adminPage.pages.transaction.list',compact('data'));
     }
     public function orderview($id){
@@ -41,5 +41,9 @@ class TransactionController extends Controller
         $transaction->status = 0;
         $transaction->save();
         return back();
+    }
+    public function statistics(){
+        $statistics = Transaction::where('status','=',4)->orderby('updated_at','DESC')->get();
+        return view('adminPage.pages.transaction.statistics',compact('statistics'));
     }
 }

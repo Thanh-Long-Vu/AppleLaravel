@@ -65,7 +65,7 @@
                                                     </td>
                                                     <td>{{$item->content}}</td>
                                                     <td>{{$item->user->name}}</td>
-                                                    <td>{{$item->product_type->name}}</td>
+                                                    <td>{{$item->product->productType->name}}</td>
                                                     <td>
                                                         <input type="checkbox" data-id="{{ $item->id_rating }}" name="active" class="js-switch" {{ $item->active == 1 ? 'checked' : '' }}>
                                                     </td>

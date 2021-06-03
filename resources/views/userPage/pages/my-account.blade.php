@@ -409,67 +409,67 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($item->order as $order)
+                                                            @foreach ($item->product as $order)
                                                                 <tr>
                                                                     <td class="text-center w-40"><img class="w-25"
-                                                                            src="../{{ $order->first()->product->thumbnail }}"
+                                                                            src="../{{ $order->thumbnail }}"
                                                                             alt=""></td>
                                                                     <td class="text-right"> <b>
-                                                                            @if ($order->first()->product->warehouse->color == 0)
+                                                                            @if ($order->warehouse->color == 0)
                                                                                 <span
                                                                                     class="dot dot-lg dot-red mr-2"></span>Red
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 1)
                                                                                 <span
                                                                                     class="dot dot-lg dot-yellow mr-2"></span>Yellow
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 2)
                                                                                 <span
                                                                                     class="dot dot-lg dot-violet mr-2"></span>Violet
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 3)
                                                                                 <span
                                                                                     class="dot dot-lg dot-green mr-2"></span>Green
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 4)
                                                                                 <span
                                                                                     class="dot dot-lg dot-black mr-2"></span>Black
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 5)
                                                                                 <span
                                                                                     class="dot dot-lg dot-white mr-2"></span>White
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 6)
                                                                                 <span
                                                                                     class="dot dot-lg dot-other mr-2"></span>Other
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 7)
                                                                                 <span
                                                                                     class="dot dot-lg dot-patific mr-2"></span>Patific
                                                                             @endif
                                                                         </b> - <b>
-                                                                            @if ($order->first()->product->warehouse->memory == 0)
+                                                                            @if ($order->warehouse->memory == 0)
                                                                                 16GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 1)
                                                                                 32GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 2)
                                                                                 64GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 3)
                                                                                 128GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 4)
                                                                                 256GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 5)
                                                                                 512Gb
                                                                             @endif
                                                                         </b>
                                                                     </td>
                                                                     <td class="text-center"><a
-                                                                            href="{{ route('products.show', ['product' => $order->product->id_product]) }}}}">{{ $order->product->productType->name }}</a>
+                                                                            href="{{ route('products.show', ['product' => $order->id_product]) }}}}">{{ $order->productType->name }}</a>
                                                                     </td>
                                                                     <td class="text-right">
                                                                         {{ number_format($order->price) }}.VND</td>
@@ -482,14 +482,14 @@
                                                     <div class="row mt-5">
                                                         <div class="col-md-6">
                                                             <p class="small">
-                                                                <strong>Note :</strong>{{ $order->transaction->note }}
+                                                                <strong>Note :</strong>{{ $item->note }}
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="text-right mr-2">
                                                                 <p class="mb-2 h6">
                                                                     <span class="text-muted">Total : </span>
-                                                                    <span>{{ number_format($order->transaction->total_price) }}.VNĐ</span>
+                                                                    <span>{{ number_format($order->total_price) }}.VNĐ</span>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -588,67 +588,67 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($item->order as $order)
+                                                            @foreach ($item->product as $order)
                                                                 <tr>
                                                                     <td class="text-center w-40"><img class="w-25"
-                                                                            src="../{{ $order->first()->product->thumbnail }}"
+                                                                            src="../{{ $order->thumbnail }}"
                                                                             alt=""></td>
                                                                     <td class="text-right"> <b>
-                                                                            @if ($order->first()->product->warehouse->color == 0)
+                                                                            @if ($order->warehouse->color == 0)
                                                                                 <span
                                                                                     class="dot dot-lg dot-red mr-2"></span>Red
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 1)
                                                                                 <span
                                                                                     class="dot dot-lg dot-yellow mr-2"></span>Yellow
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 2)
                                                                                 <span
                                                                                     class="dot dot-lg dot-violet mr-2"></span>Violet
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 3)
                                                                                 <span
                                                                                     class="dot dot-lg dot-green mr-2"></span>Green
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 4)
                                                                                 <span
                                                                                     class="dot dot-lg dot-black mr-2"></span>Black
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 5)
                                                                                 <span
                                                                                     class="dot dot-lg dot-white mr-2"></span>White
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 6)
                                                                                 <span
                                                                                     class="dot dot-lg dot-other mr-2"></span>Other
-                                                                            @elseif($order->first()->product->warehouse->color
+                                                                            @elseif($order->warehouse->color
                                                                                 == 7)
                                                                                 <span
                                                                                     class="dot dot-lg dot-patific mr-2"></span>Patific
                                                                             @endif
                                                                         </b> - <b>
-                                                                            @if ($order->first()->product->warehouse->memory == 0)
+                                                                            @if ($order->warehouse->memory == 0)
                                                                                 16GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 1)
                                                                                 32GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 2)
                                                                                 64GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 3)
                                                                                 128GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 4)
                                                                                 256GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->warehouse->memory
                                                                                 == 5)
                                                                                 512Gb
                                                                             @endif
                                                                         </b>
                                                                     </td>
                                                                     <td class="text-center"><a
-                                                                            href="{{ route('products.show', ['product' => $order->product->id_product]) }}}}">{{ $order->product->productType->name }}</a>
+                                                                            href="{{ route('products.show', ['product' => $order->id_product]) }}}}">{{ $order->productType->name}}</a>
                                                                     </td>
                                                                     <td class="text-right">
                                                                         {{ number_format($order->price) }}.VND</td>
@@ -661,14 +661,14 @@
                                                     <div class="row mt-5">
                                                         <div class="col-md-6">
                                                             <p class="small">
-                                                                <strong>Note :</strong>{{ $order->transaction->note }}
+                                                                <strong>Note :</strong>{{ $order->note }}
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="text-right mr-2">
                                                                 <p class="mb-2 h6">
                                                                     <span class="text-muted">Total : </span>
-                                                                    <span>{{ number_format($order->transaction->total_price) }}.VNĐ</span>
+                                                                    <span>{{ number_format($order->total_price) }}.VNĐ</span>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -687,11 +687,11 @@
                                                             <div>
                                                                 <select id="id_product" class="js-select selectpicker dropdown-select btn-block col-12 px-0"
                                                                     data-style="btn-sm bg-white font-weight-normal py-2 border">
-                                                                    @foreach ($item->order as $productVal)
+                                                                    @foreach ($item->product as $productVal)
                                                                         <option
-                                                                            value="{{ $productVal->product->id_product }}"
+                                                                            value="{{ $productVal->id_product }}"
                                                                             selected>
-                                                                            {{ $productVal->product->productType->name }}
+                                                                            {{ $productVal->productType->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select>

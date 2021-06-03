@@ -12,9 +12,8 @@ class Transaction extends Model
     Filterable;
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
-    public function order()
-    {
-        return $this->hasMany('App\Models\Orders','transaction_id','id_transaction');
+    public function product(){
+        return $this->belongsToMany('App\Models\Product', 'order','product_id','transaction_id');
     }
     function user()
     {

@@ -13,12 +13,12 @@ class Orders extends Model
 
     protected $table = 'order';
     protected $primaryKey = 'id_order';
-    public function product()
-    {
-        return $this->belongsTo('App\Models\Product','product_id','id_product');
-    }
-    public function transaction()
-    {
-        return $this->belongsTo('App\Models\Transaction','transaction_id','id_transaction');
-    }
+    // public function product()
+    // {
+    //     return $this->belongsTo('App\Models\Product','product_id','id_product');
+    // }
+    // public function transaction()
+    // {
+    //     return $this->belongsTo('App\Models\Transaction','transaction_id','id_transaction');
+    // }
 }
