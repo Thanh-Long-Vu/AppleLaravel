@@ -14,7 +14,11 @@ class Transaction extends Model
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
     public function product(){
-        return $this->belongsToMany('App\Models\Product', 'order','product_id','transaction_id');
+        return $this->belongsToMany('App\Models\Product', 'order','transaction_id','product_id');
+    }
+    public function order()
+    {
+        return $this->hasMany('App\Models\Orders','transaction_id','id_transaction');
     }
     function user()
     {

@@ -36,7 +36,11 @@ class Product extends Model
 
     public function transaction()
     {
-        return $this->hasMany('App\Models\Transaction','order','product_id','transaction_id');
+        return $this->hasMany('App\Models\Transaction','order','transaction_id','product_id');
+    }
+    public function order()
+    {
+        return $this->hasMany('App\Models\Orders','product_id','id_product');
     }
     public function warehouse()
     {
