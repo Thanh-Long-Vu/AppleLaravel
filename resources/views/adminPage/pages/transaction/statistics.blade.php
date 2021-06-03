@@ -2,11 +2,6 @@
 @section('scriptHeader')
 <link rel="stylesheet" href="admin/css/feather.css">
 <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
-<script src="admin/js/jquery-ajax.min.js"></script>
-<link rel="stylesheet" href="admin/css/switchery.min.css">
-<script src="admin/js/switchery.min.js"></script>
-<link rel="stylesheet" href="admin/css/toastr.min.css">
-<script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'List Transaction')
 @section('content')
@@ -14,15 +9,15 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2 class="mb-2 page-title">Data table Transaction</h2>
-                    {{-- <p class="card-text">DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible
-                        tool, built upon the foundations of progressive enhancement, that adds all of these advanced
-                        features to any HTML table. </p> --}}
+                    <h2 class="mb-2 page-title">Data table Statistics Transaction</h2>
                     <div class="row my-4">
                         <!-- Small table -->
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
+                                    <div class="dropdown float-right">
+                                        <button class="btn btn-primary float-right ml-3" type="button">Export</button>
+                                    </div>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -38,7 +33,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($data as $item)
+                                            @foreach ($statistics as $item)
                                             @if(!empty( $item->user_id))
                                             <tr>
                                                 <td>{{$item->id_transaction}}</td>
@@ -53,17 +48,10 @@
                                                     Trả góp qua ngân hàng
                                                     @endif
                                                 </td>
-                                                <td>{{$item->total_price}}</td>
+                                                <td>{{number_format($item->total_price)}}.VND</td>
                                                 <td>{{$item->payment_method->name}}</td>
                                                 <td>
-                                                @if ($item->status == 1 || $item->status == 0)
-                                                    <input type="checkbox" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
-                                                @elseif($item->status == 3)
-                                                    <form action="{{route('changeStatusTransaction',[$item->id_transaction])}}" method="get">
-                                                        {{-- <input type="hidden" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" > --}}
-                                                        <input type="submit" class="btn mb-2 btn-outline-warning" value="Ordered">
-                                                    </form>
-                                                @endif
+                                                    <button type="button" class="fe fe-user-check btn mb-2 btn-success"> Reviewed</button>
                                                 </td>
                                                 <td>
                                                     <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
@@ -83,17 +71,10 @@
                                                     Trả góp qua ngân hàng
                                                     @endif
                                                 </td>
-                                                <td>{{$item->total_price}}</td>
+                                                <td>{{number_format($item->total_price)}}.VND</td>
                                                 <td>{{$item->payment_method->name}}</td>
                                                 <td>
-                                                @if ($item->status == 1 || $item->status == 0)
-                                                    <input type="checkbox" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
-                                                @elseif($item->status == 3)
-                                                    <form action="{{route('changeStatusTransaction',[$item->id_transaction])}}" method="get">
-                                                        {{-- <input type="hidden" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" > --}}
-                                                        <input type="submit" class="btn mb-2 btn-outline-warning" value="Ordered">
-                                                    </form>
-                                                @endif
+                                                    <button type="button" class="fe fe-user-check btn mb-2 btn-success"> Reviewed</button>
                                                 </td>
                                                 <td>
                                                     <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
@@ -103,6 +84,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div>
+                                        <b class="fe fe-dollar-sign"></b> <b>Total Money</b> : {{number_format($statistics->sum('total_price'))}}.VND
+                                    </div>
                                 </div>
                             </div>
                         </div> <!-- simple table -->

@@ -9,9 +9,12 @@ use App\Http\Controllers\admin\imageProductController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\Admin\CalendarController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\RatingController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -128,6 +131,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/transaction/detail{id}', [TransactionController::class,'orderview'])->name('orderlist');
     Route::get('/transaction/change/status/{id}', [TransactionController::class,'changeStatus'])->name('changeStatusTransaction');
     Route::get('/transaction/status/update', [TransactionController::class,'updateStatus'])->name('updateStatusTransaction');
+    Route::get('/statistics-bill-success', [TransactionController::class,'statistics'])->name('statistics');
 
     Route::get('/slider', [SliderController::class,'index'])->name('sliderlist');
     Route::get('/slider/create', [SliderController::class,'create'])->name('sliderCreate');
@@ -146,6 +150,8 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     Route::get('/ratings', [RatingController::class,'index'])->name('ratings');
     Route::get('/rating/update-status', [RatingController::class,'updateStatus'])->name('ratingUpdateStatus');
+    
+    Route::get('/system/user/list', [UserController::class,'index'])->name('listUser');
 
     
     Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');
@@ -153,4 +159,11 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('/payment/store', [PaymentController::class,'store'])->name('StorePayment');
     Route::get('/payment/edit/{id}', [PaymentController::class,'edit'])->name('EditPayment');
     Route::post('/payment/edit/{id}', [PaymentController::class,'update'])->name('UpdatePayment');
+
+    Route::get('/calendar', [CalendarController::class,'index'])->name('calendar');
+    Route::get('/get-product-type/{id}', [CalendarController::class,'getProducType'])->name('getProducType');
+    Route::get('/get-product/{id}', [CalendarController::class,'getProduct'])->name('getProduct');
+    Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
+
+    
 });

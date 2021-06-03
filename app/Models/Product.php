@@ -34,13 +34,13 @@ class Product extends Model
         return $this->belongsTo('App\Models\ProductType','product_type_id','id_product_type');
     }
 
-    public function orders()
+    public function transaction()
     {
-        return $this->hasMany('App\Models\Orders','product_id','id_product');
+        return $this->hasMany('App\Models\Transaction','order','product_id','transaction_id');
     }
     public function warehouse()
     {
-        return $this->hasOne('App\Models\Warehouse','id_warehouse','warehouse_id');
+        return $this->hasOne('App\Models\Warehouse','id_warehouse','id_product');
     }
     function rating()
     {
