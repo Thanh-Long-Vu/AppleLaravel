@@ -18,6 +18,6 @@ class Warehouse extends Model
 
     public function product()
     {
-        return $this->belongsTo('App\Models\Product','warehouse_id','id_warehouse');
+    return $this->belongsTo('App\Models\Product','warehouse_id','id_warehouse');
     }
 }

@@ -22,8 +22,7 @@ class User extends Authenticatable
        'password',
        'role_id',
        'avatar',
-       'role_id',
-       'role_id',
+       'total_pay',
    ];
 //
 //    /**
@@ -52,7 +51,7 @@ class User extends Authenticatable
     }
     public function transaction()
     {
-        return $this->hasMany('App\Models\Transaction','id_transaction','transaction_id');
+        return $this->hasMany('App\Models\Transaction','transaction_id','id_transaction');
     }
     public function role()
     {

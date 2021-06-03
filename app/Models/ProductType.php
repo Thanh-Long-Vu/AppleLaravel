@@ -40,10 +40,10 @@ class ProductType extends Model
     {
         return $this->hasMany('App\Models\Product','product_type_id','id_product_type');
     }
-    function rating()
-    {
-        return $this->hasMany('App\Models\Rating','id_product_type','product_type_id');
-    }
+    // function rating()
+    // {
+    //     return $this->hasMany('App\Models\Rating','id_product_type','product_type_id');
+    // }
     function blog()
     {
         return $this->hasMany('App\Model\Blog','id_product_type','product_type_id');
@@ -51,5 +51,9 @@ class ProductType extends Model
     function category()
     {
         return $this->belongsTo('App\Models\Category','category_id','id_category');
+    }
+    public function imageProductType()
+    {
+        return $this->hasMany('App\Models\ImagesProduct','product_type_id','id_product_type');
     }
 }

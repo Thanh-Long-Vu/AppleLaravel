@@ -10,9 +10,9 @@
                         <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-map-pointer mr-1"></i> Store Locator</a>
                     </li>
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                        <a href="../shop/track-your-order.html" class="u-header-topbar__nav-link"><i class="ec ec-transport mr-1"></i> Track Your Order</a>
+                    <a href="{{route('track_your_order')}}" class="u-header-topbar__nav-link"><i class="ec ec-transport mr-1"></i> Track Your Order</a>
                     </li>
-                    <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border u-header-topbar__nav-item-no-border u-header-topbar__nav-item-border-single">
+                    {{-- <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border u-header-topbar__nav-item-no-border u-header-topbar__nav-item-border-single">
                         <div class="d-flex align-items-center">
                             <!-- Language -->
                             <div class="position-relative">
@@ -40,15 +40,19 @@
                             </div>
                             <!-- End Language -->
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                         <!-- Account Sidebar Toggle Button -->
                         @if(Auth::check())
-                            <a href="javascript:" role="button" class="u-header-topbar__nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ec ec-user mr-1"></i> My account
+                            <?php 
+                                $name = explode(' ', Auth::user()->name);
+                                $last_name = array_pop($name);
+                            ?>
+                            <a href="javascript:" role="button" title="{{Auth::user()->name}}" class="u-header-topbar__nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ec ec-user mr-1"></i> Chào ! {{$last_name}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="{{route('myAccount',['id' => Auth::user()->id_user])}}">Profile</a>
                                 <a class="dropdown-item" href="#"
                                    onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();"

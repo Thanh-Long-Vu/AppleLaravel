@@ -2,6 +2,11 @@
 @section('scriptHeader')
     <link rel="stylesheet" href="admin/css/feather.css">
     <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
+    <script src="admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="admin/css/switchery.min.css">
+    <script src="admin/js/switchery.min.js"></script>
+    <link rel="stylesheet" href="admin/css/toastr.min.css">
+    <script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'Payment')
 @section('content')
@@ -13,12 +18,20 @@
                     {{-- <p class="card-text">DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible
                         tool, built upon the foundations of progressive enhancement, that adds all of these advanced
                         features to any HTML table. </p> --}}
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                        @php
+                            Session::forget('success');
+                        @endphp
+                    </div>
+                    @endif
                     <div class="row my-4">
                         <!-- Small table -->
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">                                
-                                    <button class="btn btn-primary float-right ml-3" type="button">Add Payment</button>
+                                    <a href="{{route('paymentCreate')}}" class="btn btn-primary float-right ml-3">Add Payment</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -26,27 +39,22 @@
                                                 <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Logo</th>
-                                                <th>Active</th>
-                                                <th>Update</th>
-                                                <th>Remove</th>
+                                                <th>Edit</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @if (!empty($payment))
+                                            @foreach ($payment as $item)
                                             <tr>
-                                                <td>1</td>
+                                                <td>{{$item->id_payment_method}}</td>
                                                 <td>
-                                                    Thanh toán tiền mặt
+                                                    {{$item->name}}
                                                 </td>
-                                                <td>../../logo/payment.jpg</td>
-                                                <td>
-                                                    <div class="custom-control custom-switch">
-                                                        <input type="checkbox" class="custom-control-input" id="c1" checked>
-                                                        <label class="custom-control-label" for="c1"></label>
-                                                    </div>
-                                                </td>
-                                                <td><button class="btn mb-2 btn-primary" type="button">Update</button> </td>
-                                                <td><button class="btn mb-2 btn-danger" type="button">Remove</button> </td>
+                                                <td>{{$item->logo}}</td>
+                                                <td><a class="btn mb-2 btn-primary" href="{{route('EditPayment',['id' =>$item->id_payment_method])}}">Edit</a></td>
                                             </tr>
+                                            @endforeach    
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>

@@ -10,15 +10,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Rating extends Model
 {
     use HasFactory,
-    Filterable,
-    SoftDeletes;
-    protected $table = 'rating';
+    Filterable;
+    protected $table = 'ratings';
+    protected $primaryKey = 'id_rating';
     function user()
     {
         return $this->belongsTo('App\Models\User','user_id','id_user');
     }
-    function product_type()
+    function product()
     {
-        return $this->belongsTo('App\Models\ProductType','product_type_id','id_product_type');
+        return $this->belongsTo('App\Models\Product','product_id','id_product');
+    }
+    public function transaction()
+    {
+        return $this->belongsTo('App\Models\Transaction', 'transaction_id','id_transaction');
     }
 }

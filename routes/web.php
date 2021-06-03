@@ -9,7 +9,12 @@ use App\Http\Controllers\admin\imageProductController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\Admin\CalendarController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\RatingController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +40,7 @@ Route::get('/product-type/{productType}', [App\Http\Controllers\ProductTypeContr
 Route::get('/product', [App\Http\Controllers\HomeController::class, 'product'])->name('product');
 Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout');
 Route::get('/track-your-order', [App\Http\Controllers\HomeController::class, 'track_your_order'])->name('track_your_order');
+
 Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound'])->name('NotFound');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
@@ -48,6 +54,19 @@ Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::clas
 Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
 Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'increase_quantity'])->name('cart.update');
+Route::get('/track-your-order', [App\Http\Controllers\TransactionController::class, 'index'])->name('track_your_order');
+Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
+Route::get('/errorNotFound', [App\Http\Controllers\HomeController::class, 'errorPage'])->name('userError');
+
+Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
+    Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
+    Route::post('/updateAccount/{id}', [App\Http\Controllers\AccountController::class, 'update'])->name('updateMyAccount');
+    Route::post('/updatePassword/{id}', [App\Http\Controllers\AccountController::class, 'updatePassword'])->name('updatePassword');
+    Route::get('{id}/detailOrder/{transaction_id}', [App\Http\Controllers\AccountController::class,'orderview'])->name('orderDetail');
+    Route::get('{id}/cancel/transaction/{id_transaction}', [App\Http\Controllers\AccountController::class,'cancelOrder'])->name('cancelOrder');
+    Route::get('{id}/getStar', [App\Http\Controllers\AccountController::class,'getStar'])->name('getStar');
+    Route::post('{id}/rating/transaction', [App\Http\Controllers\AccountController::class,'ratingTransaction'])->name('ratingTransaction');
+});
 
 Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     //Ware House
@@ -115,6 +134,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/transaction/detail{id}', [TransactionController::class,'orderview'])->name('orderlist');
     Route::get('/transaction/change/status/{id}', [TransactionController::class,'changeStatus'])->name('changeStatusTransaction');
     Route::get('/transaction/status/update', [TransactionController::class,'updateStatus'])->name('updateStatusTransaction');
+    Route::get('/statistics-bill-success', [TransactionController::class,'statistics'])->name('statistics');
 
     Route::get('/slider', [SliderController::class,'index'])->name('sliderlist');
     Route::get('/slider/create', [SliderController::class,'create'])->name('sliderCreate');
@@ -131,5 +151,22 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('/blogs/edit/{id}', [BlogController::class,'update'])->name('admin.blog.edit.post');
     Route::get('/blogs/delete/{id}', [BlogController::class,'delete'])->name('admin.blog.delete');
 
+    Route::get('/ratings', [RatingController::class,'index'])->name('ratings');
+    Route::get('/rating/update-status', [RatingController::class,'updateStatus'])->name('ratingUpdateStatus');
+    
+    Route::get('/system/user/list', [UserController::class,'index'])->name('listUser');
 
+    
+    Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');
+    Route::get('/payment/create', [PaymentController::class,'create'])->name('paymentCreate');
+    Route::post('/payment/store', [PaymentController::class,'store'])->name('StorePayment');
+    Route::get('/payment/edit/{id}', [PaymentController::class,'edit'])->name('EditPayment');
+    Route::post('/payment/edit/{id}', [PaymentController::class,'update'])->name('UpdatePayment');
+
+    Route::get('/calendar', [CalendarController::class,'index'])->name('calendar');
+    Route::get('/get-product-type/{id}', [CalendarController::class,'getProducType'])->name('getProducType');
+    Route::get('/get-product/{id}', [CalendarController::class,'getProduct'])->name('getProduct');
+    Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
+
+    
 });

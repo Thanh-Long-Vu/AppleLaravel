@@ -29,21 +29,21 @@ class Product extends Model
         return $query->$scope('active', 1);
     }
 
-    public function imageProduct()
-    {
-        return $this->hasMany('App\Models\ImagesProduct','product_id','id_product');
-    }
     public function productType()
     {
         return $this->belongsTo('App\Models\ProductType','product_type_id','id_product_type');
     }
 
-    public function orders()
+    public function transaction()
     {
-        return $this->hasMany('App\Models\Orders','product_id','id_product');
+        return $this->hasMany('App\Models\Transaction','order','product_id','transaction_id');
     }
     public function warehouse()
     {
-        return $this->hasOne('App\Models\Warehouse','id_warehouse','warehouse_id');
+        return $this->hasOne('App\Models\Warehouse','id_warehouse','id_product');
+    }
+    function rating()
+    {
+        return $this->hasMany('App\Models\Rating','product_id','id_product');
     }
 }
