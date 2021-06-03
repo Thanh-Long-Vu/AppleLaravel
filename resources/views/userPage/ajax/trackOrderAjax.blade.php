@@ -177,6 +177,8 @@
                             <input type="text" class="btn px-4 btn-success py-2 rounded-lg" value="Successful delivery" placeholder="+" aria-label=""  disabled>
                             @elseif($dataTransaction->status == 2)
                             <input type="text" class="btn px-4 btn-danger py-2 rounded-lg" value="Delivery failed" placeholder="+" aria-label="" disabled>
+                            @elseif($dataTransaction->status == 4)
+                            <input type="text" class="btn px-4 btn-success py-2 rounded-lg" value="Reviewed" placeholder="+" aria-label="" disabled>
                             @endif
                         </div>
                         <!-- End Input -->

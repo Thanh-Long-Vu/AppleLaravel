@@ -94,46 +94,46 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($transaction->product as $item)
+                                    @foreach ($order as $item)
                                         <tr>
                                             <td class="text-center">{{$item->transaction_id}}</td>
-                                            <td class="text-center w-40"><img class="w-25" src="../{{$item->thumbnail}}" alt=""></td>
+                                            <td class="text-center w-40"><img class="w-25" src="../{{$item->first()->product->thumbnail}}" alt=""></td>
                                             <td class="text-right"> <b>
-                                                @if ($item->warehouse->color == 0)
+                                                @if ($order->first()->product->warehouse->color == 0)
                                                 <span class="dot dot-lg dot-red mr-2"></span>Red 
-                                                @elseif($item->warehouse->color == 1)
+                                                @elseif($order->first()->product->warehouse->color == 1)
                                                 <span class="dot dot-lg dot-yellow mr-2"></span>Yellow
-                                                @elseif($item->warehouse->color == 2)
+                                                @elseif($order->first()->product->warehouse->color == 2)
                                                 <span class="dot dot-lg dot-violet mr-2"></span>Violet
-                                                @elseif($item->warehouse->color == 3)
+                                                @elseif($order->first()->product->warehouse->color == 3)
                                                 <span class="dot dot-lg dot-green mr-2"></span>Green
-                                                @elseif($item->warehouse->color == 4)
+                                                @elseif($order->first()->product->warehouse->color == 4)
                                                 <span class="dot dot-lg dot-black mr-2"></span>Black    
-                                                @elseif($item->warehouse->color == 5)
+                                                @elseif($order->first()->product->warehouse->color == 5)
                                                 <span class="dot dot-lg dot-white mr-2"></span>White    
-                                                @elseif($item->warehouse->color == 6)
+                                                @elseif($order->first()->product->warehouse->color == 6)
                                                 <span class="dot dot-lg dot-other mr-2"></span>Other    
-                                                @elseif($item->warehouse->color == 7)
+                                                @elseif($order->first()->product->warehouse->color == 7)
                                                 <span class="dot dot-lg dot-patific mr-2"></span>Patific    
                                                 @endif</b> - <b>
-                                                @if ($item->warehouse->memory == 0)
+                                                @if ($order->first()->product->warehouse->memory == 0)
                                                 16GB  
-                                                @elseif($item->warehouse->memory == 1)
+                                                @elseif($order->first()->product->warehouse->memory == 1)
                                                 32GB   
-                                                @elseif($item->warehouse->memory == 2)
+                                                @elseif($order->first()->product->warehouse->memory == 2)
                                                 64GB 
-                                                @elseif($item->warehouse->memory == 3)
+                                                @elseif($order->first()->product->warehouse->memory == 3)
                                                 128GB   
-                                                @elseif($item->warehouse->memory == 4)
+                                                @elseif($order->first()->product->warehouse->memory == 4)
                                                 256GB   
-                                                @elseif($item->warehouse->memory == 5)
+                                                @elseif($order->first()->product->warehouse->memory == 5)
                                                 512Gb  
                                                 @endif</b>
                                             </td>
-                                            <td class="text-center">{{$item->productType->name}}</td>
+                                            <td class="text-center">{{$item->product->productType->name}}</td>
                                             <td class="text-right">{{number_format($item->price)}}.VND</td>
                                             <td class="text-right">{{$item->quantity}}</td>
-                                            <td class="text-right">{{$item->discount}} %</td>
+                                            <td class="text-right">{{$item->sale}} %</td>
                                         <tr>
                                     @endforeach
                                 </tbody>
@@ -221,32 +221,25 @@
                 hideTimeOut: 0
             });
         });
-
         $(document).on('ready', function() {
             // initialization of header
             $.HSCore.components.HSHeader.init($('#header'));
-
             // initialization of animation
             $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
-
             // initialization of unfold component
             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                 afterOpen: function() {
                     $(this).find('input[type="search"]').focus();
                 }
             });
-
             // initialization of HSScrollNav component
             $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
                 duration: 700
             });
-
             // initialization of quantity counter
             $.HSCore.components.HSQantityCounter.init('.js-quantity');
-
             // initialization of popups
             $.HSCore.components.HSFancyBox.init('.js-fancybox');
-
             // initialization of countdowns
             var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
                 yearsElSelector: '.js-cd-years',
@@ -256,13 +249,10 @@
                 minutesElSelector: '.js-cd-minutes',
                 secondsElSelector: '.js-cd-seconds'
             });
-
             // initialization of malihu scrollbar
             $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-
             // initialization of forms
             $.HSCore.components.HSFocusState.init();
-
             // initialization of form validation
             $.HSCore.components.HSValidation.init('.js-validate', {
                 rules: {
@@ -271,25 +261,18 @@
                     }
                 }
             });
-
             // initialization of forms
             $.HSCore.components.HSRangeSlider.init('.js-range-slider');
-
             // initialization of show animations
             $.HSCore.components.HSShowAnimation.init('.js-animation-link');
-
             // initialization of fancybox
             $.HSCore.components.HSFancyBox.init('.js-fancybox');
-
             // initialization of slick carousel
             $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-
             // initialization of go to
             $.HSCore.components.HSGoTo.init('.js-go-to');
-
             // initialization of hamburgers
             $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
-
             // initialization of unfold component
             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                 beforeClose: function() {
@@ -299,25 +282,19 @@
                     $('#headerSidebarList .collapse.show').collapse('hide');
                 }
             });
-
             $('#headerSidebarList [data-toggle="collapse"]').on('click', function(e) {
                 e.preventDefault();
-
                 var target = $(this).data('target');
-
                 if ($(this).attr('aria-expanded') === "true") {
                     $(target).collapse('hide');
                 } else {
                     $(target).collapse('show');
                 }
             });
-
             // initialization of unfold component
             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
-
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
-
     </script>
 @endsection
