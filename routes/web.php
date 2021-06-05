@@ -53,6 +53,7 @@ Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'get
 Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
+Route::post('/order', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'increase_quantity'])->name('cart.update');
 Route::get('/track-your-order', [App\Http\Controllers\TransactionController::class, 'index'])->name('track_your_order');
 Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');

@@ -16,9 +16,7 @@ class CreateTransactionTable extends Migration
         Schema::create('transaction', function (Blueprint $table) {
             $table->id('id_transaction');
             $table->integer('total_price')->nullable();
-            $table->string('note')->nullable();
             $table->tinyInteger('method_receive')->default(0);
-            $table->string('phone');
             $table->tinyInteger('status');
             $table->unsignedBigInteger('user_id')->nullable()->index()->default(0);
             $table->foreign('user_id')->references('id_user')->on('users');

@@ -19,6 +19,7 @@ class CreateOrderTable extends Migration
             $table->integer('price');
             $table->integer('sale');
             $table->string('address')->nullable();
+            $table->string('color')->nullable();
             $table->unsignedBigInteger('transaction_id')->nullable()->index()->default(0);
             $table->foreign('transaction_id')->references('id_transaction')->on('transaction')->onDelete('cascade');
             $table->unsignedBigInteger('product_id')->nullable()->index()->default(0);

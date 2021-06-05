@@ -67,6 +67,7 @@
                     </button>
                     <!-- End Fullscreen Toggle Button -->
                 </nav>
+
                 <!-- End Nav -->
 
                 <!-- ========== HEADER SIDEBAR ========== -->
@@ -405,6 +406,7 @@
                 </aside>
                 <!-- ========== END HEADER SIDEBAR ========== -->
             </div>
+
             <!-- End Logo-offcanvas-menu -->
             <!-- Search Bar -->
             <div class="col d-none d-xl-block">
@@ -478,6 +480,7 @@
                     </ul>
                 </div>
             </div>
+
             <!-- End Header Icons -->
         </div>
     </div>

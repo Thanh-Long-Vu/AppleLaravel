@@ -2,14 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {
-    public function store(Request $request, Category $category)
+    public function store(Request $request )
     {
-        $productTypes = $category->productTypes;
-        return view('userPage.pages.categories', compact('productTypes'));
+        $cart = Session::get('cart');
+        $auth = auth()->user() ?? null;
+
+        $data = $request->all();
+        data_set($data, 'status', 1);
+        data_set($data, 'user_id', ($auth->id_user ?? null));
+
+        $trasnsaction = Transaction::create($data);
+
+        $orderData = [];
+        foreach($cart as $cart){
+             array_push($orderData,[
+                'price' => $cart['item']['product_price'],
+                'quantity' => $cart['item']['quantity'],
+                'sale' => $cart['item']['product_discount'],
+                'color' => $cart['item']['color'],
+            ]);
+        }
+
+        $trasnsaction->product()->attach($orderData);
+        Session::put('cart', []);
+        return Redirect::route('home')->with('message_checkout','Payment Successful !');
     }
 }
