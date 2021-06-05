@@ -21,10 +21,8 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Home</a>
-                            </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Product Type</li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Product</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Home</a></li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{$categoryName ?? ""}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -33,9 +31,6 @@
         </div>
 
         <div class="container">
-        </div>
-        <div class="container">
-            
             <!-- Categories Carousel -->
             <div class="mb-5">
                 <div class="position-relative">
@@ -71,22 +66,21 @@
                               }
                             }]'>
                         @if(!$productTypes->isEmpty())
-                        @foreach ($productTypes as $productType)
-                        <div class="js-slide">
-                            <a href="{{ route('productype.show', ['productType' => $productType->id_product_type ]) }}"
-                                class="d-block text-center bg-on-hover width-122 mx-auto">
-                                <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                    {{-- <i class="font-size-40"></i> --}}
-                                    <img class="img-fluid"
-                                        src="../{{$productType->thumbnail}}" alt="Image Description">
+                            @foreach ($productTypes as $productType)
+                                <div class="js-slide">
+                                    <a href="{{ route('productype.show', ['productType' => $productType->id_product_type ?? 0])}}"
+                                        class="d-block text-center bg-on-hover width-122 mx-auto">
+                                        <div class="bg pt-4 rounded-circle-top width-122 height-75">
+                                            <img class="img-fluid" src="../{{$productType->thumbnail ?? ""}}" alt="Image Description">
+                                        </div>
+                                        <div class="bg-white px-2 pt-2 width-122">
+                                            <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
+                                                {{ $productType->name ?? "" }}
+                                            </h6>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="bg-white px-2 pt-2 width-122">
-                                    <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
-                                        {{ $productType->name }}</h6>
-                                </div>
-                            </a>
-                        </div>
-                        @endforeach
+                            @endforeach
                         @endif
                     </div>
                 </div>
@@ -101,7 +95,7 @@
                             </div>
                             <div class="border-bottom pb-4 mb-4">
                                 <h4 class="font-size-14 mb-3 font-weight-bold">Price</h4>
-    
+
                                 <!-- Checkboxes -->
                                 <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
                                     <div class="custom-control custom-checkbox">
@@ -114,7 +108,7 @@
                                 <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" name = "price[]" id="110milli" value = "1">
-                                        <label class="custom-control-label" for="110milli">1 million - 10 million VND
+                                        <label class="custom-control-label" for="110milli">1 million - 10 million VND</label>
                                     </div>
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
@@ -143,7 +137,7 @@
                                     </div>
                                 </div>
                                 <!-- End View More - Collapse -->
-    
+
                                 <!-- Link -->
                                 <a class="link link-collapse small font-size-13 text-gray-27 d-inline-flex mt-2" data-toggle="collapse" href="#collapsePrice" role="button" aria-expanded="false" aria-controls="collapsePrice">
                                     <span class="link__icon text-gray-27 bg-white">
@@ -156,12 +150,12 @@
                             </div>
                             <div class="border-bottom pb-4 mb-4">
                                 <h4 class="font-size-14 mb-3 font-weight-bold">Color</h4>
-    
+
                                 <!-- Checkboxes -->
                                 <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="red" name="color[]" value = "0" >
-                                        <label class="custom-control-label" for="red">Red 
+                                        <label class="custom-control-label" for="red">Red
                                         <span class="dot dot-lg dot-red"></span></label>
                                     </div>
                                 </div>
@@ -187,7 +181,7 @@
                                     </div>
                                 </div>
                                 <!-- End Checkboxes -->
-    
+
                                 <!-- View More - Collapse -->
                                 <div class="collapse" id="collapseColor">
                                     <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
@@ -220,7 +214,7 @@
                                     </div>
                                 </div>
                                 <!-- End View More - Collapse -->
-    
+
                                 <!-- Link -->
                                 <a class="link link-collapse small font-size-13 text-gray-27 d-inline-flex mt-2" data-toggle="collapse" href="#collapseColor" role="button" aria-expanded="false" aria-controls="collapseColor">
                                     <span class="link__icon text-gray-27 bg-white">
@@ -233,12 +227,12 @@
                             </div>
                             <div class="border-bottom pb-4 mb-4">
                                 <h4 class="font-size-14 mb-3 font-weight-bold">Memory</h4>
-    
+
                                 <!-- Checkboxes -->
                                 <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="16GB" name ="memory[]" value="0">
-                                        <label class="custom-control-label" for="16GB"> 16GB
+                                        <label class="custom-control-label" for="16GB"> 16GB</label>
                                     </div>
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
@@ -260,7 +254,7 @@
                                     </div>
                                 </div>
                                 <!-- End Checkboxes -->
-    
+
                                 <!-- View More - Collapse -->
                                 <div class="collapse" id="collapseMemory">
                                     <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
@@ -294,7 +288,7 @@
                     <!-- Shop-control-bar Title -->
                     <div class="d-block d-md-flex flex-center-between mb-3">
                         <h3 class="font-size-25 mb-2 mb-md-0">Product</h3>
-                        <p class="font-size-14 text-gray-90 mb-0">Showing 1–25 of 56 results</p>
+{{--                        <p class="font-size-14 text-gray-90 mb-0">Showing 1–25 of 56 results</p>--}}
                     </div>
                     <!-- End shop-control-bar Title -->
                     <!-- Shop-control-bar -->
@@ -354,88 +348,14 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade pt-2 show active" id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab" data-target-group="groups">
                             <ul class="row list-unstyled products-group no-gutters">
-                                <?php $products = $products ??  $productTypes->first()->products ?? []; ?>
-                                @if(!empty($products))
-                                @foreach ( $products as $product)
-                                <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
-                                    <div class="product-item__outer h-100">
-                                        <div class="product-item__inner px-xl-4 p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="font-size-12 text-gray-5">Category : {{ $product->productType->category->name }}</a></div>
-                                                <h5 class="mb-1 product-item__title"><a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="text-blue font-weight-bold">
-                                                    {{ $product->productType->name }}</b> - 
-                                                    @if ($product->warehouse->color == 0)
-                                                        <b style="color : red"><i>Red</i></b> memory
-                                                    @elseif($product->warehouse->color == 1)
-                                                        <b style="color : gold"><i>Yellow</i></b> 
-                                                    @elseif($product->warehouse->color == 2)
-                                                        <b style="color : Violet"><i>Violet</i></b> 
-                                                    @elseif($product->warehouse->color == 3)
-                                                        <b style="color : Green"><i>Green</i></b> 
-                                                    @elseif($product->warehouse->color == 4)
-                                                        <b style="color : Black"><i>Black</i></b> 
-                                                    @elseif($product->warehouse->color == 5)
-                                                        <b style="color : Gray"><i>White</i></b> 
-                                                    @elseif($product->warehouse->color == 6)
-                                                        <b style="color : Other"><i>Other</i></b>   
-                                                    @elseif($product->warehouse->color == 7)
-                                                        <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                    @endif -
-                                                    @if ($product->warehouse->memory== 0)
-                                                        <b style="color : #336699"><i>16GB</i></b> 
-                                                    @elseif($product->warehouse->memory== 1)
-                                                        <b style="color : gold"><i>32GB</i></b> 
-                                                    @elseif($product->warehouse->memory== 2)
-                                                        <b style="color : Violet"><i>64GB</i></b> 
-                                                    @elseif($product->warehouse->memory== 3)
-                                                        <b style="color : Green"><i>128GB</i></b> 
-                                                    @elseif($product->warehouse->memory== 4)
-                                                        <b style="color : Black"><i>256GB</i></b> 
-                                                    @elseif($product->warehouse->memory== 5)
-                                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                    @endif 
-                                                </a></h5>
-                                                <div class="mb-2">
-                                                    <a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="d-block text-center"><img class="img-fluid" src="../{{ $product->thumbnail }}" alt="Image Description"></a>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                                        <div class="text-warning mr-2">
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="far fa-star text-muted"></small>
-                                                        </div>
-                                                        <span class="text-secondary">(40)</span>
-                                                    </a>
-                                                </div>
-                                                <ul class="font-size-12 p-0 text-gray-110 mb-4">
-                                                    <li class="line-clamp-1 mb-1 list-bullet">{{ $product->productType->description }}</li>
-                                                    <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
-                                                    <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$product->warehouse->warranty}}.Month</b></li>
-                                                </ul>
-                                                <div class="text-gray-20 mb-2 font-size-12">SKU: FW511948218</div>
-                                                <div class="flex-center-between mb-1">
-                                                    @if ($product->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($product->price - ($product->price*($product->discount/100)))}}.VNĐ</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($product->price)}}.VNĐ</del>
-                                                    </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>{{number_format($product->price)}}.VNĐ</b></div>
-                                                    </div>
-                                                    @endif
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
+                                @if(isset($productTypes) && !empty($productTypes))
+                                    @foreach($productTypes as $productType)
+                                        @if($productType->products->all() !== null)
+                                            @foreach($productType->products->all() as $product)
+                                                @include('userPage.pages.category.productItem', compact('product'))
+                                            @endforeach
+                                        @endif
+                                    @endforeach
                                 @endif
                             </ul>
                         </div>
@@ -465,7 +385,7 @@
      <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
      <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
      <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
- 
+
      <!-- JS Implementing Plugins -->
      <script src="assets/vendor/appear.js"></script>
      <script src="assets/vendor/jquery.countdown.min.js"></script>
@@ -473,13 +393,13 @@
      <script src="assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
      <script src="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
      <script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-     <script src="assets/vendor/fancybox/jquery.fancybox.min.js"></script>        
+     <script src="assets/vendor/fancybox/jquery.fancybox.min.js"></script>
      <script src="assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
      <script src="assets/vendor/typed.js/lib/typed.min.js"></script>
      <script src="assets/vendor/slick-carousel/slick/slick.js"></script>
      <script src="assets/vendor/appear.js"></script>
      <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
- 
+
      <!-- JS Electro -->
      <script src="assets/js/hs.core.js"></script>
      <script src="assets/js/components/hs.countdown.js"></script>
@@ -499,7 +419,7 @@
      <script src="assets/js/components/hs.scroll-nav.js"></script>
      <script src="assets/js/components/hs.go-to.js"></script>
      <script src="assets/js/components/hs.selectpicker.js"></script>
- 
+
      <!-- JS Plugins Init. -->
      <script>
          $(window).on('load', function () {
@@ -512,24 +432,24 @@
                  hideTimeOut: 0
              });
          });
- 
+
          $(document).on('ready', function () {
              // initialization of header
              $.HSCore.components.HSHeader.init($('#header'));
- 
+
              // initialization of animation
              $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
- 
+
              // initialization of unfold component
              $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                  afterOpen: function () {
                      $(this).find('input[type="search"]').focus();
                  }
              });
- 
+
              // initialization of popups
              $.HSCore.components.HSFancyBox.init('.js-fancybox');
- 
+
              // initialization of countdowns
              var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
                  yearsElSelector: '.js-cd-years',
@@ -539,13 +459,13 @@
                  minutesElSelector: '.js-cd-minutes',
                  secondsElSelector: '.js-cd-seconds'
              });
- 
+
              // initialization of malihu scrollbar
              $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
- 
+
              // initialization of forms
              $.HSCore.components.HSFocusState.init();
- 
+
              // initialization of form validation
              $.HSCore.components.HSValidation.init('.js-validate', {
                  rules: {
@@ -554,22 +474,22 @@
                      }
                  }
              });
- 
+
              // initialization of show animations
              $.HSCore.components.HSShowAnimation.init('.js-animation-link');
- 
+
              // initialization of fancybox
              $.HSCore.components.HSFancyBox.init('.js-fancybox');
- 
+
              // initialization of slick carousel
              $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
- 
+
              // initialization of go to
              $.HSCore.components.HSGoTo.init('.js-go-to');
- 
+
              // initialization of hamburgers
              $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
- 
+
              // initialization of unfold component
              $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                  beforeClose: function () {
@@ -579,22 +499,22 @@
                      $('#headerSidebarList .collapse.show').collapse('hide');
                  }
              });
- 
+
              $('#headerSidebarList [data-toggle="collapse"]').on('click', function (e) {
                  e.preventDefault();
- 
+
                  var target = $(this).data('target');
- 
+
                  if ($(this).attr('aria-expanded') === "true") {
                      $(target).collapse('hide');
                  } else {
                      $(target).collapse('show');
                  }
              });
- 
+
              // initialization of unfold component
              $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
- 
+
              // initialization of select picker
              $.HSCore.components.HSSelectPicker.init('.js-select');
          });
@@ -602,13 +522,13 @@
      <script>
         $(document).ready(function () {
 
-        
+
         const changefuction = e => {
             let prices = [];
             let colors = [];
             let memories = [];
             e.preventDefault();
-            prices = []; // reset 
+            prices = []; // reset
 
             $('input[name="price[]"]:checked').each(function()
             {
@@ -626,7 +546,7 @@
             $.get("{{route('filterProduct')}}", {prices: prices,colors: colors,memories: memories}, function(markup)
             {
                 $('#search-results').html(markup);
-            });     
+            });
         }
         // Listen for 'change' event, so this triggers when the user clicks on the checkboxes labels
         $('input[name="price[]"]').on('change', changefuction);
