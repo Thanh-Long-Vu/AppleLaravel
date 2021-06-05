@@ -43,8 +43,8 @@ Route::get('/track-your-order', [App\Http\Controllers\HomeController::class, 'tr
 
 Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound'])->name('NotFound');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
-Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
-Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.user');
+Route::get('/blog-detail/{idBlog}', [App\Http\Controllers\BlogController::class, 'detail'])->name('blog.user.detail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
@@ -154,10 +154,10 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     Route::get('/ratings', [RatingController::class,'index'])->name('ratings');
     Route::get('/rating/update-status', [RatingController::class,'updateStatus'])->name('ratingUpdateStatus');
-    
+
     Route::get('/system/user/list', [UserController::class,'index'])->name('listUser');
 
-    
+
     Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');
     Route::get('/payment/create', [PaymentController::class,'create'])->name('paymentCreate');
     Route::post('/payment/store', [PaymentController::class,'store'])->name('StorePayment');
@@ -169,5 +169,5 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/get-product/{id}', [CalendarController::class,'getProduct'])->name('getProduct');
     Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
 
-    
+
 });

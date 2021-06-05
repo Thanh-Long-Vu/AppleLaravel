@@ -66,10 +66,4 @@ class HomeController extends Controller
     public function Contact(){
         return view('userPage.pages.contact');
     }
-    public function Blog(){
-        return view('userPage.pages.blog');
-    }
-    public function Blogdetail(){
-        return view('userPage.pages.blog-detail');
-    }
 }

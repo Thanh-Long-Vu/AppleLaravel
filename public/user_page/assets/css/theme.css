@@ -37472,3 +37472,23 @@ blockquote:not(.blockquote) p {
 .dot-patific {
   background-color: #336699 ;
 }
+.card-body .ql-align-justify img {
+    width: 100% !important;
+    height: auto !important;
+}
+.card-body p.ql-align-justify {
+    font-size: 16px;
+}
+.limit-two-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+.block-event {
+    pointer-events: none;
+}
+.cp-auto {
+    cursor: pointer !important;
+}
