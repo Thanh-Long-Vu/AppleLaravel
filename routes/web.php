@@ -135,6 +135,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/transaction/change/status/{id}', [TransactionController::class,'changeStatus'])->name('changeStatusTransaction');
     Route::get('/transaction/status/update', [TransactionController::class,'updateStatus'])->name('updateStatusTransaction');
     Route::get('/statistics-bill-success', [TransactionController::class,'statistics'])->name('statistics');
+    Route::post('/export-excel/transaction', [TransactionController::class,'exportExcelTransaction'])->name('export.Excel.Transaction');
 
     Route::get('/slider', [SliderController::class,'index'])->name('sliderlist');
     Route::get('/slider/create', [SliderController::class,'create'])->name('sliderCreate');

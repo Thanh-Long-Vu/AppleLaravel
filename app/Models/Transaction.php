@@ -13,6 +13,14 @@ class Transaction extends Model
     // SoftDeletes;
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
+    protected $fillable = [
+        'name',
+        'total_price',
+        'note',
+        'method_receive',
+        'phone',
+        'payment_method_id',
+    ];
     public function product(){
         return $this->belongsToMany('App\Models\Product', 'order','transaction_id','product_id');
     }

@@ -946,24 +946,5 @@
                 $(".list_text").text('').text(listRating[number]).show();
             });
         });
-        // $(document).ready(function() {
-        //     $("#add_review").click(function(e){
-        //         event.preventDefault();
-        //             $.ajaxSetup({
-        //                 headers: {
-        //                     'X-CSRF-TOKEN': $('input[name="_token"]').val()
-        //                 }
-        //              });
-        //             let number = $("fas").val();
-        //             $.ajax({
-        //                 url : "{{ route('ratingTransaction', ['id' => $id]) }}",
-        //                 type : 'post',
-        //                 data : {
-        //                     number :number
-        //                 }
-        //             }).done(function(result){
-        //                 console.log(result);
-        //             });
-        // });
     </script>
 @endsection
