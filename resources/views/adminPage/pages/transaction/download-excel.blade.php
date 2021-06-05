@@ -30,16 +30,16 @@
                         Giao hàng online
                     @endif
                 </td>
-                <td>{{ $item->name }}</td>
+                <td>{{ $item->name_user }}</td>
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->phone }}</td>
                 <td>{{ $item->address }}</td>
                 <td>{{ $item->id_order }}</td>
                 <td>{{ $item->quantity }}.Cái</td>
-                <td>{{ $item->name }}</td>
+                <td>{{ $item->name_method_payment }}</td>
                 <td>{{ $item->price }}.VND</td>
                 <td>{{ $item->discount }}%</td>
-                <td>{{ $item->name }}</td>
+                <td>{{ $item->name_product }}</td>
                 <td>
                     @if ($item->color == 0)
                         Red

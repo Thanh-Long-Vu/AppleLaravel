@@ -29,7 +29,7 @@ class TransactionExportMonthYear implements FromView
                         ->leftjoin('products', 'order.product_id', '=', 'products.id_product')
                         ->leftjoin('product_types', 'products.product_type_id', '=', 'product_types.id_product_type')
                         ->leftjoin('warehouse', 'products.warehouse_id', '=', 'warehouse.id_warehouse')
-                        ->select('transaction.id_transaction','transaction.total_price','transaction.method_receive','users.name as users.name_user','users.email','users.phone','users.address','order.id_order', 'order.quantity','payment_method.name as payment_method.name_method_payment','products.price','products.discount','product_types.name','warehouse.color','warehouse.memory')
+                        ->select('transaction.id_transaction','transaction.total_price','transaction.method_receive','users.name as name_user','users.email','users.phone','users.address','order.id_order', 'order.quantity','payment_method.name as name_method_payment','products.price','products.discount','product_types.name as name_product','warehouse.color','warehouse.memory')
                         ->get()
         ]);
     }
