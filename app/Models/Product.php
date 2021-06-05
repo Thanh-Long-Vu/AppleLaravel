@@ -15,6 +15,11 @@ class Product extends Model
 
     protected $table = 'products';
     protected $primaryKey = 'id_product';
+    protected $fillable = [
+        'price',
+        'product_type_id',
+        'discount'
+    ];
 
     /**
      * scopeActive

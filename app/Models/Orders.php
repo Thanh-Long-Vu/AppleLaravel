@@ -13,6 +13,11 @@ class Orders extends Model
 
     protected $table = 'order';
     protected $primaryKey = 'id_order';
+    protected $fillable = [
+        'quantity',
+        'transaction_id',
+        'product_id'
+    ];
     public function product()
     {
         return $this->belongsTo('App\Models\Product','product_id','id_product');
