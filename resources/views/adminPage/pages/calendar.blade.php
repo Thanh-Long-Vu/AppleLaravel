@@ -25,12 +25,12 @@
                             <div class="form-group mb-3">
                                 <label for="category">Category</label>
                                 <select class="custom-select" name="category" id="category">
-                                  <option selected="">Choose category ...</option>
-                                  @if (!empty($category))
-                                    @foreach ($category as $item)
-                                    <option value="{{$item->id_category}}">{{$item->name}}</option>
-                                    @endforeach
-                                  @endif
+                                    <option selected="">Choose category ...</option>
+                                    @if (!empty($category))
+                                        @foreach ($category as $item)
+                                            <option value="{{ $item->id_category }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -42,108 +42,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
+                        {{-- <div class="col">
                             <div class="form-group mb-3">
                                 <label for="product">Product </label>
                                 <select class="custom-select" id="product" name="product">
                                     <option selected="">Choose product type ...</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div id='calendar'></div>
-                    <!-- new event modal -->
-                    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="varyModalLabel">New Event</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body p-4">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="eventTitle" class="col-form-label">Title</label>
-                                            <input type="text" class="form-control" id="eventTitle"
-                                                placeholder="Add event title">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="eventNote" class="col-form-label">Note</label>
-                                            <textarea class="form-control" id="eventNote"
-                                                placeholder="Add some note for your event"></textarea>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-8">
-                                                <label for="eventType">Event type</label>
-                                                <select id="eventType" class="form-control select2">
-                                                    <option value="work">Work</option>
-                                                    <option value="home">Home</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="date-input1">Start Date</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text" id="button-addon-date"><span
-                                                                class="fe fe-calendar fe-16"></span></div>
-                                                    </div>
-                                                    <input type="text" class="form-control drgpicker" id="drgpicker-start"
-                                                        value="04/24/2020">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="startDate">Start Time</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text" id="button-addon-time"><span
-                                                                class="fe fe-clock fe-16"></span></div>
-                                                    </div>
-                                                    <input type="text" class="form-control time-input" id="start-time"
-                                                        placeholder="10:00 AM">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="date-input1">End Date</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text" id="button-addon-date"><span
-                                                                class="fe fe-calendar fe-16"></span></div>
-                                                    </div>
-                                                    <input type="text" class="form-control drgpicker" id="drgpicker-end"
-                                                        value="04/24/2020">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="startDate">End Time</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text" id="button-addon-time"><span
-                                                                class="fe fe-clock fe-16"></span></div>
-                                                    </div>
-                                                    <input type="text" class="form-control time-input" id="end-time"
-                                                        placeholder="11:00 AM">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-between">
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="RepeatSwitch" checked>
-                                        <label class="custom-control-label" for="RepeatSwitch">All day</label>
-                                    </div>
-                                    <button type="button" class="btn mb-2 btn-primary">Save Event</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> <!-- new event modal -->
                 </div> <!-- .col-12 -->
             </div> <!-- .row -->
         </div> <!-- .container-fluid -->
@@ -151,6 +59,8 @@
 @endsection
 @section('script')
     <script src="admin/js/jquery.min.js"></script>
+    <script src='admin/js/fullcalendar.js'></script>
+    <script src='admin/js/fullcalendar.custom.js'></script>
     <script src="admin/js/popper.min.js"></script>
     <script src="admin/js/moment.min.js"></script>
     <script src="admin/js/bootstrap.min.js"></script>
@@ -161,37 +71,6 @@
     <script src="admin/js/config.js"></script>
     <script src='admin/js/jquery.dataTables.min.js'></script>
     <script src='admin/js/dataTables.bootstrap4.min.js'></script>
-    <script src='admin/js/fullcalendar.js'></script>
-    <script src='admin/js/fullcalendar.custom.js'></script>
-    <script>
-        /** full calendar */
-        var calendarEl = document.getElementById('calendar');
-        if (calendarEl) {
-            document.addEventListener('DOMContentLoaded', function() {
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    plugins: ['dayGrid', 'timeGrid', 'list', 'bootstrap'],
-                    timeZone: 'UTC',
-                    themeSystem: 'bootstrap',
-                    header: {
-                        left: 'today, prev, next',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-                    },
-                    buttonIcons: {
-                        prev: 'fe-arrow-left',
-                        next: 'fe-arrow-right',
-                        prevYear: 'left-double-arrow',
-                        nextYear: 'right-double-arrow'
-                    },
-                    weekNumbers: true,
-                    eventLimit: true, // allow "more" link when too many events
-                    events: 'https://fullcalendar.io/demo-events.json'
-                });
-                calendar.render();
-            });
-        }
-
-    </script>
     <script src='admin/js/jquery.mask.min.js'></script>
     <script src='admin/js/select2.min.js'></script>
     <script src='admin/js/jquery.steps.min.js'></script>
@@ -374,8 +253,6 @@
 
     </script>
     <script src="admin/js/apps.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -386,113 +263,99 @@
         gtag('config', 'UA-56159088-1');
 
     </script>
-<script>
-    $(document).ready(function(){
-        $('#category').change(function(){
-            var category = $(this).val();
-            if(category){
-                $.ajax({
-                    type:"get",
-                    url: '../admin/get-product-type/'+category,
-                    success:function(res){       
-                        if(res.length !== 0){
-                            $("#productType").empty();
-                            $("#productType").append('<option>Choose product type ...</option>');
-                            $.each(res,function(key,value){
-                                $("#productType").append('<option value="'+key+'">'+value+'</option>');
-                            });
-                        }else{
-                            $("#productType").empty();
-                        }
-                    }
-                });
-            }
-        });
-        $('#productType').change(function(){
-            var productType = $(this).val();
-            if(productType){
-                $.ajax({
-                    type:"get",
-                    url: '../admin/get-product/'+productType,
-                    success:function(res){       
-                        if(res.length !== 0){
-                            $("#product").empty();
-                            $("#product").append('<option>Choose product type ...</option>');
-                            $.each(res,function(key,value){
-                                $("#product").append('<option value="'+key+'">'+value+'</option>');
-                            });
-                        }else{
-                            $("#product").empty();
-                        }
-                    }
-                });
-            }
-        });
-        $('#product').change(function(){
-            var product = $(this).val();
-            if(product){
-                $.ajax({
-                    type:"get",
-                    url: '../admin/get-order/'+product,
-                    success:function(res){       
-                        if(res.length !== 0){
-                            var calendarEl = document.getElementById('calendar');
-                            var calendar = new FullCalendar.Calendar(calendarEl, {
-                            headerToolbar: {
-                                left: 'prev,next today',
-                                center: '',
-                                right: 'dayGridMonth'
-                            },
-                            editable: true,
-                            navLinks: true, // can click day/week names to navigate views
-                            dayMaxEvents: true, // allow "more" link when too many events
-                            events: {
-                                    url: '../partner/get-order/'+product,
-                                    failure: function() {
-                                    document.getElementById('script-warning').style.display = 'block'
-                                    },
-                                    color:'rgba(255, 25, 25, 0.79)',
-                                    // display: 'background',
-                                    constraint: 'availableForMeeting',
-                                    overlap: false,
-                                    backgroundColor: 'rgba(255, 25, 25, 0.79)'
-                                },
-                                loading: function(bool) {
-                                    document.getElementById('loading').style.display =
-                                    bool ? 'block' : 'none';
-                                }
+    <script>
+        $(document).ready(function() {
+            $('#category').change(function() {
+                var category = $(this).val();
+                if (category) {
+                    $.ajax({
+                        type: "get",
+                        url: '../admin/get-product-type/' + category,
+                        success: function(res) {
+                            if (res.length !== 0) {
+                                $("#productType").empty();
+                                $("#productType").append(
+                                    '<option>Choose product type ...</option>');
+                                $.each(res, function(key, value) {
+                                    $("#productType").append('<option value="' + key +
+                                        '">' + value + '</option>');
                                 });
-                            calendar.render();
-                        }else{
-                            var calendarEl = document.getElementById('calendar');
-                            var calendar = new FullCalendar.Calendar(calendarEl, {
-                                headerToolbar: {
-                                    left: 'prev,next today',
-                                    center: 'title',
-                                    right: 'dayGridMonth'
-                                },
-                                editable: true,
-                                navLinks: true, // can click day/week names to navigate views
-                                dayMaxEvents: true, // allow "more" link when too many events
-                            });
-                            calendar.render();
+                            } else {
+                                $("#productType").empty();
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
+            });
+            $('#productType').change(function() {
+                var productType = $(this).val();
+                if (productType) {
+                    $.ajax({
+                        type: "get",
+                        url: '../admin/order/' + productType,
+                        success: function(res) {
+                            if (res.length !== 0) {
+                                var calendarEl = document.getElementById('calendar');
+                                var calendar = new FullCalendar.Calendar(calendarEl, {
+                                    headerToolbar: {
+                                        left: 'prev,next today',
+                                        center: '',
+                                        right: 'dayGridMonth'
+                                    },
+                                    editable: true,
+                                    navLinks: true, // can click day/week names to navigate views
+                                    dayMaxEvents: true, // allow "more" link when too many events
+                                    events: {
+                                        url: '../admin/order/' + productType,
+                                        failure: function() {
+                                            document.getElementById(
+                                                    'script-warning').style
+                                                .display = 'block'
+                                        },
+                                        color: 'rgba(255, 25, 25, 0.79)',
+                                        // display: 'background',
+                                        constraint: 'availableForMeeting',
+                                        overlap: false,
+                                        backgroundColor: 'rgba(255, 25, 25, 0.79)'
+                                    },
+                                    loading: function(bool) {
+                                        document.getElementById('loading').style
+                                            .display =
+                                            bool ? 'block' : 'none';
+                                    }
+                                });
+                                calendar.render();
+                            } else {
+                                var calendarEl = document.getElementById('calendar');
+                                var calendar = new FullCalendar.Calendar(calendarEl, {
+                                    headerToolbar: {
+                                        left: 'prev,next today',
+                                        center: 'title',
+                                        right: 'dayGridMonth'
+                                    },
+                                    editable: true,
+                                    navLinks: true, // can click day/week names to navigate views
+                                    dayMaxEvents: true, // allow "more" link when too many events
+                                });
+                                calendar.render();
+                            }
+                        }
+                    });
+                }
+            });
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth'
+                },
+                editable: true,
+                navLinks: true, // can click day/week names to navigate views
+                dayMaxEvents: true, // allow "more" link when too many events
+            });
+            calendar.render();
         });
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth'
-            },
-            editable: true,
-            navLinks: true, // can click day/week names to navigate views
-            dayMaxEvents: true, // allow "more" link when too many events
-        });
-        calendar.render();
-    });
-</script>
+
+    </script>
 @endsection

@@ -166,7 +166,6 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     Route::get('/calendar', [CalendarController::class,'index'])->name('calendar');
     Route::get('/get-product-type/{id}', [CalendarController::class,'getProducType'])->name('getProducType');
-    Route::get('/get-product/{id}', [CalendarController::class,'getProduct'])->name('getProduct');
     Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
 
     
