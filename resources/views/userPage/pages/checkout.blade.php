@@ -33,77 +33,12 @@
             <h1 class="text-center">Checkout</h1>
         </div>
         <!-- Accordion -->
-        <div id="shopCartAccordion" class="accordion rounded mb-5">
-            <!-- Card -->
-            <div class="card border-0">
-                <div id="shopCartHeadingOne" class="alert alert-primary mb-0" role="alert">
-                    Returning customer? <a href="#" class="alert-link" data-toggle="collapse" data-target="#shopCartOne" aria-expanded="false" aria-controls="shopCartOne">Click here to login</a>
-                </div>
-                <div id="shopCartOne" class="collapse border border-top-0" aria-labelledby="shopCartHeadingOne" data-parent="#shopCartAccordion" style="">
-                    <!-- Form -->
-                    <form class="js-validate p-5" novalidate="novalidate">
-                        <!-- Title -->
-                        <div class="mb-5">
-                            <p class="text-gray-90 mb-2">Welcome back! Sign in to your account.</p>
-                            <p class="text-gray-90">If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing &amp; Shipping section.</p>
-                        </div>
-                        <!-- End Title -->
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <!-- Form Group -->
-                                <div class="js-form-message form-group">
-                                    <label class="form-label" for="signinSrEmailExample3">Email address</label>
-                                    <input type="email" class="form-control" name="email" id="signinSrEmailExample3" placeholder="Email address" aria-label="Email address" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success">
-                                </div>
-                                <!-- End Form Group -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- Form Group -->
-                                <div class="js-form-message form-group">
-                                    <label class="form-label" for="signinSrPasswordExample2">Password</label>
-                                    <input type="password" class="form-control" name="password" id="signinSrPasswordExample2" placeholder="********" aria-label="********" required="" data-msg="Your password is invalid. Please try again." data-error-class="u-has-error" data-success-class="u-has-success">
-                                </div>
-                                <!-- End Form Group -->
-                            </div>
-                        </div>
-
-                        <!-- Checkbox -->
-                        <div class="js-form-message mb-3">
-                            <div class="custom-control custom-checkbox d-flex align-items-center">
-                                <input type="checkbox" class="custom-control-input" id="rememberCheckbox" name="rememberCheckbox" required="" data-error-class="u-has-error" data-success-class="u-has-success">
-                                <label class="custom-control-label form-label" for="rememberCheckbox">
-                                    Remember me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- End Checkbox -->
-
-                        <!-- Button -->
-                        <div class="mb-1">
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary-dark-w px-5">Login</button>
-                            </div>
-                            <div class="mb-2">
-                                <a class="text-blue" href="#">Lost your password?</a>
-                            </div>
-                        </div>
-                        <!-- End Button -->
-                    </form>
-                    <!-- End Form -->
-                </div>
-            </div>
-            <!-- End Card -->
-        </div>
         <!-- End Accordion -->
 
         <!-- Accordion -->
         <div id="shopCartAccordion1" class="accordion rounded mb-6">
             <!-- Card -->
             <div class="card border-0">
-                <div id="shopCartHeadingTwo" class="alert alert-primary mb-0" role="alert">
-                    Have a coupon? <a href="#" class="alert-link" data-toggle="collapse" data-target="#shopCartTwo" aria-expanded="false" aria-controls="shopCartTwo">Click here to enter your code</a>
-                </div>
                 <div id="shopCartTwo" class="collapse border border-top-0" aria-labelledby="shopCartHeadingTwo" data-parent="#shopCartAccordion1" style="">
                     <form class="js-validate p-5" novalidate="novalidate">
                         <p class="w-100 text-gray-90">If you have a coupon code, please apply it below.</p>
@@ -122,7 +57,8 @@
             <!-- End Card -->
         </div>
         <!-- End Accordion -->
-        <form class="js-validate" novalidate="novalidate">
+        <form class="js-validate" novalidate="novalidate"  action="{{ route('order.store') }}" method="POST">
+            {{csrf_field() }}
             <div class="row">
                 <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                     <div class="pl-lg-3 ">
@@ -190,7 +126,7 @@
                                         First name
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" name="firstName" placeholder="Jack" aria-label="Jack" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
+                                    <input type="text" name="addtional_data['first_name']" class="form-control" name="firstName" placeholder="Jack" aria-label="Jack" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -202,7 +138,7 @@
                                         Last name
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" name="lastName" placeholder="Wayley" aria-label="Wayley" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="text" class="form-control" name="addtional_data['last_name']" placeholder="Wayley" aria-label="Wayley" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -214,7 +150,7 @@
                                         Email address
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="email" class="form-control" name="emailAddress" placeholder="jackwayley@gmail.com" aria-label="jackwayley@gmail.com" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="email" class="form-control" name="addtional_data['email']" placeholder="jackwayley@gmail.com" aria-label="jackwayley@gmail.com" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -225,7 +161,7 @@
                                     <label class="form-label">
                                         Phone
                                     </label>
-                                    <input type="text" class="form-control" placeholder="+1 (062) 109-9222" aria-label="+1 (062) 109-9222" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="text" class="form-control" name="addtional_data['phone']" placeholder="+1 (062) 109-9222" aria-label="+1 (062) 109-9222" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -236,7 +172,7 @@
 
                         <!-- Accordion -->
                         <!-- End Accordion -->
-                        <!-- Title -->
+                        <!-- Title --
                         <!-- End Title -->
                         <!-- Accordion -->
                         <!-- End Accordion -->
@@ -247,7 +183,7 @@
                             </label>
 
                             <div class="input-group">
-                                <textarea class="form-control p-5" rows="4" name="text" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                <textarea class="form-control p-5"  rows="4" name="addtional_data['description']" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                             </div>
                         </div>
                         <!-- End Input -->

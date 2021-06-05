@@ -11,6 +11,11 @@ class Transaction extends Model
     use HasFactory,
     Filterable;
     // SoftDeletes;
+
+    protected $casts = [
+        'addtional_data' => 'array',
+    ];
+    protected $guarded = [];  
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
     protected $fillable = [
