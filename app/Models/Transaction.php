@@ -24,6 +24,8 @@ class Transaction extends Model
         'note',
         'method_receive',
         'phone',
+        'status',
+        'addtional_data',
         'payment_method_id',
     ];
     public function product(){
