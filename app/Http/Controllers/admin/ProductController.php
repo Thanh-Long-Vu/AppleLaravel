@@ -27,11 +27,13 @@ class ProductController extends Controller
     public function store(Request $request,$id)
     {
         $validatedData = Validator::make($request->all(),[
-            'price_sell' => 'required|integer|min:89000',
+            'price_sell' => 'required|integer|min:890',
+            'quantity_sell' => 'required|integer',
             'discount' => 'required|integer|min:0',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ], [
             'price_sell.required' => 'Price Sell is required',
+            'quantity_sell.required' => 'Quantity Sell is required',
             'discount.required' => 'Description is required',
             'image.required' => 'Image is required',
             'image.image' => 'Type file not true'
@@ -46,15 +48,24 @@ class ProductController extends Controller
         $destination_path = public_path('/uploads/admin/product');
         $image->move($destination_path,$new_image_name);
 
+        
         $product = new Product();
-        $product->warehouse_id = $id;
-        $product->thumbnail = $new_image_name;
-        $product->price = $request->price_sell;
-        $product->discount = $request->discount;
-        $product->is_hot = 0;
-        $product->product_type_id = $request->id_product_type;
-        $product->save();
-        return redirect()->back()->with('success', 'Product update successfully.');
+        $wareHouse = Warehouse::find($id);
+        if($request->quantity_sell <= $wareHouse->quantity - $wareHouse->quantity_sell){
+            $product->warehouse_id = $id;
+            $product->thumbnail = $new_image_name;  
+            $product->active_quantity += $request->quantity_sell;
+            $wareHouse->quantity_sell += $request->quantity_sell;
+            $product->price = $request->price_sell;
+            $product->discount = $request->discount;
+            $product->is_hot = 0;
+            $product->product_type_id = $request->id_product_type;
+            $wareHouse->save();
+            $product->save();
+            return redirect()->back()->with('success', 'Product update successfully.');
+        }else {
+            return redirect()->back()->with('error','Quantity sell > Quantity warehouse. Please enter quantity true');
+        }
     }
     public function edit($id)
     {
@@ -67,35 +78,44 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = Validator::make($request->all(),[
-            'price' => 'required|integer|min:89000',
+            'price_sell' => 'required|integer|min:890',
+            'quantity_sell' => 'required|integer',
             'discount' => 'required|integer|min:0',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ], [
-            'price.required' => 'Price is required',
+            'price_sell.required' => 'Price Sell is required',
+            'quantity_sell.required' => 'Quantity Sell is required',
             'discount.required' => 'Description is required',
-            'image.image' => 'Type file not true'
         ]);
         if($validatedData->fails()){
             return back()->withErrors($validatedData);
         }
         //Update Table Product
         $product = Product::find($id);
-        if($product->thumbnail != "" && !isset($request->image)){
+        $wareHouse = Warehouse::find($product->warehouse_id);
+        if(empty($product->thumbnail) && isset($request->image)){
             $product->thumbnail;
         }else{
             $image = $request->file('image');
-            $image_size = $image->getSize();
             $image_ext = $image->getClientOriginalExtension();
             $new_image_name = "uploads/admin/product/product"."thumbnail".rand(1,99999).".".$image_ext;
             $destination_path = public_path('/uploads/admin/product');
             $image->move($destination_path,$new_image_name);
             $product->thumbnail = $new_image_name;
         }
-        $product->product_type_id = $request->product_type_id;
-        $product->price = $request->price;
-        $product->discount = $request->discount;
-        $product->save();
-        return redirect('admin/product')->with('success', 'Product update successfully.');
+        dd($product);
+        if($request->quantity_sell <= $wareHouse->quantity - $wareHouse->quantity_sell){
+            $product->active_quantity += $request->quantity_sell;
+            $wareHouse->quantity_sell += $request->quantity_sell;
+            $product->product_type_id = $request->product_type_id;
+            $product->price = $request->price;
+            $product->discount = $request->discount;
+            dd($wareHouse);
+            // $product->save();
+            return redirect('admin/product')->with('success', 'Product update successfully.');
+        }else {
+            return redirect()->back()->with('error','Quantity sell > Quantity warehouse. Please enter quantity true');
+        }
+        
     }
     
     public function updateStatus(Request $request)

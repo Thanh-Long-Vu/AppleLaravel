@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-auto mb-2 mb-md-0">
                                 <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                    <div class="progress-bar" role="progressbar" style="width: {{$sumRatingByNumberStar / $sumRating * 100}}%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="{{$sumRating}}"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: {{$sumRating ? $sumRatingByNumberStar / $sumRating * 100 : 0}}%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="{{$sumRating}}"></div>
                                 </div>
                             </div>
                             <div class="col-auto text-right">
