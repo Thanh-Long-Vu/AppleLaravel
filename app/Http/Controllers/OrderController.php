@@ -24,6 +24,7 @@ class OrderController extends Controller
                 'quantity' => $cart['item']['quantity'],
                 'sale' => $cart['item']['product_discount'],
                 'color' => $cart['item']['color'],
+                'product_id' => $cart['item']['product']->id_product,
             ]);
         }
 
