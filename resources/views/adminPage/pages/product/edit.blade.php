@@ -66,12 +66,12 @@
                                                 <div class="invalid-feedback">Please choose image for Price buy</div>
                                             </div>
                                             <div class="col-md-3 mb-3">
-                                                <label for="price">Price sell (.VNĐ)</label>
-                                                <input type="text" class="form-control" value="{{$product->price}}" id="price" name="price" required>
+                                                <label for="price_sell">Price sell (.VNĐ)</label>
+                                                <input type="text" class="form-control" value="{{$product->price}}" id="price_sell" name="price_sell" required>
                                                 <div class="invalid-feedback">Please choose image for Price sell</div>
                                                 @if ($errors->has('price'))
                                                 <div class="alert alert-danger">
-                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('price') }} 
+                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('price_sell') }} 
                                                 </div>
                                                 @endif
                                             </div>  

@@ -34,7 +34,7 @@ class wareHouseController extends Controller
             'name' => 'required',
             'quantity' => 'required|integer|min:1',
             'IMEI' => 'required|string',
-            'price' => 'required|integer|min:59000',
+            'price' => 'required|integer|min:50',
             'warranty' => 'required|integer|min:1'
         ], [
             'name.required' => 'Name is required',
@@ -43,7 +43,7 @@ class wareHouseController extends Controller
             'price.required' => 'Price is required',
             'warranty.required' => 'warranty is required',
             'quantity.min' => 'Min is 1',
-            'price.min' => 'Min is 59000',
+            'price.min' => 'Min is 50',
             'warranty.min' => 'Min is 1'
         ]);
         if($validatedData->fails()){
@@ -57,6 +57,9 @@ class wareHouseController extends Controller
         $wareHouse->color = $request->color;
         $wareHouse->memory = $request->memory;
         $wareHouse->quantity = $request->quantity;
+        if($request->quantity_sell > 0){
+            $wareHouse->quantity += $request->quantity_sell;
+        }
         $wareHouse->save();
         return redirect('admin/warehouse')->with('success', 'WareHouse Update successfully.');
     }
@@ -66,7 +69,7 @@ class wareHouseController extends Controller
             'name' => 'required',
             'quantity' => 'required|integer|min:1',
             'IMEI' => 'required|string',
-            'price' => 'required|integer|min:59000',
+            'price' => 'required|integer|min:50',
             'warranty' => 'required|integer|min:1'
         ], [
             'name.required' => 'Name is required',
@@ -75,7 +78,7 @@ class wareHouseController extends Controller
             'price.required' => 'Price is required',
             'warranty.required' => 'warranty is required',
             'quantity.min' => 'Min is 1',
-            'price.min' => 'Min is 59000',
+            'price.min' => 'Min is 50',
             'warranty.min' => 'Min is 1'
         ]);
         if($validatedData->fails()){
