@@ -21,10 +21,17 @@
     }
 ?>
 @if(isset($point))
-    <a class="d-inline-flex align-items-center small font-size-14" href="#">
-        <div class="text-warning mr-2">
+    @if($show)
+        <a class="d-inline-flex align-items-center small font-size-14" href="#">
+            <div class="text-warning mr-2">
+                {!! $result !!}
+            </div>
+            <span class="text-secondary">{{$point}}</span>
+        </a>
+    @else
+        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
             {!! $result !!}
         </div>
-        <span class="text-secondary">{{$point}}</span>
-    </a>
+    @endif
+
 @endif

@@ -37492,3 +37492,7 @@ blockquote:not(.blockquote) p {
 .cp-auto {
     cursor: pointer !important;
 }
+.img-product {
+    min-height: 180px;
+    object-fit: scale-down;
+}

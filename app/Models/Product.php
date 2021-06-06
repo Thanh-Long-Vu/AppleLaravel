@@ -49,7 +49,7 @@ class Product extends Model
     }
     public function warehouse()
     {
-        return $this->hasOne('App\Models\Warehouse','id_warehouse','id_product');
+        return $this->belongsTo('App\Models\Warehouse','warehouse_id','id_warehouse');
     }
     function rating()
     {
