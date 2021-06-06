@@ -52,6 +52,7 @@ Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'inde
 Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'getOption'])->name('getOption');
 Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
+Route::post('/remove-all', [App\Http\Controllers\CartController::class, 'removeAll'])->name('cart.remove.all');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
 Route::post('/order', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'increase_quantity'])->name('cart.update');

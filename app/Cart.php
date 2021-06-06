@@ -82,6 +82,7 @@ class Cart
         }
 
         Session::put('cart', $data);
+        return $data;
     }
 
     public function removeAll()

@@ -56,9 +56,12 @@ class CartController extends Controller
     {
         $cart = new Cart();
 
-        $cart->removeItem($request->key);
+        $count = $cart->removeItem($request->key);
+        // dd($cart);
+        
+        $countCart = count($count);
 
-        return response()->json(['message' => 'Deleted item in cart successful!.']); 
+        return response()->json(['message' => 'Deleted item in cart successful!.','cart' => $countCart]); 
     }
 
     public function removeAll()
@@ -67,6 +70,6 @@ class CartController extends Controller
 
         $cart->removeAll();
 
-        return redirect()->route('client.showCart');
+        return response()->json(['message' => 'Delete all item successful!']); 
     }
 }

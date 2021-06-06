@@ -51,7 +51,7 @@
                     <table class="table" cellspacing="0">
                         <thead>
                             <tr>
-                                <th class="product-remove">&nbsp;</th>
+                                <th class="product-remove">&nbsp; <a href="javascript:void(0)" id="remove-all" class="text-gray-32 font-size-15">Remove All</a></th>
                                 <th class="product-thumbnail">&nbsp;</th>
                                 <th class="product-name">Product</th>
                                 <th class="product-price">Price</th>
@@ -67,7 +67,7 @@
                                     <tr class="cart-item" id="item-{{ $cart['item']['product']->id_product }}">
                                         <td class="text-center">
                                             <a href="javascript:void(0)" id="delete_cart" data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}"
-                                                class="text-gray-32 font-size-26">×</a>
+                                                class="text-gray-32 font-size-26 delete_cart">×</a>
                                         </td>
                                         <td class="d-none d-md-table-cell">
                                             <a href="#"><img class="img-fluid max-width-100 p-1 border border-color-1"
@@ -215,7 +215,7 @@
         });
 
         $(document).on('ready', function() {
-            $("#delete_cart").click(function() {
+            $(".delete_cart").click(function() {
                 var key = $(this).attr('data-key');
                 var id = $(this).attr('data-id');
                 $.ajax({
@@ -231,8 +231,31 @@
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;
                         $("#item-"+ id).fadeOut();
-   
                         toastr.success(data.message);
+                        // console.log(data.cart)
+                        if(data.cart == 0 ){
+                            window.location.load()
+                        }
+                    }
+                });
+            });
+
+            $("#remove-all").click(function() {
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: '{{ route('cart.remove.all') }}',
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(data) {
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                        setTimeout(function(){// wait for 5 secs(2)
+                            location.reload(); // then reload the page.(3)
+                        }, 2000);
                     }
                 });
             });
@@ -256,7 +279,6 @@
                         toastr.options.closeButton = 1;
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;
-   
                         toastr.success(data.message);
                     }
                 });
