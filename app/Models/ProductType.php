@@ -10,14 +10,42 @@ use App\Modules\Config\Traits\Scopes\Filterable;
 class ProductType extends Model
 {
     const LIST_COLOR = [
-        'yellow' => 'Yellow',
-        'red' => 'Red',
-        'violet' => 'Violet',
-        'green' => 'Green',
-        'black' => 'Black',
-        'other' => 'Other',
-        'patific' => 'Patific',
+        [
+            "name" => "Red",
+            "color" => "red"
+        ],[
+            "name" => "Yellow",
+            "color" => "gold"
+        ],[
+            "name" => "Violet",
+            "color" => "violet"
+        ],[
+            "name" => "Green",
+            "color" => "green"
+        ],[
+            "name" => "Black",
+            "color" => "black"
+        ],[
+            "name" => "White",
+            "color" => "gray"
+        ],[
+            "name" => "Other",
+            "color" => "gray"
+        ],[
+            "name" => "Pacific",
+            "color" => "#336699"
+        ],
     ];
+
+    const MEMORY = [
+        ["text" => "16GB"],
+        ["text" => "32GB"],
+        ["text" => "64GB"],
+        ["text" => "128GB"],
+        ["text" => "256GB"],
+        ["text" => "512GB"],
+    ];
+
     use HasFactory;
     use Filterable;
     use SoftDeletes;

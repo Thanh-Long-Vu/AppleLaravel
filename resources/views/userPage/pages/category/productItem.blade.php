@@ -41,28 +41,36 @@
                         </a></h5>
                     <div class="mb-2">
                         <a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="d-block text-center">
-                            <img class="img-fluid" src="../{{ $product->thumbnail }}" alt="Image Description">
+                            <img class="img-fluid img-product" src="../{{ $product->thumbnail }}" alt="Image Description">
                         </a>
                     </div>
                     <div class="mb-3">
-                        <?php $point = $product->point ?? 0?>
+                        <?php
+                            $point = $product->point ?? 0;
+                            $show = true;
+                        ?>
                         @include('userPage.pages.category.ratingItem', compact('point'))
                     </div>
                     <ul class="font-size-12 p-0 text-gray-110 mb-4">
                         <li class="line-clamp-1 mb-1 list-bullet">{{ $product->productType->description }}</li>
                         <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
-                        <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$product->warehouse->warranty}}.Month</b></li>
+                        <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$product->warehouse->warranty}} Month</b></li>
                     </ul>
-                    <div class="text-gray-20 mb-2 font-size-12">SKU: FW511948218</div>
                     <div class="flex-center-between mb-1">
                         @if ($product->discount > 0)
                             <div class="prodcut-price d-flex align-items-center position-relative">
-                                <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($product->price - ($product->price*($product->discount/100)))}}.VNĐ</b></ins>
-                                <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($product->price)}}.VNĐ</del>
+                                <ins class="font-size-20 text-red text-decoration-none">
+                                    <b>{{number_format($product->price - ($product->price*($product->discount/100)))}} $</b>
+                                </ins>
+                                <div class="font-size-12 tex-gray-6 position-absolute bottom-100">
+                                    <del>{{number_format($product->price)}} $</del>
+                                    <span class="text-red"> - {{$product->discount ?? 0}}%</span>
+                                </div>
+
                             </div>
                         @else
                             <div class="prodcut-price">
-                                <div class="text-gray-100"><b>{{number_format($product->price)}}.VNĐ</b></div>
+                                <div class="text-gray-100"><b>{{number_format($product->price ?? 0)}} $</b></div>
                             </div>
                         @endif
                         <div class="d-none d-xl-block prodcut-add-cart">

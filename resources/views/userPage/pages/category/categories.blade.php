@@ -71,7 +71,7 @@
                                     <a href="{{ route('productype.show', ['productType' => $productType->id_product_type ?? 0])}}"
                                         class="d-block text-center bg-on-hover width-122 mx-auto">
                                         <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <img class="img-fluid" src="../{{$productType->thumbnail ?? ""}}" alt="Image Description">
+                                            <img class="img-fluid mx-auto" src="../{{$productType->thumbnail ?? ""}}" alt="Image Description">
                                         </div>
                                         <div class="bg-white px-2 pt-2 width-122">
                                             <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
