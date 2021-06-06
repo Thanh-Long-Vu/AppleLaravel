@@ -13,13 +13,10 @@ class OrderController extends Controller
     {
         $cart = Session::get('cart');
         $auth = auth()->user() ?? null;
-
         $data = $request->all();
         data_set($data, 'status', 1);
         data_set($data, 'user_id', ($auth->id_user ?? null));
-
         $trasnsaction = Transaction::create($data);
-
         $orderData = [];
         foreach($cart as $cart){
              array_push($orderData,[

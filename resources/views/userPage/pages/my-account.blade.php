@@ -325,7 +325,7 @@
                                                         Nhận hàng tại cửa hàng
                                                     @endif
                                                 </td>
-                                                <td>{{ $item->payment_method->name }}</td>
+                                                <td>{{ $item->payment_method->name ?? null }}</td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>
                                                     @if ($item->status == 3)
@@ -360,6 +360,7 @@
                             data-target-group="groups">
                             @if (!empty($transactionHistory))
                                 @foreach ($transactionHistory as $item)
+                                <?php dd($item); ?>
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-lg-10 col-xl-8">
                                             <div class="card shadow">
@@ -561,9 +562,9 @@
                                                         <div class="col-md-5">
                                                             <p class="small text-uppercase mb-2">Invoice to</p>
                                                             <p class="mb-4">
-                                                                {{ $item->user->name }} <br /> <strong>Phone</strong>
-                                                                {{ $item->user->phone }}<br /> <strong>Address</strong>
-                                                                {{ $item->user->address }} <br />
+                                                                {{ $item->user->name ?? null }} <br /> <strong>Phone</strong>
+                                                                {{ $item->user->phone ?? null }}<br /> <strong>Address</strong>
+                                                                {{ $item->user->address ?? null }} <br />
                                                             </p>
                                                             <p>
                                                                 <small class="small text-uppercase">Due date</small><br />
@@ -642,9 +643,11 @@
                                                                             @endif
                                                                         </b>
                                                                     </td>
+                                                                    @if($order->product)
                                                                     <td class="text-center"><a
                                                                             href="{{ route('products.show', ['product' => $order->product->id_product]) }}}}">{{ $order->product->productType->name }}</a>
                                                                     </td>
+                                                                    @endif
                                                                     <td class="text-right">
                                                                         {{ number_format($order->price) }}.VND</td>
                                                                     <td class="text-right">{{ $order->quantity }}</td>
@@ -680,16 +683,18 @@
                                                                     <i class="text-warning"></i></b>
                                                             </p>
                                                             <div>
+                                                                @if(!empty($item->order))
                                                                 <select id="id_product" class="js-select selectpicker dropdown-select btn-block col-12 px-0"
                                                                     data-style="btn-sm bg-white font-weight-normal py-2 border">
                                                                     @foreach ($item->order as $productVal)
                                                                         <option
-                                                                            value="{{ $productVal->product->id_product }}"
+                                                                            value="{{ $productVal->product->id_product ?? null }}"
                                                                             selected>
-                                                                            {{ $productVal->product->productType->name }}
+                                                                            {{ $productVal->product->productType->name ?? null }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select>
+                                                                @endif
                                                             </div>
                                                             <p><textarea class="form-control p-5" rows="4" id="content"></textarea>
                                                             </p>
