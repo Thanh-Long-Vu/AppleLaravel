@@ -61,7 +61,7 @@
                                                     @elseif($listWareHouse->color == 2)
                                                     Violet
                                                     @elseif($listWareHouse->color == 3)
-                                                    Violet
+                                                    Green
                                                     @elseif($listWareHouse->color == 4)
                                                     Black
                                                     @elseif($listWareHouse->color == 5)
