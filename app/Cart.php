@@ -13,16 +13,17 @@ class Cart
         $this->cart = Session::get('cart', []);
     }
 
-    public function addProduct($product, $color, $product_type)
+    public function addProduct($product, $colors, $product_type, $quantity)
     {
-
-        $key = implode('-', [$product->id, $product_type, $color]);
+        $indexColor = $product->warehouse->color;
+        $nameColor = $colors[$indexColor]['name'];
+        $key = implode('-', [$product->id, $product_type, $nameColor]);
         $item_new_price = $product->price  * (1 - $product->discount/100);
         $item_new = [
             'product' => $product,
-            'quantity' => 1,
+            'quantity' => $quantity,
             'product_type' => $product_type,
-            'color' => $color,
+            'color' => $nameColor,
             'product_price' => $item_new_price,
             'product_discount' => $product->discount,
         ];
