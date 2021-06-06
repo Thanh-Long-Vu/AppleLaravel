@@ -21,12 +21,12 @@ class CartController extends Controller
 
     public function add(Request $request, Product $product)
     {
+        $colors = ProductType::LIST_COLOR;
+        $quantity = $request->quantity;
         $product_type = $product->productType->name ?? '';
-
-        $color = $request->color ?? '';
+        // $color = $product->warehouse->color ?? '';
         $cart = new Cart();
-        $cart->addProduct($product, $color, $product_type);
-
+        $cart->addProduct($product,$colors, $product_type, $quantity);
         return Redirect::route('cart')->with('message','Add to cart Successful !');
     }
 
@@ -36,7 +36,6 @@ class CartController extends Controller
         if ($request->quantity <= 0) {
            $request->quantity = 1;
         }
-
         $cartItem = $cart->update_cart($request->key, $request->quantity);
         $total_cart = 0;
         $sessionCart = Session::get('cart');

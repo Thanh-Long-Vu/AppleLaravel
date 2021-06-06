@@ -98,13 +98,15 @@
                                 @endif
                             </div>
                             @if($product->active_quantity !== null && $product->active_quantity > 0)
+                            <form action="{{ route('cart.add', ['product' => $product->id_product]) }}" method="POST">
+                                {{csrf_field() }}
                                 <div class="mb-3">
                                     <h6 class="font-size-14">Quantity</h6>
                                     <!-- Quantity -->
                                     <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
                                         <div class="js-quantity row align-items-center">
                                             <div class="col">
-                                                <input disabled class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
+                                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1" name= "quantity">
                                             </div>
                                             <div class="col-auto pr-1">
                                                 <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
@@ -118,8 +120,6 @@
                                     </div>
                                     <!-- End Quantity -->
                                 </div>
-                                <form action="{{ route('cart.add', ['product' => $product->id_product]) }}" method="POST">
-                                    {{csrf_field() }}
                                     <div class="mb-2 pb-0dot5">
                                         <button type="submit" class="btn btn-block btn-primary-dark"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</button>
                                     </div>

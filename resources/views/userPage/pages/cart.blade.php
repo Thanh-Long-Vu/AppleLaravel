@@ -88,6 +88,7 @@
                                             <span
                                                 class="">{{ $cart['item']['color'] }}</span>
                                         </td>
+                                        
 
                                         <td data-title="Quantity">
                                             <span class="sr-only">Quantity</span>
