@@ -161,39 +161,39 @@
                                             <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}"
                                                     class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
                                             <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}"
-                                                    class="text-blue font-weight-bold">{{ $item->productType->name }}</b> - 
+                                                    class="text-blue font-weight-bold">{{ $item->productType->name }}</b> -
                                                     @if ($item->warehouse->color == 0)
                                                         <b style="color : red"><i>Red</i></b> memory
                                                     @elseif($item->warehouse->color == 1)
-                                                        <b style="color : gold"><i>Yellow</i></b> 
+                                                        <b style="color : gold"><i>Yellow</i></b>
                                                     @elseif($item->warehouse->color == 2)
-                                                        <b style="color : Violet"><i>Violet</i></b> 
+                                                        <b style="color : Violet"><i>Violet</i></b>
                                                     @elseif($item->warehouse->color == 3)
-                                                        <b style="color : Green"><i>Green</i></b> 
+                                                        <b style="color : Green"><i>Green</i></b>
                                                     @elseif($item->warehouse->color == 4)
-                                                        <b style="color : Black"><i>Black</i></b> 
+                                                        <b style="color : Black"><i>Black</i></b>
                                                     @elseif($item->warehouse->color == 5)
-                                                        <b style="color : Gray"><i>White</i></b> 
+                                                        <b style="color : Gray"><i>White</i></b>
                                                     @elseif($item->warehouse->color == 6)
-                                                        <b style="color : Other"><i>Other</i></b>   
+                                                        <b style="color : Other"><i>Other</i></b>
                                                     @elseif($item->warehouse->color == 7)
-                                                        <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                        <b style="color : #336699"><i>Patific</i></b>
                                                     @endif -
                                                     @if ($item->warehouse->memory== 0)
-                                                        <b style="color : #336699"><i>16GB</i></b> 
+                                                        <b style="color : #336699"><i>16GB</i></b>
                                                     @elseif($item->warehouse->memory== 1)
-                                                        <b style="color : gold"><i>32GB</i></b> 
+                                                        <b style="color : gold"><i>32GB</i></b>
                                                     @elseif($item->warehouse->memory== 2)
-                                                        <b style="color : Violet"><i>64GB</i></b> 
+                                                        <b style="color : Violet"><i>64GB</i></b>
                                                     @elseif($item->warehouse->memory== 3)
-                                                        <b style="color : Green"><i>128GB</i></b> 
+                                                        <b style="color : Green"><i>128GB</i></b>
                                                     @elseif($item->warehouse->memory== 4)
-                                                        <b style="color : Black"><i>256GB</i></b> 
+                                                        <b style="color : Black"><i>256GB</i></b>
                                                     @elseif($item->warehouse->memory== 5)
-                                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                        <b style="color : Gray"><i>512GB</i></b>
                                                     @endif </a></h5>
                                             <div class="mb-2">
-                                                <a href="{{ route('products.show', ['product'=> $item->id_product]) }}" class="d-block text-center"><img
+                                                <a href="{{ route('products.show', ['product'=> $item->id_product ?? 0]) }}" class="d-block text-center"><img
                                                         class="img-fluid" src="../{{$item->thumbnail}}"
                                                         alt="Image Description"></a>
                                             </div>
@@ -233,40 +233,40 @@
                                         <div class="product-item__body pb-xl-2">
                                             <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}"
                                                     class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
-                                            <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}"
-                                                    class="text-blue font-weight-bold">{{ $item->productType->name }}</b> - 
+                                            <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category ?? 0]) }}"
+                                                    class="text-blue font-weight-bold">{{ $item->productType->name }}</b> -
                                                     @if ($item->warehouse->color == 0)
                                                         <b style="color : red"><i>Red</i></b> memory
                                                     @elseif($item->warehouse->color == 1)
-                                                        <b style="color : gold"><i>Yellow</i></b> 
+                                                        <b style="color : gold"><i>Yellow</i></b>
                                                     @elseif($item->warehouse->color == 2)
-                                                        <b style="color : Violet"><i>Violet</i></b> 
+                                                        <b style="color : Violet"><i>Violet</i></b>
                                                     @elseif($item->warehouse->color == 3)
-                                                        <b style="color : Green"><i>Green</i></b> 
+                                                        <b style="color : Green"><i>Green</i></b>
                                                     @elseif($item->warehouse->color == 4)
-                                                        <b style="color : Black"><i>Black</i></b> 
+                                                        <b style="color : Black"><i>Black</i></b>
                                                     @elseif($item->warehouse->color == 5)
-                                                        <b style="color : Gray"><i>White</i></b> 
+                                                        <b style="color : Gray"><i>White</i></b>
                                                     @elseif($item->warehouse->color == 6)
-                                                        <b style="color : Other"><i>Other</i></b>   
+                                                        <b style="color : Other"><i>Other</i></b>
                                                     @elseif($item->warehouse->color == 7)
-                                                        <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                        <b style="color : #336699"><i>Patific</i></b>
                                                     @endif -
                                                     @if ($item->warehouse->memory== 0)
-                                                        <b style="color : #336699"><i>16GB</i></b> 
+                                                        <b style="color : #336699"><i>16GB</i></b>
                                                     @elseif($item->warehouse->memory== 1)
-                                                        <b style="color : gold"><i>32GB</i></b> 
+                                                        <b style="color : gold"><i>32GB</i></b>
                                                     @elseif($item->warehouse->memory== 2)
-                                                        <b style="color : Violet"><i>64GB</i></b> 
+                                                        <b style="color : Violet"><i>64GB</i></b>
                                                     @elseif($item->warehouse->memory== 3)
-                                                        <b style="color : Green"><i>128GB</i></b> 
+                                                        <b style="color : Green"><i>128GB</i></b>
                                                     @elseif($item->warehouse->memory== 4)
-                                                        <b style="color : Black"><i>256GB</i></b> 
+                                                        <b style="color : Black"><i>256GB</i></b>
                                                     @elseif($item->warehouse->memory== 5)
-                                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                        <b style="color : Gray"><i>512GB</i></b>
                                                     @endif </a></h5>
                                             <div class="mb-2">
-                                                <a href="{{ route('products.show', ['product'=> $item->id_product]) }}" class="d-block text-center"><img
+                                                <a href="{{ route('products.show', ['product'=> $item->id_product ?? 0]) }}" class="d-block text-center"><img
                                                         class="img-fluid" src="../{{$item->thumbnail}}"
                                                         alt="Image Description"></a>
                                             </div>
@@ -299,46 +299,46 @@
                     aria-labelledby="pills-three-example1-tab" data-target-group="groups">
                     <ul class="row list-unstyled products-group no-gutters">
                         @if (!empty($productTypeRate))
-                            @foreach ($productTypeRate as $item) 
+                            @foreach ($productTypeRate as $item)
                                 <li class="col-6 col-md-4 col-xl product-item">
                                     <div class="product-item__outer h-100 w-100">
                                         <div class="product-item__inner px-xl-4 p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->category->name }}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
-                                                        class="text-blue font-weight-bold">{{ $item->name }}</b> - 
+                                                        class="text-blue font-weight-bold">{{ $item->name }}</b> -
                                                         @if ($item->products->first()->warehouse->color == 0)
                                                             <b style="color : red"><i>Red</i></b> memory
                                                         @elseif($item->products->first()->warehouse->color == 1)
-                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                            <b style="color : gold"><i>Yellow</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 2)
-                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                            <b style="color : Violet"><i>Violet</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 3)
-                                                            <b style="color : Green"><i>Green</i></b> 
+                                                            <b style="color : Green"><i>Green</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 4)
-                                                            <b style="color : Black"><i>Black</i></b> 
+                                                            <b style="color : Black"><i>Black</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 5)
-                                                            <b style="color : Gray"><i>White</i></b> 
+                                                            <b style="color : Gray"><i>White</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 6)
-                                                            <b style="color : Other"><i>Other</i></b>   
+                                                            <b style="color : Other"><i>Other</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 7)
-                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            <b style="color : #336699"><i>Patific</i></b>
                                                         @endif -
                                                         @if ($item->products->first()->warehouse->memory== 0)
-                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                            <b style="color : #336699"><i>16GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 1)
-                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                            <b style="color : gold"><i>32GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 2)
-                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                            <b style="color : Violet"><i>64GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 3)
-                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                            <b style="color : Green"><i>128GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 4)
-                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                            <b style="color : Black"><i>256GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 5)
-                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            <b style="color : Gray"><i>512GB</i></b>
                                                         @endif </a></h5>
                                                 <div class="mb-2">
-                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}" class="d-block text-center"><img
+                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}" class="d-block text-center"><img
                                                             class="img-fluid" src="../{{$item->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
                                                 </div>
@@ -429,39 +429,39 @@
                                                     <h5 class="mb-1 product-item__title"><a
                                                             href="{{ route('categories.show', ['category'=> $item->category->id_category]) }}"
                                                             class="text-blue font-weight-bold">
-                                                            {{$item->name}}- 
+                                                            {{$item->name}}-
                                                             @if ($item->products->first()->warehouse->color == 0)
                                                                 <b style="color : red"><i>Red</i></b> memory
                                                             @elseif($item->products->first()->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                                <b style="color : gold"><i>Yellow</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                                <b style="color : Violet"><i>Violet</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
+                                                                <b style="color : Green"><i>Green</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
+                                                                <b style="color : Black"><i>Black</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
+                                                                <b style="color : Gray"><i>White</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
+                                                                <b style="color : Other"><i>Other</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                                <b style="color : #336699"><i>Patific</i></b>
                                                             @endif -
                                                             @if ($item->products->first()->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                                <b style="color : #336699"><i>16GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                                <b style="color : gold"><i>32GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                                <b style="color : Violet"><i>64GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                                <b style="color : Green"><i>128GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                                <b style="color : Black"><i>256GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                                <b style="color : Gray"><i>512GB</i></b>
                                                             @endif </a></h5>
                                                     <div class="mb-2">
-                                                        <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                        <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
                                                                 src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                     </div>
@@ -508,36 +508,36 @@
                                                             @if ($productTypeMacTotalRating->products->first()->warehouse->color == 0)
                                                                 <b style="color : red"><i>Red</i></b> memory
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                                <b style="color : gold"><i>Yellow</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                                <b style="color : Violet"><i>Violet</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
+                                                                <b style="color : Green"><i>Green</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
+                                                                <b style="color : Black"><i>Black</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
+                                                                <b style="color : Gray"><i>White</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
+                                                                <b style="color : Other"><i>Other</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                                <b style="color : #336699"><i>Patific</i></b>
                                                             @endif -
                                                             @if ($productTypeMacTotalRating->products->first()->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                                <b style="color : #336699"><i>16GB</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                                <b style="color : gold"><i>32GB</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                                <b style="color : Violet"><i>64GB</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                                <b style="color : Green"><i>128GB</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                                <b style="color : Black"><i>256GB</i></b>
                                                             @elseif($productTypeMacTotalRating->products->first()->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                                <b style="color : Gray"><i>512GB</i></b>
                                                             @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="{{ route('products.show', ['product'=> $productTypeMacTotalRating->products->first()->id_product]) }}"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeMacTotalRating->products->first()->id_product ?? 0]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
                                                             class="img-fluid" src="../{{$productTypeMacTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
@@ -608,44 +608,44 @@
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
-                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                         class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
-                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                         class="text-blue font-weight-bold">
-                                                        {{$item->name}}- 
+                                                        {{$item->name}}-
                                                         @if ($item->products->first()->warehouse->color == 0)
                                                             <b style="color : red"><i>Red</i></b> memory
                                                         @elseif($item->products->first()->warehouse->color == 1)
-                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                            <b style="color : gold"><i>Yellow</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 2)
-                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                            <b style="color : Violet"><i>Violet</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 3)
-                                                            <b style="color : Green"><i>Green</i></b> 
+                                                            <b style="color : Green"><i>Green</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 4)
-                                                            <b style="color : Black"><i>Black</i></b> 
+                                                            <b style="color : Black"><i>Black</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 5)
-                                                            <b style="color : Gray"><i>White</i></b> 
+                                                            <b style="color : Gray"><i>White</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 6)
-                                                            <b style="color : Other"><i>Other</i></b>   
+                                                            <b style="color : Other"><i>Other</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 7)
-                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            <b style="color : #336699"><i>Patific</i></b>
                                                         @endif -
                                                         @if ($item->products->first()->warehouse->memory== 0)
-                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                            <b style="color : #336699"><i>16GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 1)
-                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                            <b style="color : gold"><i>32GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 2)
-                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                            <b style="color : Violet"><i>64GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 3)
-                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                            <b style="color : Green"><i>128GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 4)
-                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                            <b style="color : Black"><i>256GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 5)
-                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            <b style="color : Gray"><i>512GB</i></b>
                                                         @endif </a></h5>
                                                 <div class="mb-2">
-                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                         class="d-block text-center"><img class="img-fluid"
                                                             src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
@@ -683,45 +683,45 @@
                                             <div class="product-item__body d-flex flex-column">
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product ?? 0 ?? 0]) }}"
                                                             class="font-size-12 text-gray-5">Category : {{$productTypeIphoneTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product ?? 0]) }}"
                                                             class="text-blue font-weight-bold">
                                                             {{$productTypeIphoneTotalRating->name}} -
                                                             @if ($productTypeIphoneTotalRating->products->first()->warehouse->color == 0)
                                                                 <b style="color : red"><i>Red</i></b> memory
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                                <b style="color : gold"><i>Yellow</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                                <b style="color : Violet"><i>Violet</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
+                                                                <b style="color : Green"><i>Green</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
+                                                                <b style="color : Black"><i>Black</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
+                                                                <b style="color : Gray"><i>White</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
+                                                                <b style="color : Other"><i>Other</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                                <b style="color : #336699"><i>Patific</i></b>
                                                             @endif -
                                                             @if ($productTypeIphoneTotalRating->products->first()->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                                <b style="color : #336699"><i>16GB</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                                <b style="color : gold"><i>32GB</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                                <b style="color : Violet"><i>64GB</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                                <b style="color : Green"><i>128GB</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                                <b style="color : Black"><i>256GB</i></b>
                                                             @elseif($productTypeIphoneTotalRating->products->first()->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                                <b style="color : Gray"><i>512GB</i></b>
                                                             @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product]) }}"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product ?? 0]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
                                                             class="img-fluid" src="../{{$productTypeIphoneTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
@@ -792,44 +792,44 @@
                                             <div class="product-item__inner bg-white p-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a
-                                                            href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                             class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                     <h5 class="mb-1 product-item__title"><a
-                                                            href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                             class="text-blue font-weight-bold">
-                                                            {{$item->name}}- 
+                                                            {{$item->name}}-
                                                             @if ($item->products->first()->warehouse->color == 0)
                                                                 <b style="color : red"><i>Red</i></b> memory
                                                             @elseif($item->products->first()->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                                <b style="color : gold"><i>Yellow</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                                <b style="color : Violet"><i>Violet</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
+                                                                <b style="color : Green"><i>Green</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
+                                                                <b style="color : Black"><i>Black</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
+                                                                <b style="color : Gray"><i>White</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
+                                                                <b style="color : Other"><i>Other</i></b>
                                                             @elseif($item->products->first()->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                                <b style="color : #336699"><i>Patific</i></b>
                                                             @endif -
                                                             @if ($item->products->first()->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                                <b style="color : #336699"><i>16GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                                <b style="color : gold"><i>32GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                                <b style="color : Violet"><i>64GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                                <b style="color : Green"><i>128GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                                <b style="color : Black"><i>256GB</i></b>
                                                             @elseif($item->products->first()->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                                <b style="color : Gray"><i>512GB</i></b>
                                                             @endif </a></h5>
                                                     <div class="mb-2">
-                                                        <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                        <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
                                                                 src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                     </div>
@@ -867,45 +867,45 @@
                                             <div class="product-item__body d-flex flex-column">
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
                                                             class="font-size-12 text-gray-5">Category : {{$productTypeIpadTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
                                                             class="text-blue font-weight-bold">
                                                             {{$productTypeIpadTotalRating->name}} -
                                                             @if ($productTypeIpadTotalRating->products->first()->warehouse->color == 0)
                                                                 <b style="color : red"><i>Red</i></b> memory
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                                <b style="color : gold"><i>Yellow</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                                <b style="color : Violet"><i>Violet</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
+                                                                <b style="color : Green"><i>Green</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
+                                                                <b style="color : Black"><i>Black</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
+                                                                <b style="color : Gray"><i>White</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
+                                                                <b style="color : Other"><i>Other</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                                <b style="color : #336699"><i>Patific</i></b>
                                                             @endif -
                                                             @if ($productTypeIpadTotalRating->products->first()->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                                <b style="color : #336699"><i>16GB</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                                <b style="color : gold"><i>32GB</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                                <b style="color : Violet"><i>64GB</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                                <b style="color : Green"><i>128GB</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                                <b style="color : Black"><i>256GB</i></b>
                                                             @elseif($productTypeIpadTotalRating->products->first()->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                                <b style="color : Gray"><i>512GB</i></b>
                                                             @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product]) }}"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
                                                             class="img-fluid" src="../{{$productTypeIpadTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>
@@ -976,44 +976,44 @@
                                         <div class="product-item__inner bg-white p-3">
                                             <div class="product-item__body pb-xl-2">
                                                 <div class="mb-2"><a
-                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                         class="font-size-12 text-gray-5">Category : {{$item->category->name}}</a></div>
                                                 <h5 class="mb-1 product-item__title"><a
-                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                        href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                         class="text-blue font-weight-bold">
-                                                        {{$item->name}}- 
+                                                        {{$item->name}}-
                                                         @if ($item->products->first()->warehouse->color == 0)
                                                             <b style="color : red"><i>Red</i></b> memory
                                                         @elseif($item->products->first()->warehouse->color == 1)
-                                                            <b style="color : gold"><i>Yellow</i></b> 
+                                                            <b style="color : gold"><i>Yellow</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 2)
-                                                            <b style="color : Violet"><i>Violet</i></b> 
+                                                            <b style="color : Violet"><i>Violet</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 3)
-                                                            <b style="color : Green"><i>Green</i></b> 
+                                                            <b style="color : Green"><i>Green</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 4)
-                                                            <b style="color : Black"><i>Black</i></b> 
+                                                            <b style="color : Black"><i>Black</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 5)
-                                                            <b style="color : Gray"><i>White</i></b> 
+                                                            <b style="color : Gray"><i>White</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 6)
-                                                            <b style="color : Other"><i>Other</i></b>   
+                                                            <b style="color : Other"><i>Other</i></b>
                                                         @elseif($item->products->first()->warehouse->color == 7)
-                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                            <b style="color : #336699"><i>Patific</i></b>
                                                         @endif -
                                                         @if ($item->products->first()->warehouse->memory== 0)
-                                                            <b style="color : #336699"><i>16GB</i></b> 
+                                                            <b style="color : #336699"><i>16GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 1)
-                                                            <b style="color : gold"><i>32GB</i></b> 
+                                                            <b style="color : gold"><i>32GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 2)
-                                                            <b style="color : Violet"><i>64GB</i></b> 
+                                                            <b style="color : Violet"><i>64GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 3)
-                                                            <b style="color : Green"><i>128GB</i></b> 
+                                                            <b style="color : Green"><i>128GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 4)
-                                                            <b style="color : Black"><i>256GB</i></b> 
+                                                            <b style="color : Black"><i>256GB</i></b>
                                                         @elseif($item->products->first()->warehouse->memory== 5)
-                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                            <b style="color : Gray"><i>512GB</i></b>
                                                         @endif </a></h5>
                                                 <div class="mb-2">
-                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product]) }}"
+                                                    <a href="{{ route('products.show', ['product'=> $item->products->first()->id_product ?? 0]) }}"
                                                         class="d-block text-center"><img class="img-fluid"
                                                             src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
                                                 </div>
@@ -1051,45 +1051,45 @@
                                             <div class="product-item__body d-flex flex-column">
                                                 <div class="mb-1">
                                                     <div class="mb-2"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
                                                             class="font-size-12 text-gray-5">Category : {{$productTypeWatchTotalRating->category->name}}</a></div>
                                                     <h5 class="mb-0 product-item__title"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product]) }}"
+                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
                                                             class="text-blue font-weight-bold">
                                                             {{$productTypeWatchTotalRating->name}} -
                                                             @if ($productTypeWatchTotalRating->products->first()->warehouse->color == 0)
                                                                 <b style="color : red"><i>Red</i></b> memory
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
+                                                                <b style="color : gold"><i>Yellow</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
+                                                                <b style="color : Violet"><i>Violet</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
+                                                                <b style="color : Green"><i>Green</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
+                                                                <b style="color : Black"><i>Black</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
+                                                                <b style="color : Gray"><i>White</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
+                                                                <b style="color : Other"><i>Other</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
+                                                                <b style="color : #336699"><i>Patific</i></b>
                                                             @endif -
                                                             @if ($productTypeWatchTotalRating->products->first()->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
+                                                                <b style="color : #336699"><i>16GB</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
+                                                                <b style="color : gold"><i>32GB</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
+                                                                <b style="color : Violet"><i>64GB</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
+                                                                <b style="color : Green"><i>128GB</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
+                                                                <b style="color : Black"><i>256GB</i></b>
                                                             @elseif($productTypeWatchTotalRating->products->first()->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
+                                                                <b style="color : Gray"><i>512GB</i></b>
                                                             @endif</a></h5>
                                                 </div>
                                                 <div class="mb-1 min-height-8-1">
-                                                    <a href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product]) }}"
+                                                    <a href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
                                                         class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
                                                             class="img-fluid" src="../{{$productTypeWatchTotalRating->products->first()->thumbnail}}"
                                                             alt="Image Description"></a>

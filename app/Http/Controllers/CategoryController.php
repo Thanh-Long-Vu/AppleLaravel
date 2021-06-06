@@ -9,7 +9,9 @@ class CategoryController extends Controller
 {
     public function show(Request $request, Category $category)
     {
+        $categoryName = $category->name;
         $productTypes = $category->productTypes;
-        return view('userPage.pages.categories', compact('productTypes'));
+
+        return view('userPage.pages.category.categories', compact('categoryName','productTypes'));
     }
 }

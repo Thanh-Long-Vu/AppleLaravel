@@ -30,6 +30,14 @@
                                         @endphp
                                     </div>
                                     @endif
+                                    @if(Session::has('error'))
+                                    <div class="alert alert-warning">
+                                        {{ Session::get('error') }}
+                                        @php
+                                            Session::forget('error');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
                                         {{csrf_field() }}
                                         <div class="form-row">
@@ -59,6 +67,18 @@
                                                         @endforeach
                                                     @endif
                                                 </select>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="quantity_sell">Quantity sell ( Quantity in warehouse : {{$wareHouse->quantity}})</label>
+                                                <div class="custom-File">
+                                                    <input type="text" class="form-control" id="quantity_sell" name="quantity_sell" value="{{old('quantity_sell')}}" placeholder="Quantity remaining : {{$wareHouse->quantity - $wareHouse->quantity_sell}}" required>
+                                                    <div class="invalid-feedback">Please enter quantity sell</div>
+                                                    @if ($errors->has('quantity_sell'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('quantity_sell') }} 
+                                                    </div>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">

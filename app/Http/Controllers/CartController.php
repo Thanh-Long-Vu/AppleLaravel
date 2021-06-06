@@ -21,12 +21,12 @@ class CartController extends Controller
 
     public function add(Request $request, Product $product)
     {
+        $colors = ProductType::LIST_COLOR;
+        $quantity = $request->quantity;
         $product_type = $product->productType->name ?? '';
-
-        $color = $request->color ?? '';
+        // $color = $product->warehouse->color ?? '';
         $cart = new Cart();
-        $cart->addProduct($product, $color, $product_type);
-
+        $cart->addProduct($product,$colors, $product_type, $quantity);
         return Redirect::route('cart')->with('message','Add to cart Successful !');
     }
 
@@ -36,7 +36,6 @@ class CartController extends Controller
         if ($request->quantity <= 0) {
            $request->quantity = 1;
         }
-
         $cartItem = $cart->update_cart($request->key, $request->quantity);
         $total_cart = 0;
         $sessionCart = Session::get('cart');
@@ -57,9 +56,12 @@ class CartController extends Controller
     {
         $cart = new Cart();
 
-        $cart->removeItem($request->key);
+        $count = $cart->removeItem($request->key);
+        // dd($cart);
+        
+        $countCart = count($count);
 
-        return response()->json(['message' => 'Deleted item in cart successful!.']); 
+        return response()->json(['message' => 'Deleted item in cart successful!.','cart' => $countCart]); 
     }
 
     public function removeAll()
@@ -68,6 +70,6 @@ class CartController extends Controller
 
         $cart->removeAll();
 
-        return redirect()->route('client.showCart');
+        return response()->json(['message' => 'Delete all item successful!']); 
     }
 }

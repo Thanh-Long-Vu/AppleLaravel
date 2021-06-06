@@ -126,7 +126,7 @@
                                         First name
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" name="addtional_data['first_name']" class="form-control" name="firstName" placeholder="Jack" aria-label="Jack" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
+                                    <input type="text" name="addtional_data[first_name]" class="form-control" name="firstName" value="{{ auth()->user()->name ?? null }}" placeholder="Jack" aria-label="Jack" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -138,7 +138,7 @@
                                         Last name
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" name="addtional_data['last_name']" placeholder="Wayley" aria-label="Wayley" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="text" class="form-control" name="addtional_data[last_name]" placeholder="Wayley" aria-label="Wayley" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -150,7 +150,7 @@
                                         Email address
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="email" class="form-control" name="addtional_data['email']" placeholder="jackwayley@gmail.com" aria-label="jackwayley@gmail.com" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="email" {{ auth()->user()->email ?? null }} class="form-control" name="addtional_data[email]" placeholder="jackwayley@gmail.com" aria-label="jackwayley@gmail.com" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -161,7 +161,7 @@
                                     <label class="form-label">
                                         Phone
                                     </label>
-                                    <input type="text" class="form-control" name="addtional_data['phone']" placeholder="+1 (062) 109-9222" aria-label="+1 (062) 109-9222" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="text" {{ auth()->user()->phone ?? null }} class="form-control" name="addtional_data[phone]" placeholder="+1 (062) 109-9222" aria-label="+1 (062) 109-9222" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -183,7 +183,7 @@
                             </label>
 
                             <div class="input-group">
-                                <textarea class="form-control p-5"  rows="4" name="addtional_data['description']" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                <textarea class="form-control p-5"  rows="4" name="addtional_data[description]" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                             </div>
                         </div>
                         <!-- End Input -->

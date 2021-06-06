@@ -43,8 +43,8 @@ Route::get('/track-your-order', [App\Http\Controllers\HomeController::class, 'tr
 
 Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound'])->name('NotFound');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
-Route::get('/blog', [App\Http\Controllers\HomeController::class, 'Blog'])->name('blog');
-Route::get('/blog-detail', [App\Http\Controllers\HomeController::class, 'Blogdetail'])->name('Blogdetail');
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.user');
+Route::get('/blog-detail/{idBlog}', [App\Http\Controllers\BlogController::class, 'detail'])->name('blog.user.detail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
@@ -52,12 +52,14 @@ Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'inde
 Route::get('/filter/Search', [App\Http\Controllers\SearchController::class, 'getOption'])->name('getOption');
 Route::post('/add-to-cart/{product}', [App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
 Route::post('/delete-cart', [App\Http\Controllers\CartController::class, 'delete'])->name('cart.delete');
+Route::post('/remove-all', [App\Http\Controllers\CartController::class, 'removeAll'])->name('cart.remove.all');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'cart'])->name('cart');
 Route::post('/order', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 Route::post('/update-cart', [App\Http\Controllers\CartController::class, 'increase_quantity'])->name('cart.update');
 Route::get('/track-your-order', [App\Http\Controllers\TransactionController::class, 'index'])->name('track_your_order');
 Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
 Route::get('/errorNotFound', [App\Http\Controllers\HomeController::class, 'errorPage'])->name('userError');
+Route::get('/filter/product', [App\Http\Controllers\ProductTypeController::class, 'filterProduct'])->name('filterProduct');
 
 Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
@@ -136,6 +138,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/transaction/change/status/{id}', [TransactionController::class,'changeStatus'])->name('changeStatusTransaction');
     Route::get('/transaction/status/update', [TransactionController::class,'updateStatus'])->name('updateStatusTransaction');
     Route::get('/statistics-bill-success', [TransactionController::class,'statistics'])->name('statistics');
+    Route::post('/export-excel/transaction', [TransactionController::class,'exportExcelTransaction'])->name('export.Excel.Transaction');
 
     Route::get('/slider', [SliderController::class,'index'])->name('sliderlist');
     Route::get('/slider/create', [SliderController::class,'create'])->name('sliderCreate');
@@ -154,10 +157,10 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     Route::get('/ratings', [RatingController::class,'index'])->name('ratings');
     Route::get('/rating/update-status', [RatingController::class,'updateStatus'])->name('ratingUpdateStatus');
-    
+
     Route::get('/system/user/list', [UserController::class,'index'])->name('listUser');
 
-    
+
     Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');
     Route::get('/payment/create', [PaymentController::class,'create'])->name('paymentCreate');
     Route::post('/payment/store', [PaymentController::class,'store'])->name('StorePayment');
@@ -169,5 +172,5 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/get-product/{id}', [CalendarController::class,'getProduct'])->name('getProduct');
     Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
 
-    
+
 });

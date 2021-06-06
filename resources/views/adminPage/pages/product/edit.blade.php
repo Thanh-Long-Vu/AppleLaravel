@@ -27,16 +27,36 @@
                                         @endphp
                                     </div>
                                     @endif
+                                    @if(Session::has('error'))
+                                    <div class="alert alert-warning">
+                                        {{ Session::get('error') }}
+                                        @php
+                                            Session::forget('error');
+                                        @endphp
+                                    </div>
+                                    @endif
                                     <form class="needs-validation"  novalidate method="POST" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <div class="form-row">
-                                            <div class="form-group col-md-6 mb-6">
+                                            <div class="form-group col-md-3 mb-3">
                                                 <label for="custom-select">Product Types</label>
                                                 <select class="custom-select" name="product_type_id" >
                                                     @foreach($productType as $productVal)
                                                     <option  value="{{$productVal->id_product_type}}" @if($product->product_type_id == $productVal->id_product_type) selected @endif >{{$productVal->name}}</option>
                                                     @endforeach
                                                 </select>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label for="quantity_sell">Quantity sell ( Quantity in warehouse : {{$warehouse->quantity}})</label>
+                                                <div class="custom-File">
+                                                    <input type="text" class="form-control" id="quantity_sell" name="quantity_sell" value="{{old('quantity_sell')}}" placeholder="Quantity remaining : {{$warehouse->quantity - $warehouse->quantity_sell}}" required>
+                                                    <div class="invalid-feedback">Please enter quantity sell</div>
+                                                    @if ($errors->has('quantity_sell'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('quantity_sell') }} 
+                                                    </div>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
@@ -46,12 +66,12 @@
                                                 <div class="invalid-feedback">Please choose image for Price buy</div>
                                             </div>
                                             <div class="col-md-3 mb-3">
-                                                <label for="price">Price sell (.VNĐ)</label>
-                                                <input type="text" class="form-control" value="{{$product->price}}" id="price" name="price" required>
+                                                <label for="price_sell">Price sell (.VNĐ)</label>
+                                                <input type="text" class="form-control" value="{{$product->price}}" id="price_sell" name="price_sell" required>
                                                 <div class="invalid-feedback">Please choose image for Price sell</div>
                                                 @if ($errors->has('price'))
                                                 <div class="alert alert-danger">
-                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('price') }} 
+                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('price_sell') }} 
                                                 </div>
                                                 @endif
                                             </div>  
@@ -59,8 +79,7 @@
                                                 <label>Add Thumbnail</label>
                                                 <div class="custom-file">
                                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}" required>
-                                                    <div class="invalid-feedback">Please choose image for Product</div>
+                                                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="image" value="{{old('image')}}">
                                                     @if ($errors->has('image'))
                                                     <div class="alert alert-danger">
                                                         <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 

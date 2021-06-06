@@ -15,6 +15,11 @@ class Product extends Model
 
     protected $table = 'products';
     protected $primaryKey = 'id_product';
+    protected $fillable = [
+        'price',
+        'product_type_id',
+        'discount'
+    ];
 
     /**
      * scopeActive
@@ -36,11 +41,15 @@ class Product extends Model
 
     public function transaction()
     {
-        return $this->hasMany('App\Models\Transaction','order','product_id','transaction_id');
+        return $this->hasMany('App\Models\Transaction','order','transaction_id','product_id');
+    }
+    public function order()
+    {
+        return $this->hasMany('App\Models\Orders','product_id','id_product');
     }
     public function warehouse()
     {
-        return $this->hasOne('App\Models\Warehouse','id_warehouse','id_product');
+        return $this->belongsTo('App\Models\Warehouse','warehouse_id','id_warehouse');
     }
     function rating()
     {

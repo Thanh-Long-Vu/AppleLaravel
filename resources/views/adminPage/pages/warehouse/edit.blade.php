@@ -84,6 +84,18 @@
                                                     </div>
                                                 @endif
                                             </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="quantity_sell">Add Quantity Product for Warehouse</label>
+                                                <div class="custom-File">
+                                                    <input type="text" class="form-control" id="quantity_sell" name="quantity_sell" value="{{old('quantity_sell')}}" placeholder="" required>
+                                                    <div class="invalid-feedback">Please enter quantity add</div>
+                                                    @if ($errors->has('quantity_sell'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('quantity_sell') }} 
+                                                    </div>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <p class="mb-2">Color</p>

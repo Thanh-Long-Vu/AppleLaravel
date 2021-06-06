@@ -18,8 +18,22 @@ class Transaction extends Model
     protected $guarded = [];  
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
+    protected $fillable = [
+        'name',
+        'total_price',
+        'note',
+        'method_receive',
+        'phone',
+        'status',
+        'addtional_data',
+        'payment_method_id',
+    ];
     public function product(){
-        return $this->belongsToMany('App\Models\Product', 'order','product_id','transaction_id');
+        return $this->belongsToMany('App\Models\Product', 'order','transaction_id','product_id');
+    }
+    public function order()
+    {
+        return $this->hasMany('App\Models\Orders','transaction_id','id_transaction');
     }
     function user()
     {
