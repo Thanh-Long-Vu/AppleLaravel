@@ -227,12 +227,14 @@
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;
                         $("#item-"+ id).fadeOut();
-                        toastr.success(data.message);
+                        // toastr.success(data.message);
                         $(".label_item_cart").text(data.count_cart);
                         $('.total_money').text('$' + data.total_cart);
-                        // console.log(data.cart)
-                        if(data.cart == 0 ){
-                            window.location.load()
+                        toastr.success(data.message);
+                        if(data.loadpage == 0 ){
+                            setTimeout(function(){
+                            location.reload();
+                        }, 100);
                         }
                     }
                 });

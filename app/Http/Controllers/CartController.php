@@ -26,7 +26,7 @@ class CartController extends Controller
         $product_type = $product->productType->name ?? '';
         // $color = $product->warehouse->color ?? '';
         $cart = new Cart();
-        $cart->addProduct($product,$colors, $product_type, $quantity);        
+        $cart->addProduct($product,$colors, $product_type, $quantity);
         return response()->json(['message' => 'Add item in cart successful!.', 'count_cart' => count(Session('cart'))]); 
     }
 
@@ -56,8 +56,8 @@ class CartController extends Controller
     {
         $cart = new Cart();
 
-        $cart->removeItem($request->key);
-        
+        $count = $cart->removeItem($request->key);
+        $countCart = count($count); //Count cart in view Cart / Not icon Cart
         $total_cart = 0;
         $sessionCart = Session::get('cart');
 
@@ -65,7 +65,7 @@ class CartController extends Controller
             $total_cart+= ((int) $cart['item']['quantity']* (int)$cart['item']['product_price']);
         }
 
-        return response()->json(['message' => 'Deleted item in cart successful!.','count_cart' => count(Session('cart')), 'total_cart' => number_format($total_cart, 0)]); 
+        return response()->json(['message' => 'Deleted item in cart successful!.','loadpage' => $countCart ,'count_cart' => count(Session('cart')), 'total_cart' => number_format($total_cart, 0)]); 
     }
 
     public function removeAll()
