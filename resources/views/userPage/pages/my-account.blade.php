@@ -360,7 +360,6 @@
                             data-target-group="groups">
                             @if (!empty($transactionHistory))
                                 @foreach ($transactionHistory as $item)
-                                <?php dd($item); ?>
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-lg-10 col-xl-8">
                                             <div class="card shadow">
@@ -907,28 +906,50 @@
             if ($('#status1').is(":checked"))
             {
                 status1 = 4;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    }
+                });
+                $("#loading_icon").css("visibility", "visible");
+                $.ajax({
+                    url: "{{ route('ratingTransaction', ['id' => $id]) }}",
+                    type: 'post',
+                    data: {
+                        star: star,content:content,id_product:id_product,status1:status1,id_transaction:id_transaction
+                    }
+                }).done(function(result) {
+                    $("#loading_icon").css("visibility", "hidden");
+                    toastr.options.closeButton = 1;
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 100;
+                    toastr.success(result.message);
+                    setTimeout(function(){
+                            location.reload();
+                    }, 100);
+                });
             }else {
                 status1 = 0;
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    }
+                });
+                $("#loading_icon").css("visibility", "visible");
+                $.ajax({
+                    url: "{{ route('ratingTransaction', ['id' => $id]) }}",
+                    type: 'post',
+                    data: {
+                        star: star,content:content,id_product:id_product,status1:status1,id_transaction:id_transaction
+                    }
+                }).done(function(result) {
+                    $("#loading_icon").css("visibility", "hidden");
+                    toastr.options.closeButton = 1;
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 100;
+                    toastr.success(result.message);
+                });
             }
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
-                }
-            });
-            $("#loading_icon").css("visibility", "visible");
-            $.ajax({
-                url: "{{ route('ratingTransaction', ['id' => $id]) }}",
-                type: 'post',
-                data: {
-                    star: star,content:content,id_product:id_product,status1:status1,id_transaction:id_transaction
-                }
-            }).done(function(result) {
-                $("#loading_icon").css("visibility", "hidden");
-                toastr.options.closeButton = 1;
-                toastr.options.closeMethod = 'fadeOut';
-                toastr.options.closeDuration = 100;
-                toastr.success(result.message);
-            });
         }
         $(function() {
             let list_start = $(".list_start .fas");

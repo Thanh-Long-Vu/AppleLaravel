@@ -26,8 +26,8 @@ class CartController extends Controller
         $product_type = $product->productType->name ?? '';
         // $color = $product->warehouse->color ?? '';
         $cart = new Cart();
-        $cart->addProduct($product,$colors, $product_type, $quantity);
-        return Redirect::route('cart')->with('message','Add to cart Successful !');
+        $cart->addProduct($product,$colors, $product_type, $quantity);        
+        return response()->json(['message' => 'Add item in cart successful!.']); 
     }
 
     public function increase_quantity(Request $request)
