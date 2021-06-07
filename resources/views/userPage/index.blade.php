@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="assets/css/font-electro.css">
     <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
     <link rel="stylesheet" href="assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <script src="../admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="../admin/css/toastr.min.css">
+    <script src="../admin/js/toastr.min.js"></script>
     @yield('script_header')
     <!-- CSS Electro Template -->
     <link rel="stylesheet" href="assets/css/theme.css">
@@ -156,10 +159,10 @@
         });
         function fetch_select(val, request, response){
             $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-                    }
-        });
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                }
+            });
             $.ajax({
                 type:'post',
                 url: '{{route('autoComplete')}}',
@@ -169,6 +172,48 @@
                 }
             });
         };
+        
+        // $(document).ready(function() {
+        //     $('#addCart').click(function() {
+        //         $.ajaxSetup({
+        //             headers: {
+        //                 'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        //             }
+        //         });
+        //         var quantity = $('#quantity').val();
+        //         var id_product = $('#id_product').val();
+        //         $.ajax({
+        //             type:"post",
+        //             url: '/add-to-cart/'+ id_product,
+        //             data:{quantity :quantity,id_product:id_product },
+        //             success:function(res){       
+        //                 console.log(res)
+        //             }
+        //         });
+        //     });
+        // }); 
+        function addCart(id_product){
+            var quantity = $('#quantity').val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                }
+            });
+            $.ajax({
+                type:"post",
+                url: '../../add-to-cart/'+id_product,
+                data:{quantity :quantity,id_product:id_product },
+                success: function(data) {
+                    RenderData()
+                    toastr.success(data.message);
+                }
+            });
+            function RenderData(data) { 
+                toastr.options.closeButton = 1;
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 100;
+            }
+        }
     </script>
 </body>
 </html>
