@@ -99,7 +99,7 @@
                                                             value="{{ $cart['item']['quantity'] }}">
                                                     </div>
                                                     <div class="col-auto pr-1">
-                                                        <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
+                                                        <a  data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}" class="btn-update-cart-down js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
                                                             href="javascript:;">
                                                             <small class="fas fa-minus btn-icon__inner"></small>
                                                         </a>
@@ -228,6 +228,8 @@
                         toastr.options.closeDuration = 100;
                         $("#item-"+ id).fadeOut();
                         toastr.success(data.message);
+                        $(".label_item_cart").text(data.count_cart);
+                        $('.total_money').text('$' + data.total_cart);
                         // console.log(data.cart)
                         if(data.cart == 0 ){
                             window.location.load()
@@ -281,6 +283,29 @@
             });
 
 
+            $(".btn-update-cart-down").click(function(e) {
+                var quantity = parseInt($(e.target).closest(".js-quantity").find(".shadow-non").val()) - 1;
+                var key = $(this).attr('data-key');
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: '{{ route('cart.update') }}',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        'key': key,
+                        'quantity': quantity,
+                    },
+                    success: function(data) {
+                        $('.total_money').text('$' + data.data.total_cart);
+                        $('#price-' + id).text('$' + data.data.cart_item);
+                        toastr.options.closeButton = 1;
+                        toastr.options.closeMethod = 'fadeOut';
+                        toastr.options.closeDuration = 100;
+                        toastr.success(data.message);
+                    }
+                });
+            });
 
             // initialization of header
             $.HSCore.components.HSHeader.init($('#header'));
