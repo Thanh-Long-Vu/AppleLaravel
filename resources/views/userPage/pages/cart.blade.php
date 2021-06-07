@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="assets/vendor/fancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="assets/vendor/slick-carousel/slick/slick.css">
-    <script src="../admin/js/jquery-ajax.min.js"></script>
-    <link rel="stylesheet" href="../admin/css/toastr.min.css">
-    <script src="../admin/js/toastr.min.js"></script>
     <link rel="stylesheet" href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
 @endsection
 @section('content')
