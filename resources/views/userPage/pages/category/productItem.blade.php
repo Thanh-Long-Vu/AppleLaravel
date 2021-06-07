@@ -8,34 +8,38 @@
 {{--                        {{dd($product)}}--}}
                         <a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="text-blue font-weight-bold">
                             {{ $product->productType->name }}</b> -
-                            @if ($product->warehouse->color == 0)
+                            <?php 
+                                $color = $product->warehouse->color ?? 0;
+                                $memory = $product->warehouse->memory ?? 0;
+                            ?>
+                            @if ($color == 0)
                                 <b style="color : red"><i>Red</i></b> memory
-                            @elseif($product->warehouse->color == 1)
+                            @elseif($color == 1)
                                 <b style="color : gold"><i>Yellow</i></b>
-                            @elseif($product->warehouse->color == 2)
+                            @elseif($color == 2)
                                 <b style="color : Violet"><i>Violet</i></b>
-                            @elseif($product->warehouse->color == 3)
+                            @elseif($color == 3)
                                 <b style="color : Green"><i>Green</i></b>
-                            @elseif($product->warehouse->color == 4)
+                            @elseif($color == 4)
                                 <b style="color : Black"><i>Black</i></b>
-                            @elseif($product->warehouse->color == 5)
+                            @elseif($color == 5)
                                 <b style="color : Gray"><i>White</i></b>
-                            @elseif($product->warehouse->color == 6)
+                            @elseif($color == 6)
                                 <b style="color : Other"><i>Other</i></b>
-                            @elseif($product->warehouse->color == 7)
+                            @elseif($color == 7)
                                 <b style="color : #336699"><i>Patific</i></b>
                             @endif -
-                            @if ($product->warehouse->memory== 0)
+                            @if ($memory == 0)
                                 <b style="color : #336699"><i>16GB</i></b>
-                            @elseif($product->warehouse->memory== 1)
+                            @elseif($memory == 1)
                                 <b style="color : gold"><i>32GB</i></b>
-                            @elseif($product->warehouse->memory== 2)
+                            @elseif($memory == 2)
                                 <b style="color : Violet"><i>64GB</i></b>
-                            @elseif($product->warehouse->memory== 3)
+                            @elseif($memory == 3)
                                 <b style="color : Green"><i>128GB</i></b>
-                            @elseif($product->warehouse->memory== 4)
+                            @elseif($memory == 4)
                                 <b style="color : Black"><i>256GB</i></b>
-                            @elseif($product->warehouse->memory== 5)
+                            @elseif($memory == 5)
                                 <b style="color : Gray"><i>512GB</i></b>
                             @endif
                         </a></h5>
@@ -54,7 +58,7 @@
                     <ul class="font-size-12 p-0 text-gray-110 mb-4">
                         <li class="line-clamp-1 mb-1 list-bullet">{{ $product->productType->description }}</li>
                         <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
-                        <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$product->warehouse->warranty}} Month</b></li>
+                        <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$product->warehouse->warranty ?? 0}} Month</b></li>
                     </ul>
                     <div class="flex-center-between mb-1">
                         @if ($product->discount > 0)
