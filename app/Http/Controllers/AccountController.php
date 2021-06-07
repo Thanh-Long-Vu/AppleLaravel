@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Orders;
+use App\Models\Product;
 use App\Models\Rating;
 use App\Models\Transaction;
 use App\Models\User;
@@ -92,13 +93,19 @@ class AccountController extends Controller
     public function cancelOrder($id, $id_transaction)
     {
         $transaction = Transaction::find($id_transaction);
-        if($transaction->status == 0){
+        if($transaction->status == 3){
+            // dd($transaction->order);
+            foreach ($transaction->order as $order) {
+                $product = Product::find($order->product_id);
+                $product->active_quantity += $order->quantity;
+                $product->save();
+            }
             $transaction->status = 2;
-            $transaction->save();
+            // $transaction->save();
+            return back()->with('success', 'Cancel order successfully.');
         }else {
             return back()->with('failed','You are not cancel order.');
         }
-        return back()->with('success', 'Cancel order successfully.');
     }
     public function getStar( Request $request ,$id ){
         // dd($request->all());
@@ -117,7 +124,7 @@ class AccountController extends Controller
             $transaction->status = 4;
             $transaction->save(); 
             $rating->save();
-            return back()->with('success', 'Rating successfully.');
+            return response()->json(['message' => 'Rating successfully!']);         
         }elseif($status == 0) {
             $rating->save();  
             return response()->json(['message' => 'Add review successful!.']);         

@@ -2,12 +2,12 @@
     <div class="container">
         <div class="d-flex align-items-center">
             <div class="topbar-left">
-                <a href="#" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Welcome to Worldwide Electronics Store</a>
+                <a href="{{route('home')}}" class="text-gray-110 font-size-13 u-header-topbar__nav-link">Welcome to Worldwide Apple Store</a>
             </div>
             <div class="topbar-right ml-auto">
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                        <a href="#" class="u-header-topbar__nav-link"><i class="ec ec-map-pointer mr-1"></i> Store Locator</a>
+                        <a  class="u-header-topbar__nav-link"><i class="ec ec-map-pointer mr-1"></i> Store Locator</a>
                     </li>
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                     <a href="{{route('track_your_order')}}" class="u-header-topbar__nav-link"><i class="ec ec-transport mr-1"></i> Track Your Order</a>
@@ -49,11 +49,11 @@
                                 $last_name = array_pop($name);
                             ?>
                             <a href="javascript:" role="button" title="{{Auth::user()->name}}" class="u-header-topbar__nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ec ec-user mr-1"></i> Chào ! {{$last_name}}
+                                <i class="ec ec-user mr-1"></i> Welcome ! {{$last_name}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{route('myAccount',['id' => Auth::user()->id_user])}}">Profile</a>
-                                <a class="dropdown-item" href="#"
+                                <a class="dropdown-item" 
                                    onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();"
                                 >{{ __('Logout') }}</a>

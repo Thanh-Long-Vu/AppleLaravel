@@ -41,7 +41,7 @@ class Product extends Model
 
     public function transaction()
     {
-        return $this->hasMany('App\Models\Transaction','order','transaction_id','product_id');
+        return $this->hasMany('App\Models\Transaction','order','transaction_id','product_id')->withTimestamps();
     }
     public function order()
     {
