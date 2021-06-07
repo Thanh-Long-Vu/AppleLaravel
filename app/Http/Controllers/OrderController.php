@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +15,7 @@ class OrderController extends Controller
         $cart = Session::get('cart');
         $auth = auth()->user() ?? null;
         $data = $request->all();
-        data_set($data, 'status', 1);
+        data_set($data, 'status', 3);
         data_set($data, 'user_id', ($auth->id_user ?? null));
         $trasnsaction = Transaction::create($data);
         $orderData = [];
@@ -26,10 +27,12 @@ class OrderController extends Controller
                 'color' => $cart['item']['color'],
                 'product_id' => $cart['item']['product']->id_product,
             ]);
+        $product = Product::find($cart['item']['product']->id_product);
+        $product->active_quantity -= $cart['item']['quantity'];
+        $product->save();
         }
-
         $trasnsaction->product()->attach($orderData);
         Session::put('cart', []);
-        return Redirect::route('home')->with('message_checkout','Payment Successful !');
+        return response()->json(['message' => 'Ordered Successful !']); 
     }
 }

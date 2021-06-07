@@ -123,7 +123,6 @@
                                 @endforeach
                         </tbody>
                     </table>
-
                 </form>
             </div>
             <div class="mb-8 cart-total">

@@ -29,7 +29,7 @@ class Transaction extends Model
         'payment_method_id',
     ];
     public function product(){
-        return $this->belongsToMany('App\Models\Product', 'order','transaction_id','product_id');
+        return $this->belongsToMany('App\Models\Product', 'order','transaction_id','product_id')->withTimestamps();
     }
     public function order()
     {

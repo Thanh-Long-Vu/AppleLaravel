@@ -15,9 +15,9 @@ class ProductTypeController extends Controller
         $productTypes = ProductType::where('category_id', $productType->category_id)->get();
         $products = $productType->products;
         $product = Product::where([['product_type_id',1],['id_product',1]]);
-        $filter = $product->whereIn($product->first()->warehouse->color,1)->get();
-        dd($filter);
-        return view('userPage.pages.categories', compact('productTypes', 'products'));
+        // $filter = $product->whereIn($product->first()->warehouse->color,1)->get();
+        // dd($filter);
+        return view('userPage.pages.category.categories', compact('productTypes', 'products'));
     }
 public function filterProduct(Request $request)
     {
