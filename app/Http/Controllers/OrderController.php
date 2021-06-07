@@ -13,6 +13,9 @@ class OrderController extends Controller
     public function store(Request $request )
     {
         $cart = Session::get('cart');
+        if(empty($cart)){
+            return redirect()->back()->with('error','Can not checkout because cart is empty !!!!');
+        }
         $auth = auth()->user() ?? null;
         $data = $request->all();
         data_set($data, 'status', 3);

@@ -205,6 +205,7 @@
                 data:{quantity :quantity,id_product:id_product },
                 success: function(data) {
                     RenderData()
+                    $(".label_item_cart").text(data.count_cart);
                     toastr.success(data.message);
                 }
             });

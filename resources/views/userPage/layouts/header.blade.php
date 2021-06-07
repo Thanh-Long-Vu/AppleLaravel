@@ -17,6 +17,18 @@
                   </div>
         </div>
         @endif
+
+        @if(session('error'))
+
+        <div class="d-none d-xl-block bg-primary">
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>{{session('error')}}
+                    </strong>
+                  </div>
+        </div>
+        @endif
+
         <!-- Primary-menu-wide -->
         @include('userPage.layouts.menu')
         <!-- End Primary-menu-wide -->

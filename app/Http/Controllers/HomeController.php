@@ -51,6 +51,10 @@ class HomeController extends Controller
     }
     public function checkout()
     {
+        if(empty($cart)){
+            return redirect()->back()->with('error','Can not checkout because cart is empty !!!!');
+        }
+
         return view('userPage.pages.checkout');
     }
     public function cart()

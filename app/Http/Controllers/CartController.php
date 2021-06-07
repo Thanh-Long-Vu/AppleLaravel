@@ -27,7 +27,7 @@ class CartController extends Controller
         // $color = $product->warehouse->color ?? '';
         $cart = new Cart();
         $cart->addProduct($product,$colors, $product_type, $quantity);        
-        return response()->json(['message' => 'Add item in cart successful!.']); 
+        return response()->json(['message' => 'Add item in cart successful!.', 'count_cart' => count(Session('cart'))]); 
     }
 
     public function increase_quantity(Request $request)
@@ -56,12 +56,16 @@ class CartController extends Controller
     {
         $cart = new Cart();
 
-        $count = $cart->removeItem($request->key);
-        // dd($cart);
+        $cart->removeItem($request->key);
         
-        $countCart = count($count);
+        $total_cart = 0;
+        $sessionCart = Session::get('cart');
 
-        return response()->json(['message' => 'Deleted item in cart successful!.','cart' => $countCart]); 
+        foreach($sessionCart as $cart){
+            $total_cart+= ((int) $cart['item']['quantity']* (int)$cart['item']['product_price']);
+        }
+
+        return response()->json(['message' => 'Deleted item in cart successful!.','count_cart' => count(Session('cart')), 'total_cart' => number_format($total_cart, 0)]); 
     }
 
     public function removeAll()
