@@ -43,7 +43,7 @@ class Cart
                 }
             }
             if ($flat) {
-                $this->cart[$index]['item']['quantity'] += 1;
+                $this->cart[$index]['item']['quantity'] += $quantity;
             } else {
                 $this->cart[] = [
                     'key' => $key,
