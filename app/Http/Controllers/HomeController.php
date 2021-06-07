@@ -49,7 +49,7 @@ class HomeController extends Controller
     {
         return view('userPage.pages.product');
     }
-    public function checkout(Request $request)
+    public function checkout()
     {
         return view('userPage.pages.checkout');
     }
