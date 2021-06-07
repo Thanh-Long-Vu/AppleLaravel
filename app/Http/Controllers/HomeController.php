@@ -49,12 +49,8 @@ class HomeController extends Controller
     {
         return view('userPage.pages.product');
     }
-    public function checkout()
+    public function checkout(Request $request)
     {
-        if(empty($cart)){
-            return redirect()->back()->with('error','Can not checkout because cart is empty !!!!');
-        }
-
         return view('userPage.pages.checkout');
     }
     public function cart()
