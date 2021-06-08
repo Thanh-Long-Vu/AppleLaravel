@@ -31,18 +31,16 @@ class CalendarController extends Controller
         $order = DB::table('order')
                     ->leftjoin('products', 'order.product_id', '=', 'products.id_product')
                     ->leftjoin('product_types', 'products.product_type_id', '=', 'product_types.id_product_type')
-                    ->select('order.quantity','order.id_order','product_types.name','order.updated_at')->where('id_product_type', '=', $id)
+                    ->select('order.quantity','order.id_order','product_types.name','order.color','order.updated_at')->where('id_product_type', '=', $id)
                     ->get();
         foreach($order as $val){
             $newDate = date("d-m-Y", strtotime($val->updated_at)); 
-            $data[] = array(
-                'start' => $newDate.'00:00:00',
-                'end' => $newDate.'23:59:59',
-                'order_id' => $val->id_order,
-                'title' => "Đơn hàng số:  ".$val->id_order,
-                'product' => "Product :" .$val->name,
+            $event[] = array(
+                'start' => $newDate.' 00:00:00',
+                'end' => $newDate.' 23:59:59',
+                'title' => "ID:#".$val->id_order . "|".$val->name." ".$val->color,
             );
         }
-        return response()->json($data);
+        return response()->json($event);
     }
 }

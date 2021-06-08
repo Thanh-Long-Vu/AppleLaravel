@@ -51,7 +51,15 @@
                             </div>
                         </div> --}}
                     </div>
-                    <div id='calendar'></div>
+                    <section class="main_manage">
+                        <div id='script-warning'>
+                            Sever Error.
+                        </div>
+
+                        <div id='loading'>loading...</div>
+
+                        <div id='calendar'></div>
+                    </section>
                 </div> <!-- .col-12 -->
             </div> <!-- .row -->
         </div> <!-- .container-fluid -->
@@ -59,8 +67,9 @@
 @endsection
 @section('script')
     <script src="admin/js/jquery.min.js"></script>
-    <script src='admin/js/fullcalendar.js'></script>
-    <script src='admin/js/fullcalendar.custom.js'></script>
+    <link rel="stylesheet" href="admin/css/fullcalendar-3.9.0.css" />
+    <script src="admin/js/moment-2.24.0.min.js"></script>
+    <script src="admin/js/fullcalendar-3.9.0.js"></script>
     <script src="admin/js/popper.min.js"></script>
     <script src="admin/js/moment.min.js"></script>
     <script src="admin/js/bootstrap.min.js"></script>
@@ -233,23 +242,23 @@
 
     </script>
     <script>
-        var uptarg = document.getElementById('drag-drop-area');
-        if (uptarg) {
-            var uppy = Uppy.Core().use(Uppy.Dashboard, {
-                inline: true,
-                target: uptarg,
-                proudlyDisplayPoweredByUppy: false,
-                theme: 'dark',
-                width: 770,
-                height: 210,
-                plugins: ['Webcam']
-            }).use(Uppy.Tus, {
-                endpoint: 'https://master.tus.io/files/'
-            });
-            uppy.on('complete', (result) => {
-                console.log('Upload complete! We’ve uploaded these files:', result.successful)
-            });
-        }
+        // var uptarg = document.getElementById('drag-drop-area');
+        // if (uptarg) {
+        //     var uppy = Uppy.Core().use(Uppy.Dashboard, {
+        //         inline: true,
+        //         target: uptarg,
+        //         proudlyDisplayPoweredByUppy: false,
+        //         theme: 'dark',
+        //         width: 770,
+        //         height: 210,
+        //         plugins: ['Webcam']
+        //     }).use(Uppy.Tus, {
+        //         endpoint: 'https://master.tus.io/files/'
+        //     });
+        //     uppy.on('complete', (result) => {
+        //         console.log('Upload complete! We’ve uploaded these files:', result.successful)
+        //     });
+        // }
 
     </script>
     <script src="admin/js/apps.js"></script>
@@ -295,28 +304,27 @@
                         url: '../admin/order/' + productType,
                         success: function(res) {
                             if (res.length !== 0) {
-                                var calendarEl = document.getElementById('calendar');
-                                var calendar = new FullCalendar.Calendar(calendarEl, {
-                                    headerToolbar: {
-                                        left: 'prev,next today',
-                                        center: '',
-                                        right: 'dayGridMonth'
+                                var calendar = $('#calendar').fullCalendar({
+                                    plugins: ['dayGrid', 'timeGrid', 'list',
+                                        'bootstrap'
+                                    ],
+                                    timeZone: 'LOCALHOST',
+                                    themeSystem: 'standard',
+                                    header: {
+                                        left: 'today,prev,next',
+                                        center: 'title',
+                                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
                                     },
-                                    editable: true,
-                                    navLinks: true, // can click day/week names to navigate views
-                                    dayMaxEvents: true, // allow "more" link when too many events
+                                    weekNumbers: true,
+                                    eventLimit: true, // allow "more" link when too many events
                                     events: {
                                         url: '../admin/order/' + productType,
-                                        failure: function() {
-                                            document.getElementById(
-                                                    'script-warning').style
-                                                .display = 'block'
-                                        },
                                         color: 'rgba(255, 25, 25, 0.79)',
-                                        // display: 'background',
                                         constraint: 'availableForMeeting',
                                         overlap: false,
-                                        backgroundColor: 'rgba(255, 25, 25, 0.79)'
+                                        backgroundColor: 'rgba(255, 25, 25, 0.79)',
+                                        failure: function() {
+                                            document.getElementById('script-warning').style.display = 'block'}
                                     },
                                     loading: function(bool) {
                                         document.getElementById('loading').style
@@ -324,38 +332,42 @@
                                             bool ? 'block' : 'none';
                                     }
                                 });
-                                calendar.render();
                             } else {
-                                var calendarEl = document.getElementById('calendar');
-                                var calendar = new FullCalendar.Calendar(calendarEl, {
-                                    headerToolbar: {
-                                        left: 'prev,next today',
+                                var calendar = $('#calendar').fullCalendar({
+                                    plugins: ['dayGrid', 'timeGrid', 'list',
+                                        'bootstrap'
+                                    ],
+                                    timeZone: 'LOCALHOST',
+                                    themeSystem: 'standard',
+                                    header: {
+                                        left: 'today,prev,next',
                                         center: 'title',
-                                        right: 'dayGridMonth'
+                                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
                                     },
-                                    editable: true,
-                                    navLinks: true, // can click day/week names to navigate views
-                                    dayMaxEvents: true, // allow "more" link when too many events
+                                    weekNumbers: true,
+                                    eventLimit: true,
                                 });
-                                calendar.render();
                             }
                         }
                     });
                 }
             });
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth'
-                },
-                editable: true,
-                navLinks: true, // can click day/week names to navigate views
-                dayMaxEvents: true, // allow "more" link when too many events
-            });
-            calendar.render();
         });
+        
+        // var calendar = $('#calendar').fullCalendar({
+        //         plugins: ['dayGrid', 'timeGrid', 'list',
+        //           'bootstrap'
+        //         ],
+        //         timeZone: 'LOCALHOST',
+        //         themeSystem: 'standard',
+        //         header: {
+        //           left: 'today,prev,next',
+        //           center: 'title',
+        //           right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        //         },
+        //         weekNumbers: true,
+        //         eventLimit: true,
+        //       });
 
     </script>
 @endsection
