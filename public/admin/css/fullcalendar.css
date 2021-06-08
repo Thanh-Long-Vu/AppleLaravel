@@ -751,7 +751,7 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 /* icons within buttons */
 .fc-button .fc-icon {
   vertical-align: middle;
-  font-size: 1.5em;
+  font-size: 0.5em;
 }
 
 /* Buttons Groups
