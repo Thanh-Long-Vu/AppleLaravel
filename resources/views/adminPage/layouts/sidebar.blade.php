@@ -237,7 +237,7 @@
                 </ul>
             </li>
             <li class="nav-item w-100">
-                <a class="nav-link" href="calendar.html">
+                <a class="nav-link" href="{{route('calendar')}}">
                     <i class="fe fe-calendar fe-16"></i>
                     <span class="ml-3 item-text">Calendar</span>
                 </a>
