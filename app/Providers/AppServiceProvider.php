@@ -38,9 +38,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with(['categories' => $categories]);
         });
         view()->composer('userPage/layouts/footer', function ($view) {
-            $productSales = Product::where([['discount','>=',70],['is_hot','=',0]])->orderby('discount','desc')->limit(3)->get();
-            $productHots = Product::where([['discount','>=',50],['is_hot','=',1]])->orderby('discount','desc')->limit(3)->get();
-            $productTypeRates = ProductType::where('total_rating','>=','4,5')->limit(3)->get();
+            $productSales = Product::where([['discount','>=',30],['is_hot','=',0]])->orderby('updated_at','desc')->limit(3)->get();
+            $productHots = Product::where([['discount','>=',20],['is_hot','=',1]])->orderby('updated_at','desc')->limit(3)->get();
+            $productTypeRates = Product::orderBy('point','DESC')->limit(3)->get();
             $view->with(['productSales' => $productSales,'productHots' => $productHots,'productTypeRates'=> $productTypeRates]);
         });
         Validator::extend('currentPassword', function ($attribute, $value, $parameters, $validator) {

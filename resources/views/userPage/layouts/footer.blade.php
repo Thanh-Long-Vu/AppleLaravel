@@ -1,6 +1,6 @@
 <footer>
     <!-- Footer-top-widget -->
-    {{-- <div class="container d-none d-lg-block mb-3">
+     <div class="container d-none d-lg-block mb-3">
         <div class="row">
             <div class="col-wd-3 col-lg-4">
                 <div class="widget-column">
@@ -18,12 +18,12 @@
                                     <h5 class="product-item__title mb-0"><a href="{{ route('products.show', ['product' => $item->id_product ]) }}" class="text-blue font-weight-bold">{{$item->productType->name}}</a></h5>
                                     @if ($item->discount > 0)
                                     <div class="prodcut-price mt-auto flex-horizontal-center">
-                                        <ins class="font-size-15 text-decoration-none"><b style = "color : red;">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
-                                        <del class="font-size-12 text-gray-9 ml-2">{{number_format($item->price)}}.VNĐ</del>
+                                        <ins class="font-size-15 text-decoration-none"><b style = "color : red;">${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                        <del class="font-size-12 text-gray-9 ml-2">${{number_format($item->price)}}</del>
                                     </div>
                                     @else
                                     <div class="prodcut-price mt-auto">
-                                        <div class="font-size-15">{{number_format($item->products->first()->price)}}.VNĐ</div>
+                                        <div class="font-size-15">${{number_format($item->price)}}</div>
                                     </div>
                                     @endif
                                 </div>
@@ -48,12 +48,12 @@
                                 <h5 class="product-item__title mb-0"><a href="{{ route('products.show', ['product' => $item->id_product ]) }}" class="text-blue font-weight-bold">{{$item->productType->name}}</a></h5>
                                 @if ($item->discount > 0)
                                 <div class="prodcut-price mt-auto flex-horizontal-center">
-                                    <ins class="font-size-15 text-decoration-none"><b style = "color : red;">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
-                                    <del class="font-size-12 text-gray-9 ml-2">{{number_format($item->price)}}.VNĐ</del>
+                                    <ins class="font-size-15 text-decoration-none"><b style = "color : red;">${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                    <del class="font-size-12 text-gray-9 ml-2">${{number_format($item->price)}}</del>
                                 </div>
                                 @else
                                 <div class="prodcut-price mt-auto">
-                                    <div class="font-size-15">{{number_format($item->price)}}.VNĐ</div>
+                                    <div class="font-size-15">${{number_format($item->price)}}</div>
                                 </div>
                                 @endif
                             </div>
@@ -71,18 +71,18 @@
                         @foreach ($productTypeRates as $item)
                         <li class="product-item product-item__list row no-gutters mb-6 remove-divider">
                             <div class="col-auto">
-                                <a href="{{ route('products.show', ['product' => $item->products->first()->id_product ]) }}" class="d-block width-75 text-center"><img class="img-fluid" src="../{{$item->products->first()->thumbnail}}" alt="Image Description"></a>
+                                <a href="{{ route('products.show', ['product' => $item->id_product ?? 0]) }}" class="d-block width-75 text-center"><img class="img-fluid" src="../{{$item->thumbnail ?? ""}}" alt="Image Description"></a>
                             </div>
                             <div class="col pl-4 d-flex flex-column">
-                                <h5 class="product-item__title mb-0"><a href="{{ route('products.show', ['product' => $item->products->first()->id_product ]) }}" class="text-blue font-weight-bold">{{$item->name}}</a></h5>
-                                @if ($item->products->first()->discount > 0)
+                                <h5 class="product-item__title mb-0"><a href="{{ route('products.show', ['product' => $item->id_product ?? 0]) }}" class="text-blue font-weight-bold">{{$item->productType->name}}</a></h5>
+                                @if ($item->discount > 0 && ($item->discount != null))
                                 <div class="prodcut-price mt-auto flex-horizontal-center">
-                                    <ins class="font-size-15 text-decoration-none"><b style = "color : red;">{{number_format($item->products->first()->price - ($item->products->first()->price*($item->products->first()->discount/100)))}}.VNĐ</b></ins>
-                                    <del class="font-size-12 text-gray-9 ml-2">{{number_format($item->products->first()->price)}}.VNĐ</del>
+                                    <ins class="font-size-15 text-decoration-none"><b style = "color : red;">${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                    <del class="font-size-12 text-gray-9 ml-2">${{number_format($item->price)}}</del>
                                 </div>
                                 @else
                                 <div class="prodcut-price mt-auto">
-                                    <div class="font-size-15">{{number_format($item->products->first()->price)}}.VNĐ</div>
+                                    <div class="font-size-15">${{number_format($item->price)}}</div>
                                 </div>
                                 @endif
                             </div>
@@ -95,7 +95,7 @@
                 <img class="img-fluid" src="assets/img/image_footer.jpg" alt="Image Description">
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- End Footer-top-widget -->
     <!-- Footer-newsletter -->
     <div class="bg-primary py-3">

@@ -15,11 +15,13 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $colors = ProductType::LIST_COLOR;
+        $memory = ProductType::MEMORY;
         $category = Category::all();
         $slider = Slider::where('active','=',1)->orderby('updated_at','desc')->limit(5)->get();
-        $productSale = Product::where([['discount','>=',70],['is_hot','=',0]])->orderby('discount','desc')->limit(5)->get();
-        $productHot = Product::where([['discount','>=',50],['is_hot','=',1]])->orderby('discount','desc')->limit(5)->get();
-        $productTypeRate = ProductType::where('total_rating','>=','4,5')->limit(5)->get();
+        $productSale = Product::where([['discount','>=',30],['is_hot','=',0]])->orderby('updated_at','desc')->limit(6)->get();
+        $productHot = Product::where([['discount','>=',20],['is_hot','=',1]])->orderby('updated_at','desc')->limit(6)->get();
+        $productRate = Product::orderBy('point','DESC')->limit(6)->get();
 
         $productTypeMac = ProductType::where('category_id','=',1)->limit(8)->orderby('updated_at','asc')->get();
         $productTypeIpad = ProductType::where('category_id','=',2)->limit(8)->orderby('updated_at','asc')->get();
@@ -30,7 +32,7 @@ class HomeController extends Controller
         $productTypeIpadTotalRating = ProductType::where('category_id','=',2)->orderBy('total_rating','desc')->first();
         $productTypeIphoneTotalRating = ProductType::where('category_id','=',3)->orderBy('total_rating','desc')->first();
         $productTypeWatchTotalRating = ProductType::where('category_id','=',4)->orderBy('total_rating','desc')->first();
-        return view('userPage.pages.home',compact('category','slider','productSale','productHot','productTypeRate','productTypeMac','productTypeIpad','productTypeIphone','productTypeWatch','productTypeMacTotalRating','productTypeIpadTotalRating','productTypeIphoneTotalRating','productTypeWatchTotalRating'));
+        return view('userPage.pages.home.home',compact('colors','memory','category','slider','productSale','productHot','productRate','productTypeMac','productTypeIpad','productTypeIphone','productTypeWatch','productTypeMacTotalRating','productTypeIpadTotalRating','productTypeIphoneTotalRating','productTypeWatchTotalRating'));
     }
     public function autoComplete(Request $request){
         $filterAble = $request->only('name~','category_id');

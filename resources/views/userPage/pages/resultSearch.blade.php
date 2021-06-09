@@ -508,12 +508,6 @@
 <!-- ========== END MAIN CONTENT ========== -->
 @endsection
 @section('script_footer')
-    <!-- JS Global Compulsory -->
-<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/jquery-ui.min.js"></script>
-<script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-<script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-<script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
 
 <!-- JS Implementing Plugins -->
 <script src="assets/vendor/appear.js"></script>
