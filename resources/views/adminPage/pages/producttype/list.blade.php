@@ -32,7 +32,6 @@
                                     </div>
                                     @endif
                                     <a href="{{ route('createProductType') }}"class="btn btn-primary float-right ml-3">Create Product Type</a>
-                                    <a href="{{ route('createImageProduct') }}"class="btn btn-primary float-right ml-3">Add Image</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>

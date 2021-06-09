@@ -71,8 +71,11 @@
                                         {{$colors[(int)$product->warehouse->color]['name'] ?? ""}}
                                     </b>
                                 </li>
-                                <li class="line-clamp-1 mb-1 list-bullet">Warranty :
-                                    <b style="color : red;" class="font-size-15">{{$product->discount ?? 0}}%</b></li>
+                                @if ($product->discount != 0)
+                                <li class="line-clamp-1 mb-1 list-bullet">Discount :
+                                        <b style="color : red;" class="font-size-15">{{$product->discount ?? 0}}%</b>
+                                </li>
+                                @endif
                             </ul>
                         </div>
                         <p>{{ $product->productType->description ?? "" }}</p>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ImagesProduct;
+use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
 
@@ -11,13 +12,13 @@ class imageProductController extends Controller
 {
     public function index($id)
     {
-        $data = ImagesProduct::where('product_type_id',$id)->get();
+        $data = ImagesProduct::where('product_id',$id)->get();
         return view('adminPage.pages.imageProduct.view',compact('data'));
     }
     public function create()
     {
-        $productType = ProductType::get();
-        return view('adminPage.pages.imageProduct.create',compact('productType'));
+        $product = Product::get();
+        return view('adminPage.pages.imageProduct.create',compact('product'));
     }
     public function store(Request $request)
     {
@@ -38,7 +39,7 @@ class imageProductController extends Controller
                 $table = new ImagesProduct;
                 $table->img_url= $new_image_name;
                 $table->active = 1;
-                $table->product_type_id = $request->id_product_type;
+                $table->product_id = $request->id_product;
                 $table->save();
             }                       
             return redirect()->back()->with(['thongbao'=>'success','massage'=>'Thêm ảnh thành công']);

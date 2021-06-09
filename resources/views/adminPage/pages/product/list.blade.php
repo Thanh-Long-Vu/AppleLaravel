@@ -31,6 +31,7 @@
                                         @endphp
                                     </div>
                                     @endif
+                                    <a href="{{ route('createImageProduct') }}"class="btn btn-primary float-right ml-3">Add Image</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -54,44 +55,44 @@
                                                 <td class = "text-center">{{$dataitem->id_product}}</td>
                                                 <td class = "text-center"><img src="{{asset($dataitem->thumbnail)}}" class="w-25 h-auto" alt=""></td>
                                                 <td class = "text-center">
-                                                    @if($dataitem->warehouse->color == 0)
+                                                    @if($dataitem->warehouse->color == 0 ?? 0)
                                                     Red
-                                                    @elseif($dataitem->warehouse->color == 1)
+                                                    @elseif($dataitem->warehouse->color == 1 ?? 0)
                                                     Yellow
-                                                    @elseif($dataitem->warehouse->color == 2)
+                                                    @elseif($dataitem->warehouse->color == 2 ?? 0)
                                                     Violet
-                                                    @elseif($dataitem->warehouse->color == 3)
+                                                    @elseif($dataitem->warehouse->color == 3 ?? 0)
                                                     Violet
-                                                    @elseif($dataitem->warehouse->color == 4)
+                                                    @elseif($dataitem->warehouse->color == 4 ?? 0)
                                                     Black
-                                                    @elseif($dataitem->warehouse->color == 5)
+                                                    @elseif($dataitem->warehouse->color == 5 ?? 0)
                                                     White
-                                                    @elseif($dataitem->warehouse->color == 6)
+                                                    @elseif($dataitem->warehouse->color == 6 ?? 0)
                                                     Other
-                                                    @elseif($dataitem->warehouse->color == 7)
+                                                    @elseif($dataitem->warehouse->color == 7 ?? 0)
                                                     Patific
                                                     @endif
                                                 </td>
                                                 <td class = "text-center">
-                                                    @if($dataitem->warehouse->memory == 0)
+                                                    @if($dataitem->warehouse->memory == 0 ?? 0)
                                                     16GB
-                                                    @elseif($dataitem->warehouse->memory == 1)
+                                                    @elseif($dataitem->warehouse->memory == 1 ?? 0)
                                                     32GB
-                                                    @elseif($dataitem->warehouse->memory == 2)
+                                                    @elseif($dataitem->warehouse->memory == 2 ?? 0)
                                                     64GB
-                                                    @elseif($dataitem->warehouse->memory == 3)
+                                                    @elseif($dataitem->warehouse->memory == 3 ?? 0)
                                                     128GB
-                                                    @elseif($dataitem->warehouse->memory == 4)
+                                                    @elseif($dataitem->warehouse->memory == 4 ?? 0)
                                                     256GB
-                                                    @elseif($dataitem->warehouse->memory == 5)
+                                                    @elseif($dataitem->warehouse->memory == 5 ?? 0)
                                                     512Gb
                                                     @endif
                                                 </td>
-                                                <td class = "text-center">{{$dataitem->warehouse->quantity}}</td>
-                                                <td class = "text-center">{{$dataitem->discount}}  %</td>
-                                                <td class = "text-center">{{$dataitem->producttype->name}}</td>
-                                                <td class = "text-center">{{$dataitem->warehouse->warranty}}.Month</td>
-                                                <td class = "text-center">{{$dataitem->price}}.VNĐ</td>
+                                                <td class = "text-center">{{$dataitem->warehouse->quantity ?? 0}}</td>
+                                                <td class = "text-center">{{$dataitem->discount ?? 0}}  %</td>
+                                                <td class = "text-center">{{$dataitem->producttype->name ?? 0}}</td>
+                                                <td class = "text-center">{{$dataitem->warehouse->warranty ?? 0}}.Month</td>
+                                                <td class = "text-center">{{$dataitem->price ?? 0}}.VNĐ</td>
                                                 <td class = "text-center">
                                                     <input type="checkbox" data-id="{{ $dataitem->id_product }}" name="is_hot" class="js-switch" {{ $dataitem->is_hot == 1 ? 'checked' : '' }}>
                                                 </td>

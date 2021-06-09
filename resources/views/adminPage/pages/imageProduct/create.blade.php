@@ -22,12 +22,46 @@
 						@endif
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="custom-select" id="custom-select" required>Product Type</label>
-                                <select class="custom-select" id="custom-select" name="id_product_type">
-                                    <option selected disabled selected value>Select Product Type</option>
-                                    @if(isset($productType) && $productType != '')
-                                        @foreach($productType as $item)
-                                            <option value="{{$item->id_product_type}}" >{{$item->name}}</option>
+                                <label for="custom-select" id="custom-select" required>Product </label>
+                                <select class="custom-select" id="custom-select" name="id_product">
+                                    <option disabled selected value>Select Product</option>
+                                    @if(isset($product) && $product != '')
+                                        @foreach($product as $item)
+                                            <?php 
+                                                $color = $item->warehouse->color ?? 0;
+                                                $memory = $item->warehouse->memory ?? 0;
+                                            ?>
+                                            <option value="{{$item->id_product ?? 0}}" >{{$item->productType->name ?? 0}} 
+                                            @if ($color == 0)
+                                                <b style="color : red"><i>Red</i></b> 
+                                            @elseif($color == 1)
+                                                <b style="color : gold"><i>Yellow</i></b>
+                                            @elseif($color == 2)
+                                                <b style="color : Violet"><i>Violet</i></b>
+                                            @elseif($color == 3)
+                                                <b style="color : Green"><i>Green</i></b>
+                                            @elseif($color == 4)
+                                                <b style="color : Black"><i>Black</i></b>
+                                            @elseif($color == 5)
+                                                <b style="color : Gray"><i>White</i></b>
+                                            @elseif($color == 6)
+                                                <b style="color : Other"><i>Other</i></b>
+                                            @elseif($color == 7)
+                                                <b style="color : #336699"><i>Patific</i></b>
+                                            @endif -
+                                            @if ($memory == 0)
+                                                <b style="color : #336699"><i>16GB</i></b>
+                                            @elseif($memory == 1)
+                                                <b style="color : gold"><i>32GB</i></b>
+                                            @elseif($memory == 2)
+                                                <b style="color : Violet"><i>64GB</i></b>
+                                            @elseif($memory == 3)
+                                                <b style="color : Green"><i>128GB</i></b>
+                                            @elseif($memory == 4)
+                                                <b style="color : Black"><i>256GB</i></b>
+                                            @elseif($memory == 5)
+                                                <b style="color : Gray"><i>512GB</i></b>
+                                            @endif</option>
                                         @endforeach
                                     @endif
                                 </select>
