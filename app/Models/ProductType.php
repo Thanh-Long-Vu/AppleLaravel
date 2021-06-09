@@ -80,8 +80,8 @@ class ProductType extends Model
     {
         return $this->belongsTo('App\Models\Category','category_id','id_category');
     }
-    public function imageProductType()
-    {
-        return $this->hasMany('App\Models\ImagesProduct','product_type_id','id_product_type');
-    }
+    // public function imageProductType()
+    // {
+    //     return $this->hasMany('App\Models\ImagesProduct','product_type_id','id_product_type');
+    // }
 }

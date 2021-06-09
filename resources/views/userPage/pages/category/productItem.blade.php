@@ -13,7 +13,7 @@
                                 $memory = $product->warehouse->memory ?? 0;
                             ?>
                             @if ($color == 0)
-                                <b style="color : red"><i>Red</i></b> memory
+                                <b style="color : red"><i>Red</i></b> 
                             @elseif($color == 1)
                                 <b style="color : gold"><i>Yellow</i></b>
                             @elseif($color == 2)
