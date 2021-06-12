@@ -8,53 +8,72 @@
                         <div class="product-item__body pb-xl-2">
                             <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
                             <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="text-blue font-weight-bold"><b>
-                                {{ $item->productType->name }}</b> - 
-                                @if ($item->warehouse->color == 0)
-                                    <b style="color : red"><i>Red</i></b> memory
-                                @elseif($item->warehouse->color == 1)
-                                    <b style="color : gold"><i>Yellow</i></b> 
-                                @elseif($item->warehouse->color == 2)
-                                    <b style="color : Violet"><i>Violet</i></b> 
-                                @elseif($item->warehouse->color == 3)
-                                    <b style="color : Green"><i>Green</i></b> 
-                                @elseif($item->warehouse->color == 4)
-                                    <b style="color : Black"><i>Black</i></b> 
-                                @elseif($item->warehouse->color == 5)
-                                    <b style="color : Gray"><i>White</i></b> 
-                                @elseif($item->warehouse->color == 6)
-                                    <b style="color : Other"><i>Other</i></b>   
-                                @elseif($item->warehouse->color == 7)
-                                    <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                @endif -
-                                @if ($item->warehouse->memory== 0)
-                                    <b style="color : #336699"><i>16GB</i></b> 
-                                @elseif($item->warehouse->memory== 1)
-                                    <b style="color : gold"><i>32GB</i></b> 
-                                @elseif($item->warehouse->memory== 2)
-                                    <b style="color : Violet"><i>64GB</i></b> 
-                                @elseif($item->warehouse->memory== 3)
-                                    <b style="color : Green"><i>128GB</i></b> 
-                                @elseif($item->warehouse->memory== 4)
-                                    <b style="color : Black"><i>256GB</i></b> 
-                                @elseif($item->warehouse->memory== 5)
-                                    <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                @endif </a></h5>
+                                {{ $item->productType->name }}</b> -
+                                <b style="color: {{$colors[(int)$item->first()->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">{{$colors[(int)$item->first()->warehouse->color]['name'] ?? ""}}
+                                </b> -
+                                <b class="mx-1">
+                                    {{$memory[(int)$item->first()->warehouse->memory]['text'] ?? ""}}
+                                </b>
+                                </a></h5>
                             <div class="mb-2">
                                 <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
+                            </div>
+                            <div class="mb-3 d-none d-md-block">
+								<?php
+								$point = $item->point ?? 0;
+								$result = "";
+								if(isset($point)){
+									$starFull = 0;
+									$startEmpty = 0;
+
+									if(round($point) > $point){
+										$starFull = round($point) -1;
+										$startEmpty = 5 - ($starFull + 1);
+									}else if (round($point) == $point) {
+										$starFull = round($point);
+										$startEmpty = 5 - $starFull;
+									}else if(round($point) < $point){
+										$starFull = round($point);
+										$startEmpty = 5 - ($starFull + 1);
+									}
+
+									$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+									!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+									$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+								}
+								?>
+                                @if(isset($point))
+                                    @if($item->point)
+                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                            <div class="text-warning mr-2">
+                                                {!! $result !!}
+                                            </div>
+                                            <span class="text-secondary">{{$point}}</span>
+                                        </a>
+                                    @else
+                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                            {!! $result !!}
+                                        </div>
+                                    @endif
+
+                                @endif
                             </div>
                             <div class="flex-center-between mb-1">
                                 @if ($item->discount > 0)
                                 <div class="prodcut-price d-flex align-items-center position-relative">
-                                    <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
-                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price)}}.VNĐ</del>
+                                    <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($item->price)}}</del>
                                 </div>
                                 @else
                                 <div class="prodcut-price">
-                                    <div class="text-gray-100"><b>{{number_format($item->price)}}.VNĐ</b></div>
+                                    <div class="text-gray-100"><b>${{number_format($item->price)}}</b></div>
                                 </div>
                                 @endif
-                                <div class="d-none d-xl-block prodcut-add-cart">
-                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
+                                <div class="prodcut-add-cart">
+                                    <a onclick="addCart({{$item->id_product}})" href="javascript:"
+                                       class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -75,51 +94,55 @@
                         <div class="product-item__body pb-xl-2">
                             <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
                             <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="text-blue font-weight-bold"><b>
-                                {{ $item->productType->name }}</b> - 
-                                @if ($item->warehouse->color == 0)
-                                    <b style="color : red"><i>Red</i></b> memory
-                                @elseif($item->warehouse->color == 1)
-                                    <b style="color : gold"><i>Yellow</i></b> 
-                                @elseif($item->warehouse->color == 2)
-                                    <b style="color : Violet"><i>Violet</i></b> 
-                                @elseif($item->warehouse->color == 3)
-                                    <b style="color : Green"><i>Green</i></b> 
-                                @elseif($item->warehouse->color == 4)
-                                    <b style="color : Black"><i>Black</i></b> 
-                                @elseif($item->warehouse->color == 5)
-                                    <b style="color : Gray"><i>White</i></b> 
-                                @elseif($item->warehouse->color == 6)
-                                    <b style="color : Other"><i>Other</i></b>   
-                                @elseif($item->warehouse->color == 7)
-                                    <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                @endif -
-                                @if ($item->warehouse->memory== 0)
-                                    <b style="color : #336699"><i>16GB</i></b> 
-                                @elseif($item->warehouse->memory== 1)
-                                    <b style="color : gold"><i>32GB</i></b> 
-                                @elseif($item->warehouse->memory== 2)
-                                    <b style="color : Violet"><i>64GB</i></b> 
-                                @elseif($item->warehouse->memory== 3)
-                                    <b style="color : Green"><i>128GB</i></b> 
-                                @elseif($item->warehouse->memory== 4)
-                                    <b style="color : Black"><i>256GB</i></b> 
-                                @elseif($item->warehouse->memory== 5)
-                                    <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                @endif </a></h5>
+                                {{ $item->productType->name }}</b> -
+                                <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">                                                                        {{$colors[(int)$item->warehouse->color]['name'] ?? ""}}
+                                </b> -
+                                <b class="mx-1">
+                                    {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                </b>
+                                </a></h5>
                             <div class="mb-2">
                                 <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
                             </div>
-                            <div class="mb-3">
-                                <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                    <div class="text-warning mr-2">
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="far fa-star text-muted"></small>
-                                    </div>
-                                    <span class="text-secondary">(40)</span>
-                                </a>
+                            <div class="mb-3 d-none d-md-block">
+								<?php
+								$point = $item->point ?? 0;
+								$result = "";
+								if(isset($point)){
+									$starFull = 0;
+									$startEmpty = 0;
+
+									if(round($point) > $point){
+										$starFull = round($point) -1;
+										$startEmpty = 5 - ($starFull + 1);
+									}else if (round($point) == $point) {
+										$starFull = round($point);
+										$startEmpty = 5 - $starFull;
+									}else if(round($point) < $point){
+										$starFull = round($point);
+										$startEmpty = 5 - ($starFull + 1);
+									}
+
+									$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+									!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+									$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+								}
+								?>
+                                @if(isset($point))
+                                    @if($item->point)
+                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                            <div class="text-warning mr-2">
+                                                {!! $result !!}
+                                            </div>
+                                            <span class="text-secondary">{{$point}}</span>
+                                        </a>
+                                    @else
+                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                            {!! $result !!}
+                                        </div>
+                                    @endif
+
+                                @endif
                             </div>
                             <ul class="font-size-12 p-0 text-gray-110 mb-4">
                                 <li class="line-clamp-1 mb-1 list-bullet">{{ $item->productType->description }}</li>
@@ -130,16 +153,19 @@
                             <div class="flex-center-between mb-1">
                                 @if ($item->discount > 0)
                                 <div class="prodcut-price d-flex align-items-center position-relative">
-                                    <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
-                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price)}}.VNĐ</del>
+                                    <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($item->price)}}</del>
                                 </div>
                                 @else
                                 <div class="prodcut-price">
-                                    <div class="text-gray-100"><b>{{number_format($item->price)}}.VNĐ</b></div>
+                                    <div class="text-gray-100"><b>${{number_format($item->price)}}</b></div>
                                 </div>
                                 @endif
-                                <div class="d-none d-xl-block prodcut-add-cart">
-                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
+                                <div class="prodcut-add-cart">
+                                    <a onclick="addCart({{$item->id_product}})" href="javascript:"
+                                       class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -167,37 +193,12 @@
                                 <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-20 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h3 class="font-size-22 font-weight-normal text-lh-28 ">
-                                        <b>{{ $item->productType->name }}</b> - 
-                                        @if ($item->warehouse->color == 0)
-                                            <b style="color : red"><i>Red</i></b> memory
-                                        @elseif($item->warehouse->color == 1)
-                                            <b style="color : gold"><i>Yellow</i></b> 
-                                        @elseif($item->warehouse->color == 2)
-                                            <b style="color : Violet"><i>Violet</i></b> 
-                                        @elseif($item->warehouse->color == 3)
-                                            <b style="color : Green"><i>Green</i></b> 
-                                        @elseif($item->warehouse->color == 4)
-                                            <b style="color : Black"><i>Black</i></b> 
-                                        @elseif($item->warehouse->color == 5)
-                                            <b style="color : Gray"><i>White</i></b> 
-                                        @elseif($item->warehouse->color == 6)
-                                            <b style="color : Other"><i>Other</i></b>   
-                                        @elseif($item->warehouse->color == 7)
-                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                        @endif -
-                                        @if ($item->warehouse->memory== 0)
-                                            <b style="color : #336699"><i>16GB</i></b> 
-                                        @elseif($item->warehouse->memory== 1)
-                                            <b style="color : gold"><i>32GB</i></b> 
-                                        @elseif($item->warehouse->memory== 2)
-                                            <b style="color : Violet"><i>64GB</i></b> 
-                                        @elseif($item->warehouse->memory== 3)
-                                            <b style="color : Green"><i>128GB</i></b> 
-                                        @elseif($item->warehouse->memory== 4)
-                                            <b style="color : Black"><i>256GB</i></b> 
-                                        @elseif($item->warehouse->memory== 5)
-                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                        @endif 
+                                        <b>{{ $item->productType->name }}</b> -
+                                        <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">                                                                        {{$colors[(int)$item->warehouse->color]['name'] ?? ""}}
+                                        </b> -
+                                        <b class="mx-1">
+                                            {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                        </b>
                                     </h3>
                                     @if ($item->discount > 0)
                                     <div class="d-flex align-items-center flex-column justify-content-center bg-primary rounded-pill height-60 width-60 text-lh-1">
@@ -209,23 +210,51 @@
                                 <h5 class="mb-2 product-item__title"><a href="../shop/single-product-fullwidth.html" class="font-size-15 text-blue font-weight-bold">{{ $item->productType->description }}</a></h5>
                                 <div class="prodcut-price mb-2 d-md-none">
                                     @if ($item->discount > 0)
-                                        <div class="text-gray-100 font-size-15"><b><del>{{number_format($item->price)}}.VNĐ</del></b></div>
-                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : {{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></div>
+                                        <div class="text-gray-100 font-size-15"><b><del>${{number_format($item->price)}}</del></b></div>
+                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : ${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></div>
                                     @else
-                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : {{number_format($item->price)}}.VNĐ</b></div>
+                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : ${{number_format($item->price)}}</b></div>
                                     @endif
                                 </div>
                                 <div class="mb-3 d-none d-md-block">
-                                    <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                        <div class="text-warning mr-2">
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="far fa-star text-muted"></small>
-                                        </div>
-                                        <span class="text-secondary">(40)</span>
-                                    </a>
+									<?php
+									$point = $item->point ?? 0;
+									$result = "";
+									if(isset($point)){
+										$starFull = 0;
+										$startEmpty = 0;
+
+										if(round($point) > $point){
+											$starFull = round($point) -1;
+											$startEmpty = 5 - ($starFull + 1);
+										}else if (round($point) == $point) {
+											$starFull = round($point);
+											$startEmpty = 5 - $starFull;
+										}else if(round($point) < $point){
+											$starFull = round($point);
+											$startEmpty = 5 - ($starFull + 1);
+										}
+
+										$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+										!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+										$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+									}
+									?>
+                                    @if(isset($point))
+                                        @if($item->point)
+                                            <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                                <div class="text-warning mr-2">
+                                                    {!! $result !!}
+                                                </div>
+                                                <span class="text-secondary">{{$point}}</span>
+                                            </a>
+                                        @else
+                                            <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                                {!! $result !!}
+                                            </div>
+                                        @endif
+
+                                    @endif
                                 </div>
                                 <ul class="font-size-15 p-0 text-gray-110 mb-4 d-none d-md-block">
                                     <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box</b></li>
@@ -238,17 +267,18 @@
                                 <div class="prodcut-price mb-2">
                                     @if ($item->discount > 0)
                                     <div class="d-flex align-items-center justify-content-center mb-3">
-                                        <del class="font-size-18 mr-2 text-gray-2">{{number_format($item->price)}}.VNĐ</del>
-                                        <ins class="font-size-30 text-red text-decoration-none">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</ins>
+                                        <del class="font-size-18 mr-2 text-gray-2">${{number_format($item->price)}}</del>
+                                        <ins class="font-size-30 text-red text-decoration-none">${{number_format($item->price - ($item->price*($item->discount/100)))}}</ins>
                                     </div>
                                     @else
                                     <div class="d-flex align-items-center justify-content-center mb-3">
-                                        <ins class="font-size-30 text-black text-decoration-none">{{number_format($item->price)}}.VNĐ</ins>
+                                        <ins class="font-size-30 text-black text-decoration-none">${{number_format($item->price)}}</ins>
                                     </div>
                                     @endif
                                 </div>
+                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
                                 <div class="prodcut-add-cart">
-                                    <a href="../shop/single-product-fullwidth.html" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add to cart</a>
+                                    <a onclick="addCart({{$item->id_product}})" href="javascript:" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -274,43 +304,22 @@
                         <div class="product-item__body col-6 col-md-7">
                             <div class="pr-lg-10">
                                 <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
-                                <h5 class="mb-2 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold"><b>{{ $item->productType->name }}</b> - 
-                                    @if ($item->warehouse->color == 0)
-                                        <b style="color : red"><i>Red</i></b> memory
-                                    @elseif($item->warehouse->color == 1)
-                                        <b style="color : gold"><i>Yellow</i></b> 
-                                    @elseif($item->warehouse->color == 2)
-                                        <b style="color : Violet"><i>Violet</i></b> 
-                                    @elseif($item->warehouse->color == 3)
-                                        <b style="color : Green"><i>Green</i></b> 
-                                    @elseif($item->warehouse->color == 4)
-                                        <b style="color : Black"><i>Black</i></b> 
-                                    @elseif($item->warehouse->color == 5)
-                                        <b style="color : Gray"><i>White</i></b> 
-                                    @elseif($item->warehouse->color == 6)
-                                        <b style="color : Other"><i>Other</i></b>   
-                                    @elseif($item->warehouse->color == 7)
-                                        <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                    @endif -
-                                    @if ($item->warehouse->memory== 0)
-                                        <b style="color : #336699"><i>16GB</i></b> 
-                                    @elseif($item->warehouse->memory== 1)
-                                        <b style="color : gold"><i>32GB</i></b> 
-                                    @elseif($item->warehouse->memory== 2)
-                                        <b style="color : Violet"><i>64GB</i></b> 
-                                    @elseif($item->warehouse->memory== 3)
-                                        <b style="color : Green"><i>128GB</i></b> 
-                                    @elseif($item->warehouse->memory== 4)
-                                        <b style="color : Black"><i>256GB</i></b> 
-                                    @elseif($item->warehouse->memory== 5)
-                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                    @endif </a></h5>
+                                <h5 class="mb-2 product-item__title">
+                                    <a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold"><b>{{ $item->productType->name }}</b> -
+                                        <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1"
+                                        >
+                                            {{$colors[(int)$item->warehouse->color]['name'] ?? ""}}
+                                        </b> -
+                                        <b class="mx-1">
+                                            {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                        </b>
+                                    </a></h5>
                                 <div class="prodcut-price d-md-none">
                                     @if ($item->discount > 0)
-                                        <div class="text-gray-100 font-size-15"><b><del>{{number_format($item->price)}}.VNĐ</del></b></div>
-                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : {{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></div>
+                                        <div class="text-gray-100 font-size-15"><b><del>{{number_format($item->price)}}</del></b></div>
+                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : ${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></div>
                                     @else
-                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : {{number_format($item->price)}}.VNĐ</b></div>
+                                        <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : ${{number_format($item->price)}}</b></div>
                                     @endif
                                 </div>
                                 <ul class="font-size-12 p-0 text-gray-110 mb-4 d-none d-md-block">
@@ -319,16 +328,44 @@
                                     <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
                                 </ul>
                                 <div class="mb-3 d-none d-md-block">
-                                    <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                        <div class="text-warning mr-2">
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="far fa-star text-muted"></small>
-                                        </div>
-                                        <span class="text-secondary">(40)</span>
-                                    </a>
+									<?php
+									$point = $item->point ?? 0;
+									$result = "";
+									if(isset($point)){
+										$starFull = 0;
+										$startEmpty = 0;
+
+										if(round($point) > $point){
+											$starFull = round($point) -1;
+											$startEmpty = 5 - ($starFull + 1);
+										}else if (round($point) == $point) {
+											$starFull = round($point);
+											$startEmpty = 5 - $starFull;
+										}else if(round($point) < $point){
+											$starFull = round($point);
+											$startEmpty = 5 - ($starFull + 1);
+										}
+
+										$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+										!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+										$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+									}
+									?>
+                                    @if(isset($point))
+                                        @if($item->point)
+                                            <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                                <div class="text-warning mr-2">
+                                                    {!! $result !!}
+                                                </div>
+                                                <span class="text-secondary">{{$point}}</span>
+                                            </a>
+                                        @else
+                                            <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                                {!! $result !!}
+                                            </div>
+                                        @endif
+
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -337,17 +374,18 @@
                                 <div class="prodcut-price">
                                     @if ($item->discount > 0)
                                     <div class="d-flex align-items-center justify-content-center mb-3">
-                                        <del class="font-size-15 mr-2 text-gray-2">{{number_format($item->price)}}.VNĐ</del>
-                                        <ins class="font-size-25 text-red text-decoration-none">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</ins>
+                                        <del class="font-size-15 mr-2 text-gray-2">${{number_format($item->price)}}</del>
+                                        <ins class="font-size-25 text-red text-decoration-none">${{number_format($item->price - ($item->price*($item->discount/100)))}}</ins>
                                     </div>
                                     @else
                                     <div class="d-flex align-items-center justify-content-center mb-3">
-                                        <ins class="font-size-25 text-black text-decoration-none">{{number_format($item->price)}}.VNĐ</ins>
+                                        <ins class="font-size-25 text-black text-decoration-none">${{number_format($item->price)}}</ins>
                                     </div>
                                     @endif
                                 </div>
+                                <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
                                 <div class="prodcut-add-cart">
-                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                    <a onclick="addCart({{$item->id_product}})" href="javascript:" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -357,4 +395,4 @@
             @endforeach
         @endif
     </ul>
-</div>    
+</div>

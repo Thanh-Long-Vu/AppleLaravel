@@ -42,7 +42,7 @@
                                             @if(!empty( $item->user_id))
                                             <tr>
                                                 <td>{{$item->id_transaction}}</td>
-                                                <td>{{$item->user->name}}</td>
+                                                <td>{{$item->user->name ?? ""}}</td>
                                                 <td>{{$item->note}}</td>
                                                 <td>
                                                     @if($item->method_receive == 0)
@@ -53,8 +53,8 @@
                                                     Trả góp qua ngân hàng
                                                     @endif
                                                 </td>
-                                                <td>{{$item->total_price}}</td>
-                                                <td>{{$item->payment_method->name}}</td>
+                                                <td>{{$item->total_price ?? ""}}</td>
+                                                <td>{{$item->payment_method->name ?? ""}}</td>
                                                 <td>
                                                 @if ($item->status == 1 || $item->status == 0)
                                                     <input type="checkbox" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
@@ -69,10 +69,10 @@
                                                     <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
                                                 </td>
                                             </tr>
-                                            @elseif(!empty($item->guest_id))
+                                            @elseif(empty($item->user_id))
                                             <tr>
                                                 <td>{{$item->id_transaction}}</td>
-                                                <td>{{$item->guest->name}}</td>
+                                                <td>{{$item->user->name ?? ""}}</td>
                                                 <td>{{$item->note}}</td>
                                                 <td>
                                                     @if($item->method_receive == 0)
@@ -165,7 +165,7 @@
                         'status': status,
                         'id_transaction': id_transaction
                     },
-                    success: function(data) {         
+                    success: function(data) {
                         toastr.options.closeButton = 1;
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;

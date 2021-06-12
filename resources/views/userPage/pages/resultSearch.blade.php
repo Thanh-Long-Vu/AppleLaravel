@@ -1,6 +1,6 @@
 @extends('userPage.index')
 @section('title')
-    Result Search 
+    Result Search
 @endsection
 @section('script_header')
     <link rel="stylesheet" href="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
@@ -94,13 +94,12 @@
                                 <select id="filter"class="js-select selectpicker dropdown-select max-width-200 max-width-160-sm right-dropdown-0 px-2 px-xl-0"
                                     data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
                                     <option value="0" selected>Default sorting</option>
-                                    {{-- <option value="1">Sort by average rating</option> --}}
                                     <option value="1">Sort by latest</option>
                                     <option value="2">Sort by price: low to high</option>
                                     <option value="3">Sort by price: high to low</option>
                                 </select>
-                                <!-- End Select -->                            
-                            <input type="hidden" name="productType_id" id="productType_id" value="{{$productType->first()->id_product_type}}">
+                                <!-- End Select -->
+                            <input type="hidden" name="productType_id" id="productType_id" value="{{$productType->id_product_type}}">
                             <input type="button" class="btn px-4 btn-primary-dark-w py-2 rounded-lg" value="Filter" id="filter_search">
 
                             </form>
@@ -123,383 +122,420 @@
                     </nav>
                 </div>
                 <!-- Tab Content -->
-                @if (!isset($product) && isset($productType))
+                @if (isset($product) && isset($productType))
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade pt-2" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups">
-                        <ul class="row list-unstyled products-group no-gutters">
-                            @if (!empty($productType))
-                                @foreach ($productType->first()->products as $item)
-                                <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
-                                    <div class="product-item__outer h-100">
-                                        <div class="product-item__inner px-xl-4 p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
-                                                <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="text-blue font-weight-bold"><b>
-                                                    {{ $item->productType->name }}</b> - 
-                                                    @if ($item->warehouse->color == 0)
-                                                        <b style="color : red"><i>Red</i></b> memory
-                                                    @elseif($item->warehouse->color == 1)
-                                                        <b style="color : gold"><i>Yellow</i></b> 
-                                                    @elseif($item->warehouse->color == 2)
-                                                        <b style="color : Violet"><i>Violet</i></b> 
-                                                    @elseif($item->warehouse->color == 3)
-                                                        <b style="color : Green"><i>Green</i></b> 
-                                                    @elseif($item->warehouse->color == 4)
-                                                        <b style="color : Black"><i>Black</i></b> 
-                                                    @elseif($item->warehouse->color == 5)
-                                                        <b style="color : Gray"><i>White</i></b> 
-                                                    @elseif($item->warehouse->color == 6)
-                                                        <b style="color : Other"><i>Other</i></b>   
-                                                    @elseif($item->warehouse->color == 7)
-                                                        <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                    @endif -
-                                                    @if ($item->warehouse->memory== 0)
-                                                        <b style="color : #336699"><i>16GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 1)
-                                                        <b style="color : gold"><i>32GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 2)
-                                                        <b style="color : Violet"><i>64GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 3)
-                                                        <b style="color : Green"><i>128GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 4)
-                                                        <b style="color : Black"><i>256GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 5)
-                                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                    @endif </a></h5>
-                                                <div class="mb-2">
-                                                    <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
-                                                </div>
-                                                <div class="flex-center-between mb-1">
-                                                    @if ($item->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price)}}.VNĐ</del>
-                                                    </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>{{number_format($item->price)}}.VNĐ</b></div>
-                                                    </div>
-                                                    @endif
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade pt-2 " id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab" data-target-group="groups">
-                        <ul class="row list-unstyled products-group no-gutters">
-                            @if(!empty($productType))
-                                @foreach ($productType->first()->products as $item)
-                                <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
-                                    <div class="product-item__outer h-100">
-                                        <div class="product-item__inner px-xl-4 p-3">
-                                            <div class="product-item__body pb-xl-2">
-                                                <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
-                                                <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="text-blue font-weight-bold"><b>
-                                                    {{ $item->productType->name }}</b> - 
-                                                    @if ($item->warehouse->color == 0)
-                                                        <b style="color : red"><i>Red</i></b> memory
-                                                    @elseif($item->warehouse->color == 1)
-                                                        <b style="color : gold"><i>Yellow</i></b> 
-                                                    @elseif($item->warehouse->color == 2)
-                                                        <b style="color : Violet"><i>Violet</i></b> 
-                                                    @elseif($item->warehouse->color == 3)
-                                                        <b style="color : Green"><i>Green</i></b> 
-                                                    @elseif($item->warehouse->color == 4)
-                                                        <b style="color : Black"><i>Black</i></b> 
-                                                    @elseif($item->warehouse->color == 5)
-                                                        <b style="color : Gray"><i>White</i></b> 
-                                                    @elseif($item->warehouse->color == 6)
-                                                        <b style="color : Other"><i>Other</i></b>   
-                                                    @elseif($item->warehouse->color == 7)
-                                                        <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                    @endif -
-                                                    @if ($item->warehouse->memory== 0)
-                                                        <b style="color : #336699"><i>16GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 1)
-                                                        <b style="color : gold"><i>32GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 2)
-                                                        <b style="color : Violet"><i>64GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 3)
-                                                        <b style="color : Green"><i>128GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 4)
-                                                        <b style="color : Black"><i>256GB</i></b> 
-                                                    @elseif($item->warehouse->memory== 5)
-                                                        <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                    @endif </a></h5>
-                                                <div class="mb-2">
-                                                    <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                                        <div class="text-warning mr-2">
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="fas fa-star"></small>
-                                                            <small class="far fa-star text-muted"></small>
+                    @if(strlen($product) && !empty($product))
+                        <div class="tab-pane fade pt-2" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups">
+                            <ul class="row list-unstyled products-group no-gutters">
+                                @if (!empty($product))
+                                    @foreach ($product as $item)
+                                        <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
+                                            <div class="product-item__outer h-100">
+                                                <div class="product-item__inner px-xl-4 p-3">
+                                                    <div class="product-item__body pb-xl-2">
+                                                        <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
+                                                        <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="text-blue font-weight-bold"><b>
+                                                                {{ $item->productType->name }}</b> -
+                                                                <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">{{$colors[(int)$item->warehouse->color]['name'] ?? "Grey"}}
+                                                                </b> -
+                                                                <b class="mx-1">
+                                                                    {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                                                </b>
+                                                            </a>
+                                                        </h5>
+                                                        <div class="mb-3 d-none d-md-block">
+															<?php
+															$point = $item->point ?? 0;
+															$result = "";
+															if(isset($point)){
+																$starFull = 0;
+																$startEmpty = 0;
+
+																if(round($point) > $point){
+																	$starFull = round($point) -1;
+																	$startEmpty = 5 - ($starFull + 1);
+																}else if (round($point) == $point) {
+																	$starFull = round($point);
+																	$startEmpty = 5 - $starFull;
+																}else if(round($point) < $point){
+																	$starFull = round($point);
+																	$startEmpty = 5 - ($starFull + 1);
+																}
+
+																$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+																!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+																$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+															}
+															?>
+                                                            @if(isset($point))
+                                                                @if($item->point)
+                                                                    <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                                                        <div class="text-warning mr-2">
+                                                                            {!! $result !!}
+                                                                        </div>
+                                                                        <span class="text-secondary">{{$point}}</span>
+                                                                    </a>
+                                                                @else
+                                                                    <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                                                        {!! $result !!}
+                                                                    </div>
+                                                                @endif
+
+                                                            @endif
                                                         </div>
-                                                        <span class="text-secondary">(40)</span>
-                                                    </a>
-                                                </div>
-                                                <ul class="font-size-12 p-0 text-gray-110 mb-4">
-                                                    <li class="line-clamp-1 mb-1 list-bullet">{{ $item->productType->description }}</li>
-                                                    <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
-                                                    <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
-                                                </ul>
-                                                <div class="text-gray-20 mb-2 font-size-12 text-blue font-weight-bold"><b>SKU: {{$item->id_product}}</b></div>
-                                                <div class="flex-center-between mb-1">
-                                                    @if ($item->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">{{number_format($item->price)}}.VNĐ</del>
-                                                    </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>{{number_format($item->price)}}.VNĐ</b></div>
-                                                    </div>
-                                                    @endif
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade pt-2 show active" id="pills-three-example1" role="tabpanel" aria-labelledby="pills-three-example1-tab" data-target-group="groups">
-                        <ul class="d-block list-unstyled products-group prodcut-list-view">
-                            @if (!empty($productType))
-                                @foreach ($productType->first()->products as $item)
-                                <li class="product-item remove-divider">
-                                    <div class="product-item__outer w-100">
-                                        <div class="product-item__inner remove-prodcut-hover py-4 row">
-                                            <div class="product-item__header col-6 col-md-4">
-                                                <div class="mb-2">
-                                                    <a href="{{ route('products.show', ['product' => $item->id_product ]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__body col-6 col-md-5">
-                                                <div class="pr-lg-10">
-                                                    <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-20 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
-                                                    <div class="d-flex justify-content-between align-items-center">
-                                                        <h3 class="font-size-22 font-weight-normal text-lh-28 ">
-                                                            <b>{{ $item->productType->name }}</b> - 
-                                                            @if ($item->warehouse->color == 0)
-                                                                <b style="color : red"><i>Red</i></b> memory
-                                                            @elseif($item->warehouse->color == 1)
-                                                                <b style="color : gold"><i>Yellow</i></b> 
-                                                            @elseif($item->warehouse->color == 2)
-                                                                <b style="color : Violet"><i>Violet</i></b> 
-                                                            @elseif($item->warehouse->color == 3)
-                                                                <b style="color : Green"><i>Green</i></b> 
-                                                            @elseif($item->warehouse->color == 4)
-                                                                <b style="color : Black"><i>Black</i></b> 
-                                                            @elseif($item->warehouse->color == 5)
-                                                                <b style="color : Gray"><i>White</i></b> 
-                                                            @elseif($item->warehouse->color == 6)
-                                                                <b style="color : Other"><i>Other</i></b>   
-                                                            @elseif($item->warehouse->color == 7)
-                                                                <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                            @endif -
-                                                            @if ($item->warehouse->memory== 0)
-                                                                <b style="color : #336699"><i>16GB</i></b> 
-                                                            @elseif($item->warehouse->memory== 1)
-                                                                <b style="color : gold"><i>32GB</i></b> 
-                                                            @elseif($item->warehouse->memory== 2)
-                                                                <b style="color : Violet"><i>64GB</i></b> 
-                                                            @elseif($item->warehouse->memory== 3)
-                                                                <b style="color : Green"><i>128GB</i></b> 
-                                                            @elseif($item->warehouse->memory== 4)
-                                                                <b style="color : Black"><i>256GB</i></b> 
-                                                            @elseif($item->warehouse->memory== 5)
-                                                                <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                            @endif 
-                                                        </h3>
-                                                        @if ($item->discount > 0)
-                                                        <div class="d-flex align-items-center flex-column justify-content-center bg-primary rounded-pill height-60 width-60 text-lh-1">
-                                                            <span class="font-size-12"><b>Sales</b></span>
-                                                            <div class="font-size-20 font-weight-bold">{{$item->discount}}%</div>
+                                                        <div class="mb-2">
+                                                            <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
                                                         </div>
-                                                        @endif
-                                                    </div>
-                                                    <h5 class="mb-2 product-item__title"><a href="../shop/single-product-fullwidth.html" class="font-size-15 text-blue font-weight-bold">{{ $item->productType->description }}</a></h5>
-                                                    <div class="prodcut-price mb-2 d-md-none">
-                                                        @if ($item->discount > 0)
-                                                            <div class="text-gray-100 font-size-15"><b><del>{{number_format($item->price)}}.VNĐ</del></b></div>
-                                                            <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : {{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></div>
-                                                        @else
-                                                            <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : {{number_format($item->price)}}.VNĐ</b></div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="mb-3 d-none d-md-block">
-                                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                                            <div class="text-warning mr-2">
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="far fa-star text-muted"></small>
+                                                        <div class="flex-center-between mb-1">
+                                                            @if ($item->discount > 0)
+                                                                <div class="prodcut-price d-flex align-items-center position-relative">
+                                                                    <ins class="font-size-20 text-red text-decoration-none"><b class="font-size-14">Sell: </b><b>${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">Original :{{number_format($item->price)}}</del>
+                                                                </div>
+                                                            @else
+                                                                <div class="prodcut-price">
+                                                                    <div class="text-gray-100"><b>${{number_format($item->price)}}</b></div>
+                                                                </div>
+                                                            @endif
+                                                            <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
+                                                            <div class="prodcut-add-cart">
+                                                                <a onclick="addCart({{$item->id_product}})" href="javascript:"
+                                                                   class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i>
+                                                                </a>
                                                             </div>
-                                                            <span class="text-secondary">(40)</span>
-                                                        </a>
-                                                    </div>
-                                                    <ul class="font-size-15 p-0 text-gray-110 mb-4 d-none d-md-block">
-                                                        <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box</b></li>
-                                                        <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__footer col-md-3 d-md-block">
-                                                <div class="mb-3">
-                                                    <div class="prodcut-price mb-2">
-                                                        @if ($item->discount > 0)
-                                                        <div class="d-flex align-items-center justify-content-center mb-3">
-                                                            <del class="font-size-18 mr-2 text-gray-2">{{number_format($item->price)}}.VNĐ</del>
-                                                            <ins class="font-size-30 text-red text-decoration-none">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</ins>
                                                         </div>
-                                                        @else
-                                                        <div class="d-flex align-items-center justify-content-center mb-3">
-                                                            <ins class="font-size-30 text-black text-decoration-none">{{number_format($item->price)}}.VNĐ</ins>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade pt-2 " id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab" data-target-group="groups">
+                            <ul class="row list-unstyled products-group no-gutters">
+                                @foreach ($product as $item)
+                                        <li class="col-6 col-md-3 col-wd-2gdot4 product-item">
+                                            <div class="product-item__outer h-100">
+                                                <div class="product-item__inner px-xl-4 p-3">
+                                                    <div class="product-item__body pb-xl-2">
+                                                        <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
+                                                        <h5 class="mb-1 product-item__title"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="text-blue font-weight-bold"><b>
+                                                                    {{ $item->productType->name }}</b> -
+                                                                <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">                                                                        {{$colors[(int)$item->warehouse->color]['name'] ?? ""}}
+                                                                </b> -
+                                                                <b class="mx-1">
+                                                                    {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                                                </b>
+                                                            </a></h5>
+                                                        <div class="mb-2">
+                                                            <a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
                                                         </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade pt-2 " id="pills-four-example1" role="tabpanel" aria-labelledby="pills-four-example1-tab" data-target-group="groups">
-                        <ul class="d-block list-unstyled products-group prodcut-list-view-small">
-                            @if (!empty($productType))
-                                @foreach ($productType->first()->products as $item)
-                                <li class="product-item remove-divider">
-                                    <div class="product-item__outer w-100">
-                                        <div class="product-item__inner remove-prodcut-hover py-4 row">
-                                            <div class="product-item__header col-6 col-md-2">
-                                                <div class="mb-2">
-                                                    <a href="{{ route('products.show', ['product' => $item->id_product ]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
-                                                </div>
-                                            </div>
-                                            <div class="product-item__body col-6 col-md-7">
-                                                <div class="pr-lg-10">
-                                                    <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
-                                                    <h5 class="mb-2 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold"><b>{{ $item->productType->name }}</b> - 
-                                                        @if ($item->warehouse->color == 0)
-                                                            <b style="color : red"><i>Red</i></b> memory
-                                                        @elseif($item->warehouse->color == 1)
-                                                            <b style="color : gold"><i>Yellow</i></b> 
-                                                        @elseif($item->warehouse->color == 2)
-                                                            <b style="color : Violet"><i>Violet</i></b> 
-                                                        @elseif($item->warehouse->color == 3)
-                                                            <b style="color : Green"><i>Green</i></b> 
-                                                        @elseif($item->warehouse->color == 4)
-                                                            <b style="color : Black"><i>Black</i></b> 
-                                                        @elseif($item->warehouse->color == 5)
-                                                            <b style="color : Gray"><i>White</i></b> 
-                                                        @elseif($item->warehouse->color == 6)
-                                                            <b style="color : Other"><i>Other</i></b>   
-                                                        @elseif($item->warehouse->color == 7)
-                                                            <b style="color : #336699"><i>Patific</i></b>                                                                  
-                                                        @endif -
-                                                        @if ($item->warehouse->memory== 0)
-                                                            <b style="color : #336699"><i>16GB</i></b> 
-                                                        @elseif($item->warehouse->memory== 1)
-                                                            <b style="color : gold"><i>32GB</i></b> 
-                                                        @elseif($item->warehouse->memory== 2)
-                                                            <b style="color : Violet"><i>64GB</i></b> 
-                                                        @elseif($item->warehouse->memory== 3)
-                                                            <b style="color : Green"><i>128GB</i></b> 
-                                                        @elseif($item->warehouse->memory== 4)
-                                                            <b style="color : Black"><i>256GB</i></b> 
-                                                        @elseif($item->warehouse->memory== 5)
-                                                            <b style="color : Gray"><i>512GB</i></b>                                                                 
-                                                        @endif </a></h5>
-                                                    <div class="prodcut-price d-md-none">
-                                                        @if ($item->discount > 0)
-                                                            <div class="text-gray-100 font-size-15"><b><del>{{number_format($item->price)}}.VNĐ</del></b></div>
-                                                            <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : {{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</b></div>
-                                                        @else
-                                                            <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : {{number_format($item->price)}}.VNĐ</b></div>
-                                                        @endif
-                                                    </div>
-                                                    <ul class="font-size-12 p-0 text-gray-110 mb-4 d-none d-md-block">
-                                                        <li class="line-clamp-1 mb-1 list-bullet">Description :{{ $item->productType->description }}</li>
-                                                        <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box</b></li>
-                                                        <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
-                                                    </ul>
-                                                    <div class="mb-3 d-none d-md-block">
-                                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
-                                                            <div class="text-warning mr-2">
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="fas fa-star"></small>
-                                                                <small class="far fa-star text-muted"></small>
+                                                        <ul class="font-size-12 p-0 text-gray-110 mb-4">
+                                                            <li class="line-clamp-1 mb-1 list-bullet">{{ $item->productType->description }}</li>
+                                                            <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
+                                                            <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
+                                                            <li class="line-clamp-1 mb-1 list-bullet">
+																<?php
+																$point = $item->point ?? 0;
+																$result = "";
+																if(isset($point)){
+																	$starFull = 0;
+																	$startEmpty = 0;
+
+																	if(round($point) > $point){
+																		$starFull = round($point) -1;
+																		$startEmpty = 5 - ($starFull + 1);
+																	}else if (round($point) == $point) {
+																		$starFull = round($point);
+																		$startEmpty = 5 - $starFull;
+																	}else if(round($point) < $point){
+																		$starFull = round($point);
+																		$startEmpty = 5 - ($starFull + 1);
+																	}
+
+																	$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+																	!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+																	$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+																}
+																?>
+                                                                @if(isset($point))
+                                                                    @if($item->point)
+                                                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                                                            <div class="text-warning mr-2">
+                                                                                {!! $result !!}
+                                                                            </div>
+                                                                            <span class="text-secondary">{{$point}}</span>
+                                                                        </a>
+                                                                    @else
+                                                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                                                            {!! $result !!}
+                                                                        </div>
+                                                                    @endif
+
+                                                                @endif
+                                                            </li>
+                                                        </ul>
+                                                        <div class="text-gray-20 mb-2 font-size-12 text-blue font-weight-bold"><b>SKU: {{$item->id_product}}</b></div>
+                                                        <div class="flex-center-between mb-1">
+                                                            @if ($item->discount > 0)
+                                                                <div class="prodcut-price d-flex align-items-center position-relative">
+                                                                    <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></ins>
+                                                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($item->price)}}</del>
+                                                                </div>
+                                                            @else
+                                                                <div class="prodcut-price">
+                                                                    <div class="text-gray-100"><b>${{number_format($item->price)}}</b></div>
+                                                                </div>
+                                                            @endif
+                                                            <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
+                                                            <div class="prodcut-add-cart">
+                                                                <a onclick="addCart({{$item->id_product}})" href="javascript:"
+                                                                   class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i>
+                                                                </a>
                                                             </div>
-                                                            <span class="text-secondary">(40)</span>
-                                                        </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="product-item__footer col-md-3 d-md-block">
-                                                <div class="mb-2 flex-center-between">
-                                                    <div class="prodcut-price">
-                                                        @if ($item->discount > 0)
-                                                        <div class="d-flex align-items-center justify-content-center mb-3">
-                                                            <del class="font-size-15 mr-2 text-gray-2">{{number_format($item->price)}}.VNĐ</del>
-                                                            <ins class="font-size-25 text-red text-decoration-none">{{number_format($item->price - ($item->price*($item->discount/100)))}}.VNĐ</ins>
+                                        </li>
+                                    @endforeach
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade pt-2 show active" id="pills-three-example1" role="tabpanel" aria-labelledby="pills-three-example1-tab" data-target-group="groups">
+                            <ul class="d-block list-unstyled products-group prodcut-list-view">
+                                @if (!empty($productType))
+                                    @foreach ($productType->products as $item)
+                                        <li class="product-item remove-divider">
+                                            <div class="product-item__outer w-100">
+                                                <div class="product-item__inner remove-prodcut-hover py-4 row">
+                                                    <div class="product-item__header col-6 col-md-4">
+                                                        <div class="mb-2">
+                                                            <a href="{{ route('products.show', ['product' => $item->id_product ]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
                                                         </div>
-                                                        @else
-                                                        <div class="d-flex align-items-center justify-content-center mb-3">
-                                                            <ins class="font-size-25 text-black text-decoration-none">{{number_format($item->price)}}.VNĐ</ins>
-                                                        </div>
-                                                        @endif
                                                     </div>
-                                                    <div class="prodcut-add-cart">
-                                                        <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                    <div class="product-item__body col-6 col-md-5">
+                                                        <div class="pr-lg-10">
+                                                            <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-20 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <h3 class="font-size-22 font-weight-normal text-lh-28 ">
+                                                                    <b>{{ $item->productType->name }}</b> -
+                                                                    <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">                                                                        {{$colors[(int)$item->warehouse->color]['name'] ?? ""}}
+                                                                    </b> -
+                                                                    <b class="mx-1">
+                                                                        {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                                                    </b>
+                                                                </h3>
+                                                                @if ($item->discount > 0)
+                                                                    <div class="d-flex align-items-center flex-column justify-content-center bg-primary rounded-pill height-60 width-60 text-lh-1">
+                                                                        <span class="font-size-12"><b>Sales</b></span>
+                                                                        <div class="font-size-20 font-weight-bold">{{$item->discount}}%</div>
+                                                                    </div>
+                                                                @endif
+                                                            </div>
+                                                            <h5 class="mb-2 product-item__title"><a href="../shop/single-product-fullwidth.html" class="font-size-15 text-blue font-weight-bold">{{ $item->productType->description }}</a></h5>
+                                                            <div class="prodcut-price mb-2 d-md-none">
+                                                                @if ($item->discount > 0)
+                                                                    <div class="text-gray-100 font-size-15"><b><del>${{number_format($item->price)}}</del></b></div>
+                                                                    <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : ${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></div>
+                                                                @else
+                                                                    <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : ${{number_format($item->price)}}</b></div>
+                                                                @endif
+                                                            </div>
+                                                            <div class="mb-3 d-none d-md-block">
+																<?php
+                                                                $point = $item->point ?? 0;
+																$result = "";
+																if(isset($point)){
+																	$starFull = 0;
+																	$startEmpty = 0;
+
+																	if(round($point) > $point){
+																		$starFull = round($point) -1;
+																		$startEmpty = 5 - ($starFull + 1);
+																	}else if (round($point) == $point) {
+																		$starFull = round($point);
+																		$startEmpty = 5 - $starFull;
+																	}else if(round($point) < $point){
+																		$starFull = round($point);
+																		$startEmpty = 5 - ($starFull + 1);
+																	}
+
+																	$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+																	!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+																	$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+																}
+																?>
+                                                                @if(isset($point))
+                                                                    @if($item->point)
+                                                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                                                            <div class="text-warning mr-2">
+                                                                                {!! $result !!}
+                                                                            </div>
+                                                                            <span class="text-secondary">{{$point}}</span>
+                                                                        </a>
+                                                                    @else
+                                                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                                                            {!! $result !!}
+                                                                        </div>
+                                                                    @endif
+
+                                                                @endif
+                                                            </div>
+                                                            <ul class="font-size-15 p-0 text-gray-110 mb-4 d-none d-md-block">
+                                                                <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box</b></li>
+                                                                <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-item__footer col-md-3 d-md-block">
+                                                        <div class="mb-3">
+                                                            <div class="prodcut-price mb-2">
+                                                                @if ($item->discount > 0)
+                                                                    <div class="d-flex align-items-center justify-content-center mb-3">
+                                                                        <del class="font-size-18 mr-2 text-gray-2">${{number_format($item->price)}}</del>
+                                                                        <ins class="font-size-30 text-red text-decoration-none">${{number_format($item->price - ($item->price*($item->discount/100)))}}</ins>
+                                                                    </div>
+                                                                @else
+                                                                    <div class="d-flex align-items-center justify-content-center mb-3">
+                                                                        <ins class="font-size-30 text-black text-decoration-none">${{number_format($item->price)}}</ins>
+                                                                    </div>
+                                                                @endif
+                                                            </div>
+                                                            <div class="prodcut-add-cart">
+                                                                <a onclick="addCart({{$item->id_product}})" href="javascript:" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add to cart</a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
+                                        </li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade pt-2 " id="pills-four-example1" role="tabpanel" aria-labelledby="pills-four-example1-tab" data-target-group="groups">
+                            <ul class="d-block list-unstyled products-group prodcut-list-view-small">
+                                @foreach ($product as $item)
+                                        <li class="product-item remove-divider">
+                                            <div class="product-item__outer w-100">
+                                                <div class="product-item__inner remove-prodcut-hover py-4 row">
+                                                    <div class="product-item__header col-6 col-md-2">
+                                                        <div class="mb-2">
+                                                            <a href="{{ route('products.show', ['product' => $item->id_product ]) }}" class="d-block text-center"><img class="img-fluid" src="../{{$item->thumbnail}}" alt="Image Description"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-item__body col-6 col-md-7">
+                                                        <div class="pr-lg-10">
+                                                            <div class="mb-2"><a href="{{ route('categories.show', ['category'=> $item->productType->category->id_category]) }}" class="font-size-12 text-gray-5">Category : {{ $item->productType->category->name }}</a></div>
+                                                            <h5 class="mb-2 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold"><b>{{ $item->productType->name }}</b> -
+                                                                    <b style="color: {{$colors[(int)$item->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">                                                                        {{$colors[(int)$item->warehouse->color]['name'] ?? ""}}
+                                                                    </b> -
+                                                                    <b class="mx-1">
+                                                                        {{$memory[(int)$item->warehouse->memory]['text'] ?? ""}}
+                                                                    </b>
+                                                                </a></h5>
+                                                            <div class="prodcut-price d-md-none">
+                                                                @if ($item->discount > 0)
+                                                                    <div class="text-gray-100 font-size-15"><b><del>${{number_format($item->price)}}</del></b></div>
+                                                                    <div class="text-gray-100 font-size-20"><b style="color: red">Price sell  : ${{number_format($item->price - ($item->price*($item->discount/100)))}}</b></div>
+                                                                @else
+                                                                    <div class="text-gray-100 font-size-20"><b style="color: red">Price sell : ${{number_format($item->price)}}</b></div>
+                                                                @endif
+                                                            </div>
+                                                            <ul class="font-size-12 p-0 text-gray-110 mb-4 d-none d-md-block">
+                                                                <li class="line-clamp-1 mb-1 list-bullet">Description :{{ $item->productType->description }}</li>
+                                                                <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box</b></li>
+                                                                <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
+                                                            </ul>
+                                                            <div class="mb-3 d-none d-md-block">
+																<?php
+																$point = $item->point ?? 0;
+																$result = "";
+																if(isset($point)){
+																	$starFull = 0;
+																	$startEmpty = 0;
+
+																	if(round($point) > $point){
+																		$starFull = round($point) -1;
+																		$startEmpty = 5 - ($starFull + 1);
+																	}else if (round($point) == $point) {
+																		$starFull = round($point);
+																		$startEmpty = 5 - $starFull;
+																	}else if(round($point) < $point){
+																		$starFull = round($point);
+																		$startEmpty = 5 - ($starFull + 1);
+																	}
+
+																	$result .= str_repeat('<small class="fas fa-star"></small>', $starFull);
+																	!($starFull + $startEmpty == 5) && $result .= '<small class="fas fa-star-half-alt"></small>';
+																	$result .= str_repeat('<small class="far fa-star text-muted"></small>', $startEmpty);
+																}
+																?>
+                                                                @if(isset($point))
+                                                                    @if($item->point)
+                                                                        <a class="d-inline-flex align-items-center small font-size-14" href="#">
+                                                                            <div class="text-warning mr-2">
+                                                                                {!! $result !!}
+                                                                            </div>
+                                                                            <span class="text-secondary">{{$point}}</span>
+                                                                        </a>
+                                                                    @else
+                                                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                                                            {!! $result !!}
+                                                                        </div>
+                                                                    @endif
+
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-item__footer col-md-3 d-md-block">
+                                                        <div class="mb-2 flex-center-between">
+                                                            <div class="prodcut-price">
+                                                                @if ($item->discount > 0)
+                                                                    <div class="d-flex align-items-center justify-content-center mb-3">
+                                                                        <del class="font-size-15 mr-2 text-gray-2">${{number_format($item->price)}}</del>
+                                                                        <ins class="font-size-25 text-red text-decoration-none">${{number_format($item->price - ($item->price*($item->discount/100)))}}</ins>
+                                                                    </div>
+                                                                @else
+                                                                    <div class="d-flex align-items-center justify-content-center mb-3">
+                                                                        <ins class="font-size-25 text-black text-decoration-none">${{number_format($item->price)}}</ins>
+                                                                    </div>
+                                                                @endif
+                                                            </div>
+                                                            <div class="prodcut-add-cart">
+                                                                <a onclick="addCart({{$item->id_product}})" href="javascript:" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add to cart</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                            </ul>
+                        </div>
+                    @else
+                        <div class="mb-5 text-center pb-3 border-bottom border-color-1">
+                            <h1 class="font-size-sl-72 font-weight-light mb-3">404!</h1>
+                            <p class="text-gray-90 font-size-20 mb-0 font-weight-light">Nothing was found at this location. Try
+                                searching, or check out the links below.</p>
+                        </div>
+                    @endif
                 </div>
                 @else
                 <div class="tab-content" id="pills-tabContent">
-                    @include('userPage/ajax/resultSearchAjax');
+                    @include('userPage/ajax/resultSearchAjax')
                 </div>
                 @endif
                 <!-- End Tab Content -->
-                <nav class="d-md-flex justify-content-between align-items-center border-top pt-3" aria-label="Page navigation example">
-                    <div class="text-center text-md-left mb-3 mb-md-0">Showing 1–25 of 56 results</div>
-                    <ul class="pagination mb-0 pagination-shop justify-content-center justify-content-md-start">
-                        <li class="page-item"><a class="page-link current" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    </ul>
+                @if(!empty($productType) && !empty($product))
+                <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
+                     aria-label="Page navigation example">
+                    {{ $product->withQueryString()->links('vendor.pagination.custom') }}
+                    <input type="hidden" name="page_on" value="{{ $product->currentPage() }}">
                 </nav>
+                @endif
                 <!-- End Shop Pagination -->
             </div>
         </div>
@@ -508,6 +544,11 @@
 <!-- ========== END MAIN CONTENT ========== -->
 @endsection
 @section('script_footer')
+<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
 
 <!-- JS Implementing Plugins -->
 <script src="assets/vendor/appear.js"></script>
@@ -646,7 +687,7 @@
             type:"get",
             url: '{{route('getOption')}}',
             data:{productType_id :productType_id,filter:filter },
-            success:function(res){       
+            success:function(res){
                 if(res.length !== 0){
                     $("#pills-tabContent").empty();
                     $("#pills-tabContent").html(res);
@@ -654,6 +695,7 @@
             }
         });
     });
-    }); 
+    });
+
 </script>
 @endsection

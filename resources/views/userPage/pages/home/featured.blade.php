@@ -36,8 +36,7 @@
                             <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
                             <div class="d-none d-xl-block prodcut-add-cart">
                             <a onclick="addCart({{$item->id_product}})" href="javascript:"
-                                class="btn-add-cart btn-primary transition-3d-hover"><i
-                                    class="ec ec-add-to-cart"></i>
+                                class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i>
                             </a>
                         </div>
                     </div>
