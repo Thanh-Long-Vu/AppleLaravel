@@ -35,25 +35,25 @@
                 <h1 class="font-size-sl-72 font-weight-light mb-3">404!</h1>
                 <p class="text-gray-90 font-size-20 mb-0 font-weight-light">Nothing was found at this location. Try
                     searching, or check out the links below.</p>
-            {{-- </div>
-            <div class="d-flex mb-6">
-                <!-- Search Jobs Form -->
-                <form class="d-block d-md-flex flex-horizontal-center w-100 w-lg-80 w-xl-50 mx-md-auto">
-                    <div class="mb-3 mb-md-0 col px-md-2 px-0">
-                        <!-- Input -->
-                        <div class="js-focus-state">
-                            <input type="text" class="form-control" placeholder="Search products…"
-                                aria-label="Search products…" aria-describedby="keywordInputAddon">
-                        </div>
-                        <!-- End Input -->
+            </div>
+        {{-- <div class="d-flex mb-6">
+            <!-- Search Jobs Form -->
+            <form class="d-block d-md-flex flex-horizontal-center w-100 w-lg-80 w-xl-50 mx-md-auto">
+                <div class="mb-3 mb-md-0 col px-md-2 px-0">
+                    <!-- Input -->
+                    <div class="js-focus-state">
+                        <input type="text" class="form-control" placeholder="Search products…"
+                            aria-label="Search products…" aria-describedby="keywordInputAddon">
                     </div>
-                    <div class="">
-                        <button type="submit" class="btn btn-block btn-primary-dark-w px-5">Search</button>
-                    </div>
-                    <!-- End Checkbox -->
-                </form>
-                <!-- End Search Jobs Form -->
-            </div> --}}
+                    <!-- End Input -->
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-block btn-primary-dark-w px-5">Search</button>
+                </div>
+                <!-- End Checkbox -->
+            </form>
+            <!-- End Search Jobs Form -->
+        </div> --}}
             <!-- End Brand Carousel -->
         </div>
     </main>
