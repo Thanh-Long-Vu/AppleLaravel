@@ -12,17 +12,22 @@ class ProductTypeController extends Controller
 {
     public function show(Request $request, ProductType $productType)
     {
-        $productTypes = ProductType::where('category_id', $productType->category_id)->get();
-        $products = $productType->products;
-        $product = Product::where([['product_type_id',1],['id_product',1]]);
+        $colors = ProductType::LIST_COLOR;
+        $memory = ProductType::MEMORY;
+        $nameProductType = $productType->name;
+        $nameCategory = $productType->category->name;
+        $idCategory = $productType->category->id_category;
+        $productTypes = ProductType::where('category_id', $productType->category_id)->orderBy('updated_at','asc')->get();
+        $products = Product::where('product_type_id',$productType->id_product_type)->orderBy('updated_at','asc')->paginate(8);
+//        dd($products);
         // $filter = $product->whereIn($product->first()->warehouse->color,1)->get();
         // dd($filter);
-        return view('userPage.pages.category.categories', compact('productTypes', 'products'));
+        return view('userPage.pages.category.categories', compact('productTypes', 'products','colors','memory','idCategory','nameCategory','nameProductType'));
     }
 public function filterProduct(Request $request)
     {
         // dd($request->all());
-        
+
         $prices = $request->prices;
         $colors = $request->colors;
         $memories = $request->memories;

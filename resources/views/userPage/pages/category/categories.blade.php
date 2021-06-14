@@ -1,6 +1,6 @@
 @extends('userPage.index')
 @section('title')
-    Product Type
+    Product
 @endsection
 @section('script_header')
 <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
@@ -22,7 +22,15 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Home</a></li>
+                            @if(isset($categoryName) && !empty($categoryName))
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{$categoryName ?? ""}}</li>
+                            @else
+                                <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">
+                                    <a href="{{route('categories.show',[$idCategory ?? 0])}}">
+                                        {{$nameCategory ?? ""}}
+                                    </a></li>
+                                <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{$nameProductType ?? ""}}</li>
+                            @endif
                         </ol>
                     </nav>
                 </div>
@@ -70,9 +78,15 @@
                                 <div class="js-slide">
                                     <a href="{{ route('productype.show', ['productType' => $productType->id_product_type ?? 0])}}"
                                         class="d-block text-center bg-on-hover width-122 mx-auto">
+                                        @if($productType->category->id_category <= 2)
                                         <div class="bg pt-4 rounded-circle-top width-122 height-75">
-                                            <img class="img-fluid mx-auto" src="../{{$productType->thumbnail ?? ""}}" alt="Image Description">
+                                            <img class="img-fluid mx-auto" src="../{{$productType->thumbnail ?? ""}}" alt="Image Product Type">
                                         </div>
+                                        @else
+                                        <div class="bg pt-4 rounded-circle-top width-122 height-75" style="background-color: #fed700 !important">
+                                            <img class="img-fluid mx-auto" src="../{{$productType->thumbnail ?? ""}}" alt="Image Product Type">
+                                        </div>
+                                        @endif
                                         <div class="bg-white px-2 pt-2 width-122">
                                             <h6 class="font-weight-semi-bold font-size-14 text-gray-90 mb-0 text-lh-1dot2">
                                                 {{ $productType->name ?? "" }}
@@ -311,35 +325,33 @@
                             <!-- End Account Sidebar Toggle Button -->
                         </div>
                         <div class="d-flex">
-                            <form method="get">
-                                <!-- Select -->
-                                <select class="js-select selectpicker dropdown-select max-width-200 max-width-160-sm right-dropdown-0 px-2 px-xl-0"
-                                    data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
-                                    <option value="one" selected>Default sorting</option>
-                                    <option value="two">Sort by popularity</option>
-                                    <option value="three">Sort by average rating</option>
-                                    <option value="four">Sort by latest</option>
-                                    <option value="five">Sort by price: low to high</option>
-                                    <option value="six">Sort by price: high to low</option>
-                                </select>
-                                <!-- End Select -->
-                            </form>
-                            <form method="POST" class="ml-2 d-none d-xl-block">
-                                <!-- Select -->
-                                <select class="js-select selectpicker dropdown-select max-width-120"
-                                    data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
-                                    <option value="one" selected>Show 20</option>
-                                    <option value="two">Show 40</option>
-                                    <option value="three">Show All</option>
-                                </select>
-                                <!-- End Select -->
-                            </form>
+{{--                            <form method="POST" class="ml-2 d-none d-xl-block">--}}
+{{--                                <!-- Select -->--}}
+{{--                                <select class="js-select selectpicker dropdown-select max-width-120"--}}
+{{--                                    data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">--}}
+{{--                                    <option value="one" selected>Show 20</option>--}}
+{{--                                    <option value="two">Show 40</option>--}}
+{{--                                    <option value="three">Show All</option>--}}
+{{--                                </select>--}}
+{{--                                <!-- End Select -->--}}
+{{--                            </form>--}}
                         </div>
                         <nav class="px-3 flex-horizontal-center text-gray-20 d-none d-xl-flex">
-                            <form method="post" class="min-width-50 mr-1">
-                                <input size="2" min="1" max="3" step="1" type="number" class="form-control text-center px-2 height-35" value="1">
-                            </form> of 3
-                            <a class="text-gray-30 font-size-20 ml-2" href="#">→</a>
+
+                            <form method="get">
+                                <!-- Select -->
+                                <select id="filter-all-product" class="js-select selectpicker dropdown-select max-width-200 max-width-160-sm right-dropdown-0 px-2 px-xl-0"
+                                    data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
+                                    <option value="0" selected>Default sorting</option>
+                                    <option value="1">Sort by New Product</option>
+                                    <option value="2">Sort by average rating</option>
+                                    <option value="3">Sort by latest</option>
+                                    <option value="4">Sort by price: low to high</option>
+                                    <option value="5">Sort by price: high to low</option>
+{{--                                    <input type="hidden" name="id_category" id="id_category" value="{{$categoryId}}">--}}
+                                </select>
+                                <!-- End Select -->
+                            </form>
                         </nav>
                     </div>
                     <!-- End Shop-control-bar -->
@@ -348,7 +360,7 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade pt-2 show active" id="pills-two-example1" role="tabpanel" aria-labelledby="pills-two-example1-tab" data-target-group="groups">
                             <ul class="row list-unstyled products-group no-gutters">
-                                @if(isset($productTypes) && !empty($productTypes))
+                                @if(isset($productTypes) && !empty($productTypes) && empty($products))
                                     @foreach($productTypes as $productType)
                                         @if($productType->products->all() !== null)
                                             @foreach($productType->products->all() as $product)
@@ -356,6 +368,14 @@
                                             @endforeach
                                         @endif
                                     @endforeach
+                                @elseif(!empty($products) && isset($products) && count($products))
+                                    @if($products !== null)
+                                    @foreach($products as $product)
+                                        @include('userPage.pages.category.productItemId', compact('product'))
+                                    @endforeach
+                                    @endif
+                                 @else
+                                    Not found page
                                 @endif
                             </ul>
                         </div>
@@ -363,13 +383,17 @@
                     <!-- End Tab Content -->
                     <!-- End Shop Body -->
                     <!-- Shop Pagination -->
-                    <nav class="d-md-flex justify-content-between align-items-center border-top pt-3" aria-label="Page navigation example">
-                        <div class="text-center text-md-left mb-3 mb-md-0">Showing 1–25 of 56 results</div>
-                        <ul class="pagination mb-0 pagination-shop justify-content-center justify-content-md-start">
-                            <li class="page-item"><a class="page-link current" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        </ul>
+                    <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
+                         aria-label="Page navigation example">
+                    @if(isset($productTypes) && !empty($productTypes) && empty($products))
+                        @foreach($productTypes as $productType)
+                            @foreach($productType->products->all() as $product)
+{{--                                    {{ $product->withQueryString()->links('vendor.pagination.custom') }}--}}
+                            @endforeach
+                        @endforeach
+                    @elseif(!empty($products) && isset($products) && count($products))
+                            {{ $products->withQueryString()->links('vendor.pagination.custom') }}
+                    @endif
                     </nav>
                     <!-- End Shop Pagination -->
                 </div>
@@ -553,5 +577,31 @@
         $('input[name="color[]"]').on('change', changefuction);
         $('input[name="memory[]"]').on('change',changefuction);
     });
+        $(document).ready(function() {
+          $('#filter-all-product').change(function() {
+            var filterAllProduct = $(this).val();
+            var category = $('#id_category').val();
+            if (filterAllProduct) {
+              $.ajax({
+                type: "get",
+                url: '../admin/categories/'+category+'/' + filterAllProduct,
+                success: function(res) {
+                  if (res.length !== 0) {
+                    $("#productType").empty();
+                    $("#productType").append(
+                        '<option>Choose product type ...</option>');
+                    $.each(res, function(key, value) {
+                      $("#productType").append('<option value="' + key +
+                          '">' + value + '</option>');
+                    });
+                  }
+                  else {
+                    $("#productType").empty();
+                  }
+                }
+              });
+            }
+          });
+        });
     </script>
 @endsection

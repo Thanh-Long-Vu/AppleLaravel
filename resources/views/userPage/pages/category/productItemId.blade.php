@@ -3,45 +3,16 @@
         <div class="product-item__outer h-100">
             <div class="product-item__inner px-xl-4 p-3">
                 <div class="product-item__body pb-xl-2">
-{{--                    <div class="mb-2"><a href="{{ route('products.show', ['product' => $product->id_product ?? 0 ]) }}" class="font-size-12 text-gray-5">Category : {{ $product->productType->category->name }}</a></div>--}}
+                    {{--                    <div class="mb-2"><a href="{{ route('products.show', ['product' => $product->id_product ?? 0 ]) }}" class="font-size-12 text-gray-5">Category : {{ $product->productType->category->name }}</a></div>--}}
                     <h5 class="mb-1 product-item__title">
-{{--                        {{dd($product)}}--}}
+                        {{--                        {{dd($product)}}--}}
                         <a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="text-blue font-weight-bold">
                             {{ $product->productType->name }}</b> -
-                            <?php
-                                $color = $product->warehouse->color ?? 0;
-                                $memory = $product->warehouse->memory ?? 0;
-                            ?>
-                            @if ($color == 0)
-                                <b style="color : red"><i>Red</i></b>
-                            @elseif($color == 1)
-                                <b style="color : gold"><i>Yellow</i></b>
-                            @elseif($color == 2)
-                                <b style="color : Violet"><i>Violet</i></b>
-                            @elseif($color == 3)
-                                <b style="color : Green"><i>Green</i></b>
-                            @elseif($color == 4)
-                                <b style="color : Black"><i>Black</i></b>
-                            @elseif($color == 5)
-                                <b style="color : Gray"><i>White</i></b>
-                            @elseif($color == 6)
-                                <b style="color : Other"><i>Other</i></b>
-                            @elseif($color == 7)
-                                <b style="color : #336699"><i>Patific</i></b>
-                            @endif -
-                            @if ($memory == 0)
-                                <b style="color : #336699"><i>16GB</i></b>
-                            @elseif($memory == 1)
-                                <b style="color : gold"><i>32GB</i></b>
-                            @elseif($memory == 2)
-                                <b style="color : Violet"><i>64GB</i></b>
-                            @elseif($memory == 3)
-                                <b style="color : Green"><i>128GB</i></b>
-                            @elseif($memory == 4)
-                                <b style="color : Black"><i>256GB</i></b>
-                            @elseif($memory == 5)
-                                <b style="color : Gray"><i>512GB</i></b>
-                            @endif
+                            <b style="color: {{$colors[(int)$product->warehouse->color]['color'] ?? "grey"}}; "class="mx-1">{{$colors[(int)$product->warehouse->color]['name'] ?? ""}}
+                            </b> -
+                            <b class="mx-1">
+                                {{$memory[(int)$product->warehouse->memory]['text'] ?? ""}}
+                            </b>
                         </a></h5>
                     <div class="mb-2">
                         <a href="{{ route('products.show', ['product' => $product->id_product ]) }}" class="d-block text-center">
@@ -49,10 +20,10 @@
                         </a>
                     </div>
                     <div class="mb-3">
-                        <?php
-                            $point = $product->point ?? 0;
-                            $show = true;
-                        ?>
+						<?php
+						$point = $product->point ?? 0;
+						$show = true;
+						?>
                         @include('userPage.pages.category.ratingItem', compact('point'))
                     </div>
                     <ul class="font-size-12 p-0 text-gray-110 mb-4">

@@ -46,6 +46,7 @@ Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])-
 Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.user');
 Route::get('/blog-detail/{idBlog}', [App\Http\Controllers\BlogController::class, 'detail'])->name('blog.user.detail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categories/{category}/{filterAll}', [App\Http\Controllers\CategoryController::class, 'filterAll'])->name('categories.filter');
 Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 Route::post('/search/autoComplete', [App\Http\Controllers\HomeController::class, 'autoComplete'])->name('autoComplete');
 Route::get('/resultSearch', [App\Http\Controllers\SearchController::class, 'index'])->name('resultSearch');
