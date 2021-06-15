@@ -20,9 +20,10 @@ class TransactionController extends Controller
             $dataTransaction = Transaction::find($transactionId);
             // dd($checkTransaction);
             if(!is_null($dataTransaction)){
-                $checkMail = $dataTransaction->user->email;
+                $infoCustomer = $dataTransaction->addtional_data;
+                $getEmail = $infoCustomer[1]["value"];
                 if(!is_null($email)){
-                    if($checkMail == $email){
+                    if($getEmail == $email){
                         $order = Orders::where('transaction_id','=',$transactionId)->get();
                         $totalprice = 0 ;
                         foreach ($order as $products) {
