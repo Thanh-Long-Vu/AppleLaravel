@@ -528,7 +528,6 @@
             $("#place-order").click(function() {
                 var total_price = $('#total_price').val();
                 var user_id = $('#user_id').val();
-                console.log(user_id)
                 var payment_method_id = $("input[name='payment_method_id']:checked").val();
                 var method_receive = $('#method_receive').val();
                 var addtional_data = $("input[name^='addtional_data']").serializeArray();
