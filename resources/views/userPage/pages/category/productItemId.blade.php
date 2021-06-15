@@ -48,7 +48,8 @@
                             </div>
                         @endif
                         <div class="d-none d-xl-block prodcut-add-cart">
-                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                            <input type="hidden" value="1" name= "quantity" id="quantity">
+                            <a onclick="addCart({{$product->id_product}})" href="javascript:" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                         </div>
                     </div>
                 </div>
