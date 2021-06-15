@@ -15,7 +15,7 @@ class Transaction extends Model
     protected $casts = [
         'addtional_data' => 'array',
     ];
-    protected $guarded = [];  
+    protected $guarded = [];
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';
     protected $fillable = [
@@ -27,6 +27,7 @@ class Transaction extends Model
         'status',
         'addtional_data',
         'payment_method_id',
+        'user_id'
     ];
     public function product(){
         return $this->belongsToMany('App\Models\Product', 'order','transaction_id','product_id')->withTimestamps();

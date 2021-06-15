@@ -24,7 +24,7 @@
                                 @foreach ($order as $item)
                                 <tr class="cart_item">
                                     <td>{{$item->product->productType->name}}&nbsp;<strong class="product-quantity">× {{$item->quantity}}</strong></td>
-                                    <td>{{number_format($item->product->price)}}.VNĐ</td>
+                                    <td>${{number_format($item->product->price)}}</td>
                                 </tr>
                                 @endforeach
                                 {{-- @endif --}}
@@ -44,7 +44,7 @@
                                 </tr>
                                 <tr>
                                     <th>Total</th>
-                                    <td><strong>{{number_format($dataTransaction->total_price)}}.VNĐ</strong></td>
+                                    <td><strong>${{number_format($dataTransaction->total_price)}}</strong></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -95,7 +95,7 @@
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" class="custom-control-input" id="FourstylishRadio1" name="stylishRadio"disabled checked>
                                                 <label class="custom-control-label form-label" for="FourstylishRadio1" data-toggle="collapse" data-target="#basicsCollapseFour" aria-expanded="false" aria-controls="basicsCollapseFour">
-                                                    Installment via Bank  
+                                                    Installment via Bank
                                                 </label>
                                             </div>
                                         </div>
@@ -137,7 +137,7 @@
                             <label class="form-label">
                                 Name
                             </label>
-                            <input type="text" class="form-control"  value="{{$dataTransaction->user->name}}" name="name" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off" disabled>
+                            <input type="text" class="form-control"  value="{{$dataTransaction->addtional_data[0]["value"]}}" name="name" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off" disabled>
                         </div>
                         <!-- End Input -->
                     </div>
@@ -148,7 +148,7 @@
                             <label class="form-label">
                                 Email address
                             </label>
-                            <input type="email" class="form-control" value="{{$dataTransaction->user->email}}" name="emailAddress" placeholder="jackwayley@gmail.com" aria-label="jackwayley@gmail.com" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" disabled>
+                            <input type="email" class="form-control" value="{{$dataTransaction->addtional_data[1]["value"]}}" name="emailAddress" placeholder="jackwayley@gmail.com" aria-label="jackwayley@gmail.com" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" disabled>
                         </div>
                         <!-- End Input -->
                     </div>
@@ -159,7 +159,7 @@
                             <label class="form-label">
                                 Phone
                             </label>
-                            <input type="text" class="form-control" value="{{$dataTransaction->phone}}" placeholder="+" aria-label="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success" disabled>
+                            <input type="text" class="form-control" value="{{$dataTransaction->addtional_data[2]["value"]}}" placeholder="+" aria-label="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success" disabled>
                         </div>
                         <!-- End Input -->
                     </div>

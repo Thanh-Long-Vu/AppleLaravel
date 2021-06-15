@@ -19,7 +19,7 @@ class OrderController extends Controller
         $auth = auth()->user() ?? null;
         $data = $request->all();
         data_set($data, 'status', 3);
-        data_set($data, 'user_id', ($auth->id_user ?? null));
+        data_set($data, 'user_id', ($auth->id_user ?? 0));
         $trasnsaction = Transaction::create($data);
         $orderData = [];
         foreach($cart as $cart){
@@ -36,6 +36,6 @@ class OrderController extends Controller
         }
         $trasnsaction->product()->attach($orderData);
         Session::put('cart', []);
-        return response()->json(['message' => 'Ordered Successful !']); 
+        return response()->json(['message' => 'Ordered Successful !']);
     }
 }
