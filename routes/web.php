@@ -64,6 +64,7 @@ Route::get('/filter/product', [App\Http\Controllers\ProductTypeController::class
 
 Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
+    Route::post('/pagination/{id}', [App\Http\Controllers\AccountController::class, 'getTransaction'])->name('getTransaction');
     Route::post('/updateAccount/{id}', [App\Http\Controllers\AccountController::class, 'update'])->name('updateMyAccount');
     Route::post('/updatePassword/{id}', [App\Http\Controllers\AccountController::class, 'updatePassword'])->name('updatePassword');
     Route::get('{id}/detailOrder/{transaction_id}', [App\Http\Controllers\AccountController::class,'orderview'])->name('orderDetail');
