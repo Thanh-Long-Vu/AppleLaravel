@@ -298,63 +298,13 @@
                             data-target-group="groups">
                             @if (!empty($transaction))
                                 <h6 class="mb-3 text-center">Last payment</h6>
-                                <table class="table table-borderless table-striped">
-                                    <thead class="thead-dark">
-                                        <tr role="row">
-                                            <th>ID</th>
-                                            <th>Note</th>
-                                            <th>Total Price</th>
-                                            <th>Method Receive</th>
-                                            <th>Payment</th>
-                                            <th>Phone</th>
-                                            <th>Status</th>
-                                            <th>View</th>
-                                            <th>Cancel</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($transaction as $item)
-                                            <tr>
-                                                <th scope="col">{{ $item->id_transaction }}</th>
-                                                <td>{{ $item->note }}</td>
-                                                <td>{{ number_format($item->total_price) }}.VND</td>
-                                                <td>
-                                                    @if ($item->method_receive == 0)
-                                                        Giao hàng tại nhà
-                                                    @elseif($item->method_receive == 1)
-                                                        Nhận hàng tại cửa hàng
-                                                    @endif
-                                                </td>
-                                                <td>{{ $item->payment_method->name ?? null }}</td>
-                                                <td>{{ $item->phone }}</td>
-                                                <td>
-                                                    @if ($item->status == 3)
-                                                        <span class="dot dot-lg dot-yellow  mr-2"></span>Ordered
-                                                    @elseif($item->status == 0)
-                                                        <span class="dot dot-lg dot-other mr-2"></span>In-Processing
-                                                    @elseif($item->status == 1)
-                                                        <span class="dot dot-lg dot-patific mr-2"></span>Successful delivery
-                                                    @elseif($item->status == 2)
-                                                        <span class="dot dot-lg dot-red mr-2"></span>Delivery failed
-                                                    @elseif($item->status == 4)
-                                                        <span class="dot dot-lg dot-green mr-2"></span>Reviewed product
-                                                    @endif
-                                                </td>
-                                                <td><a href="{{ route('orderDetail', ['id' => $id, 'transaction_id' => $item]) }}"
-                                                        class="btn mb-1 fas fa-eye"></a></td>
-                                                <td><a href="{{ route('cancelOrder', ['id' => $id, 'id_transaction' => $item]) }}"
-                                                        class="btn mb-1 fas fa-window-close"></a></td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
+                                @csrf
+                                <table class="table table-borderless table-striped" id="table_data">
+                                        @include('userPage.ajax.transaction')
                                 </table>
                             @else
                                 No found data......
                             @endif
-                            <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
-                            aria-label="Page navigation example">
-                                    {{ $transaction->withQueryString()->links('vendor.pagination.custom') }}
-                            </nav>   
                         </div>
                         <div class="tab-pane fade pt-2 " id="rated" role="tabpanel" aria-labelledby="rated-tab"
                             data-target-group="groups">
@@ -533,7 +483,7 @@
                             <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
                             aria-label="Page navigation example">
                                     {{ $transactionHistory->withQueryString()->links('vendor.pagination.custom') }}
-                            </nav>  
+                            </nav>
                         </div>
                         <div class="tab-pane fade pt-2 " id="rating" role="tabpanel" aria-labelledby="rating-tab"
                             data-target-group="groups">
@@ -971,6 +921,29 @@
                 });
                 $(".list_text").text('').text(listRating[number]).show();
             });
+        });
+        $(document).ready(function(){
+
+          $(document).on('click', '.page-link', function(event){
+            event.preventDefault();
+            var page = $(this).attr('href').split('page=')[1];
+            getTransaction(page);
+          });
+
+          function getTransaction(page)
+          {
+            var _token = $("input[name=_token]").val();
+            $.ajax({
+              url:"{{ route('getTransaction',['id' => $id]) }}",
+              method:"POST",
+              data:{_token:_token, page:page},
+              success:function(data)
+              {
+                $('#table_data').html(data);
+              }
+            });
+          }
+
         });
     </script>
 @endsection

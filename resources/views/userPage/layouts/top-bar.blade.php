@@ -44,7 +44,7 @@
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                         <!-- Account Sidebar Toggle Button -->
                         @if(Auth::check())
-                            <?php 
+                            <?php
                                 $name = explode(' ', Auth::user()->name);
                                 $last_name = array_pop($name);
                             ?>
@@ -53,7 +53,8 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="{{route('myAccount',['id' => Auth::user()->id_user])}}">Profile</a>
-                                <a class="dropdown-item" 
+                                <a class="dropdown-item" href="{{route('myAccount',['id' => Auth::user()->id_user])}}">My Transaction</a>
+                                <a class="dropdown-item"
                                    onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();"
                                 >{{ __('Logout') }}</a>

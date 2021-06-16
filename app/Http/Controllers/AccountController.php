@@ -21,6 +21,14 @@ class AccountController extends Controller
         $transactionReview = Transaction::where([['user_id',$id],['status','=','0']])->orWhere('status','=','1')->orWhere('status','=','3')->orderBy('updated_at','desc')->paginate(5);
         return view('userPage.pages.my-account',compact('user','id','transaction','transactionHistory','transactionReview'));
     }
+    function getTransaction(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            $transaction = Transaction::where('user_id',$id)->orderBy('updated_at','desc')->paginate(5);
+            return view('userPage.ajax.transaction', compact('transaction','id'))->render();
+        }
+    }
     public function update(Request $request,$id)
     {
         $validatedData = Validator::make($request->all(),[
@@ -112,22 +120,22 @@ class AccountController extends Controller
     }
     public function ratingTransaction(Request $request ,$id){
         $rating = new Rating();
-        $rating->number = $request->star; 
-        $rating->content = $request->content; 
-        $rating->user_id = $id; 
-        $rating->product_id = $request->id_product; 
-        $rating->transaction_id = $request->id_transaction; 
-        $rating->active = 1; 
+        $rating->number = $request->star;
+        $rating->content = $request->content;
+        $rating->user_id = $id;
+        $rating->product_id = $request->id_product;
+        $rating->transaction_id = $request->id_transaction;
+        $rating->active = 1;
         $status = $request->status1;
         $transaction = Transaction::find($request->id_transaction);
         if($status == 4){
             $transaction->status = 4;
-            $transaction->save(); 
+            $transaction->save();
             $rating->save();
-            return response()->json(['message' => 'Rating successfully!']);         
+            return response()->json(['message' => 'Rating successfully!']);
         }elseif($status == 0) {
-            $rating->save();  
-            return response()->json(['message' => 'Add review successful!.']);         
+            $rating->save();
+            return response()->json(['message' => 'Add review successful!.']);
         }
     }
 }
