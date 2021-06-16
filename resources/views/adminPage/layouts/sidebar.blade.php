@@ -30,40 +30,108 @@
         <!-- End================ Dashboard ===================== -->
         <!-- Start================ Data ===================== -->
         <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Data</span>
+            <span>Admin Apple Store</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-                <a href="#Warehouse" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-database fe-16"></i>
-                    <span class="ml-3 item-text">Data</span>
+                <a href="#SystemManagement" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                    <i class="fe fe-settings fe-16"></i>
+                    <span class="ml-3 item-text">System Management</span>
                 </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Warehouse">
-                    <li class="nav-item dropdown">
-                        <a href="#Staff" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                            <i class="fe fe-archive fe-16"></i>
-                            <span class="ml-3 item-text">Warehouse</span>
+                <ul class="collapse list-unstyled pl-4 w-100" id="SystemManagement">
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href=""><i class="fe fe-user-plus fe-16"></i>
+                            <span class="ml-1 item-text">Permissions</span>
                         </a>
-                        <ul class="collapse list-unstyled pl-4 w-100" id="Staff">
-                            <li class="nav-item">
-                                <a href="{{route('warehouse.index')}}" class="nav-link"><i class="fe fe-list fe-16"></i>
-                                    <span class="ml-3 item-text">List Warehouse</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('warehouse.create')}}" class="nav-link"><i class="fe fe-file-plus fe-16"></i>
-                                    <span class="ml-3 item-text">Add Warehouse</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('historyWareHouse')}}" class="nav-link"><i class="fe fe-file-minus fe-16"></i>
-                                    <span class="ml-3 item-text">History Warehouse</span>
-                                </a>
-                            </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href=""><i class="fe fe-settings fe-16"></i>
+                            <span class="ml-1 item-text">General settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#CategoriesManagement " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                    <i class="fe fe-align-right fe-16"></i>
+                    <span class="ml-3 item-text">Categories Management</span>
+                </a>
+                <ul class="collapse list-unstyled pl-4 w-100" id="CategoriesManagement">
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href=""><i class="fe fe-users fe-16"></i>
+                            <span class="ml-1 item-text">Employees</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href=""><i class="fe fe-user fe-16"></i>
+                            <span class="ml-1 item-text">Customers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link pl-3" href=""><i class="fe fe-tag fe-16"></i>
+                            <span class="ml-1 item-text">Discount</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-credit-card  fe-16"></i>
+                            <span class="ml-1 item-text">Payment</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="payment">
+                            <a class="nav-link pl-3" href="{{route('listPayment')}}"><i class="fe fe-list fe-16"></i><span class="ml-1">Payment List</span></a>
+                            <a class="nav-link pl-3" href="{{route('paymentCreate')}}"><i class="fe fe-file-plus fe-16"></i><span class="ml-1">Add</span></a>
                         </ul>
                     </li>
                 </ul>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Warehouse">
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#PostsManagement " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                    <i class="fe fe-book-open fe-16"></i>
+                    <span class="ml-3 item-text">Posts Management</span>
+                </a>
+                <ul class="collapse list-unstyled pl-4 w-100" id="PostsManagement">
+                    <a href="#System" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <i class="fe fe-book fe-16"></i>
+                        <span class="ml-3 item-text">Blogs</span>
+                    </a>
+                    <ul class="collapse list-unstyled pl-4 w-100" id="System">
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="{{route('admin.blog.list.get')}}"><i class="fe fe-book-open fe-16"></i>
+                                <span class="ml-1 item-text">List blog</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="{{route('admin.blog.create.get')}}"><i class="fe fe-file-plus fe-16"></i>
+                                <span class="ml-1 item-text">Create blog</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#Slider" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <i class="fe fe-sliders fe-16"></i>
+                        <span class="ml-3 item-text">Slider</span>
+                    </a>
+                    <ul class="collapse list-unstyled pl-4 w-100" id="Slider">
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="{{route('sliderlist')}}"><i class="fe fe-list fe-16"></i><span class="ml-1 item-text">
+                        List Slider</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="{{route('sliderCreate')}}"><i class="fe fe-file-plus fe-16"></i><span
+                                    class="ml-1 item-text">Add Slider</span></a>
+                        </li>
+                    </ul>
+                    <a href="{{route('ratings')}}" class="nav-link">
+                        <i class="fe fe-star fe-16"></i>
+                        <span class="ml-3 item-text">Rating</span>
+                    </a>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#ProductManagement" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                    <i class="fe fe-database fe-16"></i>
+                    <span class="ml-3 item-text">Product Management</span>
+                </a>
+                <ul class="collapse list-unstyled pl-4 w-100" id="ProductManagement">
                     <li class="nav-item dropdown">
                         <a href="#Category" data-toggle="collapse" aria-expanded="false"
                             class="dropdown-toggle nav-link">
@@ -89,7 +157,7 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Warehouse">
+                <ul class="collapse list-unstyled pl-4 w-100" id="ProductManagement">
                     <li class="nav-item dropdown">
                         <a href="#ProductType" data-toggle="collapse" aria-expanded="false"
                             class="dropdown-toggle nav-link">
@@ -115,7 +183,7 @@
                         </ul>
                     </li>
                 </ul>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Warehouse">
+                <ul class="collapse list-unstyled pl-4 w-100" id="ProductManagement">
                     <li class="nav-item dropdown">
                         <a href="#Products" data-toggle="collapse" aria-expanded="false"
                             class="dropdown-toggle nav-link">
@@ -142,48 +210,60 @@
                     </li>
                 </ul>
             </li>
-            <!-- <li class="nav-item w-100">
-          <a class="nav-link" href="widgets.html">
-            <i class="fe fe-layers fe-16"></i>
-            <span class="ml-3 item-text">Widgets</span>
-            <span class="badge badge-pill badge-primary">New</span>
-          </a>
-        </li> -->
-            <li class="nav-item dropdown">
-                <a href="#System" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-book fe-16"></i>
-                    <span class="ml-3 item-text">Blogs</span>
-                </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="System">
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('admin.blog.list.get')}}"><i class="fe fe-book-open fe-16"></i>
-                            <span class="ml-1 item-text">List blog</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('admin.blog.create.get')}}"><i class="fe fe-file-plus fe-16"></i>
-                            <span class="ml-1 item-text">Create blog</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+{{--            <li class="nav-item dropdown">--}}
+{{--                <a href="#System" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">--}}
+{{--                    <i class="fe fe-book fe-16"></i>--}}
+{{--                    <span class="ml-3 item-text">Blogs</span>--}}
+{{--                </a>--}}
+{{--                <ul class="collapse list-unstyled pl-4 w-100" id="System">--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link pl-3" href="{{route('admin.blog.list.get')}}"><i class="fe fe-book-open fe-16"></i>--}}
+{{--                            <span class="ml-1 item-text">List blog</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link pl-3" href="{{route('admin.blog.create.get')}}"><i class="fe fe-file-plus fe-16"></i>--}}
+{{--                            <span class="ml-1 item-text">Create blog</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
             <li class="nav-item dropdown">
                 <a href="#Trancastion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-bar-chart-2  fe-16"></i>
+                    <i class="fe fe-align-justify  fe-16"></i>
                     <span class="ml-3 item-text">Trancastion</span>
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="Trancastion">
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('transactionlist')}}"><i class="fe fe-pie-chart fe-16"></i><span
-                                class="ml-1 item-text">List Trancastion</span></a>
+                    <li class="nav-item dropdown">
+                        <a href="#Staff" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-archive fe-16"></i>
+                            <span class="ml-3 item-text">Warehouse</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="Staff">
+                            <li class="nav-item">
+                                <a href="{{route('warehouse.index')}}" class="nav-link"><i class="fe fe-list fe-16"></i>
+                                    <span class="ml-3 item-text">List Warehouse</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('warehouse.create')}}" class="nav-link"><i class="fe fe-file-plus fe-16"></i>
+                                    <span class="ml-3 item-text">Add Warehouse</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('historyWareHouse')}}" class="nav-link"><i class="fe fe-file-minus fe-16"></i>
+                                    <span class="ml-3 item-text">History Warehouse</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{route('statistics')}}"><i class="fe fe-pie-chart fe-16"></i><span
                                 class="ml-1 item-text">Invoice statistics</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i><span
-                                class="ml-1 item-text">Goods receipt</span></a>
+                        <a class="nav-link pl-3" href="{{route('transactionlist')}}"><i class="fe fe-pie-chart fe-16"></i><span
+                                class="ml-1 item-text">Trancastion</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i><span
@@ -191,76 +271,37 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#Slider" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-sliders fe-16"></i>
-                    <span class="ml-3 item-text">Slider</span>
-                </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="Slider">
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('sliderlist')}}"><i class="fe fe-list fe-16"></i><span class="ml-1 item-text">
-                        List Slider</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{route('sliderCreate')}}"><i class="fe fe-file-plus fe-16"></i><span
-                        class="ml-1 item-text">Add Slider</span></a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="{{route('ratings')}}" class="nav-link">
-                    <i class="fe fe-star fe-16"></i>
-                    <span class="ml-3 item-text">Rating</span>
-                </a>
-            </li>
-            
-            <li class="nav-item dropdown">
-                <a href="#payment" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-credit-card fe-16"></i>
-                    <span class="ml-3 item-text">Payment</span>
-                </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="payment">
-                    <a class="nav-link pl-3" href="{{route('listPayment')}}"><i class="fe fe-list fe-16"></i><span class="ml-1">Payment List</span></a>
-                    <a class="nav-link pl-3" href="{{route('paymentCreate')}}"><i class="fe fe-file-plus fe-16"></i><span class="ml-1">Create Method Payment</span></a>
-                </ul>
-            </li>
-            
+
             <li class="nav-item dropdown">
                 <a href="#contact" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-book fe-16"></i>
-                    <span class="ml-3 item-text">Contacts</span>
+                    <i class="fe fe-bar-chart-2 fe-16"></i>
+                    <span class="ml-3 item-text">Statistical Reports</span>
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="contact">
-                    <a class="nav-link pl-3" href="./contacts-list.html"><span class="ml-1">Contact List</span></a>
+                    <a class="nav-link pl-3" href="{{route('calendar')}}"><span class="ml-1"> <i class="fe fe-calendar fe-16"></i> Calendar</span></a>
                     <a class="nav-link pl-3" href="./contacts-grid.html"><span class="ml-1">Contact Grid</span></a>
                     <a class="nav-link pl-3" href="./contacts-new.html"><span class="ml-1">New Contact</span></a>
                 </ul>
             </li>
-            <li class="nav-item w-100">
-                <a class="nav-link" href="{{route('calendar')}}">
-                    <i class="fe fe-calendar fe-16"></i>
-                    <span class="ml-3 item-text">Calendar</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="{{route('listUser')}}" class="nav-link">
-                    <i class="fe fe-star fe-16"></i>
-                    <span class="ml-3 item-text">System User List</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                    <i class="fe fe-user fe-16"></i>
-                    <span class="ml-3 item-text">Profile</span>
-                </a>
-                <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                    <a class="nav-link pl-3" href="./profile.html"><span class="ml-1">Overview</span></a>
-                    <a class="nav-link pl-3" href="./profile-settings.html"><span class="ml-1">Settings</span></a>
-                    <a class="nav-link pl-3" href="./profile-security.html"><span class="ml-1">Security</span></a>
-                    <a class="nav-link pl-3" href="./profile-notification.html"><span
-                            class="ml-1">Notifications</span></a>
-                </ul>
-            </li>
+{{--            <li class="nav-item dropdown">--}}
+{{--                <a href="{{route('listUser')}}" class="nav-link">--}}
+{{--                    <i class="fe fe-star fe-16"></i>--}}
+{{--                    <span class="ml-3 item-text">System User List</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item dropdown">--}}
+{{--                <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">--}}
+{{--                    <i class="fe fe-user fe-16"></i>--}}
+{{--                    <span class="ml-3 item-text">Profile</span>--}}
+{{--                </a>--}}
+{{--                <ul class="collapse list-unstyled pl-4 w-100" id="profile">--}}
+{{--                    <a class="nav-link pl-3" href="./profile.html"><span class="ml-1">Overview</span></a>--}}
+{{--                    <a class="nav-link pl-3" href="./profile-settings.html"><span class="ml-1">Settings</span></a>--}}
+{{--                    <a class="nav-link pl-3" href="./profile-security.html"><span class="ml-1">Security</span></a>--}}
+{{--                    <a class="nav-link pl-3" href="./profile-notification.html"><span--}}
+{{--                            class="ml-1">Notifications</span></a>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
         </ul>
 
         <!-- End================ Data ===================== -->
