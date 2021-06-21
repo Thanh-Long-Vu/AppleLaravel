@@ -25,7 +25,6 @@
                                     <img src="admin/assets/images/logo.svg" class="navbar-brand-img brand-sm mx-auto mb-4"
                                         alt="...">
                                     <h2 class="mb-0 text-uppercase">Invoice</h2>
-                                    <p class="text-muted">{{$transaction->user->name}} <br /> Address {{$transaction->user->address}} </p>
                                 </div>
                                 <div class="col-md-7">
                                     <p class="small text-muted text-uppercase mb-2">Invoice from</p>
@@ -40,7 +39,7 @@
                                 <div class="col-md-5">
                                     <p class="small text-muted text-uppercase mb-2">Invoice to</p>
                                     <p class="mb-4">
-                                        <strong>Name Receive</strong><br />{{$transaction->user->name}} <br /> <strong>Phone</strong>  {{$transaction->user->phone}}<br /> <strong>Address</strong> {{$transaction->user->address}} <br />
+                                        <strong>Name Receive</strong><br />{{$transaction->addtional_data[0]["value"] ?? ""}} <br /> <strong>Phone : </strong>  {{$transaction->addtional_data[2]["value"] ?? ""}}<br /> <strong>Address : </strong> {{$transaction->addtional_data[3]["value"] ?? ""}} <br /><strong>Email : </strong> {{$transaction->addtional_data[1]["value"] ?? ""}} <br />
                                     </p>
                                     <p>
                                         <small class="small text-muted text-uppercase">Due date</small><br />
@@ -61,32 +60,26 @@
                                 <tbody>
                                     @foreach ($order as $item)
                                         <tr>
-                                            <td class="text-center">{{$item->transaction_id}}</td>
-                                            <td class="text-right">{{$item->product->productType->name}}</td>
-                                            <td class="text-right">{{$item->price}}</td>
-                                            <td class="text-right">{{$item->quantity}}</td>
-                                            <td class="text-right">{{$item->sale}} %</td>
+                                            <td class="text-center">{{$item->transaction_id ?? ""}}</td>
+                                            <td class="text-right">{{$item->product->productType->name ?? ""}}</td>
+                                            <td class="text-right">{{$item->price ?? ""}}</td>
+                                            <td class="text-right">{{$item->quantity ?? ""}}</td>
+                                            <td class="text-right">{{$item->sale ?? ""}} %</td>
                                         <tr>
                                     @endforeach
                                 </tbody>
                             </table>
                             <div class="row mt-5">
-                                <div class="col-2 text-center">
-                                    <img src="./admin/assets/images/qrcode.svg" class="navbar-brand-img brand-sm mx-auto my-4"
-                                        alt="...">
-                                </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <p class="text-muted small">
-                                        <strong>Note :</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                                        hendrerit nisi sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar
-                                        aliquam.
+                                        <strong>Note :{{$transaction->note ?? ""}}</strong>
                                     </p>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="text-right mr-2">
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Subtotal : </span>
-                                            <strong>{{number_format($totalprice)}}.VNĐ</strong>
+                                            <strong>${{number_format($totalprice)}}</strong>
                                         </p>
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Total Sale :</span>
@@ -94,7 +87,7 @@
                                         </p>
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Total : </span>
-                                            <span>{{number_format($transaction->total_price)}}.VNĐ</span>
+                                            <span>${{number_format($transaction->total_price)}}</span>
                                         </p>
                                     </div>
                                 </div>

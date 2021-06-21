@@ -30,6 +30,9 @@
                                                 <th>ID</th>
                                                 <th>User</th>
                                                 <th>Note</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Address</th>
                                                 <th>Method Receive</th>
                                                 <th>Total Price</th>
                                                 <th>Method Payment</th>
@@ -39,18 +42,18 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($data as $item)
-                                            @if(!empty( $item->user_id))
                                             <tr>
                                                 <td>{{$item->id_transaction}}</td>
-                                                <td>{{$item->user->name ?? ""}}</td>
+                                                <td>{{$item->user->name ?? "Not Account"}}</td>
                                                 <td>{{$item->note}}</td>
+                                                <td>{{$item->addtional_data[0]["value"] ?? ""}}</td>
+                                                <td>{{$item->addtional_data[2]["value"] ?? ""}}</td>
+                                                <td>{{$item->addtional_data[3]["value"] ?? ""}}</td>
                                                 <td>
                                                     @if($item->method_receive == 0)
-                                                    Thanh toán tiền mặt
+                                                        Home delivery
                                                     @elseif($item->method_receive == 1)
-                                                    Trả thẳng qua thẻ
-                                                    @elseif($item->method_receive == 2)
-                                                    Trả góp qua ngân hàng
+                                                        In-store delivery
                                                     @endif
                                                 </td>
                                                 <td>{{$item->total_price ?? ""}}</td>
@@ -69,37 +72,36 @@
                                                     <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
                                                 </td>
                                             </tr>
-                                            @elseif(empty($item->user_id))
-                                            <tr>
-                                                <td>{{$item->id_transaction}}</td>
-                                                <td>{{$item->user->name ?? ""}}</td>
-                                                <td>{{$item->note}}</td>
-                                                <td>
-                                                    @if($item->method_receive == 0)
-                                                    Thanh toán tiền mặt
-                                                    @elseif($item->method_receive == 1)
-                                                    Trả thẳng qua thẻ
-                                                    @elseif($item->method_receive == 2)
-                                                    Trả góp qua ngân hàng
-                                                    @endif
-                                                </td>
-                                                <td>{{$item->total_price}}</td>
-                                                <td>{{$item->payment_method->name}}</td>
-                                                <td>
-                                                @if ($item->status == 1 || $item->status == 0)
-                                                    <input type="checkbox" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>
-                                                @elseif($item->status == 3)
-                                                    <form action="{{route('changeStatusTransaction',[$item->id_transaction])}}" method="get">
-                                                        {{-- <input type="hidden" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" > --}}
-                                                        <input type="submit" class="btn mb-2 btn-outline-warning" value="Ordered">
-                                                    </form>
-                                                @endif
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>
-                                                </td>
-                                            </tr>
-                                            @endif
+{{--                                            @elseif(empty($item->user_id))--}}
+{{--                                            <tr>--}}
+{{--                                                <td>{{$item->id_transaction}}</td>--}}
+{{--                                                <td>{{$item->user->name ?? ""}}</td>--}}
+{{--                                                <td>{{$item->note}}</td>--}}
+{{--                                                <td>--}}
+{{--                                                    @if($item->method_receive == 0)--}}
+{{--                                                    Thanh toán tiền mặt--}}
+{{--                                                    @elseif($item->method_receive == 1)--}}
+{{--                                                    Trả thẳng qua thẻ--}}
+{{--                                                    @elseif($item->method_receive == 2)--}}
+{{--                                                    Trả góp qua ngân hàng--}}
+{{--                                                    @endif--}}
+{{--                                                </td>--}}
+{{--                                                <td>{{$item->total_price}}</td>--}}
+{{--                                                <td>{{$item->payment_method->name}}</td>--}}
+{{--                                                <td>--}}
+{{--                                                @if ($item->status == 1 || $item->status == 0)--}}
+{{--                                                    <input type="checkbox" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" {{ $item->status == 1 ? 'checked' : '' }}>--}}
+{{--                                                @elseif($item->status == 3)--}}
+{{--                                                    <form action="{{route('changeStatusTransaction',[$item->id_transaction])}}" method="get">--}}
+{{--                                                        --}}{{-- <input type="hidden" data-id="{{ $item->id_transaction }}" name="status" class="js-switch" > --}}
+{{--                                                        <input type="submit" class="btn mb-2 btn-outline-warning" value="Ordered">--}}
+{{--                                                    </form>--}}
+{{--                                                @endif--}}
+{{--                                                </td>--}}
+{{--                                                <td>--}}
+{{--                                                    <a href="{{route('orderlist',['id'=> $item->id_transaction])}}" class="btn mb-1 btn-info fe fe-eye"></a>--}}
+{{--                                                </td>--}}
+{{--                                            </tr>--}}
                                             @endforeach
                                         </tbody>
                                     </table>

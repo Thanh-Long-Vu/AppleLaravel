@@ -62,7 +62,7 @@
                                                                 Trả góp qua ngân hàng
                                                             @endif
                                                         </td>
-                                                        <td>{{ number_format($item->total_price) }}.VND</td>
+                                                        <td>${{ number_format($item->total_price) }}</td>
                                                         <td>{{ $item->payment_method->name }}</td>
                                                         <td>
                                                             <button type="button"

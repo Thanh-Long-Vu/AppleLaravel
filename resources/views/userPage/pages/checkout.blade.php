@@ -313,8 +313,8 @@
                                             Phone
                                         </label>
                                         <input type="text" value="{{ auth()->user()->phone ?? null }}" class="form-control"
-                                            name="addtional_data[phone]" placeholder="+1 (062) 109-9222"
-                                            aria-label="+1 (062) 109-9222" data-msg="Please enter your last name."
+                                            name="addtional_data[phone]" placeholder="+84 ( 888 519 575)"
+                                            aria-label="+84 ( 888 519 575)" data-msg="Please enter your last name."
                                             data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
                                     <!-- End Input -->
@@ -331,6 +331,19 @@
                                         </select>
                                     </div>
                                     <!-- End Select -->
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Input -->
+                                    <div class="js-form-message mb-6">
+                                        <label class="form-label">
+                                            Address
+                                        </label>
+                                        <input type="text" value="{{ auth()->user()->address ?? null }}" class="form-control"
+                                               name="addtional_data[address]" placeholder="Ha Noi"
+                                               aria-label="Ha Noi" data-msg="Please enter your address name."
+                                               data-error-class="u-has-error" data-success-class="u-has-success">
+                                    </div>
+                                    <!-- End Input -->
                                 </div>
                                 <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id_user ?? 0 }}">
 
@@ -351,7 +364,7 @@
                                 </label>
 
                                 <div class="input-group">
-                                    <textarea class="form-control p-5" rows="4" name="addtional_data[description]"
+                                    <textarea class="form-control p-5" rows="4" id="noteTextarea"
                                         placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                 </div>
                             </div>
@@ -528,6 +541,7 @@
             $("#place-order").click(function() {
                 var total_price = $('#total_price').val();
                 var user_id = $('#user_id').val();
+                var note = $("#noteTextarea").val();
                 var payment_method_id = $("input[name='payment_method_id']:checked").val();
                 var method_receive = $('#method_receive').val();
                 var addtional_data = $("input[name^='addtional_data']").serializeArray();
@@ -545,7 +559,8 @@
                         'total_price': total_price,
                         'method_receive': method_receive,
                         'payment_method_id' :payment_method_id,
-                        'user_id':user_id
+                        'user_id':user_id,
+                        'note' : note
                     },
                     success: function(data) {
                         toastr.options.closeButton = 1;

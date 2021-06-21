@@ -160,7 +160,8 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/ratings', [RatingController::class,'index'])->name('ratings');
     Route::get('/rating/update-status', [RatingController::class,'updateStatus'])->name('ratingUpdateStatus');
 
-    Route::get('/system/user/list', [UserController::class,'index'])->name('listUser');
+    Route::get('/system/user/list/user', [UserController::class,'user'])->name('listUser');
+    Route::get('/system/user/list/coAdmin', [UserController::class,'coAdmin'])->name('listCoAdmin');
 
 
     Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');
