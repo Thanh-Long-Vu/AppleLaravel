@@ -58,12 +58,12 @@
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="CategoriesManagement">
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-users fe-16"></i>
+                        <a class="nav-link pl-3" href="{{route('listCoAdmin')}}"><i class="fe fe-users fe-16"></i>
                             <span class="ml-1 item-text">Employees</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-user fe-16"></i>
+                        <a class="nav-link pl-3" href="{{route('listUser')}}"><i class="fe fe-user fe-16"></i>
                             <span class="ml-1 item-text">Customers</span>
                         </a>
                     </li>

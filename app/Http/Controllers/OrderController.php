@@ -20,6 +20,7 @@ class OrderController extends Controller
         $data = $request->all();
         data_set($data, 'status', 3);
         data_set($data, 'user_id', ($auth->id_user ?? 0));
+//        dd($data);
         $trasnsaction = Transaction::create($data);
         $orderData = [];
         foreach($cart as $cart){

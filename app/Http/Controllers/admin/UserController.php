@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(){
-        $listUser = User::orderBy('updated_at','desc')->get(); 
-        $listGuest = Guest::orderBy('updated_at','desc')->get();
-        return view('adminPage.pages.user.list',compact('listUser','listGuest'));
+    public function user(){
+        $listUser = User::where('role_id','=',3)->orderBy('updated_at','desc')->get(); 
+        return view('adminPage.pages.user.list',compact('listUser'));
+    }
+    public function coAdmin(){
+        
+        $listCoAdmin = User::where('role_id','=',2)->orderBy('updated_at','desc')->get(); 
+        return view('adminPage.pages.user.list',compact('listCoAdmin'));
     }
 }

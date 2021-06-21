@@ -9,7 +9,11 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2 class="mb-2 page-title">Data table User List</h2>
+                    @if (!empty($listUser) && isset($listUser))
+                    <h2 class="mb-2 page-title">Data table Customer List</h2>
+                    @elseif(!empty($listCoAdmin) && isset($listCoAdmin))
+                    <h2 class="mb-2 page-title">Data table Employees List</h2>
+                    @endif
                     <div class="row my-4">
                         <!-- Small table -->
                         <div class="col-md-12">
@@ -25,72 +29,44 @@
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>Address</th>
+                                                @if (!empty($listUser) && isset($listUser))
                                                 <th>Total_pay</th>
+                                                @elseif(!empty($listCoAdmin) && isset($listCoAdmin))
+                                                <th>Edit</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if (!empty($listUser))
+                                            @if (!empty($listUser) && isset($listUser))
                                                 @foreach ($listUser as $item)
                                                 <tr>
-                                                    <td>{{$item->id_user}}</td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td>{{$item->role->name_role}}
+                                                    <td>{{$item->id_user ?? ""}}</td>
+                                                    <td>{{$item->name ?? ""}}</td>
+                                                    <td>{{$item->role->name_role ?? ""}}
                                                     </td>
-                                                    <td>{{$item->email}}</td>
-                                                    <td>{{$item->phone}}</td>
-                                                    <td>{{$item->address}}</td>
-                                                    <td>{{$item->total_pay}}</td>    
+                                                    <td>{{$item->email ?? ""}}</td>
+                                                    <td>{{$item->phone ?? ""}}</td>
+                                                    <td>{{$item->address ?? ""}}</td>
+                                                    <td>{{$item->total_pay ?? ""}}</td>    
                                                 </tr>
                                                 @endforeach
+                                            @elseif(!empty($listCoAdmin) && isset($listCoAdmin))
+                                            
+                                            @foreach ($listCoAdmin as $item)
+                                            <tr>
+                                                <td>{{$item->id_user ?? ""}}</td>
+                                                <td>{{$item->name ?? ""}}</td>
+                                                <td>{{$item->role->name_role ?? ""}}
+                                                </td>
+                                                <td>{{$item->email ?? ""}}</td>
+                                                <td>{{$item->phone ?? ""}}</td>
+                                                <td>{{$item->address ?? ""}}</td>
+                                                <td>Edit</td>    
+                                            </tr>
+                                            @endforeach
                                             @endif
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div> <!-- simple table -->
-                    </div> <!-- end section -->
-                </div>
-            </div> <!-- .row -->
-        </div>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="mb-2 page-title">Data table Guest List</h2>
-                    <div class="row my-4">
-                        <!-- Small table -->
-                        <div class="col-md-12">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <!-- table -->
-                                    @if (!empty($listGuest))
-                                        <table class="table datatables" id="dataTable-1">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
-                                                    <th>Address</th>
-                                                    <th>Total_pay</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    @foreach ($listGuest as $item)
-                                                    <tr>
-                                                        <td>{{$item->id_user}}</td>
-                                                        <td>{{$item->name}}
-                                                        </td>
-                                                        <td>{{$item->email}}</td>
-                                                        <td>{{$item->phone}}</td>
-                                                        <td>{{$item->address}}</td>
-                                                        <td>{{$item->total_pay}}</td>    
-                                                    </tr>
-                                                    @endforeach
-                                            </tbody>
-                                        </table>
-                                    @else
-                                        Not found data.....
-                                    @endif
                                 </div>
                             </div>
                         </div> <!-- simple table -->
