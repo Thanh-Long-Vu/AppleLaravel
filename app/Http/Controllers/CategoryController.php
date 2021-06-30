@@ -15,7 +15,7 @@ class CategoryController extends Controller
         $productTypes = ProductType::where('category_id',$category->id_category)->orderby('updated_at','asc')->paginate(8);
         return view('userPage.pages.category.categories', compact('categoryName','productTypes','categoryId'));
     }
-//    public function filterAll(Request $request){
-//        dd($request->all());
-//    }
+   public function filterAll(Request $request){
+       dd($request->all());
+   }
 }

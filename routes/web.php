@@ -131,8 +131,6 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/transaction/detail', [HomeController::class,'transaction.detail'])->name('home.transaction.detail');
     Route::get('/payment/list', [HomeController::class,'paymentlist'])->name('home.payment.list');
     Route::get('/payment/create', [HomeController::class,'paymentcreate'])->name('home.payment.create');
-    Route::get('/user/create', [HomeController::class,'usercreate'])->name('home.user.create');
-    Route::get('/user/edit', [HomeController::class,'useredit'])->name('home.user.edit');
     Route::get('/role/list', [HomeController::class,'rolelist'])->name('home.role.list');
 
     Route::get('/transaction/list', [TransactionController::class,'index'])->name('transactionlist');
@@ -162,6 +160,9 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
 
     Route::get('/system/user/list/user', [UserController::class,'user'])->name('listUser');
     Route::get('/system/user/list/coAdmin', [UserController::class,'coAdmin'])->name('listCoAdmin');
+    Route::get('/user/create', [UserController::class,'create'])->name('home.user.create');
+    Route::post('/user/store', [UserController::class,'store'])->name('home.user.store');
+    Route::get('/user/edit', [UserController::class,'edit'])->name('home.user.edit');
 
 
     Route::get('/payment/list', [PaymentController::class,'index'])->name('listPayment');

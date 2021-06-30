@@ -55,9 +55,15 @@
                                                 <td>{{$category->description}}</td>
                                                 <td>{{$category->total_product}}</td>
                                                 <td>{{$category->title}}</td>
+                                                {{-- <td> --}}
+                                                    {{-- <input type="checkbox" data-id="{{ $category->id_category }}" name="active" class="js-switch" {{ $category->active == 1 ? 'checked' : '' }}> --}}
+                                                {{-- </td> --}}
                                                 <td>
-                                                    <input type="checkbox" data-id="{{ $category->id_category }}" name="active" class="js-switch" {{ $category->active == 1 ? 'checked' : '' }}>
-                                                </td>
+                                                    <div class="custom-control custom-switch">
+                                                      <input type="checkbox" data-id="{{ $category->id_category }}" name="active"  class="custom-control-input" id="{{ $category->id_category }}"  {{ $category->active == 1 ? 'checked' : '' }}>
+                                                      <label class="custom-control-label" for="{{ $category->id_category }}"></label>
+                                                    </div>
+                                                  </td>
                                                 <td>
                                                     <button class="btn btn-sm dropdown-toggle more-horizontal"
                                                             type="button" data-toggle="dropdown" aria-haspopup="true"
@@ -185,14 +191,14 @@
 
     </script>
     <script>
-        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-        elems.forEach(function(html) {
-            let switchery = new Switchery(html, {
-                size: 'small'
-            });
-        });
+        // let elems = Array.prototype.slice.call(document.querySelectorAll('.custom-control-input'));
+        // elems.forEach(function(html) {
+        //     let switchery = new Switchery(html, {
+        //         size: 'small'
+        //     });
+        // });
         $(document).ready(function() {
-            $('.js-switch').change(function() {
+            $('.custom-control-input').change(function() {
                 let active = $(this).prop('checked') === true ? 1 : 0;
                 let CategoryId = $(this).data('id');
                 $.ajax({
@@ -203,7 +209,7 @@
                         'active': active,
                         'category_id': CategoryId
                     },
-                    success: function(data) {         
+                    success: function(data) {  
                         toastr.options.closeButton = 1;
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;
