@@ -43,6 +43,10 @@ class AppServiceProvider extends ServiceProvider
             $productTypeRates = Product::orderBy('point','DESC')->limit(3)->get();
             $view->with(['productSales' => $productSales,'productHots' => $productHots,'productTypeRates'=> $productTypeRates]);
         });
+        view()->composer('adminPage/layouts/sidebar', function ($view) {
+            $auth = auth()->user() ?? null;
+            $view->with(['auth' => $auth]);
+        });
         Validator::extend('currentPassword', function ($attribute, $value, $parameters, $validator) {
             return Hash::check($value, Auth::user()->password);
         });

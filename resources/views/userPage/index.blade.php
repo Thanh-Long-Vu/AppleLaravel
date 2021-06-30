@@ -59,7 +59,7 @@
                     data: {email: email, password: password}
                 }).done(function(data) {
                     let role = data.role
-                    if (role === "Admin") {
+                    if (role === "Admin" || role === "Co-admin" || role === "Editor" || role === "Staff Warehouse") {
                         window.location.href = "{{route('home.index')}}";
                     } else if(role === "User") {
                         window.location.href = "{{route('home')}}";

@@ -20,6 +20,7 @@ class Category extends Model
         'description',
         'thumbnail',
         'title',
+        'active'
     ];
 
     public function productTypes()
