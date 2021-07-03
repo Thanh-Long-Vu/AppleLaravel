@@ -60,8 +60,14 @@
                                                     <td>{{ $itemproductType->total_rating }}Rating</td>
                                                     <td>{{ $itemproductType->warranty }}.Tháng</td>
                                                     <td>{{ $itemproductType->category->name }}</td>
-                                                    <td>
+                                                    {{-- <td>
                                                         <input type="checkbox" data-id="{{ $itemproductType->id_product_type }}" name="active" class="js-switch" {{ $itemproductType->active == 1 ? 'checked' : '' }}>
+                                                    </td> --}}
+                                                    <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" data-id="{{ $itemproductType->id_product_type }}" name="active"  class="custom-control-input" id="{{ $itemproductType->id_product_type }}"  {{ $itemproductType->active == 1 ? 'checked' : '' }}>
+                                                            <label class="custom-control-label" for="{{ $itemproductType->id_product_type }}"></label>
+                                                          </div>
                                                     </td>
                                                     <td>
                                                         <button class="btn btn-sm dropdown-toggle more-horizontal"
@@ -123,14 +129,14 @@
 
     </script>
     <script>
-        let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-        elems.forEach(function(html) {
-            let switchery = new Switchery(html, {
-                size: 'small'
-            });
-        });
+        // let elems = Array.prototype.slice.call(document.querySelectorAll('.custom-control-input'));
+        // elems.forEach(function(html) {
+        //     let switchery = new Switchery(html, {
+        //         size: 'small'
+        //     });
+        // });
         $(document).ready(function() {
-            $('.js-switch').change(function() {
+            $('.custom-control-input').change(function() {
                 let active = $(this).prop('checked') === true ? 1 : 0;
                 let producTypeId = $(this).data('id');
                 $.ajax({

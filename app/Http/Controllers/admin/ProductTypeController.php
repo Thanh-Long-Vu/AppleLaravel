@@ -107,8 +107,9 @@ class ProductTypeController extends Controller
     }
     public function updateStatus(Request $request)
     {
+        dd($request->all());
         $productType = ProductType::findOrFail($request->product_type_id);
-        $productType->active = $request->active;
+        $productType->active =  (int)($request->active);
         $productType->save();
 
     return response()->json(['message' => 'ProductType status updated successfully.']);
