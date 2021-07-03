@@ -30,9 +30,10 @@
         <!-- End================ Dashboard ===================== -->
         <!-- Start================ Data ===================== -->
         <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Admin Apple Store</span>
+            <span style="text-align: center">Welcome {{$auth->name}} !</span>
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
+            @if ($auth->role_id == 1)
             <li class="nav-item dropdown">
                 <a href="#SystemManagement" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-settings fe-16"></i>
@@ -40,7 +41,7 @@
                 </a>
                 <ul class="collapse list-unstyled pl-4 w-100" id="SystemManagement">
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-user-plus fe-16"></i>
+                        <a class="nav-link pl-3" href="{{route('home.user.create')}}"><i class="fe fe-user-plus fe-16"></i>
                             <span class="ml-1 item-text">Permissions</span>
                         </a>
                     </li>
@@ -51,6 +52,8 @@
                     </li>
                 </ul>
             </li>
+            @endif
+            @if ($auth->role_id != 2)
             <li class="nav-item dropdown">
                 <a href="#CategoriesManagement " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-align-right fe-16"></i>
@@ -84,6 +87,7 @@
                     </li>
                 </ul>
             </li>
+            @endif
             <li class="nav-item dropdown">
                 <a href="#PostsManagement " data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-book-open fe-16"></i>
@@ -120,12 +124,15 @@
                                     class="ml-1 item-text">Add Slider</span></a>
                         </li>
                     </ul>
+                    @if($auth->role_id != 2)
                     <a href="{{route('ratings')}}" class="nav-link">
                         <i class="fe fe-star fe-16"></i>
                         <span class="ml-3 item-text">Rating</span>
                     </a>
+                    @endif
                 </ul>
             </li>
+            @if ($auth->role_id != 2)
             <li class="nav-item dropdown">
                 <a href="#ProductManagement" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-database fe-16"></i>
@@ -210,24 +217,6 @@
                     </li>
                 </ul>
             </li>
-{{--            <li class="nav-item dropdown">--}}
-{{--                <a href="#System" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">--}}
-{{--                    <i class="fe fe-book fe-16"></i>--}}
-{{--                    <span class="ml-3 item-text">Blogs</span>--}}
-{{--                </a>--}}
-{{--                <ul class="collapse list-unstyled pl-4 w-100" id="System">--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link pl-3" href="{{route('admin.blog.list.get')}}"><i class="fe fe-book-open fe-16"></i>--}}
-{{--                            <span class="ml-1 item-text">List blog</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link pl-3" href="{{route('admin.blog.create.get')}}"><i class="fe fe-file-plus fe-16"></i>--}}
-{{--                            <span class="ml-1 item-text">Create blog</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
             <li class="nav-item dropdown">
                 <a href="#Trancastion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
                     <i class="fe fe-align-justify  fe-16"></i>
@@ -283,6 +272,7 @@
                     <a class="nav-link pl-3" href="./contacts-new.html"><span class="ml-1">New Contact</span></a>
                 </ul>
             </li>
+            @endif
 {{--            <li class="nav-item dropdown">--}}
 {{--                <a href="{{route('listUser')}}" class="nav-link">--}}
 {{--                    <i class="fe fe-star fe-16"></i>--}}

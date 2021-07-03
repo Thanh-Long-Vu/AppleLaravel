@@ -93,7 +93,8 @@ class CategoryController extends Controller
     public function updateStatus(Request $request)
     {
         $productType = Category::findOrFail($request->category_id);
-        $productType->active = $request->active;
+        $active = (int)($request->active);
+        $productType->active = $active;
         $productType->save();
 
     return response()->json(['message' => 'Category status updated successfully.']);
