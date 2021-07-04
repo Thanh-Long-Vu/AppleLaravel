@@ -197,87 +197,104 @@
                             <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
                                 <li class="col product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-{{--                                        Start Mac total Rating--}}
+                                        {{-- Start Mac total Rating --}}
                                         <div class="product-item__inner bg-white p-3">
-                                            @if(!empty($productTypeMacTotalRating->products->first()->warehouse))
+                                            @if (!empty($productTypeMacTotalRating->products->first()->warehouse))
                                                 <div class="product-item__body d-flex flex-column">
                                                     <div class="mb-1">
                                                         <div class="mb-2">
-                                                            <a href="{{ route('categories.show', ['category'=> $productTypeMacTotalRating->category->id_category ?? 1]) }}"
-                                                               class="font-size-12 text-gray-5">Category : {{$productTypeMacTotalRating->category->name ?? ""}}
+                                                            <a href="{{ route('categories.show', ['category' => $productTypeMacTotalRating->category->id_category ?? 1]) }}"
+                                                                class="font-size-12 text-gray-5">Category :
+                                                                {{ $productTypeMacTotalRating->category->name ?? '' }}
                                                             </a>
                                                         </div>
                                                         <h5 class="mb-0 product-item__title">
-                                                            <a href="{{ route('categories.show', ['category'=> $productTypeMacTotalRating->category->id_category ?? 1]) }}"
-                                                               class="text-blue font-weight-bold">
-                                                                {{$productTypeMacTotalRating->name}} -
-                                                                <b style="color: {{$colors[(int)$productTypeMacTotalRating->products->first()->warehouse->color]['color'] ?? "grey"}}; "class="mx-1"
-                                                                >
-                                                                    {{$colors[(int)$productTypeMacTotalRating->products->first()->warehouse->color]['name'] ?? ""}}
+                                                            <a href="{{ route('categories.show', ['category' => $productTypeMacTotalRating->category->id_category ?? 1]) }}"
+                                                                class="text-blue font-weight-bold">
+                                                                {{ $productTypeMacTotalRating->name }} -
+                                                                <b style="color: {{ $colors[(int) $productTypeMacTotalRating->products->first()->warehouse->color]['color'] ?? 'grey' }}; "
+                                                                    class="mx-1">
+                                                                    {{ $colors[(int) $productTypeMacTotalRating->products->first()->warehouse->color]['name'] ?? '' }}
                                                                 </b> -
                                                                 <b class="mx-1">
-                                                                    {{$memory[(int)$productTypeMacTotalRating->products->first()->warehouse->memory]['text'] ?? ""}}
+                                                                    {{ $memory[(int) $productTypeMacTotalRating->products->first()->warehouse->memory]['text'] ?? '' }}
                                                                 </b>
                                                             </a>
                                                         </h5>
                                                     </div>
                                                     <div class="mb-1 min-height-8-1">
-                                                        <a href="{{ route('products.show', ['product'=> $productTypeMacTotalRating->products->first()->id_product ?? 0]) }}"
-                                                           class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                                class="img-fluid" src="../{{$productTypeMacTotalRating->products->first()->thumbnail}}"
+                                                        <a href="{{ route('products.show', ['product' => $productTypeMacTotalRating->products->first()->id_product ?? 0]) }}"
+                                                            class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
+                                                                class="img-fluid"
+                                                                src="../{{ $productTypeMacTotalRating->products->first()->thumbnail }}"
                                                                 alt="Image Description">
                                                         </a>
                                                         <!-- Gallery -->
                                                         <div class="row mx-gutters-2 mb-3">
-                                                            @if (!empty($productTypeMacTotalRating)  )
-                                                                @foreach ($productTypeMacTotalRating->products->first()->imageProduct()->limit(4)->get() ?? 0 as $item)
+                                                            @if (!empty($productTypeMacTotalRating))
+                                                                @foreach ($productTypeMacTotalRating->products->first()->imageProduct()->limit(4)->get() ?? 0  as $item)
                                                                     <div class="col-auto">
                                                                         <!-- Gallery -->
                                                                         <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                           href="javascript:;" data-src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                           data-fancybox="fancyboxGallery6"
-                                                                           data-caption="Electro in frames - image #01"
-                                                                           data-speed="700" data-is-infinite="true">
+                                                                            href="javascript:;"
+                                                                            data-src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                            data-fancybox="fancyboxGallery6"
+                                                                            data-caption="Electro in frames - image #01"
+                                                                            data-speed="700" data-is-infinite="true">
                                                                             <img class="img-fluid border"
-                                                                                 src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                                 alt="Image Description">
+                                                                                src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                                alt="Image Description">
                                                                             <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
+                                                                                <span class="u-media-viewer__icon">
+                                                                                    <span
+                                                                                        class="fas fa-plus u-media-viewer__icon-inner"></span>
+                                                                                </span>
+                                                                            </span>
                                                                         </a>
                                                                         <!-- End Gallery -->
                                                                     </div>
                                                                 @endforeach
                                                             @endif
-                                                            {{--<div class="col"></div>--}}
+                                                            {{-- <div class="col"></div> --}}
                                                         </div>
                                                         <!-- End Gallery -->
                                                     </div>
                                                     <div class="flex-center-between">
                                                         @if ($productTypeMacTotalRating->products->first()->discount > 0)
-                                                            <div class="prodcut-price d-flex align-items-center position-relative">
-                                                                <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($productTypeMacTotalRating->products->first()->price - ($productTypeMacTotalRating->products->first()->price*($productTypeMacTotalRating->products->first()->discount/100)))}}</b></ins>
-                                                                <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($productTypeMacTotalRating->products->first()->price)}}</del>
+                                                            <div
+                                                                class="prodcut-price d-flex align-items-center position-relative">
+                                                                <ins
+                                                                    class="font-size-20 text-red text-decoration-none"><b>${{ number_format($productTypeMacTotalRating->products->first()->price - $productTypeMacTotalRating->products->first()->price * ($productTypeMacTotalRating->products->first()->discount / 100)) }}</b></ins>
+                                                                <del
+                                                                    class="font-size-12 tex-gray-6 position-absolute bottom-100">${{ number_format($productTypeMacTotalRating->products->first()->price) }}</del>
                                                             </div>
                                                         @else
                                                             <div class="prodcut-price">
-                                                                <div class="text-gray-100"><b>${{number_format($productTypeMacTotalRating->products->first()->price)}}</b></div>
+                                                                <div class="text-gray-100">
+                                                                    <b>${{ number_format($productTypeMacTotalRating->products->first()->price) }}</b>
+                                                                </div>
                                                             </div>
                                                         @endif
-                                                        <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
-                                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a onclick="addCart({{$productTypeMacTotalRating->products->first()->id_product}})" href="javascript:"
-                                                               class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                    class="ec ec-add-to-cart"></i>
-                                                            </a>
+                                                        @if ($productTypeMacTotalRating->products->first()->active_quantity !== null && $productTypeMacTotalRating->products->first()->active_quantity > 0)
+                                                            <input
+                                                                class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
+                                                                type="hidden" value="1" name="quantity" id="quantity">
+                                                            <div class="d-none d-xl-block prodcut-add-cart">
+                                                                <a onclick="addCart({{ $productTypeMacTotalRating->products->first()->id_product }})"
+                                                                    href="javascript:"
+                                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                        class="ec ec-add-to-cart"></i>
+                                                                </a>
+                                                            </div>
+                                                        @else
+                                                            <a href="{{ route('index.contact') }}"
+                                                                class="btn-add-cart btn-danger transition-3d-hover">
+                                                                <i class="fas fa-phone"></i></a>
+                                                        @endif
                                                     </div>
-                                                </div>
                                             @endif
                                         </div>
-{{--                                        End Mac total Rating--}}
+                                        {{-- End Mac total Rating --}}
                                     </div>
                                 </li>
                             </ul>
@@ -296,83 +313,101 @@
                             <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
                                 <li class="col product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-{{--                                        Start Iphone total Rating--}}
+                                        {{-- Start Iphone total Rating --}}
                                         <div class="product-item__inner bg-white p-3">
-                                            @if(!empty($productTypeIphoneTotalRating->products->first()->warehouse))
+                                            @if (!empty($productTypeIphoneTotalRating->products->first()->warehouse))
                                                 <div class="product-item__body d-flex flex-column">
                                                     <div class="mb-1">
                                                         <div class="mb-2"><a
-                                                                href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product ?? 0 ?? 0]) }}"
-                                                                class="font-size-12 text-gray-5">Category : {{$productTypeIphoneTotalRating->category->name}}</a></div>
+                                                                href="{{ route('products.show', ['product' => $productTypeIphoneTotalRating->products->first()->id_product ?? (0 ?? 0)]) }}"
+                                                                class="font-size-12 text-gray-5">Category :
+                                                                {{ $productTypeIphoneTotalRating->category->name }}</a>
+                                                        </div>
                                                         <h5 class="mb-0 product-item__title"><a
-                                                                href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product ?? 0]) }}"
+                                                                href="{{ route('products.show', ['product' => $productTypeIphoneTotalRating->products->first()->id_product ?? 0]) }}"
                                                                 class="text-blue font-weight-bold">
-                                                                {{$productTypeIphoneTotalRating->name}} -
-                                                                <b style="color: {{$colors[(int)$productTypeIphoneTotalRating->products->first()->warehouse->color]['color'] ?? "grey"}}; "class="mx-1"
-                                                                >
-                                                                    {{$colors[(int)$productTypeIphoneTotalRating->products->first()->warehouse->color]['name'] ?? ""}}
+                                                                {{ $productTypeIphoneTotalRating->name }} -
+                                                                <b style="color: {{ $colors[(int) $productTypeIphoneTotalRating->products->first()->warehouse->color]['color'] ?? 'grey' }}; "
+                                                                    class="mx-1">
+                                                                    {{ $colors[(int) $productTypeIphoneTotalRating->products->first()->warehouse->color]['name'] ?? '' }}
                                                                 </b> -
                                                                 <b class="mx-1">
-                                                                    {{$memory[(int)$productTypeIphoneTotalRating->products->first()->warehouse->memory]['text'] ?? ""}}
+                                                                    {{ $memory[(int) $productTypeIphoneTotalRating->products->first()->warehouse->memory]['text'] ?? '' }}
                                                                 </b>
                                                             </a></h5>
                                                     </div>
                                                     <div class="mb-1 min-height-8-1">
-                                                     <a href="{{ route('products.show', ['product'=> $productTypeIphoneTotalRating->products->first()->id_product ?? 0]) }}"
-                                                        class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="../{{$productTypeIphoneTotalRating->products->first()->thumbnail}}"
-                                                            alt="Image Description"></a>
-                                                    <!-- Gallery -->
+                                                        <a href="{{ route('products.show', ['product' => $productTypeIphoneTotalRating->products->first()->id_product ?? 0]) }}"
+                                                            class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
+                                                                class="img-fluid"
+                                                                src="../{{ $productTypeIphoneTotalRating->products->first()->thumbnail }}"
+                                                                alt="Image Description"></a>
+                                                        <!-- Gallery -->
                                                         <div class="row mx-gutters-2 mb-3">
                                                             @if (!empty($productTypeIphoneTotalRating))
-                                                                 @foreach ($productTypeIphoneTotalRating->products->first()->imageProduct()->limit(4)->get() as $item)
-                                                                 <div class="col-auto">
-                                                                    <!-- Gallery -->
-                                                                    <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                        href="javascript:;" data-src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                        data-fancybox="fancyboxGallery6"
-                                                                        data-caption="Electro in frames - image #01"
-                                                                        data-speed="700" data-is-infinite="true">
-                                                                        <img class="img-fluid border"
-                                                                            src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                            alt="Image Description">
-                                                                        <span class="u-media-viewer__container">
-                                                                            <span class="u-media-viewer__icon">
-                                                                                <span
-                                                                                    class="fas fa-plus u-media-viewer__icon-inner"></span>
+                                                                @foreach ($productTypeIphoneTotalRating->products->first()->imageProduct()->limit(4)->get() as $item)
+                                                                    <div class="col-auto">
+                                                                        <!-- Gallery -->
+                                                                        <a class="js-fancybox max-width-60 u-media-viewer"
+                                                                            href="javascript:;"
+                                                                            data-src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                            data-fancybox="fancyboxGallery6"
+                                                                            data-caption="Electro in frames - image #01"
+                                                                            data-speed="700" data-is-infinite="true">
+                                                                            <img class="img-fluid border"
+                                                                                src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                                alt="Image Description">
+                                                                            <span class="u-media-viewer__container">
+                                                                                <span class="u-media-viewer__icon">
+                                                                                    <span
+                                                                                        class="fas fa-plus u-media-viewer__icon-inner"></span>
+                                                                                </span>
                                                                             </span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <!-- End Gallery -->
-                                                                </div>
-                                                                 @endforeach
+                                                                        </a>
+                                                                        <!-- End Gallery -->
+                                                                    </div>
+                                                                @endforeach
                                                             @endif
                                                             <div class="col"></div>
                                                         </div>
                                                         <!-- End Gallery -->
                                                     </div>
-                                                     <div class="flex-center-between">
+                                                    <div class="flex-center-between">
                                                         @if ($productTypeIphoneTotalRating->products->first()->discount > 0)
-                                                        <div class="prodcut-price d-flex align-items-center position-relative">
-                                                            <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($productTypeIphoneTotalRating->products->first()->price - ($productTypeIphoneTotalRating->products->first()->price*($productTypeIphoneTotalRating->products->first()->discount/100)))}}</b></ins>
-                                                            <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($productTypeIphoneTotalRating->products->first()->price)}}</del>
-                                                        </div>
+                                                            <div
+                                                                class="prodcut-price d-flex align-items-center position-relative">
+                                                                <ins
+                                                                    class="font-size-20 text-red text-decoration-none"><b>${{ number_format($productTypeIphoneTotalRating->products->first()->price - $productTypeIphoneTotalRating->products->first()->price * ($productTypeIphoneTotalRating->products->first()->discount / 100)) }}</b></ins>
+                                                                <del
+                                                                    class="font-size-12 tex-gray-6 position-absolute bottom-100">${{ number_format($productTypeIphoneTotalRating->products->first()->price) }}</del>
+                                                            </div>
                                                         @else
-                                                        <div class="prodcut-price">
-                                                            <div class="text-gray-100"><b>${{number_format($productTypeIphoneTotalRating->products->first()->price)}}</b></div>
-                                                        </div>
+                                                            <div class="prodcut-price">
+                                                                <div class="text-gray-100">
+                                                                    <b>${{ number_format($productTypeIphoneTotalRating->products->first()->price) }}</b>
+                                                                </div>
+                                                            </div>
                                                         @endif
-                                                        <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
-                                                        <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a onclick="addCart({{$productTypeIphoneTotalRating->products->first()->id_product}})" href="javascript:"
-                                                               class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                    class="ec ec-add-to-cart"></i>
-                                                            </a>
+                                                        @if ($productTypeIphoneTotalRating->products->first()->active_quantity !== null && $productTypeIphoneTotalRating->products->first()->active_quantity > 0)
+                                                            <input
+                                                                class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
+                                                                type="hidden" value="1" name="quantity" id="quantity">
+                                                            <div class="d-none d-xl-block prodcut-add-cart">
+                                                                <a onclick="addCart({{ $productTypeIphoneTotalRating->products->first()->id_product }})"
+                                                                    href="javascript:"
+                                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                        class="ec ec-add-to-cart"></i>
+                                                                </a>
+                                                            </div>
+                                                        @else
+                                                            <a href="{{ route('index.contact') }}"
+                                                                class="btn-add-cart btn-danger transition-3d-hover">
+                                                                <i class="fas fa-phone"></i></a>
+                                                        @endif
                                                     </div>
-                                                </div>
                                             @endif
                                         </div>
-{{--                                        End Iphone total Rating--}}
+                                        {{-- End Iphone total Rating --}}
                                     </div>
                                 </li>
                             </ul>
@@ -391,83 +426,102 @@
                             <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
                                 <li class="col product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-{{--                                        Start Ipad total Rating--}}
+                                        {{-- Start Ipad total Rating --}}
                                         <div class="product-item__inner bg-white p-3">
-                                            @if(!empty($productTypeIpadTotalRating->products->first()->warehouse))
-                                            <div class="product-item__body d-flex flex-column">
-                                                 <div class="mb-1">
-                                                    <div class="mb-2"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
-                                                            class="font-size-12 text-gray-5">Category : {{$productTypeIpadTotalRating->category->name}}</a></div>
-                                                    <h5 class="mb-0 product-item__title">
-                                                        <a href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
-                                                            class="text-blue font-weight-bold">
-                                                            {{$productTypeIpadTotalRating->name}} -
-                                                            <b style="color: {{$colors[(int)$productTypeIpadTotalRating->products->first()->warehouse->color]['color'] ?? "grey"}}; "class="mx-1"
-                                                            >
-                                                                {{$colors[(int)$productTypeIpadTotalRating->products->first()->warehouse->color]['name'] ?? ""}}
-                                                            </b> -
-                                                            <b class="mx-1">
-                                                                {{$memory[(int)$productTypeIpadTotalRating->products->first()->warehouse->memory]['text'] ?? ""}}
-                                                            </b>
-                                                        </a></h5>
-                                                </div>
-                                                <div class="mb-1 min-height-8-1">
-                                                     <a href="{{ route('products.show', ['product'=> $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
-                                                        class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="../{{$productTypeIpadTotalRating->products->first()->thumbnail}}"
-                                                            alt="Image Description"></a>
-                                                    <!-- Gallery -->
-                                                    <div class="row mx-gutters-2 mb-3">
-                                                        @if (!empty($productTypeIpadTotalRating))
-                                                         @foreach ($productTypeIpadTotalRating->products->first()->imageProduct()->limit(4)->get() as $item)
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #01"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                    alt="Image Description">
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
+                                            @if (!empty($productTypeIpadTotalRating->products->first()->warehouse))
+                                                <div class="product-item__body d-flex flex-column">
+                                                    <div class="mb-1">
+                                                        <div class="mb-2"><a
+                                                                href="{{ route('products.show', ['product' => $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
+                                                                class="font-size-12 text-gray-5">Category :
+                                                                {{ $productTypeIpadTotalRating->category->name }}</a>
                                                         </div>
-                                                         @endforeach
+                                                        <h5 class="mb-0 product-item__title">
+                                                            <a href="{{ route('products.show', ['product' => $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
+                                                                class="text-blue font-weight-bold">
+                                                                {{ $productTypeIpadTotalRating->name }} -
+                                                                <b style="color: {{ $colors[(int) $productTypeIpadTotalRating->products->first()->warehouse->color]['color'] ?? 'grey' }}; "
+                                                                    class="mx-1">
+                                                                    {{ $colors[(int) $productTypeIpadTotalRating->products->first()->warehouse->color]['name'] ?? '' }}
+                                                                </b> -
+                                                                <b class="mx-1">
+                                                                    {{ $memory[(int) $productTypeIpadTotalRating->products->first()->warehouse->memory]['text'] ?? '' }}
+                                                                </b>
+                                                            </a>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="mb-1 min-height-8-1">
+                                                        <a href="{{ route('products.show', ['product' => $productTypeIpadTotalRating->products->first()->id_product ?? 0]) }}"
+                                                            class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
+                                                                class="img-fluid"
+                                                                src="../{{ $productTypeIpadTotalRating->products->first()->thumbnail }}"
+                                                                alt="Image Description"></a>
+                                                        <!-- Gallery -->
+                                                        <div class="row mx-gutters-2 mb-3">
+                                                            @if (!empty($productTypeIpadTotalRating))
+                                                                @foreach ($productTypeIpadTotalRating->products->first()->imageProduct()->limit(4)->get() as $item)
+                                                                    <div class="col-auto">
+                                                                        <!-- Gallery -->
+                                                                        <a class="js-fancybox max-width-60 u-media-viewer"
+                                                                            href="javascript:;"
+                                                                            data-src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                            data-fancybox="fancyboxGallery6"
+                                                                            data-caption="Electro in frames - image #01"
+                                                                            data-speed="700" data-is-infinite="true">
+                                                                            <img class="img-fluid border"
+                                                                                src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                                alt="Image Description">
+                                                                            <span class="u-media-viewer__container">
+                                                                                <span class="u-media-viewer__icon">
+                                                                                    <span
+                                                                                        class="fas fa-plus u-media-viewer__icon-inner"></span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <!-- End Gallery -->
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                            <div class="col"></div>
+                                                        </div>
+                                                        <!-- End Gallery -->
+                                                    </div>
+                                                    <div class="flex-center-between">
+                                                        @if ($productTypeIpadTotalRating->products->first()->discount > 0)
+                                                            <div
+                                                                class="prodcut-price d-flex align-items-center position-relative">
+                                                                <ins
+                                                                    class="font-size-20 text-red text-decoration-none"><b>${{ number_format($productTypeIpadTotalRating->products->first()->price - $productTypeIpadTotalRating->products->first()->price * ($productTypeIpadTotalRating->products->first()->discount / 100)) }}</b></ins>
+                                                                <del
+                                                                    class="font-size-12 tex-gray-6 position-absolute bottom-100">${{ number_format($productTypeIpadTotalRating->products->first()->price) }}</del>
+                                                            </div>
+                                                        @else
+                                                            <div class="prodcut-price">
+                                                                <div class="text-gray-100">
+                                                                    <b>${{ number_format($productTypeIpadTotalRating->products->first()->price) }}</b>
+                                                                </div>
+                                                            </div>
                                                         @endif
-                                                        <div class="col"></div>
+                                                        @if ($productTypeIpadTotalRating->products->first()->active_quantity !== null && $productTypeIpadTotalRating->products->first()->active_quantity > 0)
+                                                            <input
+                                                                class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
+                                                                type="hidden" value="1" name="quantity" id="quantity">
+                                                            <div class="d-none d-xl-block prodcut-add-cart">
+                                                                <a onclick="addCart({{ $productTypeIpadTotalRating->products->first()->id_product }})"
+                                                                    href="javascript:"
+                                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                        class="ec ec-add-to-cart"></i>
+                                                                </a>
+                                                            </div>
+                                                        @else
+                                                            <a href="{{ route('index.contact') }}"
+                                                                class="btn-add-cart btn-danger transition-3d-hover">
+                                                                <i class="fas fa-phone"></i></a>
+                                                        @endif
                                                     </div>
-                                                    <!-- End Gallery -->
-                                                </div>
-                                                 <div class="flex-center-between">
-                                                    @if ($productTypeIpadTotalRating->products->first()->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($productTypeIpadTotalRating->products->first()->price - ($productTypeIpadTotalRating->products->first()->price*($productTypeIpadTotalRating->products->first()->discount/100)))}}</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($productTypeIpadTotalRating->products->first()->price)}}</del>
-                                                    </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>${{number_format($productTypeIpadTotalRating->products->first()->price)}}</b></div>
-                                                    </div>
-                                                    @endif
-                                                    <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
-                                                    <div class="d-none d-xl-block prodcut-add-cart">
-                                                        <a onclick="addCart({{$productTypeIpadTotalRating->products->first()->id_product}})" href="javascript:"
-                                                           class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                class="ec ec-add-to-cart"></i>
-                                                        </a>
-                                                </div>
-                                            </div>
                                             @endif
                                         </div>
-{{--                                        End Ipad total Rating--}}
+                                        {{-- End Ipad total Rating --}}
                                     </div>
                                 </li>
                             </ul>
@@ -486,83 +540,101 @@
                             <ul class="row list-unstyled products-group no-gutters bg-white h-100 mb-0">
                                 <li class="col product-item remove-divider">
                                     <div class="product-item__outer h-100 w-100 w-100 prodcut-box-shadow">
-{{--                                        Start Watch total Rating--}}
+                                        {{-- Start Watch total Rating --}}
                                         <div class="product-item__inner bg-white p-3">
-                                            @if(!empty($productTypeWatchTotalRating->products->first()->warehouse))
-                                            <div class="product-item__body d-flex flex-column">
-                                                 <div class="mb-1">
-                                                    <div class="mb-2"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
-                                                            class="font-size-12 text-gray-5">Category : {{$productTypeWatchTotalRating->category->name}}</a></div>
-                                                    <h5 class="mb-0 product-item__title"><a
-                                                            href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
-                                                            class="text-blue font-weight-bold">
-                                                            {{$productTypeWatchTotalRating->name}} -
-                                                            <b style="color: {{$colors[(int)$productTypeWatchTotalRating->products->first()->warehouse->color]['color'] ?? "grey"}}; "class="mx-1"
-                                                            >
-                                                                {{$colors[(int)$productTypeWatchTotalRating->products->first()->warehouse->color]['name'] ?? ""}}
-                                                            </b> -
-                                                            <b class="mx-1">
-                                                                {{$memory[(int)$productTypeWatchTotalRating->products->first()->warehouse->memory]['text'] ?? ""}}
-                                                            </b>
-                                                        </a></h5>
-                                                </div>
-                                                <div class="mb-1 min-height-8-1">
-                                                     <a href="{{ route('products.show', ['product'=> $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
-                                                        class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
-                                                            class="img-fluid" src="../{{$productTypeWatchTotalRating->products->first()->thumbnail}}"
-                                                            alt="Image Description"></a>
-                                                    <!-- Gallery -->
-                                                    <div class="row mx-gutters-2 mb-3">
-                                                        @if (!empty($productTypeWatchTotalRating))
-                                                         @foreach ($productTypeWatchTotalRating->products->first()->imageProduct()->limit(4)->get() as $item)
-                                                        <div class="col-auto">
-                                                            <!-- Gallery -->
-                                                            <a class="js-fancybox max-width-60 u-media-viewer"
-                                                                href="javascript:;" data-src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                data-fancybox="fancyboxGallery6"
-                                                                data-caption="Electro in frames - image #01"
-                                                                data-speed="700" data-is-infinite="true">
-                                                                <img class="img-fluid border"
-                                                                    src="../{{$item->img_url ?? '../../assets/img/100X100/img1.jpg'}}"
-                                                                    alt="Image Description">
-                                                                <span class="u-media-viewer__container">
-                                                                    <span class="u-media-viewer__icon">
-                                                                        <span
-                                                                            class="fas fa-plus u-media-viewer__icon-inner"></span>
-                                                                    </span>
-                                                                </span>
-                                                            </a>
-                                                            <!-- End Gallery -->
+                                            @if (!empty($productTypeWatchTotalRating->products->first()->warehouse))
+                                                <div class="product-item__body d-flex flex-column">
+                                                    <div class="mb-1">
+                                                        <div class="mb-2"><a
+                                                                href="{{ route('products.show', ['product' => $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
+                                                                class="font-size-12 text-gray-5">Category :
+                                                                {{ $productTypeWatchTotalRating->category->name }}</a>
                                                         </div>
-                                                         @endforeach
+                                                        <h5 class="mb-0 product-item__title"><a
+                                                                href="{{ route('products.show', ['product' => $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
+                                                                class="text-blue font-weight-bold">
+                                                                {{ $productTypeWatchTotalRating->name }} -
+                                                                <b style="color: {{ $colors[(int) $productTypeWatchTotalRating->products->first()->warehouse->color]['color'] ?? 'grey' }}; "
+                                                                    class="mx-1">
+                                                                    {{ $colors[(int) $productTypeWatchTotalRating->products->first()->warehouse->color]['name'] ?? '' }}
+                                                                </b> -
+                                                                <b class="mx-1">
+                                                                    {{ $memory[(int) $productTypeWatchTotalRating->products->first()->warehouse->memory]['text'] ?? '' }}
+                                                                </b>
+                                                            </a></h5>
+                                                    </div>
+                                                    <div class="mb-1 min-height-8-1">
+                                                        <a href="{{ route('products.show', ['product' => $productTypeWatchTotalRating->products->first()->id_product ?? 0]) }}"
+                                                            class="d-block text-center my-4 mt-lg-6 mb-xl-5 mb-lg-0 mt-xl-0 mb-xl-0 mt-wd-6 mb-wd-5"><img
+                                                                class="img-fluid"
+                                                                src="../{{ $productTypeWatchTotalRating->products->first()->thumbnail }}"
+                                                                alt="Image Description"></a>
+                                                        <!-- Gallery -->
+                                                        <div class="row mx-gutters-2 mb-3">
+                                                            @if (!empty($productTypeWatchTotalRating))
+                                                                @foreach ($productTypeWatchTotalRating->products->first()->imageProduct()->limit(4)->get() as $item)
+                                                                    <div class="col-auto">
+                                                                        <!-- Gallery -->
+                                                                        <a class="js-fancybox max-width-60 u-media-viewer"
+                                                                            href="javascript:;"
+                                                                            data-src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                            data-fancybox="fancyboxGallery6"
+                                                                            data-caption="Electro in frames - image #01"
+                                                                            data-speed="700" data-is-infinite="true">
+                                                                            <img class="img-fluid border"
+                                                                                src="../{{ $item->img_url ?? '../../assets/img/100X100/img1.jpg' }}"
+                                                                                alt="Image Description">
+                                                                            <span class="u-media-viewer__container">
+                                                                                <span class="u-media-viewer__icon">
+                                                                                    <span
+                                                                                        class="fas fa-plus u-media-viewer__icon-inner"></span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <!-- End Gallery -->
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                            {{-- <div class="col"></div> --}}
+                                                        </div>
+                                                        <!-- End Gallery -->
+                                                    </div>
+                                                    <div class="flex-center-between">
+                                                        @if ($productTypeMacTotalRating->products->first()->discount > 0)
+                                                            <div
+                                                                class="prodcut-price d-flex align-items-center position-relative">
+                                                                <ins
+                                                                    class="font-size-20 text-red text-decoration-none"><b>${{ number_format($productTypeWatchTotalRating->products->first()->price - $productTypeWatchTotalRating->products->first()->price * ($productTypeWatchTotalRating->products->first()->discount / 100)) }}</b></ins>
+                                                                <del
+                                                                    class="font-size-12 tex-gray-6 position-absolute bottom-100">${{ number_format($productTypeWatchTotalRating->products->first()->price) }}</del>
+                                                            </div>
+                                                        @else
+                                                            <div class="prodcut-price">
+                                                                <div class="text-gray-100">
+                                                                    <b>${{ number_format($productTypeWatchTotalRating->products->first()->price) }}</b>
+                                                                </div>
+                                                            </div>
+                                                        @endif                                                        
+                                                        @if ($productTypeWatchTotalRating->products->first()->active_quantity !== null && $productTypeWatchTotalRating->products->first()->active_quantity > 0)
+                                                            <input
+                                                                class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
+                                                                type="hidden" value="1" name="quantity" id="quantity">
+                                                            <div class="d-none d-xl-block prodcut-add-cart">
+                                                                <a onclick="addCart({{ $productTypeWatchTotalRating->products->first()->id_product }})"
+                                                                    href="javascript:"
+                                                                    class="btn-add-cart btn-primary transition-3d-hover"><i
+                                                                        class="ec ec-add-to-cart"></i>
+                                                                </a>
+                                                            </div>
+                                                        @else
+                                                            <a href="{{ route('index.contact') }}"
+                                                                class="btn-add-cart btn-danger transition-3d-hover">
+                                                                <i class="fas fa-phone"></i></a>
                                                         @endif
-{{--                                                        <div class="col"></div>--}}
                                                     </div>
-                                                    <!-- End Gallery -->
-                                                </div>
-                                                <div class="flex-center-between">
-                                                     @if ($productTypeMacTotalRating->products->first()->discount > 0)
-                                                    <div class="prodcut-price d-flex align-items-center position-relative">
-                                                        <ins class="font-size-20 text-red text-decoration-none"><b>${{number_format($productTypeWatchTotalRating->products->first()->price - ($productTypeWatchTotalRating->products->first()->price*($productTypeWatchTotalRating->products->first()->discount/100)))}}</b></ins>
-                                                        <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{number_format($productTypeWatchTotalRating->products->first()->price)}}</del>
-                                                    </div>
-                                                    @else
-                                                    <div class="prodcut-price">
-                                                        <div class="text-gray-100"><b>${{number_format($productTypeWatchTotalRating->products->first()->price)}}</b></div>
-                                                    </div>
-                                                    @endif
-                                                     <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="hidden" value="1" name= "quantity" id="quantity">
-                                                     <div class="d-none d-xl-block prodcut-add-cart">
-                                                         <a onclick="addCart({{$productTypeWatchTotalRating->products->first()->id_product}})" href="javascript:"
-                                                            class="btn-add-cart btn-primary transition-3d-hover"><i
-                                                                 class="ec ec-add-to-cart"></i>
-                                                         </a>
-                                                </div>
-                                            </div>
                                             @endif
                                         </div>
-{{--                                        End Iphone total Rating--}}
+                                        {{-- End Iphone total Rating --}}
                                     </div>
                                 </li>
                             </ul>
@@ -1546,138 +1618,138 @@
 @endsection
 @section('script_footer')
     <!-- JS Global Compulsory -->
-<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/jquery-ui.min.js"></script>
-<script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
-<script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-<script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap/bootstrap.min.js"></script>
 
-<!-- JS Implementing Plugins -->
-<script src="assets/vendor/appear.js"></script>
-<script src="assets/vendor/jquery.countdown.min.js"></script>
-<script src="assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-<script src="assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
-<script src="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="assets/vendor/fancybox/jquery.fancybox.min.js"></script>
-<script src="assets/vendor/typed.js/lib/typed.min.js"></script>
-<script src="assets/vendor/slick-carousel/slick/slick.js"></script>
-<script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script src="assets/vendor/appear.js"></script>
+    <script src="assets/vendor/jquery.countdown.min.js"></script>
+    <script src="assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
+    <script src="assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="assets/vendor/typed.js/lib/typed.min.js"></script>
+    <script src="assets/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
-<!-- JS Electro -->
-<script src="assets/js/hs.core.js"></script>
-<script src="assets/js/components/hs.countdown.js"></script>
-<script src="assets/js/components/hs.header.js"></script>
-<script src="assets/js/components/hs.hamburgers.js"></script>
-<script src="assets/js/components/hs.unfold.js"></script>
-<script src="assets/js/components/hs.focus-state.js"></script>
-<script src="assets/js/components/hs.malihu-scrollbar.js"></script>
-<script src="assets/js/components/hs.validation.js"></script>
-<script src="assets/js/components/hs.fancybox.js"></script>
-<script src="assets/js/components/hs.onscroll-animation.js"></script>
-<script src="assets/js/components/hs.slick-carousel.js"></script>
-<script src="assets/js/components/hs.show-animation.js"></script>
-<script src="assets/js/components/hs.svg-injector.js"></script>
-<script src="assets/js/components/hs.go-to.js"></script>
-<script src="assets/js/components/hs.selectpicker.js"></script>
+    <!-- JS Electro -->
+    <script src="assets/js/hs.core.js"></script>
+    <script src="assets/js/components/hs.countdown.js"></script>
+    <script src="assets/js/components/hs.header.js"></script>
+    <script src="assets/js/components/hs.hamburgers.js"></script>
+    <script src="assets/js/components/hs.unfold.js"></script>
+    <script src="assets/js/components/hs.focus-state.js"></script>
+    <script src="assets/js/components/hs.malihu-scrollbar.js"></script>
+    <script src="assets/js/components/hs.validation.js"></script>
+    <script src="assets/js/components/hs.fancybox.js"></script>
+    <script src="assets/js/components/hs.onscroll-animation.js"></script>
+    <script src="assets/js/components/hs.slick-carousel.js"></script>
+    <script src="assets/js/components/hs.show-animation.js"></script>
+    <script src="assets/js/components/hs.svg-injector.js"></script>
+    <script src="assets/js/components/hs.go-to.js"></script>
+    <script src="assets/js/components/hs.selectpicker.js"></script>
 
-<!-- JS Plugins Init. -->
-<script>
-    $(window).on('load', function () {
-        // initialization of HSMegaMenu component
-        $('.js-mega-menu').HSMegaMenu({
-            event: 'hover',
-            direction: 'horizontal',
-            pageContainer: $('.container'),
-            breakpoint: 767.98,
-            hideTimeOut: 0
-        });
-    });
-
-    $(document).on('ready', function () {
-        // initialization of header
-        $.HSCore.components.HSHeader.init($('#header'));
-
-        // initialization of animation
-        $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
-
-        // initialization of unfold component
-        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
-            afterOpen: function () {
-                $(this).find('input[type="search"]').focus();
-            }
+    <!-- JS Plugins Init. -->
+    <script>
+        $(window).on('load', function() {
+            // initialization of HSMegaMenu component
+            $('.js-mega-menu').HSMegaMenu({
+                event: 'hover',
+                direction: 'horizontal',
+                pageContainer: $('.container'),
+                breakpoint: 767.98,
+                hideTimeOut: 0
+            });
         });
 
-        // initialization of popups
-        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+        $(document).on('ready', function() {
+            // initialization of header
+            $.HSCore.components.HSHeader.init($('#header'));
 
-        // initialization of countdowns
-        var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
-            yearsElSelector: '.js-cd-years',
-            monthsElSelector: '.js-cd-months',
-            daysElSelector: '.js-cd-days',
-            hoursElSelector: '.js-cd-hours',
-            minutesElSelector: '.js-cd-minutes',
-            secondsElSelector: '.js-cd-seconds'
-        });
+            // initialization of animation
+            $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
 
-        // initialization of malihu scrollbar
-        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-
-        // initialization of forms
-        $.HSCore.components.HSFocusState.init();
-
-        // initialization of form validation
-        $.HSCore.components.HSValidation.init('.js-validate', {
-            rules: {
-                confirmPassword: {
-                    equalTo: '#signupPassword'
+            // initialization of unfold component
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+                afterOpen: function() {
+                    $(this).find('input[type="search"]').focus();
                 }
-            }
+            });
+
+            // initialization of popups
+            $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+            // initialization of countdowns
+            var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
+                yearsElSelector: '.js-cd-years',
+                monthsElSelector: '.js-cd-months',
+                daysElSelector: '.js-cd-days',
+                hoursElSelector: '.js-cd-hours',
+                minutesElSelector: '.js-cd-minutes',
+                secondsElSelector: '.js-cd-seconds'
+            });
+
+            // initialization of malihu scrollbar
+            $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+            // initialization of forms
+            $.HSCore.components.HSFocusState.init();
+
+            // initialization of form validation
+            $.HSCore.components.HSValidation.init('.js-validate', {
+                rules: {
+                    confirmPassword: {
+                        equalTo: '#signupPassword'
+                    }
+                }
+            });
+
+            // initialization of show animations
+            $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+            // initialization of fancybox
+            $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+            // initialization of slick carousel
+            $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+            // initialization of go to
+            $.HSCore.components.HSGoTo.init('.js-go-to');
+
+            // initialization of hamburgers
+            $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
+
+            // initialization of unfold component
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+                beforeClose: function() {
+                    $('#hamburgerTrigger').removeClass('is-active');
+                },
+                afterClose: function() {
+                    $('#headerSidebarList .collapse.show').collapse('hide');
+                }
+            });
+
+            $('#headerSidebarList [data-toggle="collapse"]').on('click', function(e) {
+                e.preventDefault();
+
+                var target = $(this).data('target');
+
+                if ($(this).attr('aria-expanded') === "true") {
+                    $(target).collapse('hide');
+                } else {
+                    $(target).collapse('show');
+                }
+            });
+
+            // initialization of unfold component
+            $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+            // initialization of select picker
+            $.HSCore.components.HSSelectPicker.init('.js-select');
         });
-
-        // initialization of show animations
-        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
-
-        // initialization of fancybox
-        $.HSCore.components.HSFancyBox.init('.js-fancybox');
-
-        // initialization of slick carousel
-        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-
-        // initialization of go to
-        $.HSCore.components.HSGoTo.init('.js-go-to');
-
-        // initialization of hamburgers
-        $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
-
-        // initialization of unfold component
-        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
-            beforeClose: function () {
-                $('#hamburgerTrigger').removeClass('is-active');
-            },
-            afterClose: function() {
-                $('#headerSidebarList .collapse.show').collapse('hide');
-            }
-        });
-
-        $('#headerSidebarList [data-toggle="collapse"]').on('click', function (e) {
-            e.preventDefault();
-
-            var target = $(this).data('target');
-
-            if($(this).attr('aria-expanded') === "true") {
-                $(target).collapse('hide');
-            } else {
-                $(target).collapse('show');
-            }
-        });
-
-        // initialization of unfold component
-        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
-
-        // initialization of select picker
-        $.HSCore.components.HSSelectPicker.init('.js-select');
-    });
-</script>
+    </script>
 @endsection

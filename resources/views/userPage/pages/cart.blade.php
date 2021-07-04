@@ -253,7 +253,7 @@
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;
                         toastr.success(data.message);
-                        setTimeout(function(){// wait for 5 secs(2)
+                        setTimeout(function(){// wait for 2 secs(2)
                             location.reload(); // then reload the page.(3)
                         }, 2000);
                     }
