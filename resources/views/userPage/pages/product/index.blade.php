@@ -78,7 +78,6 @@
                                 @endif
                             </ul>
                         </div>
-                        <p>{{ $product->productType->description ?? "" }}</p>
                     </div>
                 </div>
                 <div class="mx-md-auto mx-lg-0 col-md-6 col-lg-4 col-xl-3">

@@ -39,7 +39,7 @@
                                                 <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Thumbnail</th>
-                                                <th>Description</th>
+                                                {{-- <th>Description</th> --}}
                                                 <th>Total Number</th>
                                                 <th>Total Rating</th>
                                                 <th>Warranty</th>
@@ -55,7 +55,7 @@
                                                     <td>{{ $itemproductType->name }}</td>
                                                     <td><img src="{{ asset($itemproductType->thumbnail) }}"
                                                             alt="productType" class="w-25 h-auto"></td>
-                                                    <td>{{ $itemproductType->description }}</td>
+                                                    {{-- <td>{{ $itemproductType->description }}</td> --}}
                                                     <td>{{ $itemproductType->total_number }}NbComment</td>
                                                     <td>{{ $itemproductType->total_rating }}Rating</td>
                                                     <td>{{ $itemproductType->warranty }}.Tháng</td>

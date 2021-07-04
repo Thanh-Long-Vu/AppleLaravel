@@ -48,7 +48,7 @@ class ProductTypeController extends Controller
         $productType = new ProductType();
         $productType->thumbnail = $new_image_name;
         $productType->name = $request->name;
-        $productType->description = $request->description;
+        $productType->description = $request->description ?? $productType->description ;
         $productType->warranty = $request->warranty;
         $productType->category_id = $request->id_category;
         $productType->active = 1;
@@ -107,7 +107,6 @@ class ProductTypeController extends Controller
     }
     public function updateStatus(Request $request)
     {
-        dd($request->all());
         $productType = ProductType::findOrFail($request->product_type_id);
         $productType->active =  (int)($request->active);
         $productType->save();

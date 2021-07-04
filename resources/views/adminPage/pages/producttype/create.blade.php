@@ -30,7 +30,7 @@
                                         @endphp
                                     </div>
                                     @endif
-                                    <form class="needs-validation" novalidate action="{{ route('storeProductType') }}" method="POST" enctype="multipart/form-data">
+                                    <form id="productType" class="needs-validation" novalidate action="{{ route('storeProductType') }}" method="POST" enctype="multipart/form-data">
                                         {{csrf_field() }}
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
@@ -42,8 +42,20 @@
                                                         <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
                                                     </div>
                                             @endif
+                                            </div>                                            
+                                            <div class="form-group col-md-6 mb-6">
+                                                <label for="custom-select" >Category</label>
+                                                <select class="custom-select" id="custom-select" name = "id_category" required>
+                                                    <option disabled selected value >Select Category</option>
+                                                    @if($category)
+                                                        @foreach($category as $categoryitem)
+                                                            <option value="{{$categoryitem->id_category}}" >{{$categoryitem->name}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                                <div class="invalid-feedback"> Please select a valid Category. </div>
                                             </div>
-                                            <div class="col-md-6 mb-3">
+                                            {{-- <div class="col-md-6 mb-3">
                                                 <label for="Description">Description</label>
                                                 <input type="text" class="form-control" id="Description" name ="description" value="{{old('description')}}" 
                                                     required>
@@ -53,7 +65,7 @@
                                                         <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('description') }} 
                                                     </div>
                                                     @endif
-                                            </div>
+                                            </div> --}}
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
                                             <div class="form-group col-md-6" style="margin-top: 2.5%">
@@ -77,20 +89,21 @@
                                                     @endif
                                                     <div class="invalid-feedback">Please enter a warranty for Product Type </div>
                                             </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <h5 class="card-title">Description</h5>
+                                                        <p>Pages type scale includes a range of contrasting styles that support the needs of your product and its content.</p>
+                                                        <!-- Create the editor container -->
+                                                        <div id="editor" style="min-height:100px;">
+                                                            {{!!old('description')}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="description" name="description">
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
-                                            <div class="form-group col-md-6 mb-6">
-                                                <label for="custom-select" >Category</label>
-                                                <select class="custom-select" id="custom-select" name = "id_category" required>
-                                                    <option disabled selected value >Select Category</option>
-                                                    @if($category)
-                                                        @foreach($category as $categoryitem)
-                                                            <option value="{{$categoryitem->id_category}}" >{{$categoryitem->name}}</option>
-                                                        @endforeach
-                                                    @endif
-                                                </select>
-                                                <div class="invalid-feedback"> Please select a valid Category. </div>
-                                            </div>
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="dataproduct">Data Product</label>
@@ -169,7 +182,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" type="submit">Create Product</button>
+                                        <button class="btn btn-primary" type="submit" id="submit">Create Product</button>
                                     </form>
                                 </div> <!-- /.card-body -->
                             </div> <!-- /.card -->
@@ -324,6 +337,11 @@
     <script src='admin/js/uppy.min.js'></script>
     <script src='admin/js/quill.min.js'></script>
     <script>
+        $('#submit').on('click', () => {
+            let html = quill.root.innerHTML;
+            $('#description').val( html )
+            $('#productType').submit();
+        })
         $('.select2').select2({
             theme: 'bootstrap4',
         });

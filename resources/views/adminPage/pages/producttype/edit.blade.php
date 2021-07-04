@@ -22,96 +22,111 @@
                                     <strong class="card-title">Advanced Validation</strong>
                                 </div> --}}
                                 <div class="card-body">
-                                    @if(Session::get('notify') == 'success')
-                                    <div class="alert alert-success" role="alert">
-                                        <span class="fe fe-help-circle fe-16 mr-2"></span> {{Session::get('massage')}} 
-                                    </div>
-                                    @endif 
-                                    <form class="needs-validation" novalidate action="" method="POST" enctype="multipart/form-data">
-                                        {{csrf_field() }}
+                                    @if (Session::get('notify') == 'success')
+                                        <div class="alert alert-success" role="alert">
+                                            <span class="fe fe-help-circle fe-16 mr-2"></span>
+                                            {{ Session::get('massage') }}
+                                        </div>
+                                    @endif
+                                    <form class="needs-validation" novalidate action="" method="POST" id="productType"
+                                        enctype="multipart/form-data">
+                                        {{ csrf_field() }}
                                         <div class="form-row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name">Name product type</label>
-                                                <input type="text" class="form-control" id="name" name="name" value="{{$productType->name}}" required >
+                                                <input type="text" class="form-control" id="name" name="name"
+                                                    value="{{ $productType->name }}" required>
                                             </div>
                                             @if ($errors->has('name'))
-                                                    <div class="alert alert-danger">
-                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('name') }} 
-                                                    </div>
+                                                <div class="alert alert-danger">
+                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span>
+                                                    {{ $errors->first('name') }}
+                                                </div>
                                             @endif
-                                            <div class="col-md-6 mb-3">
-                                                <label for="Description">Description</label>
-                                                <input type="text" class="form-control" id="Description" name ="description" value="{{$productType->description}}" 
-                                                    required>
-                                                    @if ($errors->has('description'))
-                                                    <div class="alert alert-danger">
-                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('description') }} 
-                                                    </div>
-                                                    @endif
-                                            </div>
-                                        </div> <!-- /.form-row -->
-                                        <div class="form-row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="warranty">Warranty</label>
-                                                <input type="text" class="form-control" id="warranty" name="warranty" value="{{$productType->warranty}}"
-                                                    required >
-                                                    @if ($errors->has('warranty'))
-                                                    <div class="alert alert-danger">
-                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('warranty') }} 
-                                                    </div>
-                                                    @endif
-                                            </div>
                                             <div class="form-group col-md-6 mb-6">
                                                 <label for="custom-select">Category</label>
-                                                <select class="custom-select" id="custom-select" name = "category_id">
-                                                    <option disabled value >Select Category</option>
-                                                    @if(isset($category) && $category != '')
-                                                        @foreach($category as $categoryitem)
-                                                            <option value="{{$categoryitem->id_category}}"@if($productType->category_id == $categoryitem->id_category) selected @endif>{{$categoryitem->name}}</option>
+                                                <select class="custom-select" id="custom-select" name="category_id">
+                                                    <option disabled value>Select Category</option>
+                                                    @if (isset($category) && $category != '')
+                                                        @foreach ($category as $categoryitem)
+                                                            <option value="{{ $categoryitem->id_category }}" @if ($productType->category_id == $categoryitem->id_category) selected @endif>
+                                                                {{ $categoryitem->name }}</option>
                                                         @endforeach
                                                     @endif
                                                 </select>
                                             </div>
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="warranty">Warranty</label>
+                                                <input type="text" class="form-control" id="warranty" name="warranty"
+                                                    value="{{ $productType->warranty }}" required>
+                                                @if ($errors->has('warranty'))
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span>
+                                                        {{ $errors->first('warranty') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div> <!-- /.form-row -->
+                                        <div class="form-row">
                                             <div class="form-group col-md-6 mb-3">
                                                 <label for="example-fileinput">Add Thumbnail ProductType</label>
-                                                <input type="file" id="example-fileinput" name="image" class="form-control-file">
+                                                <input type="file" id="example-fileinput" name="image"
+                                                    class="form-control-file">
                                                 @if ($errors->has('image'))
-                                                <div class="alert alert-danger">
-                                                    <span class="fe fe-minus-circle fe-16 mr-2"></span> {{ $errors->first('image') }} 
-                                                </div>
+                                                    <div class="alert alert-danger">
+                                                        <span class="fe fe-minus-circle fe-16 mr-2"></span>
+                                                        {{ $errors->first('image') }}
+                                                    </div>
                                                 @endif
                                             </div>
                                             <div class="form-group col-md-6 mb-3">
-                                                @if(isset($productType->thumbnail) && $productType->thumbnail != '')
-                                                <div class="alert alert-primary" role="alert">
-                                                    <span class="fe fe-alert-circle fe-16 mr-2"></span> Image of you! 
-                                                </div>
-                                                <img src="{{asset($productType->thumbnail)}}" alt="" width="25%">
+                                                @if (isset($productType->thumbnail) && $productType->thumbnail != '')
+                                                    <div class="alert alert-primary" role="alert">
+                                                        <span class="fe fe-alert-circle fe-16 mr-2"></span> Image of you!
+                                                    </div>
+                                                    <img src="{{ asset($productType->thumbnail) }}" alt="" width="25%">
                                                 @else
-                                                <div class="alert alert-warning" role="alert">
-                                                    <span class="fe fe-alert-triangle fe-16 mr-2"></span> Please choose a image for Product Type 
-                                                </div>
+                                                    <div class="alert alert-warning" role="alert">
+                                                        <span class="fe fe-alert-triangle fe-16 mr-2"></span> Please choose
+                                                        a image for Product Type
+                                                    </div>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-3">
                                             <label for="dataproduct">Data Product</label>
                                             <div class="form-row">
-                                                @if( !empty($datalist)) 
-                                                    @foreach($datalist as $key=>$val)
+                                                @if (!empty($datalist))
+                                                    @foreach ($datalist as $key => $val)
                                                         <div class="col-md-3 mb-3">
-                                                            <input type="text" class="form-control mb-2 alert alert-secondary" name="name_fied[]" value="{{$key}}">
-                                                            <input type="text" class="form-control mb-4" name="value[]" value="{{$val}}"> 
+                                                            <input type="text"
+                                                                class="form-control mb-2 alert alert-secondary"
+                                                                name="name_fied[]" value="{{ $key }}">
+                                                            <input type="text" class="form-control mb-4" name="value[]"
+                                                                value="{{ $val }}">
                                                         </div>
                                                     @endforeach
                                                 @else
                                                     No data
                                                 @endif
                                             </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <div>
+                                                        <h5 class="card-title">Description</h5>
+                                                        <!-- Create the editor container -->
+                                                        <div id="editor" style="min-height:100px;">
+                                                            {!! $productType->description !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="description" name="description">
                                         </div>
-                                        <button class="btn btn-primary" type="submit">Update Product</button>
+                                        <button class="btn btn-primary" type="submit" id="submit">Update Product</button>
                                     </form>
                                 </div> <!-- /.card-body -->
                             </div> <!-- /.card -->
@@ -273,6 +288,13 @@
                 theme: 'snow'
             });
         }
+        
+        $('#submit').on('click', () => {
+            let html = quill.root.innerHTML;
+            $('#description').val( html );
+            console.log(html);
+            $('#productType').submit();
+        })
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
             'use strict';
@@ -291,7 +313,6 @@
                 });
             }, false);
         })();
-
     </script>
     <script>
         var uptarg = document.getElementById('drag-drop-area');
@@ -311,7 +332,6 @@
                 console.log('Upload complete! We’ve uploaded these files:', result.successful)
             });
         }
-
     </script>
     <script src="admin/js/apps.js"></script>
     <script>
@@ -322,6 +342,5 @@
         }
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
-
     </script>
 @endsection

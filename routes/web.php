@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\RatingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactController;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,6 @@ Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'checkout']
 Route::get('/track-your-order', [App\Http\Controllers\HomeController::class, 'track_your_order'])->name('track_your_order');
 
 Route::get('/NotFound', [App\Http\Controllers\HomeController::class, 'NotFound'])->name('NotFound');
-Route::get('/contact', [App\Http\Controllers\HomeController::class, 'Contact'])->name('contact');
 Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.user');
 Route::get('/blog-detail/{idBlog}', [App\Http\Controllers\BlogController::class, 'detail'])->name('blog.user.detail');
 Route::get('/categories/{category}', [App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
@@ -61,6 +61,9 @@ Route::get('/track-your-order', [App\Http\Controllers\TransactionController::cla
 Route::get('/search/track-your-order', [App\Http\Controllers\TransactionController::class, 'track_order'])->name('track_order');
 Route::get('/errorNotFound', [App\Http\Controllers\HomeController::class, 'errorPage'])->name('userError');
 Route::get('/filter/product', [App\Http\Controllers\ProductTypeController::class, 'filterProduct'])->name('filterProduct');
+
+Route::get('/contact', [ContactController::class,'index'])->name('index.contact');
+Route::post('/send', [ContactController::class,'PostInfoCustomer'])->name('PostInfoCustomer');
 
 Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');
@@ -174,6 +177,5 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/calendar', [CalendarController::class,'index'])->name('calendar');
     Route::get('/get-product-type/{id}', [CalendarController::class,'getProducType'])->name('getProducType');
     Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
-
 
 });
