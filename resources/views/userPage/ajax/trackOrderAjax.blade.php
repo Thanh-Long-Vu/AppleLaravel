@@ -31,12 +31,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Subtotal</th>
-                                    <td>{{$totalprice}}</td>
-                                </tr>
-                                <tr>
                                     <th>Total Sale</th>
-                                    <td><b>{{$sale}}%</b></td>
+                                    <td><b>{{number_format($sale)}}%</b></td>
                                 </tr>
                                 <tr>
                                     <th>Shipping</th>

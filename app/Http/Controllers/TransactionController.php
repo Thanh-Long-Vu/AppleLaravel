@@ -27,9 +27,10 @@ class TransactionController extends Controller
                         $order = Orders::where('transaction_id','=',$transactionId)->get();
                         $totalprice = 0 ;
                         foreach ($order as $products) {
-                            $totalprice += $products->price * $products->quantity;
+                            $totalprice += $products->product->price * $products->quantity;
                         }
                         $sale = (1- ($dataTransaction->total_price / $totalprice)) *100;
+                        // dd($dataTransaction);
                         return view('userPage.ajax.trackOrderAjax',compact('dataTransaction','order','sale','totalprice'));
                     }else{
                         return response()->json([
