@@ -102,14 +102,13 @@ class AccountController extends Controller
     {
         $transaction = Transaction::find($id_transaction);
         if($transaction->status == 3){
-            // dd($transaction->order);
             foreach ($transaction->order as $order) {
                 $product = Product::find($order->product_id);
                 $product->active_quantity += $order->quantity;
                 $product->save();
             }
             $transaction->status = 2;
-            // $transaction->save();
+            $transaction->save();
             return back()->with('success', 'Cancel order successfully.');
         }else {
             return back()->with('failed','You are not cancel order.');
