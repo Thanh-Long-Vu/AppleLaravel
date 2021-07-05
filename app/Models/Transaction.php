@@ -15,6 +15,7 @@ class Transaction extends Model
     protected $casts = [
         'addtional_data' => 'array',
     ];
+    public $incrementing = false;
     protected $guarded = [];
     protected $table = 'transaction';
     protected $primaryKey = 'id_transaction';

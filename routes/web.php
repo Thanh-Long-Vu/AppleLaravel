@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\RatingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CancelTransactionController;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,8 @@ Route::get('/filter/product', [App\Http\Controllers\ProductTypeController::class
 
 Route::get('/contact', [ContactController::class,'index'])->name('index.contact');
 Route::post('/send', [ContactController::class,'PostInfoCustomer'])->name('PostInfoCustomer');
+Route::get('/cancel-transaction/{token}', [CancelTransactionController::class,'index'])->name('index.cancelTransaction');
+Route::post('/cancel-transaction', [CancelTransactionController::class,'cancelTransaction'])->name('cancelTransactionDone');
 
 Route::prefix('/my-account')->middleware(['auth','user'])->group(function (){
     Route::get('/{id}', [App\Http\Controllers\AccountController::class, 'index'])->name('myAccount');

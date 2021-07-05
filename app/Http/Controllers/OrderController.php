@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailInfo;
+use App\Models\CancelTransaction;
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -20,8 +23,22 @@ class OrderController extends Controller
         $data = $request->all();
         data_set($data, 'status', 3);
         data_set($data, 'user_id', ($auth->id_user ?? 0));
-//        dd($data);
-        $trasnsaction = Transaction::create($data);
+        // dd($date);
+    //    dd($request->addtional_data);
+        $trasnsaction = new Transaction();
+        $trasnsaction->id_transaction = time();
+
+        $trasnsaction->addtional_data = $request->addtional_data;
+        $trasnsaction->total_price = $request->total_price;
+        $trasnsaction->method_receive = $request->method_receive;
+        $trasnsaction->payment_method_id = $request->payment_method_id;
+        $trasnsaction->user_id = $auth->id_user ?? 0;
+        $trasnsaction->note = $request->note;
+        $trasnsaction->status = 3;
+        $trasnsaction->save();
+
+        // dd($trasnsaction->id_transaction); 
+        // $trasnsaction = Transaction::create($data);
         $orderData = [];
         foreach($cart as $cart){
              array_push($orderData,[
@@ -36,6 +53,9 @@ class OrderController extends Controller
         $product->save();
         }
         $trasnsaction->product()->attach($orderData);
+        $cancelTransaction = CancelTransaction::firstOrCreate(['transaction_id'=> $trasnsaction->id_transaction, 'token'=> Str::random(60)]);
+        $cancelTransactionToken = $cancelTransaction->token;
+        Mail::to($request->addtional_data[1]["value"])->send(new MailInfo($trasnsaction,$cancelTransactionToken));
         Session::put('cart', []);
         return response()->json(['message' => 'Ordered Successful !']);
     }
