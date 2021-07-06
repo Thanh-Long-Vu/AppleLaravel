@@ -10,14 +10,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Warehouse extends Model
 {
     use HasFactory,
-    Filterable,
-    SoftDeletes;
+        Filterable,
+        SoftDeletes;
 
     protected $table = 'warehouse';
     protected $primaryKey = 'id_warehouse';
+    protected $fillable = ['name', 'quantity', 'imei', 'color', 'memory', 'price', 'warranty', 'active', 'created_at', 'updated_at', 'deleted_at', 'quantity_sell'];
+
 
     public function product()
     {
-        return $this->hasOne('App\Models\Product','warehouse_id','id_warehouse');
+        return $this->hasOne('App\Models\Product', 'warehouse_id', 'id_warehouse');
     }
 }
