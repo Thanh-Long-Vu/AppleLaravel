@@ -168,6 +168,8 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/system/user/list/user', [UserController::class,'user'])->name('listUser');
     Route::get('/system/user/list/coAdmin', [UserController::class,'coAdmin'])->name('listCoAdmin');
     Route::get('/user/create', [UserController::class,'create'])->name('home.user.create');
+    Route::get('/user/list/accountAdmin', [UserController::class,'index'])->name('listaccountAdmin');
+    Route::post('/user/list/accountAdmin/update', [UserController::class,'updatePermission'])->name('updatePermission');
     Route::post('/user/store', [UserController::class,'store'])->name('home.user.store');
     Route::get('/user/edit', [UserController::class,'edit'])->name('home.user.edit');
 

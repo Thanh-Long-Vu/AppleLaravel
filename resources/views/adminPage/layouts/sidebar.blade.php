@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-settings fe-16"></i>
+                        <a class="nav-link pl-3" href="{{route('listaccountAdmin')}}"><i class="fe fe-settings fe-16"></i>
                             <span class="ml-1 item-text">General settings</span>
                         </a>
                     </li>
