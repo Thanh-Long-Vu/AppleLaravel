@@ -1,12 +1,12 @@
 @extends('adminPage.index')
 @section('scriptHeader')
-<link rel="stylesheet" href="admin/css/feather.css">
-<link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
-<script src="admin/js/jquery-ajax.min.js"></script>
-<link rel="stylesheet" href="admin/css/switchery.min.css">
-<script src="admin/js/switchery.min.js"></script>
-<link rel="stylesheet" href="admin/css/toastr.min.css">
-<script src="admin/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="admin/css/feather.css">
+    <link rel="stylesheet" href="admin/css/dataTables.bootstrap4.css">
+    <script src="admin/js/jquery-ajax.min.js"></script>
+    <link rel="stylesheet" href="admin/css/switchery.min.css">
+    <script src="admin/js/switchery.min.js"></script>
+    <link rel="stylesheet" href="admin/css/toastr.min.css">
+    <script src="admin/js/toastr.min.js"></script>
 @endsection
 @section('title', 'List Warehouse')
 @section('content')
@@ -20,15 +20,53 @@
                         <div class="col-md-12">
                             <div class="card shadow">
                                 <div class="card-body">
-                                    @if(Session::has('success'))
-                                    <div class="alert alert-success">
-                                        {{ Session::get('success') }}
-                                        @php
-                                            Session::forget('success');
-                                        @endphp
-                                    </div>
+                                    @if (Session::has('success'))
+                                        <div class="alert alert-success">
+                                            {{ Session::get('success') }}
+                                            @php
+                                                Session::forget('success');
+                                            @endphp
+                                        </div>
+                                    @elseif(Session::has('error'))
+                                        <div class="alert alert-ranger">
+                                            {{ Session::get('error') }}
+                                            @php
+                                                Session::forget('error');
+                                            @endphp
+                                        </div>
                                     @endif
-                                    <a href="{{route('warehouse.create')}}" class="btn btn-primary float-right ml-3" type="button">Create Warehouse</a>
+                                    <button type="button" class="btn btn-primary float-right ml-3" data-toggle="modal"
+                                        data-target="#ImportData">
+                                        Import Data Warehouse
+                                    </button>
+                                    <div class="modal fade" id="ImportData" tabindex="-1" role="dialog"
+                                        aria-labelledby="ImportExcel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ImportExcel">Import data Warehouse</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post" action="{{ route('warehouse.import') }}"
+                                                    enctype="multipart/form-data">
+                                                    {{ csrf_field() }}
+                                                    <div class="modal-body">
+                                                        <input type="file" name="file" id="file">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <input type="submit" value="Import Warehouse" class="btn btn-primary">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ route('warehouse.create') }}" class="btn btn-primary float-right ml-3"
+                                        type="button">Create Warehouse</a>
                                     <!-- table -->
                                     <table class="table datatables" id="dataTable-1">
                                         <thead>
@@ -48,69 +86,78 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($listWareHouses as $listWareHouse)
-                                            <tr>
-                                                <td>{{$listWareHouse->id_warehouse}}</td>
-                                                <td>{{$listWareHouse->name}}</td>
-                                                <td>{{$listWareHouse->data}}</td>
-                                                <td>{{$listWareHouse->IMEI}}</td>
-                                                <td>
-                                                    @if($listWareHouse->color == 0)
-                                                    Red
-                                                    @elseif($listWareHouse->color == 1)
-                                                    Yellow
-                                                    @elseif($listWareHouse->color == 2)
-                                                    Violet
-                                                    @elseif($listWareHouse->color == 3)
-                                                    Green
-                                                    @elseif($listWareHouse->color == 4)
-                                                    Black
-                                                    @elseif($listWareHouse->color == 5)
-                                                    White
-                                                    @elseif($listWareHouse->color == 6)
-                                                    Other
-                                                    @elseif($listWareHouse->color == 7)
-                                                    Patific
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    @if($listWareHouse->memory == 0)
-                                                    16GB
-                                                    @elseif($listWareHouse->memory == 1)
-                                                    32GB
-                                                    @elseif($listWareHouse->memory == 2)
-                                                    64GB
-                                                    @elseif($listWareHouse->memory == 3)
-                                                    128GB
-                                                    @elseif($listWareHouse->memory == 4)
-                                                    256GB
-                                                    @elseif($listWareHouse->memory == 5)
-                                                    512Gb
-                                                    @endif
-                                                </td>
-                                                <td>{{$listWareHouse->price}}.VNĐ</td>
-                                                <td>{{$listWareHouse->warranty}}</td>
-                                                <td>{{$listWareHouse->quantity}}.Cái</td>
-                                                {{-- <td>
+                                                <tr>
+                                                    <td>{{ $listWareHouse->id_warehouse }}</td>
+                                                    <td>{{ $listWareHouse->name }}</td>
+                                                    <td>{{ $listWareHouse->data }}</td>
+                                                    <td>{{ $listWareHouse->IMEI }}</td>
+                                                    <td>
+                                                        @if ($listWareHouse->color == 0)
+                                                            Red
+                                                        @elseif($listWareHouse->color == 1)
+                                                            Yellow
+                                                        @elseif($listWareHouse->color == 2)
+                                                            Violet
+                                                        @elseif($listWareHouse->color == 3)
+                                                            Green
+                                                        @elseif($listWareHouse->color == 4)
+                                                            Black
+                                                        @elseif($listWareHouse->color == 5)
+                                                            White
+                                                        @elseif($listWareHouse->color == 6)
+                                                            Other
+                                                        @elseif($listWareHouse->color == 7)
+                                                            Patific
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if ($listWareHouse->memory == 0)
+                                                            16GB
+                                                        @elseif($listWareHouse->memory == 1)
+                                                            32GB
+                                                        @elseif($listWareHouse->memory == 2)
+                                                            64GB
+                                                        @elseif($listWareHouse->memory == 3)
+                                                            128GB
+                                                        @elseif($listWareHouse->memory == 4)
+                                                            256GB
+                                                        @elseif($listWareHouse->memory == 5)
+                                                            512Gb
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $listWareHouse->price }}.VNĐ</td>
+                                                    <td>{{ $listWareHouse->warranty }}</td>
+                                                    <td>{{ $listWareHouse->quantity }}.Cái</td>
+                                                    {{-- <td>
                                                     <input type="checkbox" data-id="{{ $listWareHouse->id_warehouse }}" name="active" class="js-switch" {{ $listWareHouse->active == 1 ? 'checked' : '' }}>
                                                 </td> --}}
-                                                <td>
-                                                    <div class="custom-control custom-switch">
-                                                      <input type="checkbox" data-id="{{ $listWareHouse->id_warehouse }}" name="active"  class="custom-control-input" id="{{ $listWareHouse->id_warehouse }}"  {{ $listWareHouse->active == 1 ? 'checked' : '' }}>
-                                                      <label class="custom-control-label" for="{{ $listWareHouse->id_warehouse }}"></label>
-                                                    </div>
-                                                  </td>
-                                                <td>
-                                                    <button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
-                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <span class="text-muted sr-only">Action</span>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="{{route('createProduct',['id'=>$listWareHouse->id_warehouse])}}">Create</a>
-                                                        <a class="dropdown-item" href="{{route('warehouse.edit',['id'=>$listWareHouse->id_warehouse])}}">Edit</a>
-                                                        <a class="dropdown-item" href=" {{route('softDeleteWareHouse', ['id' => $listWareHouse->id_warehouse])}}">Remove</a>  
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox"
+                                                                data-id="{{ $listWareHouse->id_warehouse }}"
+                                                                name="active" class="custom-control-input"
+                                                                id="{{ $listWareHouse->id_warehouse }}"
+                                                                {{ $listWareHouse->active == 1 ? 'checked' : '' }}>
+                                                            <label class="custom-control-label"
+                                                                for="{{ $listWareHouse->id_warehouse }}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm dropdown-toggle more-horizontal"
+                                                            type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            <span class="text-muted sr-only">Action</span>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('createProduct', ['id' => $listWareHouse->id_warehouse]) }}">Create</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('warehouse.edit', ['id' => $listWareHouse->id_warehouse]) }}">Edit</a>
+                                                            <a class="dropdown-item"
+                                                                href=" {{ route('softDeleteWareHouse', ['id' => $listWareHouse->id_warehouse]) }}">Remove</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -143,7 +190,6 @@
                 [16, 32, 64, "All"]
             ]
         });
-
     </script>
     <script src="admin/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -155,7 +201,6 @@
         }
         gtag('js', new Date());
         gtag('config', 'UA-56159088-1');
-
     </script>
     <script>
         // let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -176,7 +221,7 @@
                         'active': active,
                         'warehouse_id': id_wareHouse
                     },
-                    success: function(data) {         
+                    success: function(data) {
                         toastr.options.closeButton = 1;
                         toastr.options.closeMethod = 'fadeOut';
                         toastr.options.closeDuration = 100;

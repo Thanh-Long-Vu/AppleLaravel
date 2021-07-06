@@ -84,6 +84,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/home', [HomeController::class,'index'])->name('home.index');
     Route::get('/warehouse', [WareHouseController::class,'index'])->name('warehouse.index');
     Route::get('/warehouse/create', [WareHouseController::class,'create'])->name('warehouse.create');
+    Route::post('/warehouse/import', [WareHouseController::class,'importData'])->name('warehouse.import');
     Route::post('/warehouse/store', [WareHouseController::class,'postcreate'])->name('warehouse.postcreate');
     Route::get('/warehouse/edit/{id}', [WareHouseController::class,'edit'])->name('warehouse.edit');
     Route::post('/warehouse/edit/{id}', [WareHouseController::class,'update'])->name('warehouse.update');

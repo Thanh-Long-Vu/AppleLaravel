@@ -4,12 +4,15 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\RequestWareHouse;
+use App\Imports\WarehouseImport;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Excel;
+use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
 
 class wareHouseController extends Controller
 {
@@ -119,5 +122,10 @@ class wareHouseController extends Controller
         $retoreWareHouse = Warehouse::withTrashed()->find($id);
         $retoreWareHouse->restore();
         return redirect()->back()->with(['notify'=>'success','massage'=>'Khôi phục thành công']);
+    }
+    public function importData(Request $request){
+        
+        FacadesExcel::import(new WarehouseImport, $request->file('file')->store('temp'));
+        return back();
     }
 }
