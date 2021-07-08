@@ -84,8 +84,8 @@
                     <div class="mb-2">
                         <div class="card p-5 border-width-2 border-color-1 borders-radius-17">
                             <div class="text-gray-9 font-size-14 pb-2 border-color-1 border-bottom mb-3">Availability:
-                                @if($product->active_quantity !== null && $product->active_quantity > 0)
-                                    <span class="text-green font-weight-bold">{{$product->active_quantity ?? ""}} in stock</span>
+                                @if($product->active_quantity !== null && ($product->active_quantity - $product->quantity_sell)> 0 && $product->active_quantity != $product->quantity_sell)
+                                    <span class="text-green font-weight-bold">{{($product->active_quantity - $product->quantity_sell) ?? ""}} in stock</span>
                                 @else
                                     <span class="text-red font-weight-bold">Contact us</span>
                                 @endif
@@ -99,7 +99,7 @@
                                     <div class="font-size-30">{{number_format($product->currentPrice ?? "")}} $</div>
                                 @endif
                             </div>
-                            @if($product->active_quantity !== null && $product->active_quantity > 0)
+                            @if($product->active_quantity !== null && ($product->active_quantity - $product->quantity_sell) > 0 && $product->active_quantity != $product->quantity_sell)
                                 <form >
                                     <div class="mb-3">
                                         <h6 class="font-size-14">Quantity</h6>

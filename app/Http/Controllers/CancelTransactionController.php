@@ -29,7 +29,7 @@ class CancelTransactionController extends Controller
             if ($transaction->status == 3) {
                 foreach ($transaction->order as $order) {
                     $product = Product::find($order->product_id);
-                    $product->active_quantity += $order->quantity;
+                    $product->quantity_sell -= $order->quantity;
                     $product->save();
                 }
                 $transaction->status = 2;

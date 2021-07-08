@@ -54,7 +54,7 @@
                                 <div class="text-gray-100"><b>${{ number_format($product->price ?? 0) }}</b></div>
                             </div>
                         @endif
-                        @if ($product->active_quantity !== null && $product->active_quantity > 0)
+                        @if ($product->active_quantity !== null && ($product->active_quantity - $product->quantity_sell) > 0 && $product->active_quantity != $product->quantity_sell)
                             <input type="hidden" value="1" name="quantity" id="quantity">
                             <a onclick="addCart({{ $product->id_product }})" href="javascript:"
                                 class="btn-add-cart btn-primary transition-3d-hover"><i

@@ -77,14 +77,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-right mr-2">
-                                        <p class="mb-2 h6">
+                                        {{-- <p class="mb-2 h6">
                                             <span class="text-muted">Subtotal : </span>
-                                            <strong>${{number_format($totalprice)}}</strong>
-                                        </p>
-                                        <p class="mb-2 h6">
-                                            <span class="text-muted">Total Sale :</span>
-                                            <strong>{{$sale}}%</strong>
-                                        </p>
+                                            <strong>${{number_format($transaction->total_price)}}</strong>
+                                        </p> --}}
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Total : </span>
                                             <span>${{number_format($transaction->total_price)}}</span>

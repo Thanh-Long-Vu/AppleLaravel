@@ -32,7 +32,7 @@ class OrderController extends Controller
         $trasnsaction->total_price = $request->total_price;
         $trasnsaction->method_receive = $request->method_receive;
         $trasnsaction->payment_method_id = $request->payment_method_id;
-        $trasnsaction->user_id = $auth->id_user ?? 0;
+        $trasnsaction->user_id = $auth->id_user ?? null;
         $trasnsaction->note = $request->note;
         $trasnsaction->status = 3;
         $trasnsaction->save();
@@ -49,7 +49,7 @@ class OrderController extends Controller
                 'product_id' => $cart['item']['product']->id_product,
             ]);
         $product = Product::find($cart['item']['product']->id_product);
-        $product->active_quantity -= $cart['item']['quantity'];
+        $product->quantity_sell += $cart['item']['quantity'];
         $product->save();
         }
         $trasnsaction->product()->attach($orderData);
