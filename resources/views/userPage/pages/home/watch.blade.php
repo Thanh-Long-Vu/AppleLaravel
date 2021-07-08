@@ -40,7 +40,7 @@
                                             <b>${{ number_format($item->products->first()->price) }}</b></div>
                                     </div>
                                 @endif
-                                @if ($item->products->first()->active_quantity !== null && $item->products->first()->active_quantity > 0)
+                                @if ($item->products->first()->active_quantity !== null && ($item->products->first()->active_quantity - $item->products->first()->quantity_sell) > 0 && $item->products->first()->active_quantity != $item->products->first()->quantity_sell)
                                 <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
                                     type="hidden" value="1" name="quantity" id="quantity">
                                 <div class="d-none d-xl-block prodcut-add-cart">

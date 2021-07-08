@@ -38,12 +38,12 @@
                                      <div class="text-gray-100"><b>${{ number_format($item->price) }}</b></div>
                                  </div>
                              @endif
-                             @if ($item->active_quantity !== null && $item->active_quantity > 0)
+                             @if ($item->active_quantity !== null && ($item->active_quantity- $item->quantity_sell) > 0 && $item->active_quantity != $item->quantity_sell)
                                  <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
                                      type="hidden" value="1" name="quantity" id="quantity">
                                  <div class="d-none d-xl-block prodcut-add-cart">
-                                     <a onclick="addCart({{ $item->id_product }})"
-                                         href="javascript:" class="btn-add-cart btn-primary transition-3d-hover"><i
+                                     <a onclick="addCart({{ $item->id_product }})" href="javascript:"
+                                         class="btn-add-cart btn-primary transition-3d-hover"><i
                                              class="ec ec-add-to-cart"></i>
                                      </a>
                                  </div>

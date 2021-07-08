@@ -21,14 +21,15 @@ class TransactionController extends Controller
     }
     public function orderview($id)
     {
-        $transaction = Transaction::find($id);
-        $order = Orders::where('transaction_id', '=', $id)->get();
-        $totalprice = 0;
-        foreach ($order as $products) {
-            $totalprice += $products->price * $products->quantity;
-        }
-        $sale = (1 - ($transaction->total_price / $totalprice)) * 100;
-        return view('adminPage.pages.transaction.detail', compact('order', 'transaction', 'totalprice', 'sale'));
+        $transaction = Transaction::find(1625505778);
+        $order = Orders::where('transaction_id', '=', 1625505778)->get();
+        // $totalprice = 0;
+        // foreach ($order as $products) {
+        //     $totalprice += $products->price * $products->quantity;
+        // }
+        // $sale = (1 - ($transaction->total_price / $totalprice)) * 100 ;
+        // dd($sale);
+        return view('adminPage.pages.transaction.detail', compact('order', 'transaction'));
     }
     public function updateStatus(Request $request)
     {

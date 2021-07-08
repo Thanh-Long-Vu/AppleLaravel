@@ -275,7 +275,7 @@
                                                                 </div>
                                                             </div>
                                                         @endif
-                                                        @if ($productTypeMacTotalRating->products->first()->active_quantity !== null && $productTypeMacTotalRating->products->first()->active_quantity > 0)
+                                                        @if ($productTypeMacTotalRating->products->first()->active_quantity !== null && ($productTypeMacTotalRating->products->first()->active_quantity - $productTypeMacTotalRating->products->first()->quantity_sell) > 0 && $productTypeMacTotalRating->products->first()->active_quantity != $productTypeMacTotalRating->products->first()->quantity_sell)
                                                             <input
                                                                 class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
                                                                 type="hidden" value="1" name="quantity" id="quantity">
@@ -388,7 +388,7 @@
                                                                 </div>
                                                             </div>
                                                         @endif
-                                                        @if ($productTypeIphoneTotalRating->products->first()->active_quantity !== null && $productTypeIphoneTotalRating->products->first()->active_quantity > 0)
+                                                        @if ($productTypeIphoneTotalRating->products->first()->active_quantity !== null && ($productTypeIphoneTotalRating->products->first()->active_quantity - $productTypeIphoneTotalRating->products->first()->quantity_sell) > 0 && $productTypeIphoneTotalRating->products->first()->active_quantity != $productTypeIphoneTotalRating->products->first()->quantity_sell)
                                                             <input
                                                                 class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
                                                                 type="hidden" value="1" name="quantity" id="quantity">
@@ -502,7 +502,7 @@
                                                                 </div>
                                                             </div>
                                                         @endif
-                                                        @if ($productTypeIpadTotalRating->products->first()->active_quantity !== null && $productTypeIpadTotalRating->products->first()->active_quantity > 0)
+                                                        @if ($productTypeIpadTotalRating->products->first()->active_quantity !== null && ($productTypeIpadTotalRating->products->first()->active_quantity - $productTypeIpadTotalRating->products->first()->quantity_sell) > 0 && $productTypeIpadTotalRating->products->first()->active_quantity != $productTypeIpadTotalRating->products->first()->quantity_sell)
                                                             <input
                                                                 class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
                                                                 type="hidden" value="1" name="quantity" id="quantity">
@@ -615,7 +615,7 @@
                                                                 </div>
                                                             </div>
                                                         @endif                                                        
-                                                        @if ($productTypeWatchTotalRating->products->first()->active_quantity !== null && $productTypeWatchTotalRating->products->first()->active_quantity > 0)
+                                                        @if ($productTypeWatchTotalRating->products->first()->active_quantity !== null && ($productTypeWatchTotalRating->products->first()->active_quantity - $productTypeWatchTotalRating->products->first()->quantity_sell) > 0 && $productTypeWatchTotalRating->products->first()->active_quantity != $productTypeWatchTotalRating->products->first()->quantity_sell)
                                                             <input
                                                                 class="js-result form-control h-auto border-0 rounded p-0 shadow-none"
                                                                 type="hidden" value="1" name="quantity" id="quantity">

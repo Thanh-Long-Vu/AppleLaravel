@@ -67,7 +67,7 @@
                                                         <div class="custom-control custom-switch">
                                                             <input type="checkbox" data-id="{{ $itemproductType->id_product_type }}" name="active"  class="custom-control-input" id="{{ $itemproductType->id_product_type }}"  {{ $itemproductType->active == 1 ? 'checked' : '' }}>
                                                             <label class="custom-control-label" for="{{ $itemproductType->id_product_type }}"></label>
-                                                          </div>
+                                                        </div>
                                                     </td>
                                                     <td>
                                                         <button class="btn btn-sm dropdown-toggle more-horizontal"
