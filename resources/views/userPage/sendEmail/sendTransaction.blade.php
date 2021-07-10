@@ -935,7 +935,7 @@
                                                                         style="
                                                                             margin-top: 20px;
                                                                             color: #ff0000;
-                                                                        ">${{ number_format($order->price, 0, ',', '.') }}({{$order->sale}}%)</span></strong></span> - <span>x {{$order->quantity}}</span>
+                                                                        ">${{ number_format($order->price, 0, ',', '.') }}@if($order->sale > 0)(Sale{{$order->sale}}%) @endif</span></strong></span> - <span>x {{$order->quantity}}</span>
                                                         </li>
                                                     @endforeach
                                                 </ol>
@@ -978,7 +978,7 @@
                                                                 "><strong
                                                                 style="
                                                                         margin-top: 20px;
-                                                                    ">{{ number_format($transaction->total_price, 0, ',', '.') }}đ</strong></span><span
+                                                                    ">${{ number_format($transaction->total_price, 0, ',', '.') }}</strong></span><span
                                                             style="
                                                                     color: #262626;
                                                                 ">

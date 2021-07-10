@@ -61,12 +61,12 @@
                                         </div> <!-- /.form-row -->
                                         <div class="form-row">
                                             <div class="col-md-3 mb-3">
-                                                <label for="price_buy">Price buy (.VNĐ)</label>
+                                                <label for="price_buy">Price buy ($)</label>
                                                 <input type="text" class="form-control"  value="{{$product->warehouse->price}}" id="price_buy" disabled required>
                                                 <div class="invalid-feedback">Please choose image for Price buy</div>
                                             </div>
                                             <div class="col-md-3 mb-3">
-                                                <label for="price_sell">Price sell (.VNĐ)</label>
+                                                <label for="price_sell">Price sell ($)</label>
                                                 <input type="text" class="form-control" value="{{$product->price}}" id="price_sell" name="price_sell" required>
                                                 <div class="invalid-feedback">Please choose image for Price sell</div>
                                                 @if ($errors->has('price'))

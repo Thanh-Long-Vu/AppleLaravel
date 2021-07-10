@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function store(Request $request,$id)
     {
         $validatedData = Validator::make($request->all(),[
-            'price_sell' => 'required|integer|min:890',
+            'price_sell' => 'required|integer',
             'quantity_sell' => 'required|integer',
             'discount' => 'required|integer|min:0',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
@@ -51,7 +51,7 @@ class ProductController extends Controller
         
         $product = new Product();
         $wareHouse = Warehouse::find($id);
-        if($request->quantity_sell <= $wareHouse->quantity - $wareHouse->quantity_sell){
+        if($request->quantity_sell <= $wareHouse->quantity){
             $product->warehouse_id = $id;
             $product->thumbnail = $new_image_name;  
             $product->active_quantity += $request->quantity_sell;
@@ -60,10 +60,12 @@ class ProductController extends Controller
             $product->discount = $request->discount;
             $product->is_hot = 0;
             $product->product_type_id = $request->id_product_type;
+            // dd($product);
             $wareHouse->save();
             $product->save();
             return redirect()->back()->with('success', 'Product update successfully.');
-        }else {
+        }
+        else {
             return redirect()->back()->with('error','Quantity sell > Quantity warehouse. Please enter quantity true');
         }
     }

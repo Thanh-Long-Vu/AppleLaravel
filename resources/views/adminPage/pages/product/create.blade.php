@@ -48,7 +48,7 @@
                                             <div class="col-md-3 mb-3">
                                                 <label for="price_sell">Price sell</label>
                                                 <div class="custom-File">
-                                                    <input type="text" class="form-control" id="price_sell" name="price_sell" value="{{old('price_sell')}}" placeholder=".VNĐ" required>
+                                                    <input type="text" class="form-control" id="price_sell" name="price_sell" value="{{old('price_sell')}}" placeholder="$" required>
                                                     <div class="invalid-feedback">Please enter Price sell</div>
                                                     @if ($errors->has('price_sell'))
                                                     <div class="alert alert-danger">

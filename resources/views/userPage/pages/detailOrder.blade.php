@@ -148,7 +148,7 @@
                                     <div class="text-right mr-2">
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Subtotal : </span>
-                                            <strong>{{number_format($totalprice)}}.VNĐ</strong>
+                                            <strong>${{number_format($totalprice)}}</strong>
                                         </p>
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Total Sale :</span>
@@ -156,7 +156,7 @@
                                         </p>
                                         <p class="mb-2 h6">
                                             <span class="text-muted">Total : </span>
-                                            <span>{{number_format($transaction->total_price)}}.VNĐ</span>
+                                            <span>${{number_format($transaction->total_price)}}</span>
                                         </p>
                                     </div>
                                 </div>

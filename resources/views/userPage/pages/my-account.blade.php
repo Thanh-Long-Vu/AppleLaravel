@@ -434,7 +434,7 @@
                                                             <div class="text-right mr-2">
                                                                 <p class="mb-2 h6">
                                                                     <span class="text-muted">Total : </span>
-                                                                    <span>{{ number_format($order->transaction->total_price) }}.VNĐ</span>
+                                                                    <span>${{ number_format($order->transaction->total_price) }}</span>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -615,7 +615,7 @@
                                                             <div class="text-right mr-2">
                                                                 <p class="mb-2 h6">
                                                                     <span class="text-muted">Total : </span>
-                                                                    <span>{{ number_format($order->transaction->total_price) }}.VNĐ</span>
+                                                                    <span>${{ number_format($order->transaction->total_price) }}</span>
                                                                 </p>
                                                             </div>
                                                         </div>
