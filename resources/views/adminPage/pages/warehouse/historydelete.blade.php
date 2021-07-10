@@ -83,7 +83,7 @@
                                                     512Gb
                                                     @endif
                                                 </td>
-                                                <td>{{$listWareHouse->price}}.VNĐ</td>
+                                                <td>${{$listWareHouse->price}}</td>
                                                 <td>{{$listWareHouse->warranty}}</td>
                                                 <td>{{$listWareHouse->quantity}}.Cái</td>
                                                 <td>

@@ -7,29 +7,59 @@ use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $date = date("m");
-        $transaction = Transaction::whereMonth('updated_at','=',$date)->where('status','=',4)->get();
+        $transaction = Transaction::whereMonth('updated_at', '=', $date)->where('status', '=', 4)->get();
         $countTotalMoney = $transaction->sum('total_price');
         $countOrder = count($transaction);
         $dateBefore = $date - 1;
-        $transactionBefore = Transaction::whereMonth('updated_at','=',$dateBefore)->where('status','=',4)->get();
+        $transactionBefore = Transaction::whereMonth('updated_at', '=', $dateBefore)->where('status', '=', 4)->get();
         $countTotalMoneyBefore = $transactionBefore->sum('total_price');
         $countOrderBefore = count($transactionBefore);
-        $amountOrder = 100 -(($countOrderBefore / $countOrder) * 100 );
-        $percentIncrease = 100-(($countTotalMoneyBefore / $countTotalMoney ) * 100);
+        $amountOrder = 100 - (($countOrderBefore / $countOrder) * 100);
+        $percentIncrease = 100 - (($countTotalMoneyBefore / $countTotalMoney) * 100);
         $totalProduct = count(Product::get());
-        $transactionAll = Transaction::whereMonth('updated_at','=',$date)->get();
-        $transactionNotDone = Transaction::whereMonth('updated_at','=',$date)->where('status','!=',4)->where('status','!=',2)->get();
-        $percentTransactionNotDone = number_format(((count($transactionNotDone) / count($transactionAll)) *100));
+        $transactionAll = Transaction::whereMonth('updated_at', '=', $date)->get();
+        $transactionNotDone = Transaction::whereMonth('updated_at', '=', $date)->where('status', '!=', 4)->where('status', '!=', 2)->get();
+        $percentTransactionNotDone = number_format(((count($transactionNotDone) / count($transactionAll)) * 100));
 
-        $productHot = Product::where('active','=',1)->where('active_quantity','>',0)->orderby('quantity_sell','desc')->limit(5)->get();
-        $productStock = Product::where('active','=',1)->where('active_quantity','>',0)->orderby('quantity_sell','asc')->limit(5)->get();
-        return view('adminPage.pages.home',compact('productStock','productHot','percentIncrease','countTotalMoney','date','countOrderBefore','countOrder','amountOrder','totalProduct','percentTransactionNotDone'));
+        $productHot = Product::where('active', '=', 1)->where('active_quantity', '>', 0)->orderby('quantity_sell', 'desc')->limit(5)->get();
+        $productStock = Product::where('active', '=', 1)->where('active_quantity', '>', 0)->orderby('quantity_sell', 'asc')->limit(5)->get();
+
+
+
+        // $groups = FacadesDB::table('transaction')
+        //     ->select('transaction', FacadesDB::raw('count(*) as id_transaction'))
+        //     ->groupBy('transaction_id')
+        //     ->pluck('quantity', 'colors')->get();
+        // $order = DB::table('order')
+        //     ->leftjoin('products', 'order.product_id', '=', 'products.id_product')
+        //     ->leftjoin('product_types', 'products.product_type_id', '=', 'product_types.id_product_type')
+        //     ->select('order.quantity', 'order.id_order', 'product_types.name', 'order.color', 'order.updated_at')
+        //     ->get();
+        // dd($order);
+        // Generate random colours for the groups
+        $order = DB::table('order')
+            ->leftjoin('products', 'order.product_id', '=', 'products.id_product')
+            ->leftjoin('product_types', 'products.product_type_id', '=', 'product_types.id_product_type')
+            ->leftjoin('category', 'category.id_category', '=', 'product_types.category_id')
+            ->select('category.name', DB::raw('count(*) as total_cate'))
+            ->groupBy('category.name')
+            ->pluck('total_cate', 'category.name');
+        $chart = (new LarapexChart)->lineChart()
+        ->setTitle('Sales during 2021.')
+        ->setSubtitle('Physical sales vs Digital sales.')
+        ->addData('Physical sales', [40, 93, 35, 42, 18, 82,11,23,45,65,76])
+        ->addData('Digital sales', [70, 29, 77, 28, 55, 45,11,23,45,65,76])
+        ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June','July','August','September','Octorber','Norvember','December']);
+        // dd($chart);
+        return view('adminPage.pages.home', compact('chart', 'productStock', 'productHot', 'percentIncrease', 'countTotalMoney', 'date', 'countOrderBefore', 'countOrder', 'amountOrder', 'totalProduct', 'percentTransactionNotDone'));
     }
     // public function list()
     // {
@@ -43,7 +73,7 @@ class HomeController extends Controller
     // {
     //     return view('adminPage.pages.warehouse.edit');
     // }
-    
+
     public function listimageproduct()
     {
         return view('adminPage.pages.imageproduct.list');
@@ -88,5 +118,4 @@ class HomeController extends Controller
     {
         return view('adminPage.pages.transaction.detail');
     }
-
 }

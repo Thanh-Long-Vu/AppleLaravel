@@ -77,7 +77,7 @@
                                                 <td>{{$dataitem->discount}} . %</td>
                                                 <td>{{$dataitem->producttype->name}}</td>
                                                 <td>{{$dataitem->warehouse->warranty}} %</td>
-                                                <td>{{$dataitem->price}}.VNĐ</td>
+                                                <td>${{$dataitem->price}}</td>
                                                 <td>
                                                     <a href="{{route('restoreProduct',['id' => $dataitem->id_product])}}" class="btn mb-2 btn-outline-warning">Restore</a>
                                                 </td>

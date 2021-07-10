@@ -62,7 +62,7 @@
                                                     @elseif($dataitem->warehouse->color == 2 ?? 0)
                                                     Violet
                                                     @elseif($dataitem->warehouse->color == 3 ?? 0)
-                                                    Violet
+                                                    Green
                                                     @elseif($dataitem->warehouse->color == 4 ?? 0)
                                                     Black
                                                     @elseif($dataitem->warehouse->color == 5 ?? 0)
@@ -92,7 +92,7 @@
                                                 <td class = "text-center">{{$dataitem->discount ?? 0}}  %</td>
                                                 <td class = "text-center">{{$dataitem->producttype->name ?? 0}}</td>
                                                 <td class = "text-center">{{$dataitem->warehouse->warranty ?? 0}}.Month</td>
-                                                <td class = "text-center">{{$dataitem->price ?? 0}}.VNĐ</td>
+                                                <td class = "text-center">${{$dataitem->price ?? 0}}</td>
                                                 {{-- <td class = "text-center">
                                                     <input type="checkbox" data-id="{{ $dataitem->id_product }}" name="is_hot" class="js-switch" {{ $dataitem->is_hot == 1 ? 'checked' : '' }}>
                                                 </td> --}}

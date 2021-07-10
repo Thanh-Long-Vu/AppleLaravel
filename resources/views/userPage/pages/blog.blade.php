@@ -267,7 +267,7 @@
             $('#loadMoreBlog').on('click', function () {
                 $('#loadMoreBlog').html(loading)
                 $.ajax({
-                    url: "/blog?page=" + page,
+                    url: "../../blog?page=" + page,
                     type: "get"
                 })
                     .done(function (response) {

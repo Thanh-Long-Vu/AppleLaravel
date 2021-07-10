@@ -363,7 +363,7 @@
                                 @if(isset($productTypes) && !empty($productTypes) && empty($products))
                                     @foreach($productTypes as $productType)
                                         @if($productType->products->all() !== null)
-                                            @foreach($productType->products->all() as $product)
+                                            @foreach($productType->products->where('active','=',1)->all() as $product)
                                                 @include('userPage.pages.category.productItem', compact('product'))
                                             @endforeach
                                         @endif
