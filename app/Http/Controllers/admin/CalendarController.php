@@ -40,6 +40,7 @@ class CalendarController extends Controller
                 'end' => $newDate.' 23:59:59',
                 'title' => "ID:#".$val->id_order . "|".$val->name." ".$val->color,
             );
+            dd($event);
         }
         return response()->json($event);
     }

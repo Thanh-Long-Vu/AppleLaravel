@@ -96,7 +96,7 @@
                                                         <input data-id="{{ $cart['key'] }}"
                                                             class="js-result form-control h-auto border-0 rounded p-0 shadow-non"
                                                             min="1" max="99" type="text"
-                                                            value="{{ $cart['item']['quantity'] }}">
+                                                            value="{{ $cart['item']['quantity'] }}" readonly>
                                                     </div>
                                                     <div class="col-auto pr-1">
                                                         <a  data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}" class="btn-update-cart-down js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"

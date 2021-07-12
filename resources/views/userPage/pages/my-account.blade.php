@@ -166,7 +166,7 @@
                                                         <p class="small mb-0 ">Email : {{ $user->email }}</p>
                                                         <p class="small mb-0 ">Phone : {{ $user->phone }}</p>
                                                         <p class="small mb-0 ">Total pay of you :
-                                                            {{ number_format($user->total_pay) }}.VND</p>
+                                                            ${{ number_format($user->total_pay) }}</p>
                                                     </b>
                                                 </div>
                                             </div>
@@ -417,7 +417,7 @@
                                                                             href="{{ route('products.show', ['product' => $order->product->id_product]) }}}}">{{ $order->product->productType->name }}</a>
                                                                     </td>
                                                                     <td class="text-right">
-                                                                        {{ number_format($order->price) }}.VND</td>
+                                                                        ${{ number_format($order->price) }}</td>
                                                                     <td class="text-right">{{ $order->quantity }}</td>
                                                                     <td class="text-right">{{ $order->sale }} %</td>
                                                                 <tr>
@@ -598,7 +598,7 @@
                                                                     </td>
                                                                     @endif
                                                                     <td class="text-right">
-                                                                        {{ number_format($order->price) }}.VND</td>
+                                                                        ${{ number_format($order->price) }}</td>
                                                                     <td class="text-right">{{ $order->quantity }}</td>
                                                                     <td class="text-right">{{ $order->sale }} %</td>
                                                                 <tr>
@@ -608,14 +608,14 @@
                                                     <div class="row mt-5">
                                                         <div class="col-md-6">
                                                             <p class="small">
-                                                                <strong>Note :</strong>{{ $order->transaction->note }}
+                                                                <strong>Note :</strong>{{ $order->transaction->note ?? "" }}
                                                             </p>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="text-right mr-2">
                                                                 <p class="mb-2 h6">
                                                                     <span class="text-muted">Total : </span>
-                                                                    <span>${{ number_format($order->transaction->total_price) }}</span>
+                                                                    <span>${{ number_format($order->transaction->total_price ?? 0) }}</span>
                                                                 </p>
                                                             </div>
                                                         </div>
