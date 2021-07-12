@@ -30,10 +30,10 @@
                         Giao hàng online
                     @endif
                 </td>
-                <td>{{ $item->name_user }}</td>
-                <td>{{ $item->email }}</td>
-                <td>{{ $item->phone }}</td>
-                <td>{{ $item->address }}</td>
+                <td>{{ json_decode($item->addtional_data)[0]->value }}</td>
+                <td>{{ json_decode($item->addtional_data)[1]->value }}</td>
+                <td>{{ json_decode($item->addtional_data)[2]->value }}</td>
+                <td>{{ json_decode($item->addtional_data)[3]->value }}</td>
                 <td>{{ $item->id_order }}</td>
                 <td>{{ $item->quantity }}.Cái</td>
                 <td>{{ $item->name_method_payment }}</td>

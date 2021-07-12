@@ -107,7 +107,7 @@
                                         <div class="border rounded-pill py-1 w-md-60 height-35 px-3 border-color-1">
                                             <div class="js-quantity row align-items-center">
                                                 <div class="col">
-                                                    <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1" name= "quantity" id="quantity">
+                                                    <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1" name= "quantity" id="quantity" max="{{$product->active_quantity - $product->quantity_sell}}" readonly>
                                                 </div>
                                                 <div class="col-auto pr-1">
                                                     <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">

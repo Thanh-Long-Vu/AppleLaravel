@@ -21,8 +21,8 @@ class TransactionController extends Controller
     }
     public function orderview($id)
     {
-        $transaction = Transaction::find(1625505778);
-        $order = Orders::where('transaction_id', '=', 1625505778)->get();
+        $transaction = Transaction::find($id);
+        $order = Orders::where('transaction_id', '=', $id)->get();
         // $totalprice = 0;
         // foreach ($order as $products) {
         //     $totalprice += $products->price * $products->quantity;
@@ -51,7 +51,7 @@ class TransactionController extends Controller
     }
     public function statistics()
     {
-        $statistics = Transaction::where('status', '=', 4)->orderby('updated_at', 'DESC')->get();
+        $statistics = Transaction::where('status', '=', 4)->orWhere('status','=',1)->orderby('updated_at', 'DESC')->get();
         return view('adminPage.pages.transaction.statistics', compact('statistics'));
     }
     public function exportExcelTransaction(Request $request)

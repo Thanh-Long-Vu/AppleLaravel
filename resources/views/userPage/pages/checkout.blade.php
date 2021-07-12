@@ -82,15 +82,15 @@
                                         <thead>
                                             <tr>
                                                 <th class="product-name">Product</th>
-                                                <th class="product-total">Total</th>
+                                                <th class="product-total">Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             <?php $total = 0; ?>
                                             @foreach (Session::get('cart') as $cart)
-                                                <?php $total += $cart['item']['product_price'] *
-                                                $cart['item']['quantity']; ?>
+                                                <?php 
+                                                $total += $cart['item']['product_price'] * $cart['item']['quantity']; ?>
                                                 <tr class="cart_item">
                                                     <td>{{ $cart['item']['product_type'] }}&nbsp;<strong
                                                             class="product-quantity">×

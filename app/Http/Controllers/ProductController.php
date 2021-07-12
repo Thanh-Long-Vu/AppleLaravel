@@ -18,10 +18,10 @@ class ProductController extends Controller
             ? ($product->price - ($product->price * ($product->discount / 100)))
             : $product->price;
         $product->specification = $product->productType ? $product->productType->data : "";
-
         $ratingForProduct = Rating::where('product_id','=',$product->id_product)->get();
+        $totalNumberRating = $ratingForProduct->sum('number');
         $product->ratingForProduct = $ratingForProduct ?? "";
 
-        return view('userPage.pages.product.index', compact('product', 'colors', 'memory'));
+        return view('userPage.pages.product.index', compact('totalNumberRating','product', 'colors', 'memory'));
     }
 }

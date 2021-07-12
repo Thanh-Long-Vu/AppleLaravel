@@ -177,19 +177,18 @@
                                                         @if ($itemStock->active_quantity - ($itemStock->quantity_sell = 0 && $itemStock->quantity_sell != null))
                                                             <div class="progress" style="height: 4px;">
                                                                 <div class="progress-bar" role="progressbar"
-                                                                    style="width: 0%"
-                                                                    aria-valuenow="0"
-                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                    style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                                                                    aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                         @else
-                                                        <div class="progress" style="height: 4px;">
-                                                            <div class="progress-bar" role="progressbar"
-                                                                style="width: {{ (($itemStock->quantity_sell / $itemStock->quantity_sell) * 100) }}%"
-                                                                aria-valuenow="{{ (($itemStock->quantity_sell / $itemStock->quantity_sell) * 100) }}"
-                                                                aria-valuemin="0" aria-valuemax="100">
+                                                            <div class="progress" style="height: 4px;">
+                                                                <div class="progress-bar" role="progressbar"
+                                                                    style="width: {{ ($itemStock->quantity_sell / $itemStock->quantity_sell) * 100 }}%"
+                                                                    aria-valuenow="{{ ($itemStock->quantity_sell / $itemStock->quantity_sell) * 100 }}"
+                                                                    aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                         @endif
                                                     </div>
                                                 @endforeach
@@ -201,15 +200,17 @@
                         </div> <!-- .col -->
                     </div> <!-- / .row -->
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading my-2">Chart Demo</div>
-                                <div class="col-md-12">
-                                    <div class="chart-box">
-                                        <div class="p-6 m-20 bg-white rounded shadow">
-                                            {!! $chart->container() !!}
-                                        </div>
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="chart-box">
+                                <div class="p-6 m-20 bg-white rounded shadow">
+                                    {!! $chartDay->container() !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="chart-box">
+                                <div class="p-6 m-20 bg-white rounded shadow">
+                                    {!! $charWeek->container() !!}
                                 </div>
                             </div>
                         </div>
@@ -256,8 +257,8 @@
     <script src="admin/js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="{{ LarapexChart::cdn() }}"></script>
-    {{ $chart->script() }}
-
+    {{ $chartDay->script() }}
+    {{ $charWeek->script() }}
     {{-- <script>
         var ctx = document.getElementById('userChart').getContext('2d');
         var chart = new Chart(ctx, {

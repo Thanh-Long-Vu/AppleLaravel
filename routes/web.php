@@ -135,7 +135,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/ratings', [HomeController::class,'ratings'])->name('home.rating');
 
     Route::get('/transaction/listorder', [HomeController::class,'transactionlistorder'])->name('home.transaction.listorder');
-    Route::get('/transaction/detail', [HomeController::class,'transaction.detail'])->name('home.transaction.detail');
+    // Route::get('/transaction/detail', [HomeController::class,'transaction.detail'])->name('home.transaction.detail');
     Route::get('/payment/list', [HomeController::class,'paymentlist'])->name('home.payment.list');
     Route::get('/payment/create', [HomeController::class,'paymentcreate'])->name('home.payment.create');
     Route::get('/role/list', [HomeController::class,'rolelist'])->name('home.role.list');

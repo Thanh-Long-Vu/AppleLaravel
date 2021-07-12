@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div class="mb-3">
                 <h3 class="font-size-18 mb-6">Based on {{$sumRating}} reviews</h3>
-                <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">{{$point}}</h2>
+                {{-- <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">{{number_format($totalNumberRating / $sumRating  ?? 0)}}</h2> --}}
                 <div class="text-lh-1">overall</div>
             </div>
 

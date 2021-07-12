@@ -337,7 +337,7 @@
                                     plugins: ['dayGrid', 'timeGrid', 'list',
                                         'bootstrap'
                                     ],
-                                    timeZone: 'LOCALHOST',
+                                    timeZone: 'UTC',
                                     themeSystem: 'standard',
                                     header: {
                                         left: 'today,prev,next',
