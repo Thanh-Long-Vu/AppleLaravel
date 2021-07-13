@@ -124,7 +124,6 @@ class wareHouseController extends Controller
         return redirect()->back()->with(['notify'=>'success','massage'=>'Khôi phục thành công']);
     }
     public function importData(Request $request){
-        
         FacadesExcel::import(new WarehouseImport, $request->file('file')->store('temp'));
         return back();
     }

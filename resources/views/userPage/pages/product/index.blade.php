@@ -64,6 +64,7 @@
                         </div>
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
+                                <li class="line-clamp-1 mb-1 list-bullet"><b>Brand : {{ $product->productType->category->brand->name ?? "" }}</b></li>
                                 <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
                                 <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$product->warehouse->warranty ?? ""}} Month</b></li>
                                 <li class="line-clamp-1 mb-1 list-bullet">Color :

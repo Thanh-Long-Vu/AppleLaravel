@@ -45,6 +45,7 @@
                             @endif
                         </a>
                     </h5>
+                    <h6 class="mb-1 product-item__title"><i><b class="text-red font-size-8">Detail : {{ $product->warehouse->name }}</b></i></h6>
                     <div class="mb-2">
                         <a href="{{ route('products.show', ['product' => $product->id_product]) }}"
                             class="d-block text-center">
@@ -60,7 +61,6 @@
                         @include('userPage.pages.category.ratingItem', compact('point'))
                     </div>
                     <ul class="font-size-12 p-0 text-gray-110 mb-4">
-                        <li class="line-clamp-1 mb-1 list-bullet">{{ $product->productType->description }}</li>
                         <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b>
                         </li>
                         <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b

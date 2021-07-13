@@ -60,64 +60,64 @@
                         <tbody>
                             <?php $total = 0; ?>
                                 @foreach (Session::get('cart') as $cart)
-                                    <?php $total +=  $cart['item']['product_price'] * $cart['item']['quantity'];?>
-                                    <tr class="cart-item" id="item-{{ $cart['item']['product']->id_product }}">
-                                        <td class="text-center">
-                                            <a href="javascript:void(0)" id="delete_cart" data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}"
-                                                class="text-gray-32 font-size-26 delete_cart">×</a>
-                                        </td>
-                                        <td class="d-none d-md-table-cell">
-                                            <a href="#"><img class="img-fluid max-width-100 p-1 border border-color-1"
-                                                    src="../{{ $cart['item']['product']->thumbnail }}" alt="Image Description"></a>
-                                        </td>
+                                <?php $total +=  $cart['item']['product_price'] * $cart['item']['quantity'];?>
+                                <tr class="cart-item" id="item-{{ $cart['item']['product']->id_product }}">
+                                    <td class="text-center">
+                                        <a href="javascript:void(0)" id="delete_cart" data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}"
+                                            class="text-gray-32 font-size-26 delete_cart">×</a>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <a href="#"><img class="img-fluid max-width-100 p-1 border border-color-1"
+                                                src="../{{ $cart['item']['product']->thumbnail }}" alt="Image Description"></a>
+                                    </td>
 
-                                        <td data-title="Product">
-                                            <a href="#" class="text-gray-90">{{ $cart['item']['product_type'] }}</a>
-                                        </td>
+                                    <td data-title="Product">
+                                        <a href="#" class="text-gray-90">{{ $cart['item']['product_type'] }}</a>
+                                    </td>
 
-                                        <td data-title="Price">
-                                            <span
-                                                class="">$ {{ number_format($cart['item']['product_price'], 2) }}</span>
-                                        </td>
+                                    <td data-title="Price">
+                                        <span
+                                            class="">$ {{ number_format($cart['item']['product_price'], 2) }}</span>
+                                    </td>
 
-                                        
-                                        <td data-title="color">
-                                            <span
-                                                class="">{{ $cart['item']['color'] }}</span>
-                                        </td>
-                                        
+                                    
+                                    <td data-title="color">
+                                        <span
+                                            class="">{{ $cart['item']['color'] }}</span>
+                                    </td>
+                                    
 
-                                        <td data-title="Quantity">
-                                            <span class="sr-only">Quantity</span>
-                                            <!-- Quantity -->
-                                            <div class="border rounded-pill py-1 width-122 w-xl-80 px-3 border-color-1">
-                                                <div class="js-quantity row align-items-center">
-                                                    <div class="col">
-                                                        <input data-id="{{ $cart['key'] }}"
-                                                            class="js-result form-control h-auto border-0 rounded p-0 shadow-non"
-                                                            min="1" max="99" type="text"
-                                                            value="{{ $cart['item']['quantity'] }}" readonly>
-                                                    </div>
-                                                    <div class="col-auto pr-1">
-                                                        <a  data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}" class="btn-update-cart-down js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
-                                                            href="javascript:;">
-                                                            <small class="fas fa-minus btn-icon__inner"></small>
-                                                        </a>
-                                                        <a  data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}" class="btn-update-cart js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
-                                                            href="javascript:void(0)">
-                                                            <small class="fas fa-plus btn-icon__inner"></small>
-                                                        </a>
-                                                    </div>
+                                    <td data-title="Quantity">
+                                        <span class="sr-only">Quantity</span>
+                                        <!-- Quantity -->
+                                        <div class="border rounded-pill py-1 width-122 w-xl-80 px-3 border-color-1">
+                                            <div class="js-quantity row align-items-center">
+                                                <div class="col">
+                                                    <input data-id="{{ $cart['key'] }}"
+                                                        class="js-result form-control h-auto border-0 rounded p-0 shadow-non"
+                                                        min="1" max="99" type="text"
+                                                        value="{{ $cart['item']['quantity'] }}" readonly>
+                                                </div>
+                                                <div class="col-auto pr-1">
+                                                    <a  data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}" class="btn-update-cart-down js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
+                                                        href="javascript:;">
+                                                        <small class="fas fa-minus btn-icon__inner"></small>
+                                                    </a>
+                                                    <a  data-id="{{ $cart['item']['product']->id_product }}" data-key="{{ $cart['key'] }}" class="btn-update-cart js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0"
+                                                        href="javascript:void(0)">
+                                                        <small class="fas fa-plus btn-icon__inner"></small>
+                                                    </a>
                                                 </div>
                                             </div>
-                                            <!-- End Quantity -->
-                                        </td>
+                                        </div>
+                                        <!-- End Quantity -->
+                                    </td>
 
-                                        <td data-title="Total">
-                                            <span id="price-{{ $cart['item']['product']->id_product }}">${{ number_format($cart['item']['product_price'] * $cart['item']['quantity'], 2) }}</span>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                    <td data-title="Total">
+                                        <span id="price-{{ $cart['item']['product']->id_product }}">${{ number_format($cart['item']['product_price'] * $cart['item']['quantity'], 2) }}</span>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </form>

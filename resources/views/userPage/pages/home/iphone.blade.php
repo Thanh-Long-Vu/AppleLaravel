@@ -7,7 +7,7 @@
                         <div class="product-item__body pb-xl-2">
                             <div class="mb-2"><a
                                     href="{{ route('products.show', ['product' => $item->products->first()->id_product ?? 0]) }}"
-                                    class="font-size-12 text-gray-5">Category : {{ $item->category->name }}</a></div>
+                                    class="font-size-12 text-gray-5">Category : {{ $item->category->name }}</a><b>Brand : {{ $item->category->brand->name ?? "" }}</b></div>
                             <h5 class="mb-1 product-item__title"><a
                                     href="{{ route('products.show', ['product' => $item->products->first()->id_product ?? 0]) }}"
                                     class="text-blue font-weight-bold">

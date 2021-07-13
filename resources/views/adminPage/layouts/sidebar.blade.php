@@ -85,6 +85,16 @@
                             <a class="nav-link pl-3" href="{{route('paymentCreate')}}"><i class="fe fe-file-plus fe-16"></i><span class="ml-1">Add</span></a>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#nhacungcap" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                            <i class="fe fe-credit-card  fe-16"></i>
+                            <span class="ml-1 item-text">Supplier</span>
+                        </a>
+                        <ul class="collapse list-unstyled pl-4 w-100" id="nhacungcap">
+                            <a class="nav-link pl-3" href="{{route('supplierList')}}"><i class="fe fe-list fe-16"></i><span class="ml-1">Supplier List</span></a>
+                            <a class="nav-link pl-3" href="{{route('supplierCreate')}}"><i class="fe fe-file-plus fe-16"></i><span class="ml-1">Add</span></a>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             @endif

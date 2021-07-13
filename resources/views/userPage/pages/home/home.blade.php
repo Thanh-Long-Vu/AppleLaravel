@@ -161,12 +161,12 @@
                         <li class="nav-item flex-shrink-0 flex-lg-shrink-1">
                             <a class="nav-link rounded-pill active" id="Tpills-one-example1-tab" data-toggle="pill"
                                 href="#Tpills-one-example1" role="tab" aria-controls="Tpills-one-example1"
-                                aria-selected="true">Mac</a>
+                                aria-selected="true">Iphone</a>
                         </li>
                         <li class="nav-item flex-shrink-0 flex-lg-shrink-1">
                             <a class="nav-link rounded-pill" id="Tpills-two-example1-tab" data-toggle="pill"
                                 href="#Tpills-two-example1" role="tab" aria-controls="Tpills-two-example1"
-                                aria-selected="false">Iphone</a>
+                                aria-selected="false">Mac</a>
                         </li>
                         <li class="nav-item flex-shrink-0 flex-lg-shrink-1">
                             <a class="nav-link rounded-pill" id="Tpills-three-example1-tab" data-toggle="pill"
@@ -185,7 +185,7 @@
 
             <!-- Tab Content -->
             <div class="tab-content" id="Tpills-tabContent">
-                <div class="tab-pane fade pt-2 show active" id="Tpills-one-example1" role="tabpanel"
+                <div class="tab-pane fade pt-2 " id="Tpills-one-example1" role="tabpanel"
                     aria-labelledby="Tpills-one-example1-tab">
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
@@ -301,7 +301,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade pt-2" id="Tpills-two-example1" role="tabpanel"
+                <div class="tab-pane fade pt-2 show active" id="Tpills-two-example1" role="tabpanel"
                     aria-labelledby="Tpills-two-example1-tab">
                     <div class="row no-gutters">
                         <div class="col-md-6 col-lg-7 col-wd-8 d-md-flex d-wd-block">
@@ -600,7 +600,7 @@
                                                         <!-- End Gallery -->
                                                     </div>
                                                     <div class="flex-center-between">
-                                                        @if ($productTypeMacTotalRating->products->first()->discount > 0)
+                                                        @if (isset($productTypeMacTotalRating->products->first()->discount) && $productTypeMacTotalRating->products->first()->discount > 0)
                                                             <div
                                                                 class="prodcut-price d-flex align-items-center position-relative">
                                                                 <ins
