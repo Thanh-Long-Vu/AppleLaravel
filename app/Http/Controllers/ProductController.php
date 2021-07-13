@@ -22,6 +22,6 @@ class ProductController extends Controller
         $totalNumberRating = $ratingForProduct->sum('number');
         $product->ratingForProduct = $ratingForProduct ?? "";
 
-        return view('userPage.pages.product.index', compact('totalNumberRating','product', 'colors', 'memory'));
+        return view('userPage.pages.product.index', compact('ratingForProduct','totalNumberRating','product', 'colors', 'memory'));
     }
 }

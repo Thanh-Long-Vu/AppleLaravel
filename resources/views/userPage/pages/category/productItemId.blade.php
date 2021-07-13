@@ -26,7 +26,16 @@
                     </div>
                     <div class="mb-3">
                         <?php
-                        $point = $product->point ?? 0;
+                        $ratingForProduct = DB::table('ratings')
+                            ->where('product_id', '=', $product->id_product)
+                            ->get();
+                        $totalNumberRating = $ratingForProduct->sum('number');
+                        $sumRating = count($ratingForProduct ?? []);
+                        if ($sumRating == 0 || $totalNumberRating == 0) {
+                            $point = 0;
+                        } else {
+                            $point = $totalNumberRating / $sumRating ?? 0;
+                        }
                         $show = true;
                         ?>
                         @include('userPage.pages.category.ratingItem', compact('point'))

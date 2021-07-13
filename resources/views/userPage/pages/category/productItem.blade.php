@@ -45,7 +45,8 @@
                             @endif
                         </a>
                     </h5>
-                    <h6 class="mb-1 product-item__title"><i><b class="text-red font-size-8">Detail : {{ $product->warehouse->name }}</b></i></h6>
+                    <h6 class="mb-1 product-item__title"><i><b class="text-red font-size-8">Detail :
+                                {{ $product->warehouse->name }}</b></i></h6>
                     <div class="mb-2">
                         <a href="{{ route('products.show', ['product' => $product->id_product]) }}"
                             class="d-block text-center">
@@ -55,7 +56,16 @@
                     </div>
                     <div class="mb-3">
                         <?php
-                        $point = $product->point ?? 0;
+                        $ratingForProduct = DB::table('ratings')
+                            ->where('product_id', '=', $product->id_product)
+                            ->get();
+                        $totalNumberRating = $ratingForProduct->sum('number');
+                        $sumRating = count($ratingForProduct ?? []);
+                        if ($sumRating == 0 || $totalNumberRating == 0) {
+                            $point = 0;
+                        } else {
+                            $point = $totalNumberRating / $sumRating ?? 0;
+                        }
                         $show = true;
                         ?>
                         @include('userPage.pages.category.ratingItem', compact('point'))
@@ -83,13 +93,15 @@
                             </div>
                         @endif
                         <div class="d-none d-xl-block prodcut-add-cart">
-                            @if ($product->active_quantity !== null && ($product->active_quantity - $product->quantity_sell)> 0 && $product->active_quantity != $product->quantity_sell)
+                            @if ($product->active_quantity !== null && $product->active_quantity - $product->quantity_sell > 0 && $product->active_quantity != $product->quantity_sell)
                                 <input type="hidden" value="1" name="quantity" id="quantity">
                                 <a onclick="addCart({{ $product->id_product }})" href="javascript:"
                                     class="btn-add-cart btn-primary transition-3d-hover"><i
                                         class="ec ec-add-to-cart"></i></a>
                             @else
-                                <a href="{{route('index.contact')}}" class="btn-add-cart btn-danger transition-3d-hover"> <i class="fas fa-phone"></i></a>
+                                <a href="{{ route('index.contact') }}"
+                                    class="btn-add-cart btn-danger transition-3d-hover"> <i
+                                        class="fas fa-phone"></i></a>
                             @endif
                         </div>
                     </div>

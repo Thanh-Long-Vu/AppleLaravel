@@ -26,7 +26,7 @@
             <div class="text-warning mr-2">
                 {!! $result !!}
             </div>
-            <span class="text-secondary">{{$point}}</span>
+            <span class="text-secondary">{{number_format($point,2)}}</span>
         </a>
     @else
         <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">

@@ -11,7 +11,7 @@
                 @if ($sumRating == 0 || $totalNumberRating == 0)
                 <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">0</h2>
                 @else
-                <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">{{number_format($totalNumberRating / $sumRating  ?? 0)}}</h2>
+                <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">{{number_format(($totalNumberRating / $sumRating),2  ?? 0)}}</h2>
                 @endif
                 <div class="text-lh-1">overall</div>
             </div>
