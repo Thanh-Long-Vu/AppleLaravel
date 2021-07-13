@@ -133,7 +133,7 @@
                                                 </td> --}}
                                                     <td>
                                                         <div class="custom-control custom-switch">
-                                                            <input type="checkbox"
+                                                            <input type="checkbox" onchange="changeStatus({{ $listWareHouse->id_warehouse }})"
                                                                 data-id="{{ $listWareHouse->id_warehouse }}"
                                                                 name="active" class="custom-control-input"
                                                                 id="{{ $listWareHouse->id_warehouse }}"
@@ -209,26 +209,44 @@
         //         size: 'small'
         //     });
         // });
-        $(document).ready(function() {
-            $('.custom-control-input').change(function() {
-                let active = $(this).prop('checked') === true ? 1 : 0;
-                let id_wareHouse = $(this).data('id');
-                $.ajax({
-                    type: "get",
-                    dataType: "json",
-                    url: '{{ route('updateStatusWareHouse') }}',
-                    data: {
-                        'active': active,
-                        'warehouse_id': id_wareHouse
-                    },
-                    success: function(data) {
-                        toastr.options.closeButton = 1;
-                        toastr.options.closeMethod = 'fadeOut';
-                        toastr.options.closeDuration = 100;
-                        toastr.success(data.message);
-                    }
-                });
+        // $(document).ready(function() {
+        //     $('.custom-control-input').change(function() {
+        //         let active = $(this).prop('checked') === true ? 1 : 0;
+        //         let id_wareHouse = $(this).data('id');
+        //         $.ajax({
+        //             type: "get",
+        //             dataType: "json",
+        //             url: '{{ route('updateStatusWareHouse') }}',
+        //             data: {
+        //                 'active': active,
+        //                 'warehouse_id': id_wareHouse
+        //             },
+        //             success: function(data) {
+        //                 toastr.options.closeButton = 1;
+        //                 toastr.options.closeMethod = 'fadeOut';
+        //                 toastr.options.closeDuration = 100;
+        //                 toastr.success(data.message);
+        //             }
+        //         });
+        //     });
+        // });
+        function changeStatus(id) {
+            let active = document.getElementById(id).checked === true ? 1 : 0;
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: '{{ route('updateStatusWareHouse') }}',
+                data: {
+                    'active': active,
+                    'warehouse_id': id
+                },
+                success: function(data) {
+                    toastr.options.closeButton = 1;
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 100;
+                    toastr.success(data.message);
+                }
             });
-        });
+        }
     </script>
 @endsection

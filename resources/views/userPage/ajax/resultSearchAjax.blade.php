@@ -145,7 +145,7 @@
                                 @endif
                             </div>
                             <ul class="font-size-12 p-0 text-gray-110 mb-4">
-                                <li class="line-clamp-1 mb-1 list-bullet">{{ $item->productType->description }}</li>
+                                <li class="line-clamp-1 mb-1 list-bullet">Detail : {{ $item->warehouse->name }}</li>
                                 <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b></li>
                                 <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
                             </ul>
@@ -323,7 +323,7 @@
                                     @endif
                                 </div>
                                 <ul class="font-size-12 p-0 text-gray-110 mb-4 d-none d-md-block">
-                                    <li class="line-clamp-1 mb-1 list-bullet">Description :{{ $item->productType->description }}</li>
+                                    <li class="line-clamp-1 mb-1 list-bullet">Detail : {{ $item->warehouse->name }}</li>
                                     <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box</b></li>
                                     <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b style="color : red;">{{$item->warehouse->warranty}}.Month</b></li>
                                 </ul>

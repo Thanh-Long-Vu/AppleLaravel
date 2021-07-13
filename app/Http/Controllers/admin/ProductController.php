@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\HistoryPrice;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\Warehouse;
@@ -51,18 +52,31 @@ class ProductController extends Controller
         
         $product = new Product();
         $wareHouse = Warehouse::find($id);
+        $historyPrice = new HistoryPrice();
+        // $createProduct = $product->save();
+        //  history = Model({
+        //      histtory_price = createProduct->price,
+        //      procut_id= cretaeProdict -> id
+        //  })
+        //  history->save()
         if($request->quantity_sell <= $wareHouse->quantity){
             $product->warehouse_id = $id;
             $product->thumbnail = $new_image_name;  
             $product->active_quantity += $request->quantity_sell;
             $wareHouse->quantity_sell += $request->quantity_sell;
+            $product->active = 1;
+            $wareHouse->active = 1;
             $product->price = $request->price_sell;
+            $historyPrice->price_history = $request->price_sell;
             $product->discount = $request->discount;
             $product->is_hot = 0;
             $product->product_type_id = $request->id_product_type;
-            // dd($product);
+            // dd($product->id_product);
             $wareHouse->save();
             $product->save();
+            $historyPrice->product_id = $product->id_product;
+            // dd($historyPrice);
+            $historyPrice->save();
             return redirect()->back()->with('success', 'Product update successfully.');
         }
         else {
@@ -104,14 +118,18 @@ class ProductController extends Controller
             $image->move($destination_path,$new_image_name);
             $product->thumbnail = $new_image_name;
         }
+        $historyPrice = new HistoryPrice();
         if($request->quantity_sell <= $wareHouse->quantity - $wareHouse->quantity_sell){
             $product->active_quantity += $request->quantity_sell;
             $wareHouse->quantity_sell += $request->quantity_sell;
             $product->product_type_id = $request->product_type_id;
             $product->price = $request->price_sell;
+            $historyPrice->price_history = $request->price_sell;
+            $historyPrice->product_id = $id;
             $product->discount = $request->discount;
             $product->save();
             $wareHouse->save();
+            $historyPrice->save();
             return redirect('admin/product')->with('success', 'Product update successfully.');
         }else {
             return redirect()->back()->with('error','Quantity sell > Quantity warehouse. Please enter quantity true');
@@ -146,5 +164,12 @@ class ProductController extends Controller
     {
         $producttype = DB::table('product_types')->where("id_category",$id)->pluck("name","id_product_type");
         return response()->json($producttype);
+    }
+    public function historyPrice(Request $request)
+    {
+        $historyPrice = HistoryPrice::where('product_id','=',$request->product_id)->get();
+        // dd($historyPrice);
+        // return response()->json();
+        return $historyPrice;
     }
 }

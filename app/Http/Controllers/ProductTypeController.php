@@ -17,9 +17,9 @@ class ProductTypeController extends Controller
         $nameProductType = $productType->name;
         $nameCategory = $productType->category->name;
         $idCategory = $productType->category->id_category;
-        $productTypes = ProductType::where('category_id', $productType->category_id)->orderBy('updated_at','asc')->get();
+        $productTypes = ProductType::where('category_id', $productType->category_id)->orderBy('updated_at','desc')->get();
         $products = Product::where('product_type_id',$productType->id_product_type)->where('active','=',1)->orderBy('updated_at','asc')->paginate(10);
-//        dd($products);
+        //dd($products);
         // $filter = $product->whereIn($product->first()->warehouse->color,1)->get();
         // dd($filter);
         return view('userPage.pages.category.categories', compact('productTypes', 'products','colors','memory','idCategory','nameCategory','nameProductType'));

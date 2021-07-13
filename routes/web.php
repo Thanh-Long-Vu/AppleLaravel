@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\Admin\CalendarController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\RatingController;
+use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
@@ -155,6 +156,13 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/slider/delete/{id}', [SliderController::class,'delete'])->name('deleteSlider');
     Route::get('/slider/status/update', [SliderController::class,'updateStatus'])->name('updateStatusSlider');
 
+    
+    Route::get('/supplier', [BrandController::class,'index'])->name('supplierList');
+    Route::get('/supplier/create', [BrandController::class,'create'])->name('supplierCreate');
+    Route::post('/supplier/create', [BrandController::class,'store'])->name('supplierStore');
+    Route::get('/supplier/edit/{id}', [BrandController::class,'edit'])->name('editSlider');
+    Route::post('/supplier/edit/{id}', [BrandController::class,'update'])->name('updateSupplier');
+
     Route::get('/blogs/list', [BlogController::class,'index'])->name('admin.blog.list.get');
     Route::get('/blogs/create', [BlogController::class,'create'])->name('admin.blog.create.get');
     Route::post('/blogs/create', [BlogController::class,'store'])->name('admin.blog.create.post');
@@ -183,5 +191,8 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/calendar', [CalendarController::class,'index'])->name('calendar');
     Route::get('/get-product-type/{id}', [CalendarController::class,'getProducType'])->name('getProducType');
     Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
+
+    Route::get('/history/price', [ProductController::class,'historyPrice'])->name('historyPrice');
+
 
 });

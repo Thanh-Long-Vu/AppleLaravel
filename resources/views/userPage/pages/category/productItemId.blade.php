@@ -32,7 +32,7 @@
                         @include('userPage.pages.category.ratingItem', compact('point'))
                     </div>
                     <ul class="font-size-12 p-0 text-gray-110 mb-4">
-                        <li class="line-clamp-1 mb-1 list-bullet">{{ $product->productType->description }}</li>
+                        <li class="line-clamp-1 mb-1 list-bullet">Detail : {{ $product->warehouse->name }}</li>
                         <li class="line-clamp-1 mb-1 list-bullet">Quality : <b style="color : red;">New Full Box </b>
                         </li>
                         <li class="line-clamp-1 mb-1 list-bullet">Warranty : <b

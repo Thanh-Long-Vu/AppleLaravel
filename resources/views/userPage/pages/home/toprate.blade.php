@@ -8,7 +8,7 @@
                          <div class="mb-2"><a
                                  href="{{ route('categories.show', ['category' => $item->productType->category->id_category]) }}"
                                  class="font-size-12 text-gray-5">Category :
-                                 {{ $item->productType->category->name }}</a></div>
+                                 {{ $item->productType->category->name }} - <b>Brand : {{ $item->productType->category->brand->name ?? "" }}</b></a></div>
                          <h5 class="mb-1 product-item__title"><a
                                  href="{{ route('categories.show', ['category' => $item->productType->category->id_category]) }}"
                                  class="text-blue font-weight-bold">{{ $item->productType->name }}</b> -

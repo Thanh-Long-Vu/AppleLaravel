@@ -332,9 +332,9 @@
                                                         <div class="col-md-5">
                                                             <p class="small text-uppercase mb-2">Invoice to</p>
                                                             <p class="mb-4">
-                                                                {{ $item->user->name }} <br /> <strong>Phone</strong>
-                                                                {{ $item->user->phone }}<br /> <strong>Address</strong>
-                                                                {{ $item->user->address }} <br />
+                                                                {{ $item->addtional_data[0]["value"]}} <br /> <strong>Phone</strong>
+                                                                {{ $item->addtional_data[1]["value"] }}<br /> <strong>Address</strong>
+                                                                {{ $item->addtional_data[2]["value"] }} <br />
                                                             </p>
                                                             <p>
                                                                 <small class="small text-uppercase">Due date</small><br />
@@ -357,57 +357,26 @@
                                                             @foreach ($item->order as $order)
                                                                 <tr>
                                                                     <td class="text-center w-40"><img class="w-25"
-                                                                            src="../{{ $order->first()->product->thumbnail }}"
+                                                                            src="../{{ $order->product->thumbnail }}"
                                                                             alt=""></td>
                                                                     <td class="text-right"> <b>
-                                                                            @if ($order->first()->product->warehouse->color == 0)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-red mr-2"></span>Red
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 1)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-yellow mr-2"></span>Yellow
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 2)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-violet mr-2"></span>Violet
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 3)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-green mr-2"></span>Green
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 4)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-black mr-2"></span>Black
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 5)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-white mr-2"></span>White
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 6)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-other mr-2"></span>Other
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 7)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-patific mr-2"></span>Patific
-                                                                            @endif
+                                                                            {{$order->color}}
                                                                         </b> - <b>
-                                                                            @if ($order->first()->product->warehouse->memory == 0)
+                                                                            @if ($order->product->warehouse->memory == 0)
                                                                                 16GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 1)
                                                                                 32GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 2)
                                                                                 64GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 3)
                                                                                 128GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 4)
                                                                                 256GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 5)
                                                                                 512Gb
                                                                             @endif
@@ -536,57 +505,26 @@
                                                             @foreach ($item->order as $order)
                                                                 <tr>
                                                                     <td class="text-center w-40"><img class="w-25"
-                                                                            src="../{{ $order->first()->product->thumbnail }}"
+                                                                            src="../{{ $order->product->thumbnail }}"
                                                                             alt=""></td>
                                                                     <td class="text-right"> <b>
-                                                                            @if ($order->first()->product->warehouse->color == 0)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-red mr-2"></span>Red
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 1)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-yellow mr-2"></span>Yellow
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 2)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-violet mr-2"></span>Violet
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 3)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-green mr-2"></span>Green
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 4)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-black mr-2"></span>Black
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 5)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-white mr-2"></span>White
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 6)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-other mr-2"></span>Other
-                                                                            @elseif($order->first()->product->warehouse->color
-                                                                                == 7)
-                                                                                <span
-                                                                                    class="dot dot-lg dot-patific mr-2"></span>Patific
-                                                                            @endif
+                                                                            {{$order->color}}
                                                                         </b> - <b>
-                                                                            @if ($order->first()->product->warehouse->memory == 0)
+                                                                            @if ($order->product->warehouse->memory == 0)
                                                                                 16GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 1)
                                                                                 32GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 2)
                                                                                 64GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 3)
                                                                                 128GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 4)
                                                                                 256GB
-                                                                            @elseif($order->first()->product->warehouse->memory
+                                                                            @elseif($order->product->warehouse->memory
                                                                                 == 5)
                                                                                 512Gb
                                                                             @endif

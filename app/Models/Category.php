@@ -27,4 +27,8 @@ class Category extends Model
     {
         return $this->hasMany('App\Models\ProductType','category_id','id_category');
     }
+    function brand()
+    {
+        return $this->belongsTo('App\Models\Brand','brand_id','id_brand');
+    }
 }
