@@ -103,7 +103,7 @@
                                         <!-- End Logo -->
 
                                         <!-- List -->
-                                        <ul id="headerSidebarList" class="u-header-collapse__nav">
+                                        {{-- <ul id="headerSidebarList" class="u-header-collapse__nav">
                                             <!-- Home Section -->
                                             <li class="u-has-submenu u-header-collapse__submenu">
                                                 <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarHomeCollapse" data-target="#headerSidebarHomeCollapse">
@@ -357,7 +357,7 @@
                                                 </div>
                                             </li>
                                             <!-- End Blog Pages -->
-                                        </ul>
+                                        </ul> --}}
                                         <!-- End List -->
                                     </div>
                                 </div>
