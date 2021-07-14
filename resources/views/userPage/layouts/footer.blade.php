@@ -185,14 +185,14 @@
                             </div>
                             <div class="col pl-3">
                                 <div class="font-size-13 font-weight-light">Got questions? Call us 24/7!</div>
-                                <a href="tel:+80080018588" class="font-size-20 text-gray-90">(800) 8001-8588, </a><a href="tel:+0600874548" class="font-size-20 text-gray-90">(0600) 874 548</a>
+                                <a href="tel:+80080018588" class="font-size-20 text-gray-90">+84 35909090, </a><a href="tel:+0600874548" class="font-size-20 text-gray-90">(0600) 874 548</a>
                             </div>
                         </div>
                     </div>
                     <div class="mb-4">
                         <h6 class="mb-1 font-weight-bold">Contact info</h6>
                         <address class="">
-                            17 Princess Road, London, Greater London NW1 8JR, UK
+                            22/17/141 1194 Lang Street, Dong Da, Ha Noi
                         </address>
                     </div>
                     <div class="my-4 my-md-4">
@@ -222,46 +222,8 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="row">
-                        <div class="col-12 col-md mb-4 mb-md-0">
-                            <h6 class="mb-3 font-weight-bold">Find it Fast</h6>
-                            <!-- List Group -->
-                            <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Laptops & Computers</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Cameras & Photography</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Smart Phones & Tablets</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Video Games & Consoles</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">TV & Audio</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Gadgets</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Car Electronic & GPS</a></li>
-                            </ul>
-                            <!-- End List Group -->
-                        </div>
-
-                        <div class="col-12 col-md mb-4 mb-md-0">
-                            <!-- List Group -->
-                            <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent mt-md-6">
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Printers & Ink</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Software</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Office Supplies</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Computer Components</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Accesories</a></li>
-                            </ul>
-                            <!-- End List Group -->
-                        </div>
-
-                        <div class="col-12 col-md mb-4 mb-md-0">
-                            <h6 class="mb-3 font-weight-bold">Customer Care</h6>
-                            <!-- List Group -->
-                            <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                <li><a class="list-group-item list-group-item-action" href="../shop/my-account.html">My Account</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/track-your-order.html">Order Tracking</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../shop/wishlist.html">Wish List</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../home/terms-and-conditions.html">Customer Service</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../home/terms-and-conditions.html">Returns / Exchange</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../home/faq.html">FAQs</a></li>
-                                <li><a class="list-group-item list-group-item-action" href="../home/terms-and-conditions.html">Product Support</a></li>
-                            </ul>
-                            <!-- End List Group -->
+                        <div class="col-12 mb-md-0">
+                            <img src="assets/img/Apple-Banner.jpg" alt="" style="width: 80%;">
                         </div>
                     </div>
                 </div>
