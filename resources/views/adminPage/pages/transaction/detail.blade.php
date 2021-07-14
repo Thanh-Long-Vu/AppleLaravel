@@ -60,7 +60,7 @@
                                 <tbody>
                                     @foreach ($order as $item)
                                         <tr>
-                                            <td class="text-center">{{$item->transaction_id ?? ""}}</td>
+                                            <td class="text-center">{{$item->id_order ?? ""}}</td>
                                             <td class="text-right">{{$item->product->productType->name ?? ""}}</td>
                                             <td class="text-right">{{$item->price ?? ""}}</td>
                                             <td class="text-right">{{$item->quantity ?? ""}}</td>

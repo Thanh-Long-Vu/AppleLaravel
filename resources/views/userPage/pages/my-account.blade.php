@@ -441,7 +441,7 @@
                                                             </div>
                                                         @endforeach
                                                     @else
-                                                        t điên với m lắm r
+                                                        {{-- t điên với m lắm r --}} error
                                                     @endif
                                                 </div>
                                             </div>

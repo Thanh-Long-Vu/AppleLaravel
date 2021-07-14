@@ -265,8 +265,8 @@
                                 class="ml-1 item-text">Trancastion</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href=""><i class="fe fe-pie-chart fe-16"></i><span
-                                class="ml-1 item-text">Inventory </span></a>
+                        <a class="nav-link pl-3" href="{{route('listProductReturn')}}"><i class="fe fe-pie-chart fe-16"></i><span
+                                class="ml-1 item-text">Return Product (Warranty) </span></a>
                     </li>
                 </ul>
             </li>

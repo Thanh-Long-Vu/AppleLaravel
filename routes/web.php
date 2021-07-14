@@ -193,6 +193,9 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/order/{id}', [CalendarController::class,'getOrder'])->name('getOrder');
 
     Route::get('/history/price', [ProductController::class,'historyPrice'])->name('historyPrice');
+    
+    Route::get('/return/productWarranty/{id}', [TransactionController::class, 'returnProduct'])->name('returnProduct');
+    Route::get('/list/productWarranty', [TransactionController::class, 'listProductReturn'])->name('listProductReturn');
 
 
 });

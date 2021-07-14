@@ -64,4 +64,16 @@ class TransactionController extends Controller
             return FacadesExcel::download(new TransactionExportMonthYear($month,$year), 'TransactionExport_'.$month.$year.'.xlsx');
         }
     }
+    public function returnProduct($id)
+    {
+        $transaction = Transaction::find($id);
+        $transaction->status = 5;
+        $transaction->save();
+        return redirect()->route('listProductReturn');
+    }
+    public function listProductReturn()
+    {
+        $data = Transaction::where('status', '=', 5)->get();
+        return view('adminPage.pages.transaction.warranty', compact('data'));
+    }
 }

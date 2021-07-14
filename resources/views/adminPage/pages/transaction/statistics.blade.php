@@ -43,6 +43,7 @@
                                                 <th>Total Price</th>
                                                 <th>Method Payment</th>
                                                 <th>Status</th>
+                                                <th>Return Warranty</th>
                                                 <th>Detail</th>
                                             </tr>
                                         </thead>
@@ -69,10 +70,14 @@
                                                                 class="fe fe-user-check btn mb-2 btn-success">
                                                                 Reviewed</button>
                                                         @else
-                                                            <button type="button" button
-                                                                class="k btn mb-2 btn-success">
+                                                            <button type="button" button class="k btn mb-2 btn-success">
                                                                 Successfully</button>
                                                         @endif
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ route('returnProduct', ['id' => $item->id_transaction]) }}"
+                                                            class="btn mb-2 btn-warning">
+                                                            Product Return</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('orderlist', ['id' => $item->id_transaction]) }}"
