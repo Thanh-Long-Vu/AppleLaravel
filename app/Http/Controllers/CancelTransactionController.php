@@ -36,7 +36,7 @@ class CancelTransactionController extends Controller
                 $transaction->save();
                 // Delete token
                 CancelTransaction::where('token', $request->token)->delete();
-                return redirect()->route('home');
+                return redirect()->route('home')->with('success','Cancel transaction sucessfully');
             } else {
                 return back()->with('failed', 'You are not cancel order.');
             }

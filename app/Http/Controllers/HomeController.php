@@ -19,9 +19,9 @@ class HomeController extends Controller
         $memory = ProductType::MEMORY;
         $category = Category::all();
         $slider = Slider::where('active','=',1)->orderby('updated_at','desc')->limit(5)->get();
-        $productSale = Product::where([['discount','>=',30],['is_hot','=',0]])->orderby('updated_at','desc')->limit(6)->get();
-        $productHot = Product::where([['discount','>=',20],['is_hot','=',1]])->orderby('updated_at','desc')->limit(6)->get();
-        $productRate = Product::orderBy('point','DESC')->limit(6)->get();
+        $productSale = Product::where('is_hot','=',0)->orderby('discount','desc')->limit(6)->get();
+        $productHot = Product::where('is_hot','=',1)->orderby('discount','desc')->limit(6)->get();
+        $productRate = Product::orderBy('quantity_sell','asc')->limit(6)->get();
 
         $productTypeMac = ProductType::where('category_id','=',1)->limit(8)->orderby('updated_at','asc')->get();
         $productTypeIpad = ProductType::where('category_id','=',2)->limit(8)->orderby('updated_at','asc')->get();
